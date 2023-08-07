@@ -1,28 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+namespace Player
 {
-  public CanvasManager theCanvasManager;
-
-  public Transform spawnPosition;
-
-  // Start is called before the first frame update
-  void Start()
+  public class PlayerManager : MonoBehaviour
   {
+    public CanvasManager theCanvasManager;
 
-  }
+    public Transform spawnPosition;
 
-  // Update is called once per frame
-  void Update()
-  {
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
 
-  }
+    // Update is called once per frame
+    void Update()
+    {
+    }
 
-  public void Death()
-  {
-	theCanvasManager.Death();
-	transform.position = spawnPosition.position;
+    public void Death()
+    {
+      theCanvasManager.Death();
+      transform.position = spawnPosition.position;
+    }
   }
 }

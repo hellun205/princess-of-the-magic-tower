@@ -2,49 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MoveState
+namespace Player
 {
-  idle, walk, run, dash
-}
-
-public class PlayerAnimation : MonoBehaviour
-{
-  MoveState moveState;
-
-  Animator anim;
-
-  private void Awake()
+  public class PlayerAnimation : MonoBehaviour
   {
-	anim = GetComponent<Animator>();
-  }
+    MoveState moveState;
 
-  // Start is called before the first frame update
-  void Start()
-  {
+    Animator anim;
 
-  }
+    private void Awake()
+    {
+      anim = GetComponent<Animator>();
+    }
 
-  // Update is called once per frame
-  void Update()
-  {
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
 
-  }
+    // Update is called once per frame
+    void Update()
+    {
+    }
 
-  public void Idle()
-  {
-	anim.SetInteger("MoveState", 0);
-	moveState = MoveState.idle;
-  }
+    // public void Idle()
+    // {
+    //   anim.SetInteger("MoveState", 0);
+    //   moveState = MoveState.idle;
+    // }
+    //
+    // public void Walk()
+    // {
+    //   anim.SetInteger("MoveState", 1);
+    //   moveState = MoveState.walk;
+    // }
+    //
+    // public void Dash()
+    // {
+    //   anim.SetInteger("MoveState", 2);
+    //   moveState = MoveState.dash;
+    // }
 
-  public void Walk()
-  {
-	anim.SetInteger("MoveState", 1);
-	moveState = MoveState.walk;
-  }
-
-  public void Dash()
-  {
-	anim.SetInteger("MoveState", 2);
-	moveState = MoveState.dash;
+    public void SetState(MoveState state)
+    {
+      anim.SetInteger("MoveState", (int)state);
+      moveState = state;
+    }
   }
 }

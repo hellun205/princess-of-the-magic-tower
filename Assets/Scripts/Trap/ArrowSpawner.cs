@@ -2,19 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowSpawner : MonoBehaviour
+namespace Trap
 {
-  [SerializeField] private GameObject arrow_obj;
-  [SerializeField] private float coolTime;
+	public class ArrowSpawner : MonoBehaviour
+	{
+		[SerializeField]
+		private GameObject arrow_obj;
 
-  // Start is called before the first frame update
-  void Start()
-  {
-	InvokeRepeating("SpawnArrow", 0f, coolTime);
-  }
+		[SerializeField]
+		private float coolTime;
 
-  private void SpawnArrow()
-  {
-	Instantiate(arrow_obj, transform.position, Quaternion.identity);
-  }
+		// Start is called before the first frame update
+		void Start()
+		{
+			InvokeRepeating("SpawnArrow", 0f, coolTime);
+		}
+
+		private void SpawnArrow()
+		{
+			Instantiate(arrow_obj, transform.position, Quaternion.identity);
+		}
+	}
 }

@@ -3,31 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CanvasManager : MonoBehaviour
+namespace Game
 {
-  [SerializeField] TextMeshProUGUI dash_txt;
-
-  public GameObject deathImage;
-
-  // Start is called before the first frame update
-  void Start()
+  public class CanvasManager : MonoBehaviour
   {
+    [SerializeField]
+    TextMeshProUGUI dash_txt;
 
-  }
+    public GameObject deathImage;
 
-  public string SetDashTxt { set { dash_txt.text = value; } }
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
 
-  public void Death()
-  {
-	StartCoroutine(DeathCoroutine());
-  }
+    public string SetDashTxt
+    {
+      set { dash_txt.text = value; }
+    }
 
-  IEnumerator DeathCoroutine()
-  {
-	deathImage.SetActive(true);
+    public void Death()
+    {
+      StartCoroutine(DeathCoroutine());
+    }
 
-	yield return new WaitForSeconds(2f);
+    IEnumerator DeathCoroutine()
+    {
+      deathImage.SetActive(true);
 
-	deathImage.SetActive(false);
+      yield return new WaitForSeconds(2f);
+
+      deathImage.SetActive(false);
+    }
   }
 }

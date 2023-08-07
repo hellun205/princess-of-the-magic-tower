@@ -2,149 +2,143 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+namespace Player
 {
-  [SerializeField] private float moveSpeed;
-  [SerializeField] private float dashSpeed;
-  [SerializeField] private Vector2 inputVec;
-
-  [SerializeField] private bool isDashing;
-  [SerializeField] private bool canMove = true;
-
-  public GameObject dashDummy;
-
-  PlayerAnimation thePlayerAnimation;
-
-  Rigidbody2D rigid;
-  SpriteRenderer spriteRenderer;
-
-  private void Awake()
+  public class PlayerMove : MonoBehaviour
   {
-	thePlayerAnimation = GetComponent<PlayerAnimation>();
+    [SerializeField]
+    private float moveSpeed;
 
-	rigid = GetComponent<Rigidbody2D>();
-	spriteRenderer = GetComponent<SpriteRenderer>();
-  }
+    [SerializeField]
+    private float dashSpeed;
 
-  // Update is called once per frame
-  void Update()
-  {
-	inputVec.x = Input.GetAxisRaw("Horizontal");
-	inputVec.y = Input.GetAxisRaw("Vertical");
+    [SerializeField]
+    private Vector2 inputVec;
 
-	Flip();
-	SetAnim();
-  }
+    [SerializeField]
+    private bool isDashing;
 
-  private void FixedUpdate()
-  {
-	Move();
-  }
+    [SerializeField]
+    private bool canMove = true;
 
-  private void Move()
-  {
-	if (isDashing || !canMove) return;
+    public GameObject dashDummy;
 
-	Vector2 nextVec = inputVec.normalized * moveSpeed * Time.fixedDeltaTime;
-	rigid.MovePosition(rigid.position + nextVec);
-  }
+    PlayerAnimation thePlayerAnimation;
 
-  private void Flip()
-  {
-	if (inputVec.x > 0)
-	{
-	  spriteRenderer.flipX = true;
-	}
-	else if (inputVec.x < 0)
-	{
-	  spriteRenderer.flipX = false;
-	}
-  }
+    Rigidbody2D rigid;
+    SpriteRenderer spriteRenderer;
 
-  public void Dash()
-  {
-	StartCoroutine(DashCoroutine());
-	thePlayerAnimation.Dash();
-  }
+    private void Awake()
+    {
+      thePlayerAnimation = GetComponent<PlayerAnimation>();
 
-  IEnumerator DashCoroutine()
-  {
-	StartCoroutine(SpawnDashSprite());
+      rigid = GetComponent<Rigidbody2D>();
+      spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
-	isDashing = true;
-	//spriteRenderer.color = Color.cyan;
+    // Update is called once per frame
+    void Update()
+    {
+      inputVec.x = Input.GetAxisRaw("Horizontal");
+      inputVec.y = Input.GetAxisRaw("Vertical");
 
-	rigid.AddForce(inputVec * dashSpeed, ForceMode2D.Impulse);
+      Flip();
+      SetAnim();
+    }
 
-	yield return new WaitForSeconds(0.13f);
-	rigid.velocity = Vector2.zero;
+    private void FixedUpdate()
+    {
+      Move();
+    }
 
-	yield return new WaitForSeconds(0.1f);
-	//spriteRenderer.color = Color.white;
+    private void Move()
+    {
+      if (isDashing || !canMove) return;
 
-	thePlayerAnimation.Idle();
-	isDashing = false;
-  }
+      Vector2 nextVec = inputVec.normalized * moveSpeed * Time.fixedDeltaTime;
+      rigid.MovePosition(rigid.position + nextVec);
+    }
 
-  IEnumerator SpawnDashSprite()
-  {
-	int count = 0;
+    private void Flip()
+    {
+      if (inputVec.x > 0)
+      {
+        spriteRenderer.flipX = true;
+      }
+      else if (inputVec.x < 0)
+      {
+        spriteRenderer.flipX = false;
+      }
+    }
 
-	for (int i = 0; i < 15; i++)
-	{
-	  yield return new WaitForSeconds(0.01f);
+    public void Dash()
+    {
+      StartCoroutine(DashCoroutine());
+      thePlayerAnimation.SetState(MoveState.dash);
+    }
 
-	  GameObject dummy = Instantiate(dashDummy, transform.position, Quaternion.identity);
+    IEnumerator DashCoroutine()
+    {
+      StartCoroutine(SpawnDashSprite());
 
-	  switch (count) 
-	  {
-		case 0:
-		  dummy.GetComponent<SpriteRenderer>().color = new Color32(120, 246, 255, 255);
-		  break;
-		case 1:
-		  dummy.GetComponent<SpriteRenderer>().color = new Color32(120, 246, 255, 255);
-		  break;
-		case 2:
-		  dummy.GetComponent<SpriteRenderer>().color = new Color32(55, 159, 255, 255);
-		  break;
-		case 3:
-		  dummy.GetComponent<SpriteRenderer>().color = new Color32(55, 159, 255, 255);
-		  break;
-		case 4:
-		  dummy.GetComponent<SpriteRenderer>().color = new Color32(54, 86, 255, 255);
-		  break;
-		case 5:
-		  dummy.GetComponent<SpriteRenderer>().color = new Color32(60, 54, 255, 255);
-		  break;
-		case 6:
-		  dummy.GetComponent<SpriteRenderer>().color = new Color32(118, 54, 255, 255);
-		  break;
-		case 7:
-		  dummy.GetComponent<SpriteRenderer>().color = new Color32(152, 54, 255, 255);
-		  break;
-		case 8:
-		  dummy.GetComponent<SpriteRenderer>().color = new Color32(183, 54, 239, 255);
-		  break;
-	  }
+      isDashing = true;
+      //spriteRenderer.color = Color.cyan;
 
-	  count++;
+      rigid.AddForce(inputVec * dashSpeed, ForceMode2D.Impulse);
 
-	  if (count == 9)
-		count = 8;
-	}
-  }
+      yield return new WaitForSeconds(0.13f);
+      rigid.velocity = Vector2.zero;
 
-  private void SetAnim()
-  {
-	if (isDashing) return;
+      yield return new WaitForSeconds(0.1f);
+      //spriteRenderer.color = Color.white;
 
-	if (inputVec.Equals(Vector2.zero))
-	{
-	  thePlayerAnimation.Idle();
-	}
-	else
-	{
-	  thePlayerAnimation.Walk();
-	}
+      thePlayerAnimation.SetState(MoveState.idle);
+      isDashing = false;
+    }
+
+    IEnumerator SpawnDashSprite()
+    {
+      int count = 0;
+
+      for (int i = 0; i < 15; i++)
+      {
+        yield return new WaitForSeconds(0.01f);
+
+        GameObject dummy = Instantiate(dashDummy, transform.position, Quaternion.identity);
+
+        Color color = count switch
+        {
+          0 => new Color32(120, 246, 255, 255),
+          1 => new Color32(120, 246, 255, 255),
+          2 => new Color32(55, 159, 255, 255),
+          3 => new Color32(55, 159, 255, 255),
+          4 => new Color32(54, 86, 255, 255),
+          5 => new Color32(60, 54, 255, 255),
+          6 => new Color32(118, 54, 255, 255),
+          7 => new Color32(152, 54, 255, 255),
+          _ => new Color32(183, 54, 239, 255),
+        };
+
+        dummy.GetComponent<SpriteRenderer>().color = color;
+        count++;
+
+        // if (count == 9)
+        //   count = 8;
+      }
+    }
+
+    private void SetAnim()
+    {
+      if (isDashing) return;
+
+      if (inputVec.Equals(Vector2.zero))
+      {
+        thePlayerAnimation.SetState(MoveState.idle);
+      }
+      else
+      {
+        thePlayerAnimation.SetState(MoveState.walk);
+      }
+    }
   }
 }

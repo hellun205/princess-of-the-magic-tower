@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashDummy : MonoBehaviour
+namespace Player
 {
-  // Start is called before the first frame update
-  void Start()
+  public class DashDummy : MonoBehaviour
   {
-	Invoke("Death", 0.2f);
-  }
+    // Start is called before the first frame update
+    void Start()
+    {
+      Invoke("Death", 0.2f);
+    }
 
-  // Update is called once per frame
-  void Update()
-  {
+    // Update is called once per frame
+    void Update()
+    {
+    }
 
-  }
-
-  private void Death()
-  {
-	Destroy(this.gameObject);
+    private void Death()
+    {
+      Destroy(this.gameObject);
+    }
   }
 }
