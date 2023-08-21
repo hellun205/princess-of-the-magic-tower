@@ -1,5 +1,6 @@
 ﻿using System;
 using Managers;
+using UnityEngine;
 
 namespace Map
 {
@@ -26,7 +27,13 @@ namespace Map
       if (room is not null)
       {
         currentRoom = room;
-        GameManager.Player.transform.position = room.startPosition.position;
+        // 
+        GameManager.Player.transform.position = string.IsNullOrEmpty(link) switch
+        {
+          true  => room.startPosition.position,
+          false => room.linkPositions.Find(t => t.name == link).position
+        };
+
       }
       else
 
