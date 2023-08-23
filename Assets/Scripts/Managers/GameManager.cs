@@ -3,7 +3,7 @@ using Player;
 
 namespace Managers
 {
-  public class GameManager : MonoBehaivorSingleton<GameManager>, IDontDestoryObject
+  public class GameManager : MonoBehaviourSingleton<GameManager>, IDontDestoryObject
   {
     public static MapManager Map { get; private set; }
     public static PlayerManager Player { get; private set; }

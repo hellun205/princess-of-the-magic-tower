@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Managers
 {
-  public abstract class MonoBehaivorSingleton<T> : MonoBehaviour where T : MonoBehaivorSingleton<T>
+  public abstract class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviourSingleton<T>
   {
     public static T Instance { get; private set; }
 

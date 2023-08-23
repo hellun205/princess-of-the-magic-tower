@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Player
 {
-  public class PlayerManager : MonoBehaivorSingleton<PlayerManager>, IDontDestoryObject
+  public class PlayerManager : MonoBehaviourSingleton<PlayerManager>, IDontDestoryObject
   {
     public CanvasManager theCanvasManager;
 

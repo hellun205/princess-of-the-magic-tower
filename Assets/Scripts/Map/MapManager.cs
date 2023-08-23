@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Map
 {
-  public class MapManager : MonoBehaivorSingleton<MapManager>
+  public class MapManager : MonoBehaviourSingleton<MapManager>
   {
-    public MapController Controller { get; private set; }
+    public MapController controller { get; private set; }
     public Room currentRoom { get; private set; }
 
     private void Start()
@@ -16,13 +16,13 @@ namespace Map
 
     public void OnSceneChanged()
     {
-      Controller = FindObjectOfType<MapController>();
-      MoveTo(Controller.mainRoom);
+      controller = FindObjectOfType<MapController>();
+      MoveTo(controller.mainRoom);
     }
 
     public void MoveTo(string roomName, string link = "")
     {
-      var room = Controller.rooms.Find(r => r.name == roomName);
+      var room = controller.rooms.Find(r => r.name == roomName);
 
       if (room is not null)
       {
