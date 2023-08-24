@@ -6,7 +6,7 @@ namespace Map
 {
   public class MapManager : MonoBehaviourSingleton<MapManager>
   {
-    public MapController controller { get; private set; }
+    public StageController controller { get; private set; }
     public Room currentRoom { get; private set; }
 
     private void Start()
@@ -16,7 +16,7 @@ namespace Map
 
     public void OnSceneChanged()
     {
-      controller = FindObjectOfType<MapController>();
+      controller = FindObjectOfType<StageController>();
       MoveTo(controller.mainRoom);
     }
 

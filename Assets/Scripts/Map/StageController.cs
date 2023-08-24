@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,8 +6,10 @@ using UnityEngine.Serialization;
 
 namespace Map
 {
-  public class MapController : MonoBehaviour
+  public class StageController : MonoBehaviour
   {
+    public int stageIndex;
+
     public string mainRoom;
     
     public List<Room> rooms;
