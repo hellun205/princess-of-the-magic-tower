@@ -1,32 +1,44 @@
 using System.Collections;
-using System.Collections.Generic;
-using Game;
 using Managers;
-using Map;
+using Scene;
 using UnityEngine;
+using Util;
 
 namespace Player
 {
   public class PlayerManager : MonoBehaviourSingleton<PlayerManager>, IDontDestoryObject
   {
-    public CanvasManager theCanvasManager;
+    public PlayerSkill skill;
+    
+    private Coroutiner deathCrt;
 
-    public Transform spawnPosition;
-
-    // Start is called before the first frame update
-    void Start()
+    protected override void Awake()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+      base.Awake();
+      deathCrt = new(DeathRoutine);
+      skill = GetComponent<PlayerSkill>();
     }
 
     public void Death()
     {
-      theCanvasManager.Death();
+      deathCrt.Start();
       transform.position = GameManager.Map.currentRoom.startPosition.position;
+    }
+
+    private IEnumerator DeathRoutine()
+    {
+      GameManager.Transition.Play(Transitions.OUT);
+      yield return new WaitForSecondsRealtime(1.5f);
+      GameManager.Transition.Play(Transitions.IN);
+    }
+
+    private void Update()
+    {
+      if (Input.GetKeyDown(KeyCode.F6))
+      {
+        GameManager.Scene.Load("Test", new TransitionOption(Transitions.FADEOUT, 2),
+          new TransitionOption(Transitions.FADEIN, 2), slowly: true);
+      }
     }
   }
 }

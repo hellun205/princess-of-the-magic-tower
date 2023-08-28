@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
 
 namespace Player
@@ -23,10 +25,12 @@ namespace Player
 
     public GameObject dashDummy;
 
-    PlayerAnimation thePlayerAnimation;
+    private PlayerAnimation thePlayerAnimation;
 
-    Rigidbody2D rigid;
-    SpriteRenderer spriteRenderer;
+    private Rigidbody2D rigid;
+    private SpriteRenderer spriteRenderer;
+
+    private List<int> attackedList = new();
 
     private void Awake()
     {
@@ -80,7 +84,8 @@ namespace Player
     IEnumerator DashCoroutine()
     {
       StartCoroutine(SpawnDashSprite());
-
+      
+      attackedList.Clear();
       isDashing = true;
       //spriteRenderer.color = Color.cyan;
 
@@ -139,6 +144,17 @@ namespace Player
       {
         thePlayerAnimation.SetState(MoveState.walk);
       }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+      if (!isDashing || !other.CompareTag("Enemy")) return;
+      var enemy = other.GetComponent<EnemyController>();
+      
+      if (attackedList.Contains(enemy.pool.index)) return;
+      attackedList.Add(enemy.pool.index);
+      
+      enemy.Hit(1);
     }
   }
 }
