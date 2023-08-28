@@ -1,4 +1,6 @@
-﻿using Pool;
+﻿using System;
+using Managers;
+using Pool;
 using UnityEngine;
 
 namespace Enemy
@@ -13,9 +15,17 @@ namespace Enemy
       curHp = maxHp;
     }
 
-    public void Hit()
+    public void Hit(int damage)
     {
+      curHp = Math.Max(0, curHp - damage);
       
+      if (curHp == 0) Dead();
+    }
+
+    private void Dead()
+    {
+      GameManager.Player.skill.ReloadDash();
+      pool.Release();
     }
   }
 }

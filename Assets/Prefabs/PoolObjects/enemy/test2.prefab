@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: -7705759893023175454}
   m_Layer: 0
   m_Name: test2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,8 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edacced74ee42e0844c408bfbf06209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 1
-  curHp: 1
+  maxHp: 2
+  curHp: 2
 --- !u!50 &6239458653550108887
 Rigidbody2D:
   serializedVersion: 4

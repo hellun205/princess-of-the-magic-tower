@@ -23,12 +23,7 @@ namespace Enemy
 
     protected override void OnSummon()
     {
-      progressBar = GameManager.Pool.Summon<ProgressBar>("ui/progressbar", pos.position, o =>
-      {
-        o.progressBar.isText = isText;
-        o.progressBar.maxValue = enemyController.maxHp;
-        o.progressBar.value = enemyController.curHp;
-      });
+      progressBar = GameManager.Pool.Summon<ProgressBar>("ui/progressbar", pos.position);
       isEnabled = true;
     }
 
@@ -42,6 +37,7 @@ namespace Enemy
     {
       if (!isEnabled) return;
 
+      progressBar.progressBar.isText = isText;
       progressBar.progressBar.maxValue = enemyController.maxHp;
       progressBar.progressBar.value = enemyController.curHp;
     }

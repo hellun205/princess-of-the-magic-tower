@@ -8,13 +8,15 @@ namespace Player
 {
   public class PlayerManager : MonoBehaviourSingleton<PlayerManager>, IDontDestoryObject
   {
-    public Transform spawnPosition;
+    public PlayerSkill skill;
+    
     private Coroutiner deathCrt;
 
     protected override void Awake()
     {
       base.Awake();
       deathCrt = new(DeathRoutine);
+      skill = GetComponent<PlayerSkill>();
     }
 
     public void Death()

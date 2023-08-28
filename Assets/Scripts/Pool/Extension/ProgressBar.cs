@@ -9,8 +9,8 @@ namespace Pool.Extension
 
     protected override void Awake()
     {
-      base.Awake();
       progressBar = GetComponent<UI.ProgressBar>();
+      base.Awake();
     }
 
     protected override void OnKill()

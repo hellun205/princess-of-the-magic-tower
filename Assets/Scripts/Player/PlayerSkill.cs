@@ -1,3 +1,4 @@
+using System;
 using Managers;
 using TMPro;
 using UnityEngine;
@@ -9,11 +10,9 @@ namespace Player
     private TextMeshProUGUI dashTxt;
     private PlayerMove thePlayerMove;
 
-    [SerializeField]
-    private int dashCount;
-    
-    [SerializeField]
-    private int maxDashCount = 3;
+    public int dashCount;
+
+    public int maxDashCount = 3;
 
     private float currentDashCooltime;
     public float maxDashCooltime;
@@ -59,5 +58,7 @@ namespace Player
       thePlayerMove.Dash();
       dashCount--;
     }
+
+    public void ReloadDash(int amount = 1) => dashCount = Math.Min(maxDashCount, dashCount + amount);
   }
 }
