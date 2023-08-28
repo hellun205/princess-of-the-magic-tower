@@ -1,17 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using Game;
+using Managers;
+using TMPro;
 using UnityEngine;
 
 namespace Player
 {
   public class PlayerSkill : MonoBehaviour
   {
+    private TextMeshProUGUI dashTxt;
     private PlayerMove thePlayerMove;
-    public CanvasManager theCanvasManager;
 
+    [SerializeField]
     private int dashCount;
-    private int maxDashCount;
+    
+    [SerializeField]
+    private int maxDashCount = 3;
 
     private float currentDashCooltime;
     public float maxDashCooltime;
@@ -19,6 +21,7 @@ namespace Player
     private void Awake()
     {
       thePlayerMove = GetComponent<PlayerMove>();
+      dashTxt = GameManager.ManagedObject.Find<TextMeshProUGUI>("$dash_count");
     }
 
     // Start is called before the first frame update
@@ -30,7 +33,7 @@ namespace Player
     // Update is called once per frame
     void Update()
     {
-      if (Input.GetKeyDown(KeyCode.E))
+      if (Input.GetKeyDown(KeyCode.LeftShift))
       {
         Dash();
       }
@@ -41,12 +44,12 @@ namespace Player
       {
         currentDashCooltime = maxDashCooltime;
 
-        if (dashCount >= 3) return;
+        if (dashCount >= maxDashCount) return;
 
         dashCount++;
       }
 
-      theCanvasManager.SetDashTxt = dashCount + " / 3";
+      dashTxt.text = $"{dashCount} / {maxDashCount}";
     }
 
     public void Dash()

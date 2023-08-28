@@ -16,9 +16,9 @@ namespace Scene
       targetImg = GameObject.Find("@transition").GetComponent<Animator>();
     }
 
-    public void Play(string type, float speed, Action callback = null) {
+    public void Play(string type, float speed = 1f, Action callback = null) {
       this.callback = callback;
-      targetImg.SetFloat("speed", 1 / speed);
+      targetImg.SetFloat("speed", speed == 0f ? 1f : 1f / speed);
       targetImg.Play(type);
     }
 
