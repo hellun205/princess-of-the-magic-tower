@@ -21,6 +21,8 @@ namespace Pool
 
     public Transform uiParent = GameObject.Find("@summoned_objects_ui").transform;
 
+    private Action<PoolObject> setter;
+
     public PoolManager()
     {
       pools = new Dictionary<string, IObjectPool<PoolObject>>();
@@ -32,8 +34,8 @@ namespace Pool
       CreateObjectPool(name);
 
       tmpPos = pos;
+      this.setter = setter;
       var obj = pools[name].Get();
-      setter?.Invoke(obj);
       return obj;
     }
 
@@ -75,6 +77,7 @@ namespace Pool
       obj.index = index++;
       obj.name = $"{obj.type} ({obj.index})";
       obj.OnGet();
+      setter?.Invoke(obj);
       obj.gameObject.SetActive(true);
     }
 
