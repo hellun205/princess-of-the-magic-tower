@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Enemy;
+using Managers;
+using UI;
 using UnityEngine;
 
 namespace Player
@@ -32,19 +34,35 @@ namespace Player
 
     private List<int> attackedList = new();
 
+    private JoyStick moveJoyStick;
+
     private void Awake()
     {
       thePlayerAnimation = GetComponent<PlayerAnimation>();
 
       rigid = GetComponent<Rigidbody2D>();
       spriteRenderer = GetComponent<SpriteRenderer>();
+      moveJoyStick = GameManager.ManagedObject.Find<JoyStick>("$joystick_move");
+      moveJoyStick.onValueChange += MoveJoyStick_OnValueChange;
+    }
+
+    private void MoveJoyStick_OnValueChange(Vector2 value)
+    {
+      inputVec = value;
+      Debug.Log(value);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-      inputVec.x = Input.GetAxisRaw("Horizontal");
-      inputVec.y = Input.GetAxisRaw("Vertical");
+      // inputVec.x = Input.GetAxisRaw("Horizontal");
+      // inputVec.y = Input.GetAxisRaw("Vertical");
+
+      var h = Input.GetAxisRaw("Horizontal");
+      var v = Input.GetAxisRaw("Vertical");
+
+      if (!moveJoyStick.isUsing)
+        moveJoyStick.value = new Vector2(h, v).normalized;
 
       Flip();
       SetAnim();
@@ -58,9 +76,9 @@ namespace Player
     private void Move()
     {
       if (isDashing || !canMove) return;
-
-      Vector2 nextVec = inputVec.normalized * moveSpeed * Time.fixedDeltaTime;
+      Vector2 nextVec = inputVec * moveSpeed * Time.fixedDeltaTime;
       rigid.MovePosition(rigid.position + nextVec);
+      // transform.Translate(nextVec);
     }
 
     private void Flip()
@@ -84,7 +102,7 @@ namespace Player
     IEnumerator DashCoroutine()
     {
       StartCoroutine(SpawnDashSprite());
-      
+
       attackedList.Clear();
       isDashing = true;
       //spriteRenderer.color = Color.cyan;
@@ -150,10 +168,10 @@ namespace Player
     {
       if (!isDashing || !other.CompareTag("Enemy")) return;
       var enemy = other.GetComponent<EnemyController>();
-      
+
       if (attackedList.Contains(enemy.pool.index)) return;
       attackedList.Add(enemy.pool.index);
-      
+
       enemy.Hit(1);
     }
   }
