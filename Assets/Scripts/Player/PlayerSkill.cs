@@ -1,16 +1,20 @@
 using System;
 using Managers;
-using TMPro;
+using Player.UI;
 using UnityEngine;
 
 namespace Player
 {
   public class PlayerSkill : MonoBehaviour
   {
-    private TextMeshProUGUI dashTxt;
+    private DashCountBar dashBar;
     private PlayerMove thePlayerMove;
 
+    [NonSerialized]
     public int dashCount;
+    
+    [NonSerialized]
+    public int additionalDashCount;
 
     public int maxDashCount = 3;
 
@@ -20,45 +24,64 @@ namespace Player
     private void Awake()
     {
       thePlayerMove = GetComponent<PlayerMove>();
-      dashTxt = GameManager.ManagedObject.Find<TextMeshProUGUI>("$dash_count");
+      dashBar = GameManager.ManagedObject.Find<DashCountBar>("$dashbar");
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
       currentDashCooltime = maxDashCooltime;
+      ReloadDash(maxDashCount);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-      if (Input.GetKeyDown(KeyCode.LeftShift))
+      if (Input.GetKeyDown(KeyCode.Space))
       {
         Dash();
       }
 
-      currentDashCooltime -= Time.deltaTime;
-
-      if (currentDashCooltime <= 0)
+      if (dashCount >= maxDashCount)
       {
         currentDashCooltime = maxDashCooltime;
-
-        if (dashCount >= maxDashCount) return;
-
-        dashCount++;
+        return;
       }
 
-      dashTxt.text = $"{dashCount} / {maxDashCount}";
+      currentDashCooltime -= Time.deltaTime;
+
+      if (currentDashCooltime > 0) return;
+
+      currentDashCooltime = maxDashCooltime;
+      ReloadDash();
     }
 
     public void Dash()
     {
-      if (dashCount <= 0) return;
+      if (dashCount + additionalDashCount <= 0) return;
 
+      UseDash();
       thePlayerMove.Dash();
-      dashCount--;
     }
 
-    public void ReloadDash(int amount = 1) => dashCount = Math.Min(maxDashCount, dashCount + amount);
+    public void ReloadDash(int amount = 1)
+    {
+      dashCount = Math.Min(maxDashCount, dashCount + amount);
+      dashBar.AddCount(amount);
+    }
+
+    public void AddAdditionalDash(int amount = 1)
+    {
+      additionalDashCount += amount;
+      dashBar.AddCount(amount, DashType.Additional);
+    }
+
+    public void UseDash(int amount = 1)
+    {
+      if (additionalDashCount > 0)
+        additionalDashCount = Math.Max(0, additionalDashCount - amount);
+      else
+        dashCount = Math.Max(0, dashCount - amount);
+      
+      dashBar.SubCount(amount);
+    }
   }
 }
