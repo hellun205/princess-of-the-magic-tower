@@ -66,5 +66,15 @@ namespace Util
 
       return screenPoint;
     }
+
+    public static void For(this int count, Action fn)
+    {
+      for (var i = 0; i < count; i++) fn?.Invoke();
+    }
+    
+    public static void For(this int count, Action<int> fn)
+    {
+      for (var i = 0; i < count; i++) fn?.Invoke(i);
+    }
   }
 }
