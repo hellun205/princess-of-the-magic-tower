@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using Enemy;
 using Managers;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Pool
   {
     public string target;
     public bool summonOnStart;
+    public string map;
 
     private void Start()
     {
@@ -17,7 +19,7 @@ namespace Pool
 
     private void Summon()
     {
-      GameManager.Pool.Summon(target, transform.position);
+      GameManager.Pool.Summon<EnemyController>(target, transform.position, obj => obj.SetMap(map));
     }
   }
 }
