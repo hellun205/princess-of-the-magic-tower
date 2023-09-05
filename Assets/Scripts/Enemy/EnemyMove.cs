@@ -1,105 +1,133 @@
+using System;
 using Enemy;
 using Managers;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
-    [Header("Value")]
-    [SerializeField] bool awake;
-    [SerializeField] bool targetFind;
+  [Header("Value")]
+  public bool awake;
+  public bool targetFind;
 
-    [Range(0, 5)]
-    [SerializeField] float rotateSpeed;
-    [Range(0, 3)]
-    [SerializeField] float dashSpeed;
+  [Range(0, 10)]
+  public float rotateSpeed;
+  [Range(0, 10)]
+  public float dashSpeed;
+  public float lookDistance;
+  
+  private Vector2 destination;
 
-    [SerializeField] float lookDistance;
+  public GameObject targetObj;
 
-    private Vector3 destination;
+  [Header("Dash")]
+  public bool canDash;
+  public float maxCoolTime;
+  private float currentCoolTime;
 
-    private Transform targetObj;
+  [Header("Mask")]
+  public LayerMask targetMask;
+  public LayerMask obstacleMask;
 
-    [Header("Dash")]
-    [SerializeField] float maxCoolTime;
-    private float currentCoolTime;
+  private EnemyController enemyController;
+  private Rigidbody2D rigidbody;
 
-    [Header("Mask")]
-    [SerializeField] LayerMask targetMask;
-    [SerializeField] LayerMask obstacleMask;
+  public bool AiAwake
+  {
+    get => awake;
+    set => awake = value;
+  }
 
-    private EnemyController enemyController;
+  public bool TargetFound
+  {
+    get => targetFind;
+    set => targetFind = value;
+  }
 
-    public bool AiAwake { get { return awake; } set { awake = value; } }
+  private void Awake()
+  {
+    enemyController = GetComponent<EnemyController>();
+    rigidbody = GetComponent<Rigidbody2D>();
+  }
 
-    public bool TargetFound { get { return targetFind; } set { targetFind = value; } }
+  // Start is called before the first frame update
+  private void Start()
+  {
+    currentCoolTime = maxCoolTime;
 
-    private void Awake()
+    targetObj = GameManager.Player.gameObject;
+  }
+
+  // Update is called once per frame
+  private void Update()
+  {
+    if (!awake) return;
+
+    FindPlayer();
+    DecreaseDashTime();
+    FollowPlayer();
+  }
+
+  private void FixedUpdate()
+  {
+    Rotate();
+  }
+
+  private void DecreaseDashTime()
+  {
+    currentCoolTime -= Time.deltaTime;
+
+    if (currentCoolTime <= 0)
     {
-        enemyController = GetComponent<EnemyController>();
+      currentCoolTime = maxCoolTime;
+      canDash = true;
+    }
+  }
+  
+  private void FollowPlayer()
+  {
+    if (GameManager.Player is null)
+    {
+      print("Hanull");
+      return;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    //enemyController.rigidbody.velocity = new Vector2(transform.position.x + )
+  }
+
+  private void Rotate()
+  {
+    if (targetFind) return;
+
+    transform.Rotate(Vector3.forward * rotateSpeed);
+  }
+
+  private void FindPlayer()
+  {
+    Debug.DrawRay(transform.localPosition, transform.right * lookDistance);
+    RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, lookDistance, targetMask);
+
+    if (hit)
     {
-        currentCoolTime = maxCoolTime;
+      targetFind = true;
+      Debug.Log("targetFind");
 
-        targetObj = GameManager.Player.transform;
+      StartCoroutine(Dash());
     }
+  }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!awake) return;
+  IEnumerator Dash()
+  {
+    if (!canDash) yield return null;
+    
+    rigidbody.AddForce((targetObj.transform.position - transform.position) * dashSpeed, ForceMode2D.Impulse);
+    canDash = false;
 
-        FollowPlayer();
-        Rotate();
-    }
+    yield return new WaitForSeconds(1f);
 
-    private void FollowPlayer()
-    {
-        if (GameManager.Player == null)
-        {
-            print("Hanull");
-            return;
-        }
-
-        //enemyController.rigidbody.velocity = new Vector2(transform.position.x + )
-
-    }
-
-    private void Rotate()
-    {
-        Quaternion newRotation = Quaternion.LookRotation(targetObj.transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, rotateSpeed * Time.deltaTime);
-
-        FindPlayer();
-    }
-
-    private void FindPlayer()
-    {
-            Debug.DrawRay(transform.position, destination);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, destination, lookDistance, targetMask);
-        
-            if (hit)
-            {
-                targetFind = true;
-                Debug.Log(targetFind);
-
-                StartCoroutine(Dash());
-        }
-    }
-
-    IEnumerator Dash()
-    {
-        for(int i = 0; i< 30; i++)
-        {
-            yield return null;
-
-            Vector3 targetVec = new Vector3(targetObj.position.x, targetObj.position.y, 0);
-            transform.position = Vector3.Lerp(transform.position, targetVec, dashSpeed);
-        }
-    }
+    rigidbody.velocity = Vector2.zero;
+  }
 }
