@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Managers;
 using UnityEngine;
 
@@ -6,35 +7,45 @@ namespace Enemy.AI
 {
   public class ShieldAI : EnemyAI
   {
-    [Header("Value")] public bool awake;
+    [Header("Value")]
+    public bool awake;
+
     public bool targetFind;
 
-    [Range(0, 10)] public float rotateSpeed;
-    [Range(0, 10)] public float dashSpeed;
+    [Range(0, 10)]
+    public float rotateSpeed;
+
+    [Range(0, 10)]
+    public float dashSpeed;
+
     public float lookDistance;
 
     private Vector2 destination;
 
     public GameObject targetObj;
 
-    [Header("Dash")] public bool canDash;
+    [Header("Dash")]
+    public bool canDash;
 
     public Transform dashPosition;
 
     public float maxCoolTime;
     private float currentCoolTime;
 
-    [Header("Mask")] public LayerMask targetMask;
+    [Header("Mask")]
+    public LayerMask targetMask;
+
     public LayerMask obstacleMask;
 
     private EnemyController enemyController;
     private Rigidbody2D rigidbody;
-    
+    private bool isDashing;
+
     public override void StartAI()
     {
       awake = true;
     }
-    
+
     private void Start()
     {
       currentCoolTime = maxCoolTime;
@@ -50,7 +61,7 @@ namespace Enemy.AI
       DecreaseDashTime();
       FollowPlayer();
     }
-    
+
     private void FixedUpdate()
     {
       if (!awake) return;
@@ -69,7 +80,7 @@ namespace Enemy.AI
         targetFind = false;
       }
     }
-    
+
     private void ResetCooltime()
     {
       currentCoolTime = maxCoolTime;
@@ -97,11 +108,11 @@ namespace Enemy.AI
     {
       if (!canDash)
       {
-        Debug.DrawRay(transform.localPosition, transform.right * lookDistance, Color.red);
+        Debug.DrawRay(transform.position, transform.right * lookDistance, Color.red);
         return;
       }
 
-      Debug.DrawRay(transform.localPosition, transform.right * lookDistance);
+      Debug.DrawRay(transform.position, transform.right * lookDistance);
 
       RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, lookDistance, targetMask);
 
@@ -116,18 +127,25 @@ namespace Enemy.AI
     private IEnumerator Dash()
     {
       canDash = false;
-      Vector3 targetVec = dashPosition.position;
+      var targetVec = dashPosition.position;
 
       yield return new WaitForSeconds(0.3f);
+      isDashing = true;
 
-      for (int i = 0; i <= 60; i++)
+      for (var i = 0; i <= 100; i++)
       {
-        transform.position = Vector3.Lerp(transform.position, targetVec, dashSpeed);
-        yield return null;
+        transform.position = Vector3.Lerp(transform.position, targetVec, dashSpeed * Time.deltaTime);
+        yield return new WaitForEndOfFrame();
       }
 
       ResetCooltime();
+      isDashing = false;
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+      if (isDashing && other.CompareTag("Player"))
+        EnemyController.AttackPlayer();
+    }
   }
 }

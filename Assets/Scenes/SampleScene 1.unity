@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 150596043}
   - component: {fileID: 150596047}
   - component: {fileID: 150596044}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -541,8 +541,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0818e5e6983ed4458dd149b216790e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDashCount: 3
-  maxDashCooltime: 1.5
+  maxDashCount: 5
+  maxDashCooltime: 1
 --- !u!61 &150596047
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -657,6 +657,8 @@ MonoBehaviour:
       Value: {fileID: 3636860031907059190, guid: 737a64e0bbbcb9b4bbb92a8c7ef2d9f3, type: 3}
     - Key: enemy/test_additionaldash
       Value: {fileID: 3636860031907059190, guid: f5373f99555ee98419a6eb8972448508, type: 3}
+    - Key: enemy/test_dash
+      Value: {fileID: 8979910272338090114, guid: bb201ec19ad9a86438ade146b08dabce, type: 3}
     - Key: ui/followingtext
       Value: {fileID: 4624327071012014745, guid: da3a0c20f72fd13409cf2bc9ee1982af, type: 3}
     - Key: ui/progressbar
@@ -1067,6 +1069,53 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &349078233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 349078234}
+  - component: {fileID: 349078235}
+  m_Layer: 0
+  m_Name: Summon (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &349078234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349078233}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.01, y: 1.82, z: 0.9558877}
+  m_LocalScale: {x: 0.9263549, y: 0.9263549, z: 0.9263549}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 649786014}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &349078235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349078233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3421ca8154a245fcbbddaa4cbde84f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: enemy/test_dash
+  summonOnStart: 1
+  map: Stage1
 --- !u!1 &358250107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,7 +1352,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1721,6 +1770,7 @@ Transform:
   - {fileID: 505338738}
   - {fileID: 739370240}
   - {fileID: 842202853}
+  - {fileID: 349078234}
   - {fileID: 1838676500}
   - {fileID: 1883154927}
   - {fileID: 1592178607}
@@ -5043,7 +5093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1826388092}
   - component: {fileID: 1826388093}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5914,7 +5964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2090803755}
   - component: {fileID: 2090803756}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

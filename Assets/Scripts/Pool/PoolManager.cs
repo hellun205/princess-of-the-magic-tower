@@ -23,8 +23,6 @@ namespace Pool
 
     private Action<PoolObject> setter;
 
-
-
     public PoolManager()
     {
       pools = new Dictionary<string, IObjectPool<PoolObject>>();
@@ -87,8 +85,7 @@ namespace Pool
     private PoolObject CreateFunc(string name)
     {
       var o = Get(name);
-      PoolObject obj;
-      obj = Object.Instantiate(o, o is UIPoolObject ? uiParent : parent);
+      var obj= Object.Instantiate(o, o is UIPoolObject ? uiParent : parent);
       obj.position = tmpPos;
       obj.type = name;
 

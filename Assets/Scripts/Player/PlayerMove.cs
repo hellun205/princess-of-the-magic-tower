@@ -168,6 +168,9 @@ namespace Player
 
     private void OnTriggerStay2D(Collider2D other)
     {
+      // if (!isDashing && other.CompareTag("Enemy")) 
+      //   thePlayerManager.Death();
+      
       if (!isDashing || !other.CompareTag("Enemy")) return;
       var enemy = other.GetComponent<EnemyController>();
 
@@ -175,8 +178,6 @@ namespace Player
       attackedList.Add(enemy.pool.index);
 
       enemy.Hit(1);
-      thePlayerManager.Death();
-      Debug.Log(other);
     }
   }
 }
