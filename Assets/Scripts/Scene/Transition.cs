@@ -29,7 +29,7 @@ namespace Scene
   public static class Transitions
   {
     public const string FADEIN = "FadeIn";
-    public const string IN = "FadeIn";
+    public const string IN = "In";
     public const string FADEOUT = "FadeOut";
     public const string OUT = "Out";
   }

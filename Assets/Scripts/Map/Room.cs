@@ -24,7 +24,7 @@ namespace Map
 
       links.ForEach(link => link.currentRoomName = name);
     }
-
+  
     public void AddEnemy(int index) {
       enemies.Add(index);
       RefreshLocker();

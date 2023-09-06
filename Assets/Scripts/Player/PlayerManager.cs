@@ -29,7 +29,7 @@ namespace Player
     {
       GameManager.Transition.Play(Transitions.OUT);
       yield return new WaitForSecondsRealtime(1.5f);
-      GameManager.Transition.Play(Transitions.IN);
+      GameManager.Transition.Play(Transitions.FADEIN);
     }
 
     private void Update()

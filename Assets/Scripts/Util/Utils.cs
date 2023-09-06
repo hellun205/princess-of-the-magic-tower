@@ -76,5 +76,14 @@ namespace Util
     {
       for (var i = 0; i < count; i++) fn?.Invoke(i);
     }
+    
+    public static void ExitGame()
+    {
+#if UNITY_EDITOR
+      UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
   }
 }
