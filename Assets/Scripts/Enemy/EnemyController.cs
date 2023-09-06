@@ -11,10 +11,21 @@ namespace Enemy
     public int maxHp;
     public int curHp;
 
+    private EnemyMove enemyMove;
+
+    [HideInInspector] public Rigidbody2D rigidbody;
+    
     public string map;
 
     public DashType killToAdd = DashType.Normal;
+    
+    private void Awake()
+    {
+      enemyMove = GetComponent<EnemyMove>();
 
+      rigidbody = GetComponent<Rigidbody2D>();
+    }
+    
     public void SetMap(string value)
     {
       map = value;
@@ -26,6 +37,11 @@ namespace Enemy
       curHp = maxHp;
     }
 
+    public void FindPlayer()
+    {
+      enemyMove.StartAI();
+    }
+    
     protected override void OnKill()
     {
       GameManager.Map.Find(map).RemoveEnemy(pool.index);

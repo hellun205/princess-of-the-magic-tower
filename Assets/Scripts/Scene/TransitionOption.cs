@@ -13,6 +13,8 @@ namespace Scene
       this.speed = speed;
       this.delay = delay;
     }
+
+    public static implicit operator TransitionOption(string str) => new TransitionOption(str);
   }
 
 }

@@ -41,8 +41,7 @@ namespace Scene
       loadCrt.Start(sceneName, outAnimation, inAnimation, slowly);
     }
 
-    private IEnumerator LoadRoutine(string sceneName, TransitionOption outAnimation, TransitionOption inAnimation,
-                                    bool slowly)
+    private IEnumerator LoadRoutine(string sceneName, TransitionOption outAnimation, TransitionOption inAnimation, bool slowly)
     {
       
       isLoading = true;

@@ -28,7 +28,8 @@ namespace Player
     public GameObject dashDummy;
 
     private PlayerAnimation thePlayerAnimation;
-
+    private PlayerManager thePlayerManager;
+    
     private Rigidbody2D rigid;
     private SpriteRenderer spriteRenderer;
 
@@ -39,6 +40,7 @@ namespace Player
     private void Awake()
     {
       thePlayerAnimation = GetComponent<PlayerAnimation>();
+      thePlayerManager = GetComponent<PlayerManager>();
 
       rigid = GetComponent<Rigidbody2D>();
       spriteRenderer = GetComponent<SpriteRenderer>();
@@ -173,6 +175,8 @@ namespace Player
       attackedList.Add(enemy.pool.index);
 
       enemy.Hit(1);
+      thePlayerManager.Death();
+      Debug.Log(other);
     }
   }
 }
