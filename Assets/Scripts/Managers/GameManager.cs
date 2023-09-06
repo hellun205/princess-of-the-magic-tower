@@ -2,6 +2,7 @@ using Map;
 using Player;
 using Pool;
 using Scene;
+using UnityEngine;
 
 namespace Managers
 {
@@ -13,6 +14,7 @@ namespace Managers
     public static Transition Transition { get; private set; }
     public static PoolManager Pool { get; private set; }
     public static ManagedObjectManager ManagedObject { get; private set; }
+    public static ObjectCollection Prefabs { get; private set; }
 
     protected override void Awake()
     {
@@ -24,6 +26,7 @@ namespace Managers
       Transition = FindObjectOfType<Transition>();
       Pool = PoolManager.Instance;
       ManagedObject = FindObjectOfType<ManagedObjectManager>();
+      Prefabs = GameObject.Find("@prefab_objects").GetComponent<ObjectCollection>();
     }
   }
 }

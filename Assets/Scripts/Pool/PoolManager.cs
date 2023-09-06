@@ -23,6 +23,8 @@ namespace Pool
 
     private Action<PoolObject> setter;
 
+
+
     public PoolManager()
     {
       pools = new Dictionary<string, IObjectPool<PoolObject>>();
@@ -38,6 +40,7 @@ namespace Pool
       var obj = pools[name].Get();
       return obj;
     }
+
 
     public T Summon<T>(string name, Vector2 pos, Action<T> setter = null) where T : Component
     {

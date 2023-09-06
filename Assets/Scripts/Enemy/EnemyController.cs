@@ -1,5 +1,6 @@
 using System;
 using Managers;
+using Player.UI;
 using Pool;
 using UnityEngine;
 
@@ -13,12 +14,22 @@ namespace Enemy
     private EnemyMove enemyMove;
 
     [HideInInspector] public Rigidbody2D rigidbody;
+    
+    public string map;
 
+    public DashType killToAdd = DashType.Normal;
+    
     private void Awake()
     {
       enemyMove = GetComponent<EnemyMove>();
 
       rigidbody = GetComponent<Rigidbody2D>();
+    }
+    
+    public void SetMap(string value)
+    {
+      map = value;
+      GameManager.Map.Find(map).AddEnemy(pool.index);
     }
 
     protected override void OnSummon()
@@ -30,6 +41,11 @@ namespace Enemy
     {
       enemyMove.StartAI();
     }
+    
+    protected override void OnKill()
+    {
+      GameManager.Map.Find(map).RemoveEnemy(pool.index);
+    }
 
     public void Hit(int damage)
     {
@@ -40,7 +56,11 @@ namespace Enemy
 
     private void Dead()
     {
-      GameManager.Player.skill.ReloadDash();
+      if ((killToAdd & DashType.Normal) != 0)
+        GameManager.Player.skill.ReloadDash();
+      if ((killToAdd & DashType.Additional) != 0)
+        GameManager.Player.skill.AddAdditionalDash();
+      
       pool.Release();
     }
   }
