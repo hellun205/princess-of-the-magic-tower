@@ -23,6 +23,7 @@ namespace Scene
     }
 
     public void Callback() => callback?.Invoke();
+
   }
 
   public static class Transitions
