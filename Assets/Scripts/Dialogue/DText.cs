@@ -4,12 +4,18 @@ using UnityEngine;
 
 namespace Dialogue
 {
+  /// <summary>
+  /// 대사에 문구를 추가합니다.
+  /// </summary>
   public class DText : IDialogueContent
   {
+    public const float DefaultSpeed = 0.07f; 
     private string text { get; }
     private float speed { get; }
-
-    public DText(string text, float speed = 0.07f)
+    
+    /// <param name="text">문구</param>
+    /// <param name="speed">속도</param>
+    public DText(string text, float speed = DefaultSpeed)
     {
       this.text = text;
       this.speed = speed;
@@ -17,11 +23,9 @@ namespace Dialogue
 
     public IEnumerator Active()
     {
-      var dm = GameManager.Dialogue;
-
       foreach (var chr in text.ToCharArray())
       {
-        dm.AppendText(chr);
+        GameManager.Dialogue.AppendText(chr);
 
         yield return chr == ' ' ? null : new WaitForSecondsRealtime(speed);
       }

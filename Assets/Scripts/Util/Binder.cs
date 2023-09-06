@@ -4,17 +4,28 @@ using UnityEngine;
 
 namespace Util
 {
+  /// <summary>
+  /// GameObject의 자식 객체들을 바인딩 합니다
+  /// </summary>
   public class Binder
   {
     public Dictionary<string, GameObject> objects = new();
 
     private Transform tr;
 
+    /// <summary>
+    /// <inheritdoc cref="Binder"/>
+    /// </summary>
+    /// <param name="mb">MonoBehaviour</param>
     public Binder(MonoBehaviour mb)
     {
-      tr = mb.transform;
+      tr  = mb.transform;
     }
 
+    /// <summary>
+    /// <inheritdoc cref="Binder"/>
+    /// </summary>
+    /// <param name="go">GameObject</param>
     public Binder(GameObject go)
     {
       tr = go.transform;
@@ -59,8 +70,8 @@ namespace Util
     public Binder Remove(char findChr)
     {
       var find = objects.Values
-       .Where(o => o.name.Contains(findChr))
-       .Select(o => o.name.Replace(findChr.ToString(), ""));
+        .Where(o => o.name.Contains(findChr))
+        .Select(o => o.name.Replace(findChr.ToString(), ""));
 
       foreach (var name in find)
       {
