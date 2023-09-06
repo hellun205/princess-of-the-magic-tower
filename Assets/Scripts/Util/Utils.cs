@@ -48,7 +48,7 @@ namespace Util
       return new Vector2(x ?? original.x, y ?? original.y);
     }
 
-    public static void Wait(float second, Action fn) => GameManager.Instance.StartCoroutine(WaitRoutine(second, fn));
+    public static void Wait(float second, Action fn) => GameManager.Manager.StartCoroutine(WaitRoutine(second, fn));
 
     private static IEnumerator WaitRoutine(float second, Action fn)
     {

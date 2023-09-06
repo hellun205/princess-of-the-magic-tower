@@ -8,16 +8,15 @@ using static Util.Utils;
 
 namespace Scene
 {
-  public class SceneController : MonoBehaviourSingleton<SceneController>
+  public class SceneController : MonoBehaviour
   {
     private Action callback;
     public bool isLoading;
     private Coroutiner<float, float> timeScaleSmoothCrt;
     private Coroutiner<string, TransitionOption, TransitionOption, bool> loadCrt;
 
-    protected override void Awake()
+    private void Awake()
     {
-      base.Awake();
       timeScaleSmoothCrt = new(TimeScaleSmooth);
       loadCrt = new(LoadRoutine);
     }

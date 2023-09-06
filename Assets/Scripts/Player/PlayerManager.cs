@@ -6,15 +6,14 @@ using Util;
 
 namespace Player
 {
-  public class PlayerManager : MonoBehaviourSingleton<PlayerManager>, IDontDestoryObject
+  public class PlayerManager : MonoBehaviour
   {
     public PlayerSkill skill;
     
     private Coroutiner deathCrt;
 
-    protected override void Awake()
+    private void Awake()
     {
-      base.Awake();
       deathCrt = new(DeathRoutine);
       skill = GetComponent<PlayerSkill>();
     }

@@ -51,7 +51,6 @@ namespace Player
     private void MoveJoyStick_OnValueChange(Vector2 value)
     {
       inputVec = value;
-      Debug.Log(value);
     }
 
     // Update is called once per frame

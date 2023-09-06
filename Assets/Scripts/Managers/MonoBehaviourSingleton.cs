@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Managers
 {
+  [Obsolete("many using static",true)]
   public abstract class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviourSingleton<T>
   {
     public static T Instance { get; private set; }

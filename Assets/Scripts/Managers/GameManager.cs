@@ -1,3 +1,4 @@
+using Dialogue;
 using Map;
 using Player;
 using Pool;
@@ -6,8 +7,9 @@ using UnityEngine;
 
 namespace Managers
 {
-  public class GameManager : MonoBehaviourSingleton<GameManager>, IDontDestoryObject
+  public class GameManager : MonoBehaviour
   {
+    public static GameManager Manager { get; private set; }
     public static MapManager Map { get; private set; }
     public static PlayerManager Player { get; private set; }
     public static SceneController Scene { get; private set; }
@@ -15,11 +17,12 @@ namespace Managers
     public static PoolManager Pool { get; private set; }
     public static ManagedObjectManager ManagedObject { get; private set; }
     public static ObjectCollection Prefabs { get; private set; }
+    public static DialogueManager Dialogue { get; private set; }
+    public static AvatarCollection Avatars { get; private set; }
 
-    protected override void Awake()
+    private void Awake()
     {
-      base.Awake();
-      
+      Manager = this;
       Map = FindObjectOfType<MapManager>();
       Player = FindObjectOfType<PlayerManager>();
       Scene = FindObjectOfType<SceneController>();
@@ -27,6 +30,8 @@ namespace Managers
       Pool = PoolManager.Instance;
       ManagedObject = FindObjectOfType<ManagedObjectManager>();
       Prefabs = GameObject.Find("@prefab_objects").GetComponent<ObjectCollection>();
+      Dialogue = FindObjectOfType<DialogueManager>();
+      Avatars = FindObjectOfType<AvatarCollection>();
     }
   }
 }

@@ -5,13 +5,12 @@ using UnityEngine;
 
 namespace Managers
 {
-  public class ManagedObjectManager : MonoBehaviourSingleton<ManagedObjectManager>
+  public class ManagedObjectManager : MonoBehaviour
   {
     public List<GameObject> items;
 
-    protected override void Awake()
+    private void Awake()
     {
-      base.Awake();
       items = FindObjectsOfType<GameObject>().Where(tmp => tmp.name.Contains('$')).ToList();
     }
 

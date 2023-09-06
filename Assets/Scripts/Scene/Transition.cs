@@ -4,26 +4,25 @@ using UnityEngine;
 
 namespace Scene
 {
-  public class Transition : MonoBehaviourSingleton<Transition>
+  public class Transition : MonoBehaviour
   {
     public Animator targetImg;
 
     private Action callback;
 
-    protected override void Awake() {
-      base.Awake();
-
+    private void Awake()
+    {
       targetImg = GameObject.Find("@transition").GetComponent<Animator>();
     }
 
-    public void Play(string type, float speed = 1f, Action callback = null) {
+    public void Play(string type, float speed = 1f, Action callback = null)
+    {
       this.callback = callback;
       targetImg.SetFloat("speed", speed == 0f ? 1f : 1f / speed);
       targetImg.Play(type);
     }
 
     public void Callback() => callback?.Invoke();
-
   }
 
   public static class Transitions

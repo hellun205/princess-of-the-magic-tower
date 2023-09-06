@@ -19,13 +19,13 @@ namespace Util
     public void Start(params object[] parameters)
     {
       Stop();
-      current = GameManager.Instance.StartCoroutine(routine.Invoke());
+      current = GameManager.Manager.StartCoroutine(routine.Invoke());
     }
 
     public void Stop()
     {
       if (current is not null)
-        GameManager.Instance.StopCoroutine(current);
+        GameManager.Manager.StopCoroutine(current);
     }
   }
 
@@ -45,13 +45,13 @@ namespace Util
     public void Start(T1 param1)
     {
       Stop();
-      current = GameManager.Instance.StartCoroutine(routine.Invoke(param1));
+      current = GameManager.Manager.StartCoroutine(routine.Invoke(param1));
     }
 
     public void Stop()
     {
       if (current is not null)
-        GameManager.Instance.StopCoroutine(current);
+        GameManager.Manager.StopCoroutine(current);
     }
   }
 
@@ -71,13 +71,13 @@ namespace Util
     public void Start(T1 param1, T2 param2)
     {
       Stop();
-      current = GameManager.Instance.StartCoroutine(routine.Invoke(param1, param2));
+      current = GameManager.Manager.StartCoroutine(routine.Invoke(param1, param2));
     }
 
     public void Stop()
     {
       if (current is not null)
-        GameManager.Instance.StopCoroutine(current);
+        GameManager.Manager.StopCoroutine(current);
     }
   }
 
@@ -97,13 +97,13 @@ namespace Util
     public void Start(T1 param1, T2 param2, T3 param3)
     {
       Stop();
-      current = GameManager.Instance.StartCoroutine(routine.Invoke(param1, param2, param3));
+      current = GameManager.Manager.StartCoroutine(routine.Invoke(param1, param2, param3));
     }
 
     public void Stop()
     {
       if (current is not null)
-        GameManager.Instance.StopCoroutine(current);
+        GameManager.Manager.StopCoroutine(current);
     }
   }
 
@@ -123,13 +123,13 @@ namespace Util
     public void Start(T1 param1, T2 param2, T3 param3, T4 param4)
     {
       Stop();
-      current = GameManager.Instance.StartCoroutine(routine.Invoke(param1, param2, param3, param4));
+      current = GameManager.Manager.StartCoroutine(routine.Invoke(param1, param2, param3, param4));
     }
 
     public void Stop()
     {
       if (current is not null)
-        GameManager.Instance.StopCoroutine(current);
+        GameManager.Manager.StopCoroutine(current);
     }
   }
 }
