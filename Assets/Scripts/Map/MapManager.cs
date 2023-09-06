@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Map
 {
-  public class MapManager : MonoBehaviourSingleton<MapManager>
+  public class MapManager : MonoBehaviour
   {
     public StageController controller { get; private set; }
     public Room currentRoom { get; private set; }

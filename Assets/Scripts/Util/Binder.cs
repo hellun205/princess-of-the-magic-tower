@@ -15,6 +15,11 @@ namespace Util
       tr = mb.transform;
     }
 
+    public Binder(GameObject go)
+    {
+      tr = go.transform;
+    }
+
     /// <summary>
     /// 특수문자를 포함 한 자식 객체들을 찾고 바인딩 합니다.
     /// </summary>
@@ -27,11 +32,9 @@ namespace Util
       foreach (var obj in find)
       {
         var name = obj.name.Replace(findChr.ToString(), "");
-        
+
         if (!objects.ContainsKey(name))
           objects.Add(name, obj.gameObject);
-        else
-          Debug.LogError($"already binded object: \"{name}\"");
       }
 
       return this;
@@ -90,5 +93,27 @@ namespace Util
 
       return this;
     }
+
+    /// <summary>
+    /// 바인딩 객체를 가져옵니다.
+    /// </summary>
+    /// <param name="name">객체 이름</param>
+    public GameObject this[string name] => Get(name);
+
+    /// <summary>
+    /// 바인딩 객체를 가져옵니다.
+    /// </summary>
+    /// <param name="name">객체 이름</param>
+    /// <returns>객체</returns>
+    public GameObject Get(string name) => objects[name];
+
+    /// <summary>
+    /// 바인딩 객체의 컴포넌트를 가져옵니다.
+    /// </summary>
+    /// <param name="name">객체 이름</param>
+    /// <typeparam name="T">컴포넌트</typeparam>
+    /// <returns>객체 컴포넌트</returns>
+    public T Get<T>(string name) where T : Component
+      => Get(name).GetComponent<T>();
   }
 }
