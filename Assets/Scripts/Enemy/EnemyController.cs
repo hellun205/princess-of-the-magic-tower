@@ -12,18 +12,15 @@ namespace Enemy
     public int curHp;
 
     private EnemyMove enemyMove;
-
-    [HideInInspector] public Rigidbody2D rigidbody;
     
     public string map;
 
     public DashType killToAdd = DashType.Normal;
     
-    private void Awake()
+    protected override void Awake()
     {
+      base.Awake();
       enemyMove = GetComponent<EnemyMove>();
-
-      rigidbody = GetComponent<Rigidbody2D>();
     }
     
     public void SetMap(string value)
@@ -62,6 +59,11 @@ namespace Enemy
         GameManager.Player.skill.AddAdditionalDash();
       
       pool.Release();
+    }
+
+    public static void AttackPlayer()
+    {
+      GameManager.Player.Death();
     }
   }
 }
