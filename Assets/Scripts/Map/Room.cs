@@ -12,7 +12,7 @@ namespace Map
 
     public List<Link> links;
     public List<Transform> linkPositions;
-    public List<Door> doors;
+    public List<Door.Door> doors;
     public List<PoolSummoner> summoners;
 
     public bool doorEnable = true;
@@ -24,7 +24,7 @@ namespace Map
       startPosition = transform.Find("@start-pos");
       links = transform.Find("@link-to").GetComponentsInChildren<Link>().ToList();
       linkPositions = transform.Find("@link-position").GetComponentsInChildren<Transform>().ToList();
-      doors = transform.Find("@door").GetComponentsInChildren<Door>().ToList();
+      doors = transform.Find("@door").GetComponentsInChildren<Door.Door>().ToList();
       summoners = transform.Find("@summon").GetComponentsInChildren<PoolSummoner>().ToList();
 
       links.ForEach(link => link.currentRoomName = name);
