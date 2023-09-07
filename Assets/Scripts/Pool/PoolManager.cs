@@ -63,7 +63,7 @@ namespace Pool
 
     private void ActionOnDestroy(PoolObject obj)
     {
-      Object.Destroy(obj);
+      Object.Destroy(obj.gameObject);
     }
 
     private void ActionOnRelease(PoolObject obj)
@@ -95,7 +95,10 @@ namespace Pool
     public void ClearPools()
     {
       foreach (var (name, obj) in pools)
+      {
         obj.Clear();
+        Debug.Log(obj.CountInactive);
+      }
       pools.Clear();
       index = 0;
     }

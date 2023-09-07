@@ -44,6 +44,10 @@ namespace Player
 
       rigid = GetComponent<Rigidbody2D>();
       spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
       moveJoyStick = GameManager.ManagedObject.Get<JoyStick>("joystick_move");
       moveJoyStick.onValueChange += MoveJoyStick_OnValueChange;
     }

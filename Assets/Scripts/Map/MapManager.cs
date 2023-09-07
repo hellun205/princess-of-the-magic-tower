@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Linq;
 using Managers;
+using Scene;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Util;
 
 namespace Map
@@ -38,33 +40,30 @@ namespace Map
       if (room is not null)
       {
         currentRoom = room;
-        
+
         GameManager.Player.transform.position = string.IsNullOrEmpty(link) switch
         {
-          true => room.startPosition.position,
+          true  => room.startPosition.position,
           false => room.linkPositions.Find(t => t.name == link).position
         };
-        
+
         room.OnEntered();
       }
       else
         throw new Exception($"invalid room name: {roomName}");
     }
-    
-    // public void OnKillEnemy()
-    // {
-    //   checkEnemyCrt.Start();
-    // }
 
-    // private IEnumerator CheckEnemyRoutine()
-    // {
-    //   const float delay = 2f;
-    //
-    //   yield return new WaitForSecondsRealtime(delay);
-    //
-    //   if (currentRoom.enemies.Any()) yield break;
-    //
-    //   currentRoom.SetDoorState(false);
-    // }
+    public void LoadCurrentStage()
+      => LoadStageFromSceneName(SceneManager.GetActiveScene().name);
+
+    public void LoadStageFromSceneName(string sceneName)
+    {
+      new SceneLoader(sceneName)
+       .Out(Transitions.FADEOUT, 2f)
+       .In(Transitions.FADEIN, 2f)
+       .OnEndOut(() => GameManager.Pool.ClearPools())
+       .OnStartIn(OnSceneChanged)
+       .Load();
+    }
   }
 }
