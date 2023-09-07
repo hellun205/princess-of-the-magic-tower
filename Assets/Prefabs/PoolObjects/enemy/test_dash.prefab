@@ -145,7 +145,7 @@ MonoBehaviour:
   canDash: 1
   dashSpeed: 5
   dashPosition: {fileID: 3537554627523817398}
-  maxCoolTime: 2
+  maxCoolTime: 0.7
   dashReadyTime: 10
   targetMask:
     serializedVersion: 2
