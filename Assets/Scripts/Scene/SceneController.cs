@@ -21,6 +21,23 @@ namespace Scene
       loadCrt = new(LoadRoutine);
     }
 
+    /// <summary>
+    /// <inheritdoc cref="Load(string,System.Action,bool)"/>>
+    /// </summary>
+    /// <param name="sceneName">로드 할 Scene 이름</param>
+    /// <param name="callback">로드 된 후 콜백 함수</param>
+    /// <param name="slowly">timescale을 서서히 줄임</param>
+    public void Load(string sceneName, Action callback = null, bool slowly = true)
+      => Load(sceneName, Transitions.OUT, Transitions.IN, callback, slowly);
+
+    /// <summary>
+    /// 해당 Scene을 로드합니다.
+    /// </summary>
+    /// <param name="sceneName">로드 할 Scene 이름</param>
+    /// <param name="outAnimation">Out 애니메이션</param>
+    /// <param name="inAnimation">In 애니메이션</param>
+    /// <param name="callback">로드 된 후 콜백 함수</param>
+    /// <param name="slowly">timescale을 서서히 줄임</param>
     public void Load
     (
       string sceneName,

@@ -15,7 +15,6 @@ namespace Dialogue
     private GameObject panel;
 
     private TextMeshProUGUI contentText => binder.Get<TextMeshProUGUI>("content_text");
-    private TextMeshProUGUI talkerName => binder.Get<TextMeshProUGUI>("talker_text");
 
     private Script currentScript;
     private int currentIndex;
@@ -43,9 +42,6 @@ namespace Dialogue
     public void Clear()
       => contentText.text = string.Empty;
 
-    public void SetTalker(string name)
-      => talkerName.text = name;
-
     private void StartDialogue(IDialogueContent[] dialogues, Action callback = null)
       => StartCoroutine(DialogueRoutine(dialogues, callback));
 
@@ -55,35 +51,6 @@ namespace Dialogue
         yield return StartCoroutine(dialogue.Active());
 
       callback?.Invoke();
-    }
-
-    public void StartScript(string scriptKey, Action callback = null)
-      => StartScript(ScriptDatabase.scripts[scriptKey], callback);
-
-    public void StartScript(Script script, Action callback = null)
-    {
-      if (isShowing) return;
-      isShowing = true;
-      currentScript = script;
-      currentIndex = 0;
-      panel.SetActive(true);
-      ShowScript(currentIndex);
-    }
-
-    public void OnClick()
-    {
-      if (!canNext) return;
-
-      if (currentScript.data.Count - 1 > currentIndex)
-        ShowScript(++currentIndex);
-      else
-        Exit();
-    }
-
-    public void Exit()
-    {
-      isShowing = false;
-      panel.SetActive(false);
     }
 
     private void ShowScript(int index)
@@ -105,10 +72,57 @@ namespace Dialogue
       StartDialogue(script.dialogue, () => canNext = true);
     }
 
+    /// <summary>
+    /// <inheritdoc cref="StartScript(Script,System.Action)"/>
+    /// </summary>
+    /// <param name="scriptKey">Key in Script database</param>
+    /// <param name="callback">Function of finished</param>
+    public void StartScript(string scriptKey, Action callback = null)
+      => StartScript(ScriptDatabase.scripts[scriptKey], callback);
+
+    /// <summary>
+    /// 해당 스크립트를 실행합니다.
+    /// </summary>
+    /// <param name="script">Script data</param>
+    /// <param name="callback">Function of fisished</param>
+    public void StartScript(Script script, Action callback = null)
+    {
+      if (isShowing) return;
+      isShowing = true;
+      currentScript = script;
+      currentIndex = 0;
+      panel.SetActive(true);
+      ShowScript(currentIndex);
+    }
+
+    /// <summary>
+    /// On Dialogue Panel Click
+    /// </summary>
+    public void OnClick()
+    {
+      if (!canNext) return;
+
+      if (currentScript.data.Count - 1 > currentIndex)
+        ShowScript(++currentIndex);
+      else
+        Exit();
+    }
+
+    /// <summary>
+    /// 대화를 종료합니다.
+    /// </summary>
+    public void Exit()
+    {
+      isShowing = false;
+      panel.SetActive(false);
+    }
+
+#if UNITY_EDITOR
     [ContextMenu("Test Dialogue")]
-    public void TestDialogue()
+    public void Test()
     {
       StartScript("test");
     }
+#endif
   }
 }

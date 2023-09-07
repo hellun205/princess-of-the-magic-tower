@@ -4,17 +4,22 @@ using UnityEngine;
 
 namespace Util
 {
+  /// <summary>
+  /// GameObject의 자식 객체들을 바인딩 합니다
+  /// </summary>
   public class Binder
   {
     public Dictionary<string, GameObject> objects = new();
 
     private Transform tr;
-
+    
+    /// <param name="mb">MonoBehaviour</param>
     public Binder(MonoBehaviour mb)
     {
-      tr = mb.transform;
+      tr  = mb.transform;
     }
-
+    
+    /// <param name="go">GameObject</param>
     public Binder(GameObject go)
     {
       tr = go.transform;
@@ -33,8 +38,7 @@ namespace Util
       {
         var name = obj.name.Replace(findChr.ToString(), "");
 
-        if (!objects.ContainsKey(name))
-          objects.Add(name, obj.gameObject);
+        objects.TryAdd(name, obj.gameObject);
       }
 
       return this;
@@ -59,8 +63,8 @@ namespace Util
     public Binder Remove(char findChr)
     {
       var find = objects.Values
-       .Where(o => o.name.Contains(findChr))
-       .Select(o => o.name.Replace(findChr.ToString(), ""));
+        .Where(o => o.name.Contains(findChr))
+        .Select(o => o.name.Replace(findChr.ToString(), ""));
 
       foreach (var name in find)
       {
@@ -68,7 +72,7 @@ namespace Util
           objects.Remove(name);
         else
         {
-          Debug.LogError($"doesn't exist binded object with symbol: \"{findChr}\"");
+          Debug.LogError($"doesn't exist bound object with symbol: \"{findChr}\"");
           break;
         }
       }
@@ -88,7 +92,7 @@ namespace Util
         if (objects.ContainsKey(name))
           objects.Remove(name);
         else
-          Debug.LogError($"doesn't exist binded object: \"{name}\"");
+          Debug.LogError($"doesn't exist bound object: \"{name}\"");
       }
 
       return this;
