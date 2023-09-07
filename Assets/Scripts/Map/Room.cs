@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Pool;
 using UnityEngine;
 
 namespace Map
@@ -11,7 +12,10 @@ namespace Map
 
     public List<Link> links;
     public List<Transform> linkPositions;
-    public List<Locker> lockers;
+    public List<Door> doors;
+    public List<PoolSummoner> summoners;
+
+    public bool doorEnable = true;
 
     public List<int> enemies = new List<int>();
 
@@ -20,28 +24,29 @@ namespace Map
       startPosition = transform.Find("@start-pos");
       links = transform.Find("@link-to").GetComponentsInChildren<Link>().ToList();
       linkPositions = transform.Find("@link-position").GetComponentsInChildren<Transform>().ToList();
-      lockers = transform.Find("@lock").GetComponentsInChildren<Locker>().ToList();
+      doors = transform.Find("@door").GetComponentsInChildren<Door>().ToList();
+      summoners = transform.Find("@summon").GetComponentsInChildren<PoolSummoner>().ToList();
 
       links.ForEach(link => link.currentRoomName = name);
+      summoners.ForEach(summoner => summoner.room = name);
     }
-  
-    public void AddEnemy(int index) {
+
+    public void AddEnemy(int index)
+    {
       enemies.Add(index);
-      RefreshLocker();
+      SetDoorState(true);
     }
 
-    public void RemoveEnemy(int index) {
-      enemies.Remove(index);
-      RefreshLocker();
-    }
-
-    public void RefreshLocker() {
-      foreach (var locker in lockers ) {
-        if (enemies.Any())
-          locker.Lock();
+    public void SetDoorState(bool state)
+    {
+      if (doorEnable == state) return;
+      
+      doorEnable = state;
+      foreach (var door in doors)
+        if (state)
+          door.Close();
         else
-          locker.UnLock();
-      }
+          door.Open();
     }
   }
 }

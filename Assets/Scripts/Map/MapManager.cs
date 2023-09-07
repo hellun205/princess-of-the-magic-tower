@@ -1,6 +1,9 @@
 using System;
+using System.Collections;
+using System.Linq;
 using Managers;
 using UnityEngine;
+using Util;
 
 namespace Map
 {
@@ -8,6 +11,12 @@ namespace Map
   {
     public StageController controller { get; private set; }
     public Room currentRoom { get; private set; }
+    private Coroutiner checkEnemyCrt;
+
+    private void Awake()
+    {
+      checkEnemyCrt = new Coroutiner(CheckEnemyRoutine);
+    }
 
     private void Start()
     {
@@ -38,6 +47,22 @@ namespace Map
       }
       else
         throw new Exception($"invalid room name: {roomName}");
+    }
+    
+    public void OnKillEnemy()
+    {
+      checkEnemyCrt.Start();
+    }
+
+    private IEnumerator CheckEnemyRoutine()
+    {
+      const float delay = 2f;
+
+      yield return new WaitForSecondsRealtime(delay);
+
+      if (currentRoom.enemies.Any()) yield break;
+
+      currentRoom.SetDoorState(false);
     }
   }
 }

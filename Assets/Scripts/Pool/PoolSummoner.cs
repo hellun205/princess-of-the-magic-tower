@@ -9,7 +9,9 @@ namespace Pool
   {
     public string target;
     public bool summonOnStart;
-    public string map;
+    
+    [NonSerialized]
+    public string room;
 
     private void Start()
     {
@@ -19,7 +21,7 @@ namespace Pool
 
     private void Summon()
     {
-      GameManager.Pool.Summon<EnemyController>(target, transform.position, obj => obj.SetMap(map));
+      GameManager.Pool.Summon<EnemyController>(target, transform.position, obj => obj.SetMap(room));
     }
   }
 }
