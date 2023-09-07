@@ -93,7 +93,6 @@ namespace Enemy.AI
     {
       if (GameManager.Player is null)
       {
-        print("Hanull");
         return;
       }
 
