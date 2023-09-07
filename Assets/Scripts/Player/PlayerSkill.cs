@@ -24,7 +24,7 @@ namespace Player
     private void Awake()
     {
       thePlayerMove = GetComponent<PlayerMove>();
-      dashBar = GameManager.ManagedObject.Find<DashCountBar>("$dashbar");
+      dashBar = GameManager.ManagedObject.Get<DashCountBar>("dashbar");
     }
 
     private void Start()

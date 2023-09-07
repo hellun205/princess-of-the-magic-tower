@@ -36,7 +36,7 @@ namespace Player
       if (Input.GetKeyDown(KeyCode.F6))
       {
         GameManager.Scene.Load("Test", new TransitionOption(Transitions.FADEOUT, 2),
-          new TransitionOption(Transitions.FADEIN, 2), slowly: true);
+          new TransitionOption(Transitions.FADEIN, 2), smoothPause: true);
       }
     }
   }
