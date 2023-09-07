@@ -20,7 +20,7 @@ namespace Managers
 
     [SerializedDictionary("path", "object")]
     public SerializedDictionary<string, T> items;
-    
+
     public T Get(string itemName) => this[itemName];
 
     public T this[string path]
@@ -52,7 +52,7 @@ namespace Managers
         {
           T asset;
           if (typeof(T).Name == "GameObject")
-            asset = (T) AssetDatabase.LoadAssetAtPath(path, typeof(GameObject));
+            asset = (T)AssetDatabase.LoadAssetAtPath(path, typeof(GameObject));
           else
             asset = (T)AssetDatabase.LoadAssetAtPath(path, typeof(T));
           if (asset != null)

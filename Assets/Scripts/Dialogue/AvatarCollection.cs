@@ -46,7 +46,7 @@ namespace Dialogue
     }
 
     /// <summary>
-    /// <para>Get specific sprite of character with query</para>
+    /// <para>Get specific sprite of character</para>
     /// <para>Syntax: [character].[type]</para>
     /// Example)
     /// <code>
@@ -61,11 +61,7 @@ namespace Dialogue
     public Sprite GetSprite(string query)
     {
       var split = query.Split('.');
-
-      if (split[0] == "player")
-        return GetPlayerSprite(split[1]);
-      else
-        return GetNpcSprite(split[0], split[1]);
+      return split[0] == "player" ? GetPlayerSprite(split[1]) : GetNpcSprite(split[0], split[1]);
     }
   }
 }

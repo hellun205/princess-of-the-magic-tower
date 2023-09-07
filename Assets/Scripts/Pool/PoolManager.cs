@@ -7,7 +7,7 @@ using Object = UnityEngine.Object;
 
 namespace Pool
 {
-  public sealed class PoolManager : Singleton<PoolManager>
+  public sealed class PoolManager
   {
     public PoolObjectCollection objects;
 

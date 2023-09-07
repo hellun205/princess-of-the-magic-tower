@@ -12,19 +12,13 @@ namespace Util
     public Dictionary<string, GameObject> objects = new();
 
     private Transform tr;
-
-    /// <summary>
-    /// <inheritdoc cref="Binder"/>
-    /// </summary>
+    
     /// <param name="mb">MonoBehaviour</param>
     public Binder(MonoBehaviour mb)
     {
       tr  = mb.transform;
     }
-
-    /// <summary>
-    /// <inheritdoc cref="Binder"/>
-    /// </summary>
+    
     /// <param name="go">GameObject</param>
     public Binder(GameObject go)
     {
@@ -44,8 +38,7 @@ namespace Util
       {
         var name = obj.name.Replace(findChr.ToString(), "");
 
-        if (!objects.ContainsKey(name))
-          objects.Add(name, obj.gameObject);
+        objects.TryAdd(name, obj.gameObject);
       }
 
       return this;
@@ -79,7 +72,7 @@ namespace Util
           objects.Remove(name);
         else
         {
-          Debug.LogError($"doesn't exist binded object with symbol: \"{findChr}\"");
+          Debug.LogError($"doesn't exist bound object with symbol: \"{findChr}\"");
           break;
         }
       }
@@ -99,7 +92,7 @@ namespace Util
         if (objects.ContainsKey(name))
           objects.Remove(name);
         else
-          Debug.LogError($"doesn't exist binded object: \"{name}\"");
+          Debug.LogError($"doesn't exist bound object: \"{name}\"");
       }
 
       return this;

@@ -27,7 +27,7 @@ namespace Managers
       Player = FindObjectOfType<PlayerManager>();
       Scene = FindObjectOfType<SceneController>();
       Transition = FindObjectOfType<Transition>();
-      Pool = PoolManager.Instance;
+      Pool = new PoolManager();
       ManagedObject = FindObjectOfType<ManagedObjectManager>();
       Prefabs = GameObject.Find("@prefab_objects").GetComponent<ObjectCollection>();
       Dialogue = FindObjectOfType<DialogueManager>();

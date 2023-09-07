@@ -14,7 +14,13 @@ namespace Scene
     {
       targetImg = GameObject.Find("@transition").GetComponent<Animator>();
     }
-
+    
+    /// <summary>
+    /// 전환 애니메이션을 실행합니다.
+    /// </summary>
+    /// <param name="type">전환 애니메이션 타입</param>
+    /// <param name="speed">속도</param>
+    /// <param name="callback">전환이 완료된 후 콜백 함수</param>
     public void Play(string type, float speed = 1f, Action callback = null)
     {
       this.callback = callback;

@@ -8,7 +8,7 @@ namespace Dialogue
 
     static ScriptDatabase()
     {
-      scripts = new()
+      scripts = new Dictionary<string, Script>
       {
         {
           "test",

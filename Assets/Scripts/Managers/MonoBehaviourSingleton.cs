@@ -18,7 +18,7 @@ namespace Managers
         throw new Exception($"already exists object: {this.name}");
       }
       
-      if (this is IDontDestoryObject)
+      if (this is IDontDestroyObject)
         DontDestroyOnLoad(gameObject);
     }
   }
