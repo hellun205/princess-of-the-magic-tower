@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 6717373134906589226}
   - component: {fileID: 8979910272338090114}
   - component: {fileID: 4352928427593596143}
+  - component: {fileID: 3951081655077399950}
   - component: {fileID: 3082210156497119634}
   - component: {fileID: 1761108290892361123}
   - component: {fileID: 2305300654587239392}
-  - component: {fileID: 3951081655077399950}
   m_Layer: 0
   m_Name: test_dash
   m_TagString: Enemy
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.212252, y: 2.6419673, z: 0.19717842}
-  m_LocalScale: {x: 0.5669, y: 0.5669, z: 0.5669}
+  m_LocalScale: {x: 1.12, y: 1.12, z: 1.12}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 46989417592600484}
@@ -124,6 +124,35 @@ MonoBehaviour:
   curHp: 3
   map: 
   killToAdd: 6
+--- !u!114 &3951081655077399950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430632833266649051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e808288ccc42449872489521bfa863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugMode: 1
+  awake: 1
+  targetFind: 0
+  rotateSpeed: 2
+  lookDistance: 11
+  targetObj: {fileID: 0}
+  canDash: 1
+  dashSpeed: 5
+  dashPosition: {fileID: 3537554627523817398}
+  maxCoolTime: 2
+  dashReadyTime: 10
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &3082210156497119634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,33 +227,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00000023841858, y: 0.00000023469329}
   m_Size: {x: 1.47, y: 2.21}
   m_Direction: 0
---- !u!114 &3951081655077399950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430632833266649051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e808288ccc42449872489521bfa863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  awake: 1
-  targetFind: 0
-  rotateSpeed: 2
-  dashSpeed: 8
-  lookDistance: 3
-  targetObj: {fileID: 0}
-  canDash: 1
-  dashPosition: {fileID: 3537554627523817398}
-  maxCoolTime: 3
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 64
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &1650358302348051745
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,8 +291,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000023841858, y: 0.00000023469329}
-  m_Size: {x: 1.47, y: 2.21}
+  m_Offset: {x: 0.00000023841858, y: -0.18}
+  m_Size: {x: 1.44, y: 1.63}
   m_Direction: 0
 --- !u!1 &2435049079339004027
 GameObject:
@@ -485,7 +487,7 @@ Transform:
   m_GameObject: {fileID: 6045055153979586025}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.89, y: 0, z: 0}
+  m_LocalPosition: {x: 17, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
