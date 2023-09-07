@@ -12,12 +12,10 @@ namespace Scene
   {
     private Action callback;
     public bool isLoading;
-    private Coroutiner<float, float> timeScaleSmoothCrt;
     private Coroutiner<string, TransitionOption, TransitionOption, bool> loadCrt;
 
     private void Awake()
     {
-      timeScaleSmoothCrt = new(TimeScaleSmooth);
       loadCrt = new(LoadRoutine);
     }
 
@@ -26,9 +24,9 @@ namespace Scene
     /// </summary>
     /// <param name="sceneName">로드 할 Scene 이름</param>
     /// <param name="callback">로드 된 후 콜백 함수</param>
-    /// <param name="slowly">timescale을 서서히 줄임</param>
-    public void Load(string sceneName, Action callback = null, bool slowly = true)
-      => Load(sceneName, Transitions.OUT, Transitions.IN, callback, slowly);
+    /// <param name="smoothPause">timescale을 서서히 줄임</param>
+    public void Load(string sceneName, Action callback = null, bool smoothPause = true)
+      => Load(sceneName, Transitions.OUT, Transitions.IN, callback, smoothPause);
 
     /// <summary>
     /// 해당 Scene을 로드합니다.
@@ -37,14 +35,14 @@ namespace Scene
     /// <param name="outAnimation">Out 애니메이션</param>
     /// <param name="inAnimation">In 애니메이션</param>
     /// <param name="callback">로드 된 후 콜백 함수</param>
-    /// <param name="slowly">timescale을 서서히 줄임</param>
+    /// <param name="smoothPause">timescale을 서서히 줄임</param>
     public void Load
     (
       string sceneName,
       TransitionOption outAnimation,
       TransitionOption inAnimation,
       Action callback = null,
-      bool slowly = true
+      bool smoothPause = true
     )
     {
       if (isLoading)
@@ -54,49 +52,34 @@ namespace Scene
       }
 
       this.callback = callback;
-      loadCrt.Start(sceneName, outAnimation, inAnimation, slowly);
+      loadCrt.Start(sceneName, outAnimation, inAnimation, smoothPause);
     }
 
-    private IEnumerator LoadRoutine(string sceneName, TransitionOption outAnimation, TransitionOption inAnimation, bool slowly)
+    private IEnumerator LoadRoutine(string sceneName, TransitionOption outAnimation, TransitionOption inAnimation,
+      bool smoothPause)
     {
-      
       isLoading = true;
       var load = SceneManager.LoadSceneAsync(sceneName);
       load.allowSceneActivation = false;
 
       yield return new WaitForSecondsRealtime(outAnimation.delay);
-      if (slowly)
-        timeScaleSmoothCrt.Start(0f, 1f);
+      Pause(smoothPause);
 
       GameManager.Transition.Play(outAnimation.type, outAnimation.speed);
 
       yield return new WaitForSecondsRealtime(outAnimation.speed);
       yield return new WaitUntil(() => load.progress >= 0.9f);
-      
-      timeScaleSmoothCrt.Stop();
-      
+
       load.allowSceneActivation = true;
 
       yield return new WaitForSecondsRealtime(inAnimation.delay);
       GameManager.Transition.Play(inAnimation.type, inAnimation.speed);
-      if (slowly)
-        timeScaleSmoothCrt.Start(1f, 3f);
+
+      UnPause(smoothPause);
       yield return new WaitForSecondsRealtime(inAnimation.speed);
 
       isLoading = false;
       callback?.Invoke();
-    }
-
-    private IEnumerator TimeScaleSmooth(float value, float smoothing = 1f)
-    {
-      while (!Time.timeScale.Approximately(value, 0.2f))
-      {
-        Time.timeScale = Mathf.Lerp(Time.timeScale, value, Time.unscaledDeltaTime * smoothing);
-
-        yield return new WaitForEndOfFrame();
-      }
-
-      Time.timeScale = value;
     }
   }
 }

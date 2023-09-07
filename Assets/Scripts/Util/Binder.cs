@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Util
 {
@@ -25,6 +27,14 @@ namespace Util
       tr = go.transform;
     }
 
+    public Binder()
+    {
+      
+    }
+
+    private Transform[] GetList() 
+      => tr != null ? tr.GetComponentsInChildren<Transform>() : Object.FindObjectsOfType<Transform>();
+
     /// <summary>
     /// 특수문자를 포함 한 자식 객체들을 찾고 바인딩 합니다.
     /// </summary>
@@ -32,7 +42,7 @@ namespace Util
     /// <returns>Binder</returns>
     public Binder Bind(char findChr)
     {
-      var find = tr.GetComponentsInChildren<Transform>().Where(t => t.name.Contains(findChr));
+      var find = GetList().Where(t => t.name.Contains(findChr));
 
       foreach (var obj in find)
       {
@@ -117,7 +127,11 @@ namespace Util
     /// <param name="name">객체 이름</param>
     /// <typeparam name="T">컴포넌트</typeparam>
     /// <returns>객체 컴포넌트</returns>
+    /// <exception cref="Exception"></exception>
     public T Get<T>(string name) where T : Component
-      => Get(name).GetComponent<T>();
+    {
+      var get = Get(name).TryGetComponent<T>(out var component);
+      return get ? component : throw new Exception($"doesn't exist {typeof(T).Name} component in {name}");
+    }
   }
 }

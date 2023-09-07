@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Managers;
+using Unity.VisualScripting;
 using Random = UnityEngine.Random;
 
 namespace Util
 {
   public static class Utils
   {
+    private static Coroutiner<float, float> smoothTsCrt = new(TimeScaleSmooth);
+    
     public static bool Approximately(this float a, float b, float tolerance = 0.1f)
     {
       return Mathf.Abs(a - b) < tolerance;
@@ -120,6 +123,38 @@ namespace Util
 #else
         Application.Quit();
 #endif
+    }
+
+    public static void Pause(bool smooth = false, float smoothing = 5f)
+    {
+      if (Time.timeScale < 0.9f) return;
+
+      if (smooth)
+        smoothTsCrt.Start(0f, smoothing);
+      else
+        Time.timeScale = 0f;
+    }
+
+    public static void UnPause(bool smooth = false, float smoothing = 5f)
+    {
+      if (Time.timeScale > 0.1f) return;
+
+      if (smooth)
+        smoothTsCrt.Start(1f, smoothing);
+      else
+        Time.timeScale = 1f;
+    }
+    
+    private static IEnumerator TimeScaleSmooth(float value, float smoothing = 5f)
+    {
+      while (!Time.timeScale.Approximately(value, 0.2f))
+      {
+        Time.timeScale = Mathf.Lerp(Time.timeScale, value, Time.unscaledDeltaTime * smoothing);
+
+        yield return new WaitForEndOfFrame();
+      }
+
+      Time.timeScale = value;
     }
   }
 }

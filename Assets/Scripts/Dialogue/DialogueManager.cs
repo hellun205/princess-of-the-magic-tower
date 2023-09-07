@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Util;
+using Touch = UI.Touch;
 
 namespace Dialogue
 {
@@ -25,8 +26,9 @@ namespace Dialogue
 
     private void Awake()
     {
-      panel = GameManager.ManagedObject.Find("$dialogue_panel");
+      panel = GameManager.ManagedObject.Get("dialogue_panel");
       binder = new Binder(panel).Bind('*');
+      panel.GetComponent<Touch>().onClick.AddListener(_ => OnClick());
       panel.SetActive(false);
     }
 
