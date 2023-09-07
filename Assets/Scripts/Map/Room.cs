@@ -19,6 +19,8 @@ namespace Map
 
     public List<int> enemies = new List<int>();
 
+    public bool isCleared = false;
+
     private void Awake()
     {
       startPosition = transform.Find("@start-pos");
@@ -29,24 +31,33 @@ namespace Map
 
       links.ForEach(link => link.currentRoomName = name);
       summoners.ForEach(summoner => summoner.room = name);
+      doors.ForEach(door => door.room = this);
     }
 
     public void AddEnemy(int index)
     {
       enemies.Add(index);
-      SetDoorState(true);
+      // SetDoorState(true);
     }
 
-    public void SetDoorState(bool state)
+    public void OnEntered()
     {
-      if (doorEnable == state) return;
+      if (isCleared) return;
       
-      doorEnable = state;
-      foreach (var door in doors)
-        if (state)
-          door.Close();
-        else
-          door.Open();
+      doors.ForEach(door => door.OnEntered());
+      summoners.ForEach(summoner => summoner.Summon());
     }
+
+    // public void SetDoorState(bool state)
+    // {
+    //   if (doorEnable == state) return;
+    //   
+    //   doorEnable = state;
+    //   foreach (var door in doors)
+    //     if (state)
+    //       door.Close();
+    //     else
+    //       door.Open();
+    // }
   }
 }

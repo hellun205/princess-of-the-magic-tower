@@ -11,11 +11,11 @@ namespace Map
   {
     public StageController controller { get; private set; }
     public Room currentRoom { get; private set; }
-    private Coroutiner checkEnemyCrt;
+    // private Coroutiner checkEnemyCrt;
 
     private void Awake()
     {
-      checkEnemyCrt = new Coroutiner(CheckEnemyRoutine);
+      // checkEnemyCrt = new Coroutiner(CheckEnemyRoutine);
     }
 
     private void Start()
@@ -38,31 +38,33 @@ namespace Map
       if (room is not null)
       {
         currentRoom = room;
-        // 
+        
         GameManager.Player.transform.position = string.IsNullOrEmpty(link) switch
         {
           true => room.startPosition.position,
           false => room.linkPositions.Find(t => t.name == link).position
         };
+        
+        room.OnEntered();
       }
       else
         throw new Exception($"invalid room name: {roomName}");
     }
     
-    public void OnKillEnemy()
-    {
-      checkEnemyCrt.Start();
-    }
+    // public void OnKillEnemy()
+    // {
+    //   checkEnemyCrt.Start();
+    // }
 
-    private IEnumerator CheckEnemyRoutine()
-    {
-      const float delay = 2f;
-
-      yield return new WaitForSecondsRealtime(delay);
-
-      if (currentRoom.enemies.Any()) yield break;
-
-      currentRoom.SetDoorState(false);
-    }
+    // private IEnumerator CheckEnemyRoutine()
+    // {
+    //   const float delay = 2f;
+    //
+    //   yield return new WaitForSecondsRealtime(delay);
+    //
+    //   if (currentRoom.enemies.Any()) yield break;
+    //
+    //   currentRoom.SetDoorState(false);
+    // }
   }
 }

@@ -16,7 +16,7 @@ namespace Managers
     public static GameManager Manager { get; private set; }
     public static MapManager Map { get; private set; }
     public static PlayerManager Player { get; private set; }
-    public static SceneController Scene { get; private set; }
+    // public static SceneLoader Scene { get; private set; }
     public static Transition Transition { get; private set; }
 
     public static PoolManager Pool { get; private set; }
@@ -32,7 +32,7 @@ namespace Managers
       Manager = this;
       Map = FindObjectOfType<MapManager>();
       Player = FindObjectOfType<PlayerManager>();
-      Scene = FindObjectOfType<SceneController>();
+      // Scene = new SceneLoader();
       Transition = FindObjectOfType<Transition>();
       Pool = new PoolManager();
       // ManagedObject = FindObjectOfType<ManagedObjectManager>();
@@ -44,6 +44,7 @@ namespace Managers
 
     private void Awake()
     {
+      DontDestroyOnLoad(gameObject);
       Init();
     }
 
@@ -76,7 +77,11 @@ namespace Managers
     private void GoToTitle()
     {
       CloseMenu();
-      Scene.Load("TitleScene", Transitions.FADEOUT, Transitions.IN);
+      // Scene.Load("TitleScene", Transitions.FADEOUT, Transitions.IN);
+      new SceneLoader("TitleScene")
+       .Out(Transitions.FADEOUT)
+       .In(Transitions.FADEIN)
+       .Load();
     }
   }
 }

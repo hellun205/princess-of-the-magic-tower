@@ -13,7 +13,7 @@ namespace Util
   public static class Utils
   {
     private static Coroutiner<float, float> smoothTsCrt = new(TimeScaleSmooth);
-    
+
     public static bool Approximately(this float a, float b, float tolerance = 0.1f)
     {
       return Mathf.Abs(a - b) < tolerance;
@@ -87,11 +87,15 @@ namespace Util
     /// </summary>
     /// <param name="second">초</param>
     /// <param name="fn">함수</param>
-    public static void Wait(float second, Action fn) => GameManager.Manager.StartCoroutine(WaitRoutine(second, fn));
+    public static Coroutine Wait(float second, Action fn)
+      => GameManager.Manager.StartCoroutine(Routine(new WaitForSecondsRealtime(second), fn));
 
-    private static IEnumerator WaitRoutine(float second, Action fn)
+    public static Coroutine WaitUntil(Func<bool> predicate, Action fn)
+      => GameManager.Manager.StartCoroutine(Routine(new WaitUntil(predicate), fn));
+    
+    public static IEnumerator Routine(CustomYieldInstruction yieldInstruction, Action fn)
     {
-      yield return new WaitForSecondsRealtime(second);
+      yield return yieldInstruction;
       fn.Invoke();
     }
 
@@ -110,12 +114,12 @@ namespace Util
     {
       for (var i = 0; i < count; i++) fn?.Invoke();
     }
-    
+
     public static void For(this int count, Action<int> fn)
     {
       for (var i = 0; i < count; i++) fn?.Invoke(i);
     }
-    
+
     public static void ExitGame()
     {
 #if UNITY_EDITOR
@@ -127,8 +131,8 @@ namespace Util
 
     public static void Pause(bool smooth = false, float smoothing = 5f)
     {
-      if (Time.timeScale < 0.9f) return;
-
+      smoothTsCrt.Stop();
+      
       if (smooth)
         smoothTsCrt.Start(0f, smoothing);
       else
@@ -137,14 +141,14 @@ namespace Util
 
     public static void UnPause(bool smooth = false, float smoothing = 5f)
     {
-      if (Time.timeScale > 0.1f) return;
-
+      smoothTsCrt.Stop();
+      Debug.Log(Time.timeScale);
       if (smooth)
         smoothTsCrt.Start(1f, smoothing);
       else
         Time.timeScale = 1f;
     }
-    
+
     private static IEnumerator TimeScaleSmooth(float value, float smoothing = 5f)
     {
       while (!Time.timeScale.Approximately(value, 0.2f))
