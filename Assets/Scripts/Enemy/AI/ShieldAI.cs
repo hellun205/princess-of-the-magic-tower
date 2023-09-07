@@ -7,16 +7,13 @@ namespace Enemy.AI
 {
   public class ShieldAI : EnemyAI
   {
-    [Header("Value")]
-    public bool awake;
+    public bool debugMode;
+
+    [Header("Value")] public bool awake;
 
     public bool targetFind;
 
-    [Range(0, 10)]
-    public float rotateSpeed;
-
-    [Range(0, 10)]
-    public float dashSpeed;
+    [Range(0, 10)] public float rotateSpeed;
 
     public float lookDistance;
 
@@ -24,22 +21,26 @@ namespace Enemy.AI
 
     public GameObject targetObj;
 
-    [Header("Dash")]
-    public bool canDash;
+    [Header("Dash")] public bool canDash;
+    private bool isDashing = false;
+
+    [NonSerialized] private bool touchingObstacle = false;
+
+    [Range(0, 10)] public float dashSpeed;
 
     public Transform dashPosition;
 
     public float maxCoolTime;
     private float currentCoolTime;
 
-    [Header("Mask")]
-    public LayerMask targetMask;
+    public float dashReadyTime;
+
+    [Header("Mask")] public LayerMask targetMask;
 
     public LayerMask obstacleMask;
 
     private EnemyController enemyController;
     private Rigidbody2D rigidbody;
-    private bool isDashing;
 
     public override void StartAI()
     {
@@ -71,6 +72,8 @@ namespace Enemy.AI
 
     public void DecreaseDashTime()
     {
+      if (isDashing) return;
+      
       currentCoolTime -= Time.deltaTime;
 
       if (currentCoolTime <= 0)
@@ -104,6 +107,13 @@ namespace Enemy.AI
       transform.Rotate(Vector3.forward * rotateSpeed);
     }
 
+    private void OnDrawGizmos()
+    {
+      if (!debugMode) return;
+
+      Debug.DrawRay(transform.position, transform.right * lookDistance);
+    }
+
     private void FindPlayer()
     {
       if (!canDash)
@@ -129,17 +139,46 @@ namespace Enemy.AI
       canDash = false;
       var targetVec = dashPosition.position;
 
-      yield return new WaitForSeconds(0.3f);
+      yield return new WaitForSeconds(0.45f);
       isDashing = true;
 
-      for (var i = 0; i <= 100; i++)
+      // for (var i = 0; i <= 100; i++)
+      // {
+      //   if (touchingObstacle) break;
+      //
+      //   transform.position = Vector3.Lerp(transform.position, targetVec, dashSpeed * Time.deltaTime);
+      //   yield return new WaitForEndOfFrame();
+      // }
+
+      while (isDashing)
       {
-        transform.position = Vector3.Lerp(transform.position, targetVec, dashSpeed * Time.deltaTime);
+        transform.Translate(Vector3.right * (Time.deltaTime * (dashSpeed * 10)));
         yield return new WaitForEndOfFrame();
       }
 
       ResetCooltime();
       isDashing = false;
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+      // if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+      // {
+      //   Debug.Log("Crash in obstacle");
+      //   touchingObstacle = true;
+      // }
+
+      if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        isDashing = false;
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+      // if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+      // {
+      //   Debug.Log("Out in obstacle");
+      //   touchingObstacle = false;
+      // }
     }
 
     private void OnTriggerStay2D(Collider2D other)
