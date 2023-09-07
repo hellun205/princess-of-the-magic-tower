@@ -28,8 +28,6 @@ namespace Scene
 
     private TransitionOption outTransition = Transitions.OUT;
 
-    private float smoothing;
-
     private bool isSmooth = false;
 
     private bool isPause = false;
@@ -97,16 +95,10 @@ namespace Scene
       return this;
     }
 
-    public SceneLoader PauseOnTransitioning(float? smoothing = null)
+    public SceneLoader PauseOnTransitioning(bool smooth = true)
     {
       isPause = true;
-      if (smoothing.HasValue)
-      {
-        isSmooth = true;
-        this.smoothing = smoothing.Value;
-      }
-      else
-        isSmooth = false;
+      isSmooth = smooth;
 
       return this;
     }
@@ -123,9 +115,10 @@ namespace Scene
       isLoading = true;
       var load = SceneManager.LoadSceneAsync(sceneName);
       load.allowSceneActivation = false;
+
       yield return new WaitForSecondsRealtime(outTransition.delay);
       callbackOnStartOut?.Invoke();
-      if (isPause) Pause(isSmooth, smoothing);
+      if (isPause) Pause(isSmooth, outTransition.speed * 0.9f);
       GameManager.Transition.Play(outTransition.type, outTransition.speed);
 
       yield return new WaitForSecondsRealtime(outTransition.speed);
@@ -136,7 +129,7 @@ namespace Scene
 
       yield return new WaitForSecondsRealtime(inTransition.delay);
       callbackOnStartIn?.Invoke();
-      if (isPause) UnPause(isSmooth, smoothing);
+      if (isPause) UnPause(isSmooth, inTransition.speed * 0.9f);
       GameManager.Transition.Play(inTransition.type, inTransition.speed);
 
       yield return new WaitForSecondsRealtime(inTransition.speed);

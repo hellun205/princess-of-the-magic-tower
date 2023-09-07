@@ -13,12 +13,6 @@ namespace Map
   {
     public StageController controller { get; private set; }
     public Room currentRoom { get; private set; }
-    // private Coroutiner checkEnemyCrt;
-
-    private void Awake()
-    {
-      // checkEnemyCrt = new Coroutiner(CheckEnemyRoutine);
-    }
 
     private void Start()
     {
@@ -43,7 +37,7 @@ namespace Map
 
         GameManager.Player.transform.position = string.IsNullOrEmpty(link) switch
         {
-          true  => room.startPosition.position,
+          true => room.startPosition.position,
           false => room.linkPositions.Find(t => t.name == link).position
         };
 
@@ -56,14 +50,21 @@ namespace Map
     public void LoadCurrentStage()
       => LoadStageFromSceneName(SceneManager.GetActiveScene().name);
 
+    public void LoadCurrentStage(TransitionOption outT, TransitionOption inT)
+      => LoadStageFromSceneName(SceneManager.GetActiveScene().name, outT, inT);
+
     public void LoadStageFromSceneName(string sceneName)
+      => LoadStageFromSceneName(sceneName, new(Transitions.FADEOUT, 2f), new(Transitions.FADEIN, 2f));
+
+    public void LoadStageFromSceneName(string sceneName, TransitionOption outT, TransitionOption inT)
     {
       new SceneLoader(sceneName)
-       .Out(Transitions.FADEOUT, 2f)
-       .In(Transitions.FADEIN, 2f)
-       .OnEndOut(() => GameManager.Pool.ClearPools())
-       .OnStartIn(OnSceneChanged)
-       .Load();
+        .Out(outT)
+        .In(inT)
+        .PauseOnTransitioning()
+        .OnEndOut(() => GameManager.Pool.ClearPools())
+        .OnStartIn(OnSceneChanged)
+        .Load();
     }
   }
 }

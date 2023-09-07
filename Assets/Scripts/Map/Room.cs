@@ -44,8 +44,8 @@ namespace Map
     {
       if (isCleared) return;
       
-      doors.ForEach(door => door.OnEntered());
       summoners.ForEach(summoner => summoner.Summon());
+      doors.ForEach(door => door.OnEntered());
     }
 
     // public void SetDoorState(bool state)

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Managers;
 using UnityEngine;
 using UnityEngine.Pool;
 using Object = UnityEngine.Object;
@@ -85,20 +84,31 @@ namespace Pool
     private PoolObject CreateFunc(string name)
     {
       var o = Get(name);
-      var obj= Object.Instantiate(o, o is UIPoolObject ? uiParent : parent);
+      var obj = Object.Instantiate(o, o is UIPoolObject ? uiParent : parent);
       obj.position = tmpPos;
       obj.type = name;
 
       return obj;
     }
-    
+
     public void ClearPools()
     {
-      foreach (var (name, obj) in pools)
+      // foreach (var (name, obj) in pools)
+      // {
+      //   obj.Clear();
+      // }
+
+      foreach (var p in parent.GetComponentsInChildren<PoolObject>())
       {
-        obj.Clear();
-        Debug.Log(obj.CountInactive);
+        // p.Release();
+        Object.Destroy(p.gameObject);
       }
+      foreach (var p in uiParent.GetComponentsInChildren<PoolObject>())
+      {
+        // p.Release();
+        Object.Destroy(p.gameObject);
+      }
+
       pools.Clear();
       index = 0;
     }

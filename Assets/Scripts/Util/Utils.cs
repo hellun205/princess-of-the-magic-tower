@@ -12,12 +12,13 @@ namespace Util
 {
   public static class Utils
   {
-    private static Coroutiner<float, float> smoothTsCrt = new(TimeScaleSmooth);
+    private static Coroutiner<float, float> smoothTsCrt = new(SetTimeScaleSmooth);
 
     public static bool Approximately(this float a, float b, float tolerance = 0.1f)
     {
       return Mathf.Abs(a - b) < tolerance;
     }
+
     public static float GetAngleOfLookAtObject(this Transform sender, Transform target)
     {
       var offset = target.transform.position - sender.position;
@@ -92,7 +93,7 @@ namespace Util
 
     public static Coroutine WaitUntil(Func<bool> predicate, Action fn)
       => GameManager.Manager.StartCoroutine(Routine(new WaitUntil(predicate), fn));
-    
+
     public static IEnumerator Routine(CustomYieldInstruction yieldInstruction, Action fn)
     {
       yield return yieldInstruction;
@@ -129,32 +130,35 @@ namespace Util
 #endif
     }
 
-    public static void Pause(bool smooth = false, float smoothing = 5f)
+    public static void Pause(bool smooth = false, float time = 1f)
     {
       smoothTsCrt.Stop();
-      
+
       if (smooth)
-        smoothTsCrt.Start(0f, smoothing);
+        smoothTsCrt.Start(0f, time);
       else
         Time.timeScale = 0f;
     }
 
-    public static void UnPause(bool smooth = false, float smoothing = 5f)
+    public static void UnPause(bool smooth = false, float time = 1f)
     {
       smoothTsCrt.Stop();
-      Debug.Log(Time.timeScale);
       if (smooth)
-        smoothTsCrt.Start(1f, smoothing);
+        smoothTsCrt.Start(1f, time);
       else
         Time.timeScale = 1f;
     }
 
-    private static IEnumerator TimeScaleSmooth(float value, float smoothing = 5f)
+    private static IEnumerator SetTimeScaleSmooth(float value, float time)
     {
-      while (!Time.timeScale.Approximately(value, 0.2f))
-      {
-        Time.timeScale = Mathf.Lerp(Time.timeScale, value, Time.unscaledDeltaTime * smoothing);
+      if (Mathf.Approximately(Time.timeScale, value))
+        yield break;
 
+      var normalized = Mathf.Abs(Time.timeScale - value);
+      var sep = Time.timeScale > value ? -1 : 1;
+      while (!Time.timeScale.Approximately(value, 0.07f))
+      {
+        Time.timeScale += sep * (Time.unscaledDeltaTime * normalized / time);
         yield return new WaitForEndOfFrame();
       }
 
