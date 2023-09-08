@@ -41,7 +41,8 @@ namespace Enemy
     
     protected override void OnKill()
     {
-      GameManager.Map.Find(map).RemoveEnemy(pool.index);
+      GameManager.Map.Find(map).enemies.Remove(pool.index);
+      // GameManager.Map.OnKillEnemy();
     }
 
     public void Hit(int damage)

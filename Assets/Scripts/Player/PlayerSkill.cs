@@ -24,11 +24,11 @@ namespace Player
     private void Awake()
     {
       thePlayerMove = GetComponent<PlayerMove>();
-      dashBar = GameManager.ManagedObject.Get<DashCountBar>("dashbar");
     }
 
     private void Start()
     {
+      dashBar = GameManager.ManagedObject.Get<DashCountBar>("dashbar");
       currentDashCooltime = maxDashCooltime;
       ReloadDash(maxDashCount);
     }
