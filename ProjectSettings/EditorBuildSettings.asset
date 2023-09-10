@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Test.unity
     guid: 7c0e64d1e2c9e574b831701e2de2a11a
   - enabled: 1
-    path: Assets/Scenes/SampleScene 1.unity
+    path: Assets/Scenes/SampleScene 1 light.unity
     guid: 908032b749e20ba4c80f4001528392ca
   - enabled: 1
     path: Assets/Scenes/TitleScene.unity

@@ -17,6 +17,7 @@ namespace Interact
     {
       if (!collision.CompareTag("Player")) return;
       CheckCondition(InteractType.Stay);
+      
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,6 +28,7 @@ namespace Interact
 
     private void CheckCondition(InteractType eventType)
     {
+      Debug.Log("Interact");
       if ((condition & InteractCondition.Dash) != 0 && GameManager.Player.move.isDashing)
         CheckType(eventType);
       if ((condition & InteractCondition.Walk) != 0)

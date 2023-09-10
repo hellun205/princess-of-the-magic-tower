@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Managers;
+using Scene;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,7 +13,7 @@ namespace Map
     public int stageIndex;
 
     public string mainRoom;
-    
+
     public List<Room> rooms;
 
     private void Awake()
