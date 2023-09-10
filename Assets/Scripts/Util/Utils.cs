@@ -12,12 +12,13 @@ namespace Util
 {
   public static class Utils
   {
-    private static Coroutiner<float, float> smoothTsCrt = new(TimeScaleSmooth);
-    
+    private static Coroutiner<float, float> smoothTsCrt = new(SetTimeScaleSmooth);
+
     public static bool Approximately(this float a, float b, float tolerance = 0.1f)
     {
       return Mathf.Abs(a - b) < tolerance;
     }
+
     public static float GetAngleOfLookAtObject(this Transform sender, Transform target)
     {
       var offset = target.transform.position - sender.position;
@@ -87,11 +88,15 @@ namespace Util
     /// </summary>
     /// <param name="second">초</param>
     /// <param name="fn">함수</param>
-    public static void Wait(float second, Action fn) => GameManager.Manager.StartCoroutine(WaitRoutine(second, fn));
+    public static Coroutine Wait(float second, Action fn)
+      => GameManager.Manager.StartCoroutine(Routine(new WaitForSecondsRealtime(second), fn));
 
-    private static IEnumerator WaitRoutine(float second, Action fn)
+    public static Coroutine WaitUntil(Func<bool> predicate, Action fn)
+      => GameManager.Manager.StartCoroutine(Routine(new WaitUntil(predicate), fn));
+
+    public static IEnumerator Routine(CustomYieldInstruction yieldInstruction, Action fn)
     {
-      yield return new WaitForSecondsRealtime(second);
+      yield return yieldInstruction;
       fn.Invoke();
     }
 
@@ -110,12 +115,12 @@ namespace Util
     {
       for (var i = 0; i < count; i++) fn?.Invoke();
     }
-    
+
     public static void For(this int count, Action<int> fn)
     {
       for (var i = 0; i < count; i++) fn?.Invoke(i);
     }
-    
+
     public static void ExitGame()
     {
 #if UNITY_EDITOR
@@ -125,32 +130,35 @@ namespace Util
 #endif
     }
 
-    public static void Pause(bool smooth = false, float smoothing = 5f)
+    public static void Pause(bool smooth = false, float time = 1f)
     {
-      if (Time.timeScale < 0.9f) return;
+      smoothTsCrt.Stop();
 
       if (smooth)
-        smoothTsCrt.Start(0f, smoothing);
+        smoothTsCrt.Start(0f, time);
       else
         Time.timeScale = 0f;
     }
 
-    public static void UnPause(bool smooth = false, float smoothing = 5f)
+    public static void UnPause(bool smooth = false, float time = 1f)
     {
-      if (Time.timeScale > 0.1f) return;
-
+      smoothTsCrt.Stop();
       if (smooth)
-        smoothTsCrt.Start(1f, smoothing);
+        smoothTsCrt.Start(1f, time);
       else
         Time.timeScale = 1f;
     }
-    
-    private static IEnumerator TimeScaleSmooth(float value, float smoothing = 5f)
-    {
-      while (!Time.timeScale.Approximately(value, 0.2f))
-      {
-        Time.timeScale = Mathf.Lerp(Time.timeScale, value, Time.unscaledDeltaTime * smoothing);
 
+    private static IEnumerator SetTimeScaleSmooth(float value, float time)
+    {
+      if (Mathf.Approximately(Time.timeScale, value))
+        yield break;
+
+      var normalized = Mathf.Abs(Time.timeScale - value);
+      var sep = Time.timeScale > value ? -1 : 1;
+      while (!Time.timeScale.Approximately(value, 0.07f))
+      {
+        Time.timeScale += sep * (Time.unscaledDeltaTime * normalized / time);
         yield return new WaitForEndOfFrame();
       }
 

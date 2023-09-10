@@ -1,7 +1,8 @@
-using System.Collections;
+using System;
 using Managers;
 using Scene;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Util;
 
 namespace Player
@@ -12,27 +13,20 @@ namespace Player
 
     public PlayerSkill skill;
     private PlayerMove playerMove;
-
+    public new PlayerAnimation animation;
     private Coroutiner deathCrt;
+    public PlayerMove move;
+    public new PlayerLight light;
 
     private void Awake()
     {
-      deathCrt = new(DeathRoutine);
+      animation = GetComponent<PlayerAnimation>();
       skill = GetComponent<PlayerSkill>();
       playerMove = GetComponent<PlayerMove>();
-    }
+      move = GetComponent<PlayerMove>();
+      light = GetComponent<PlayerLight>();
 
-    public void Death()
-    {
-      deathCrt.Start();
-      transform.position = GameManager.Map.currentRoom.startPosition.position;
-    }
-
-    private IEnumerator DeathRoutine()
-    {
-      GameManager.Transition.Play(Transitions.OUT);
-      yield return new WaitForSecondsRealtime(1.5f);
-      GameManager.Transition.Play(Transitions.FADEIN);
+      DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
@@ -42,12 +36,11 @@ namespace Player
         testMode = !testMode;
         Debug.Log($"테스트 모드 {testMode}.");
       }
+    }
 
-      if (Input.GetKeyDown(KeyCode.F6))
-      {
-        GameManager.Scene.Load("Test", new TransitionOption(Transitions.FADEOUT, 2),
-          new TransitionOption(Transitions.FADEIN, 2), smoothPause: true);
-      }
+    public void Death()
+    {
+      GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
     }
   }
 }

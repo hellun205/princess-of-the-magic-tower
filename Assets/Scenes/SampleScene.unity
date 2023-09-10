@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49839dcc5d248b481715baaf39f9392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 24696925}
+  col: {fileID: 24696925}
   currentRoomName: 
 --- !u!58 &24696925
 CircleCollider2D:
@@ -536,7 +536,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -612,7 +612,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -810,7 +810,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c92a3ca9c131ea4c8d69d9d21589388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animation: {fileID: 0}
   skill: {fileID: 0}
+  move: {fileID: 0}
+  light: {fileID: 0}
 --- !u!1 &177778037
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,7 +926,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1160,7 +1163,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1237,7 +1240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49839dcc5d248b481715baaf39f9392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 320802782}
+  col: {fileID: 320802782}
   currentRoomName: 
 --- !u!58 &320802782
 CircleCollider2D:
@@ -1358,7 +1361,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1662,8 +1665,11 @@ MonoBehaviour:
   startPosition: {fileID: 0}
   links: []
   linkPositions: []
-  lockers: []
+  doors: []
+  summoners: []
+  doorEnable: 1
   enemies: 
+  isCleared: 0
 --- !u!1 &654079093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,8 +1723,11 @@ MonoBehaviour:
   startPosition: {fileID: 0}
   links: []
   linkPositions: []
-  lockers: []
+  doors: []
+  summoners: []
+  doorEnable: 1
   enemies: 
+  isCleared: 0
 --- !u!1 &666290540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,7 +1765,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1855,7 +1864,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2028,7 +2037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49839dcc5d248b481715baaf39f9392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 698010810}
+  col: {fileID: 698010810}
   currentRoomName: 
 --- !u!58 &698010810
 CircleCollider2D:
@@ -2110,7 +2119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49839dcc5d248b481715baaf39f9392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 707800391}
+  col: {fileID: 707800391}
   currentRoomName: 
 --- !u!58 &707800391
 CircleCollider2D:
@@ -2380,8 +2389,11 @@ MonoBehaviour:
   startPosition: {fileID: 0}
   links: []
   linkPositions: []
-  lockers: []
+  doors: []
+  summoners: []
+  doorEnable: 1
   enemies: 
+  isCleared: 0
 --- !u!1 &766856558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,8 +2530,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: enemy/test1
-  summonOnStart: 1
-  map: 
 --- !u!1 &832357408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,7 +2613,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2842,8 +2852,11 @@ MonoBehaviour:
   startPosition: {fileID: 0}
   links: []
   linkPositions: []
-  lockers: []
+  doors: []
+  summoners: []
+  doorEnable: 1
   enemies: 
+  isCleared: 0
 --- !u!1 &926106597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,7 +3011,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3236,7 +3249,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3570,7 +3583,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3647,7 +3660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49839dcc5d248b481715baaf39f9392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1252810311}
+  col: {fileID: 1252810311}
   currentRoomName: 
 --- !u!58 &1252810311
 CircleCollider2D:
@@ -3736,7 +3749,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3930,7 +3943,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4083,7 +4096,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4175,8 +4188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: enemy/test3
-  summonOnStart: 1
-  map: 
 --- !u!1 &1474890699
 GameObject:
   m_ObjectHideFlags: 0
@@ -4254,8 +4265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: enemy/test2
-  summonOnStart: 1
-  map: 
 --- !u!1 &1515460624
 GameObject:
   m_ObjectHideFlags: 0
@@ -4910,7 +4919,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5217,7 +5226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49839dcc5d248b481715baaf39f9392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 2019774776}
+  col: {fileID: 2019774776}
   currentRoomName: 
 --- !u!58 &2019774776
 CircleCollider2D:
@@ -5291,7 +5300,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

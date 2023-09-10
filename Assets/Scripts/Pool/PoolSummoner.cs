@@ -8,18 +8,20 @@ namespace Pool
   public class PoolSummoner : MonoBehaviour
   {
     public string target;
-    public bool summonOnStart;
-    public string map;
+    // public bool summonOnStart;
+    
+    [NonSerialized]
+    public string room;
 
-    private void Start()
-    {
-      if (!summonOnStart) return;
-      Summon();
-    }
+    // private void Start()
+    // {
+    //   if (!summonOnStart) return;
+    //   Summon();
+    // }
 
-    private void Summon()
+    public void Summon()
     {
-      GameManager.Pool.Summon<EnemyController>(target, transform.position, obj => obj.SetMap(map));
+      GameManager.Pool.Summon<EnemyController>(target, transform.position, obj => obj.SetMap(room));
     }
   }
 }
