@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using Managers;
 using UnityEngine;
@@ -8,6 +8,7 @@ namespace Enemy.AI
   public class ShieldAI : EnemyAI
   {
     public bool debugMode;
+    public float destroyLevel;
 
     [Header("Value")] public bool awake;
 
@@ -182,8 +183,23 @@ namespace Enemy.AI
 
     private void OnTriggerStay2D(Collider2D other)
     {
-      if (isDashing && other.CompareTag("Player"))
+      if (!isDashing) return;
+
+
+      if (other.CompareTag("Player"))
+      {
         EnemyController.AttackPlayer();
+      }
+      else if (other.transform.CompareTag("Obstacle"))
+      {
+        var obstacle = other.GetComponent<Obstacle>();
+
+        if (obstacle.destroyLevel <= destroyLevel)
+        {
+          obstacle.DecreaseHP();
+          Debug.Log($"{gameObject.name} hitted {obstacle.gameObject.name}");
+        }
+      }
     }
   }
 }

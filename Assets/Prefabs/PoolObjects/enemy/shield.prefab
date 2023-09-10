@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMode: 1
+  destroyLevel: 2
   awake: 1
   targetFind: 0
   rotateSpeed: 2

@@ -1,31 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Player;
+using Enemy.AI;
 
 public class Box : Obstacle
 {
-  public int destroyLevel;
-
   protected override void Awake()
   {
     base.Awake();
   }
 
-  public void DecreaseHP()
-  {
-    destroyLevel--;
-
-    if (destroyLevel <= 0)
-    {
-      OnBreak();
-    }
-  }
-
-
   private void OnCollisionEnter2D(Collision2D collision)
   {
-    if (collision.transform.CompareTag("Player") || collision.transform.CompareTag("Enemy"))
+    if (collision.transform.CompareTag("Player"))
     {
+      var player = collision.transform.GetComponent<PlayerMove>();
+
+      if (player.destroyLevel >= destroyLevel && player.isDashing)
       DecreaseHP();
     }
   }

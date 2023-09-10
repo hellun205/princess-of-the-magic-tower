@@ -9,6 +9,7 @@ namespace Enemy.AI
   public class BladeAI : EnemyAI
   {
     public bool debugMode;
+    public float destroyLevel;
 
     [Header("Value")]
     public bool awake;
@@ -121,9 +122,21 @@ namespace Enemy.AI
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-      if (isAttacking && other.transform.CompareTag("Player"))
+      if (!isAttacking) return;
+
+      if (other.transform.CompareTag("Player"))
       {
         EnemyController.AttackPlayer();
+      }
+      else if(other.transform.CompareTag("Obstacle"))
+      {
+        var obstacle = other.GetComponent<Obstacle>();
+
+        if(obstacle.destroyLevel <= destroyLevel)
+        {
+          obstacle.DecreaseHP();
+          Debug.Log($"{gameObject.name} hitted {obstacle.gameObject.name}");
+        }
       }
     }
   }

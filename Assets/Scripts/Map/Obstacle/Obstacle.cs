@@ -6,9 +6,22 @@ public abstract class Obstacle : MonoBehaviour
 {
   private Animator animator;
 
+  public int hp;
+  public int destroyLevel;
+
   protected virtual void Awake()
   {
     animator = GetComponentInParent<Animator>();
+  }
+
+  public void DecreaseHP()
+  {
+    hp--;
+
+    if (hp <= 0)
+    {
+      OnBreak();
+    }
   }
 
   protected virtual void OnBreak()

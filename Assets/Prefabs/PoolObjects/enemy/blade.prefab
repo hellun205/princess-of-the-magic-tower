@@ -406,8 +406,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMode: 1
+  destroyLevel: 2
   awake: 1
   canAttack: 1
+  isAttacking: 0
   moveSpeed: 3.2
   findRad: 2.8
   attackCooltime: 2
