@@ -1,4 +1,4 @@
-﻿using Managers;
+using Managers;
 using UnityEngine;
 
 namespace Interact.Object
@@ -8,7 +8,7 @@ namespace Interact.Object
     [Header("Light Switch")]
     public bool turnToNight;
     
-    protected override void OnInteract()
+    protected override void OnInteract(GameObject caster)
     {
       GameManager.Player.light.SetLight(turnToNight ? "night" : "default");
     }

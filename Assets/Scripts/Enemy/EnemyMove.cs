@@ -14,7 +14,7 @@ namespace Enemy
 
     public void StartAI()
     {
-      if (ai != null) ai.StartAI();
+      ai?.StartAI();
     }
   }
 }

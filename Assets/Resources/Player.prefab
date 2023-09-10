@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 7456252153102599935}
   - component: {fileID: 5253204429991973156}
   - component: {fileID: 3018973341800256907}
+  - component: {fileID: 2747323609996294546}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -511,10 +512,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c92a3ca9c131ea4c8d69d9d21589388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animation: {fileID: 0}
+  testMode: 0
   skill: {fileID: 0}
+  animation: {fileID: 0}
   move: {fileID: 0}
   light: {fileID: 0}
+  interacter: {fileID: 0}
 --- !u!114 &1030783981240733118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,6 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4.5
   dashSpeed: 35
+  <destroyLevel>k__BackingField: 2
   inputVec: {x: 0, y: 0}
   isDashing: 0
   canMove: 1
@@ -670,6 +674,20 @@ MonoBehaviour:
       Value: {fileID: 7379549582552130567}
     - Key: night
       Value: {fileID: 3292201167531980441}
+--- !u!114 &2747323609996294546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4543561597903585886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784cc336f3ad4bdb82401c95b311aa92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caster: 2
+  currentCondition: 2
 --- !u!1 &4800694088508495915
 GameObject:
   m_ObjectHideFlags: 0

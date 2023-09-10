@@ -13,7 +13,7 @@ namespace Enemy.AI
     [Header("Value")]
     public bool awake;
     public bool canAttack;
-    public bool isAttacking;
+    // public bool isAttacking;
     
     public float moveSpeed;
     public float findRad;
@@ -83,7 +83,7 @@ namespace Enemy.AI
       }
     }
 
-    IEnumerator AttackCoroutine()
+    private IEnumerator AttackCoroutine()
     {
       float originSpeed = moveSpeed;
 
@@ -119,12 +119,24 @@ namespace Enemy.AI
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-      if (isAttacking && other.transform.CompareTag("Player"))
+      if (!isAttacking) return;
+
+      if (other.transform.CompareTag("Player"))
       {
         EnemyController.AttackPlayer();
       }
+      // else if(other.transform.CompareTag("Obstacle"))
+      // {
+      //   var obstacle = other.GetComponent<Obstacle>();
+      //
+      //   if(obstacle.destroyLevel <= destroyLevel)
+      //   {
+      //     obstacle.DecreaseHP();
+      //     Debug.Log($"{gameObject.name} hitted {obstacle.gameObject.name}");
+      //   }
+      // }
     }
   }
 }

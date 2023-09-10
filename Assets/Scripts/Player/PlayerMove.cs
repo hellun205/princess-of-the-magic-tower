@@ -2,19 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Enemy;
+using Interact;
+using Interact.Object;
 using Managers;
 using UI;
 using UnityEngine;
 
 namespace Player
 {
-  public class PlayerMove : MonoBehaviour
+  public class PlayerMove : MonoBehaviour, IObstacleDestroyable
   {
     [SerializeField]
     private float moveSpeed;
 
     [SerializeField]
     private float dashSpeed;
+    
+    [field: SerializeField]
+    [field: Min(0)]
+    public int destroyLevel { get; set; }
 
     [SerializeField]
     private Vector2 inputVec;
@@ -26,8 +32,7 @@ namespace Player
 
     public GameObject dashDummy;
 
-    private PlayerAnimation thePlayerAnimation;
-    private PlayerManager thePlayerManager;
+    private PlayerManager manager;
     
     private Rigidbody2D rigid;
     private SpriteRenderer spriteRenderer;
@@ -38,8 +43,7 @@ namespace Player
 
     private void Awake()
     {
-      thePlayerAnimation = GetComponent<PlayerAnimation>();
-      thePlayerManager = GetComponent<PlayerManager>();
+      manager = GetComponent<PlayerManager>();
 
       rigid = GetComponent<Rigidbody2D>();
       spriteRenderer = GetComponent<SpriteRenderer>();
@@ -59,9 +63,6 @@ namespace Player
     // Update is called once per frame
     private void Update()
     {
-      // inputVec.x = Input.GetAxisRaw("Horizontal");
-      // inputVec.y = Input.GetAxisRaw("Vertical");
-
       var h = Input.GetAxisRaw("Horizontal");
       var v = Input.GetAxisRaw("Vertical");
 
@@ -100,15 +101,16 @@ namespace Player
     public void Dash()
     {
       StartCoroutine(DashCoroutine());
-      thePlayerAnimation.SetState(MoveState.dash);
     }
 
-    IEnumerator DashCoroutine()
+    private IEnumerator DashCoroutine()
     {
       StartCoroutine(SpawnDashSprite());
 
       attackedList.Clear();
       isDashing = true;
+      manager.interacter.currentCondition = InteractCondition.Attack;
+      manager.animation.SetState(MoveState.dash);
       //spriteRenderer.color = Color.cyan;
 
       rigid.AddForce(inputVec * dashSpeed, ForceMode2D.Impulse);
@@ -119,11 +121,14 @@ namespace Player
       yield return new WaitForSeconds(0.1f);
       //spriteRenderer.color = Color.white;
 
-      thePlayerAnimation.SetState(MoveState.idle);
+      manager.animation.SetState(MoveState.idle);
+      
       isDashing = false;
+      manager.interacter.currentCondition = InteractCondition.Reach;
+      manager.interacter.RemoveDetection();
     }
 
-    IEnumerator SpawnDashSprite()
+    private IEnumerator SpawnDashSprite()
     {
       int count = 0;
 
@@ -160,18 +165,18 @@ namespace Player
 
       if (inputVec.Equals(Vector2.zero))
       {
-        thePlayerAnimation.SetState(MoveState.idle);
+        manager.animation.SetState(MoveState.idle);
       }
       else
       {
-        thePlayerAnimation.SetState(MoveState.walk);
+        manager.animation.SetState(MoveState.walk);
       }
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
       // if (!isDashing && other.CompareTag("Enemy")) 
-      //   thePlayerManager.Death();
+      //   manager.Death();
       
       if (!isDashing || !other.CompareTag("Enemy")) return;
       var enemy = other.GetComponent<EnemyController>();

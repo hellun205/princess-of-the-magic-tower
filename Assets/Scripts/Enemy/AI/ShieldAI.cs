@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Managers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemy.AI
 {
@@ -9,11 +10,13 @@ namespace Enemy.AI
   {
     public bool debugMode;
 
-    [Header("Value")] public bool awake;
+    [Header("Value")]
+    public bool awake;
 
     public bool targetFind;
 
-    [Range(0, 10)] public float rotateSpeed;
+    [Range(0, 10)]
+    public float rotateSpeed;
 
     public float lookDistance;
     public float stopDistance;
@@ -22,12 +25,15 @@ namespace Enemy.AI
 
     public GameObject targetObj;
 
-    [Header("Dash")] public bool canDash;
-    private bool isDashing = false;
+    [Header("Dash")]
+    public bool canDash;
+    // private bool isDashing = false;
 
-    [NonSerialized] private bool touchingObstacle = false;
+    [NonSerialized]
+    private bool touchingObstacle = false;
 
-    [Range(0, 10)] public float dashSpeed;
+    [Range(0, 10)]
+    public float dashSpeed;
 
     public Transform dashPosition;
 
@@ -36,9 +42,10 @@ namespace Enemy.AI
 
     public float dashReadyTime;
 
-    [Header("Mask")] public LayerMask targetMask;
+    [Header("Mask")]
+    public LayerMask targetMask;
 
-    public LayerMask obstacleMask;
+    public LayerMask stopMask;
 
     private CapsuleCollider2D capsule2D;
     private EnemyController enemyController;
@@ -49,8 +56,9 @@ namespace Enemy.AI
       awake = true;
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+      base.Awake();
       capsule2D = GetComponent<CapsuleCollider2D>();
     }
 
@@ -79,8 +87,8 @@ namespace Enemy.AI
 
     public void DecreaseDashTime()
     {
-      if (isDashing) return;
-      
+      if (isAttacking) return;
+
       currentCoolTime -= Time.deltaTime;
 
       if (currentCoolTime <= 0)
@@ -146,12 +154,13 @@ namespace Enemy.AI
       var targetVec = dashPosition.position;
 
       yield return new WaitForSeconds(0.45f);
-      isDashing = true;
+      isAttacking = true;
 
-      while (isDashing)
+      while (isAttacking)
       {
         Debug.DrawRay(transform.position, transform.right * stopDistance, Color.magenta);
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, capsule2D.bounds.size, 0f, transform.right, stopDistance, targetMask);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, capsule2D.bounds.size, 0f, transform.right,
+          stopDistance, targetMask);
 
         if (hit) yield return false;
 
@@ -160,34 +169,29 @@ namespace Enemy.AI
       }
 
       ResetCooltime();
-      isDashing = false;
+      isAttacking = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+      if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        ResetCooltime();
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
-      // if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
-      // {
-      //   Debug.Log("Crash in obstacle");
-      //   touchingObstacle = true;
-      // }
-
       if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
-        isDashing = false;
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-      // if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
-      // {
-      //   Debug.Log("Out in obstacle");
-      //   touchingObstacle = false;
-      // }
+        isAttacking = false;
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-      if (isDashing && other.CompareTag("Player"))
+      if (!isAttacking) return;
+
+      if (other.CompareTag("Player"))
+      {
         EnemyController.AttackPlayer();
+      }
     }
   }
 }

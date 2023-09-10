@@ -105,7 +105,8 @@ namespace Scene
 
     public SceneLoader Load()
     {
-      if (isLoading) throw new Exception($"already loading scene: {sceneName}");
+      if (isLoading) return this;
+        // throw new Exception($"already loading scene: {sceneName}");
       coroutine = GameManager.Manager.StartCoroutine(LoadRoutine());
       return this;
     }
