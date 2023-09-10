@@ -56,9 +56,6 @@ namespace Player
     // Update is called once per frame
     private void Update()
     {
-      // inputVec.x = Input.GetAxisRaw("Horizontal");
-      // inputVec.y = Input.GetAxisRaw("Vertical");
-
       var h = Input.GetAxisRaw("Horizontal");
       var v = Input.GetAxisRaw("Vertical");
 

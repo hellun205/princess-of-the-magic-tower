@@ -2,31 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HpableObstacle : Obstacle
+public class Box : Obstacle
 {
-    public int hp;
+  public int destroyLevel;
 
-    protected override void Awake()
+  protected override void Awake()
+  {
+    base.Awake();
+  }
+
+  public void DecreaseHP()
+  {
+    destroyLevel--;
+
+    if (destroyLevel <= 0)
     {
-        base.Awake();
+      OnBreak();
     }
+  }
 
-    public void DecreaseHP()
+
+  private void OnCollisionEnter2D(Collision2D collision)
+  {
+    if (collision.transform.CompareTag("Player") || collision.transform.CompareTag("Enemy"))
     {
-        hp--;
-
-        if(hp <= 0)
-        {
-            OnBreak();
-        }
+      DecreaseHP();
     }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.transform.CompareTag("Player"))
-        {
-            DecreaseHP();
-        }
-    }
+  }
 }

@@ -63,6 +63,8 @@ namespace Enemy
 
     public static void AttackPlayer()
     {
+      if (GameManager.Player.testMode) return;
+
       GameManager.Player.Death();
     }
   }

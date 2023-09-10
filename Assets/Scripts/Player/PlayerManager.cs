@@ -8,14 +8,18 @@ namespace Player
 {
   public class PlayerManager : MonoBehaviour
   {
+    public bool testMode;
+
     public PlayerSkill skill;
-    
+    private PlayerMove playerMove;
+
     private Coroutiner deathCrt;
 
     private void Awake()
     {
       deathCrt = new(DeathRoutine);
       skill = GetComponent<PlayerSkill>();
+      playerMove = GetComponent<PlayerMove>();
     }
 
     public void Death()
@@ -33,6 +37,12 @@ namespace Player
 
     private void Update()
     {
+      if (Input.GetKeyDown(KeyCode.T))
+      {
+        testMode = !testMode;
+        Debug.Log($"테스트 모드 {testMode}.");
+      }
+
       if (Input.GetKeyDown(KeyCode.F6))
       {
         GameManager.Scene.Load("Test", new TransitionOption(Transitions.FADEOUT, 2),

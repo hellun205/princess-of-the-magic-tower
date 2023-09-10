@@ -4,15 +4,17 @@ using UnityEngine;
 
 public abstract class Obstacle : MonoBehaviour
 {
-    private Animator animator;
+  private Animator animator;
 
-    protected virtual void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
+  protected virtual void Awake()
+  {
+    animator = GetComponentInParent<Animator>();
+  }
 
-    protected virtual void OnBreak()
-    {
-        animator.SetTrigger("isBreak");
-    }
+  protected virtual void OnBreak()
+  {
+    animator.SetTrigger("isBreak");
+    Debug.Log($"{this.gameObject.name} Destroyed by Player");
+    Destroy(this.gameObject, 0.17f); //0.17 = 공통 오브젝트 사라지는 애니메이션 재생시간
+  }
 }
