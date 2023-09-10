@@ -2,6 +2,7 @@ using System.Collections;
 using Managers;
 using Scene;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Util;
 
 namespace Player
@@ -9,17 +10,17 @@ namespace Player
   public class PlayerManager : MonoBehaviour
   {
     public PlayerSkill skill;
-    
     private Coroutiner deathCrt;
-
-    public GameObject nightLight, dayLight; // 추가
-    public PlayerMove playerMove; // 추가
+    [FormerlySerializedAs("playerMove")]
+    public PlayerMove move;
+    public new PlayerLight light;
 
     private void Awake()
     {
       deathCrt = new(DeathRoutine);
       skill = GetComponent<PlayerSkill>();
-      playerMove = GetComponent<PlayerMove>(); // 추가
+      move = GetComponent<PlayerMove>();
+      light = GetComponent<PlayerLight>();
     }
 
     public void Death()
@@ -42,14 +43,6 @@ namespace Player
         GameManager.Scene.Load("Test", new TransitionOption(Transitions.FADEOUT, 2),
           new TransitionOption(Transitions.FADEIN, 2), smoothPause: true);
       }
-    }
-
-    public void SwitchToNight(bool type) // 추가
-    {
-      if (!playerMove.isDashing) return;
-
-      nightLight.SetActive(type);
-      dayLight.SetActive(!type);
     }
   }
 }

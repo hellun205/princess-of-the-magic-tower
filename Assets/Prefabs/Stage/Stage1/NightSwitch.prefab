@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1364513770075626612}
   - component: {fileID: 4577144523426491056}
-  - component: {fileID: -1129360800128880672}
+  - component: {fileID: 6189224500815985233}
   m_Layer: 0
   m_Name: NightSwitch
   m_TagString: Untagged
@@ -248,7 +248,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.061264, y: 0.78552985}
   m_EdgeRadius: 0
---- !u!114 &-1129360800128880672
+--- !u!114 &6189224500815985233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,7 +257,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8246721003959627495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55afb09d6e0358749b6df68c53ab89b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0167f314884b4aa8bb9124a542c3f2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isNightSwitch: 1
+  type: 0
+  condition: 4
+  turnToNight: 1
