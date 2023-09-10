@@ -60,7 +60,9 @@ namespace UI
 
     private void Move(PointerEventData eventData)
     {
-      var inputDir = eventData.position - rectTransform.anchoredPosition;
+      //rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+      // var inputDir = eventData.position - rectTransform.anchoredPosition;
+      var inputDir = position + (eventData.delta / canvas.scaleFactor);
       var clampedDir = inputDir.magnitude < maxRange ? inputDir : inputDir.normalized * maxRange;
 
       position = clampedDir;
