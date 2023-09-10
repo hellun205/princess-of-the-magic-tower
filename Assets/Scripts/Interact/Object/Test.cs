@@ -1,7 +1,7 @@
 using Managers;
 using Scene;
 
-namespace Interact
+namespace Interact.Object
 {
   public class Test : InteractiveObject
   {
