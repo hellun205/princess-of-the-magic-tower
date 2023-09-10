@@ -19,8 +19,7 @@ namespace Player
     [SerializeField]
     private Vector2 inputVec;
 
-    [SerializeField]
-    private bool isDashing;
+    public bool isDashing;
 
     [SerializeField]
     private bool canMove = true;

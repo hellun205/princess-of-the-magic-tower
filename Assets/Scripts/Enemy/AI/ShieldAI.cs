@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using Managers;
 using UnityEngine;
@@ -16,6 +16,7 @@ namespace Enemy.AI
     [Range(0, 10)] public float rotateSpeed;
 
     public float lookDistance;
+    public float stopDistance;
 
     private Vector2 destination;
 
@@ -39,12 +40,18 @@ namespace Enemy.AI
 
     public LayerMask obstacleMask;
 
+    private CapsuleCollider2D capsule2D;
     private EnemyController enemyController;
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rigid2D;
 
     public override void StartAI()
     {
       awake = true;
+    }
+
+    private void Awake()
+    {
+      capsule2D = GetComponent<CapsuleCollider2D>();
     }
 
     private void Start()
@@ -141,16 +148,13 @@ namespace Enemy.AI
       yield return new WaitForSeconds(0.45f);
       isDashing = true;
 
-      // for (var i = 0; i <= 100; i++)
-      // {
-      //   if (touchingObstacle) break;
-      //
-      //   transform.position = Vector3.Lerp(transform.position, targetVec, dashSpeed * Time.deltaTime);
-      //   yield return new WaitForEndOfFrame();
-      // }
-
       while (isDashing)
       {
+        Debug.DrawRay(transform.position, transform.right * stopDistance, Color.magenta);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, capsule2D.bounds.size, 0f, transform.right, stopDistance, targetMask);
+
+        if (hit) yield return false;
+
         transform.Translate(Vector3.right * (Time.deltaTime * (dashSpeed * 10)));
         yield return new WaitForEndOfFrame();
       }

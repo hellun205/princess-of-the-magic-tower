@@ -12,10 +12,14 @@ namespace Player
     
     private Coroutiner deathCrt;
 
+    public GameObject nightLight, dayLight; // 추가
+    public PlayerMove playerMove; // 추가
+
     private void Awake()
     {
       deathCrt = new(DeathRoutine);
       skill = GetComponent<PlayerSkill>();
+      playerMove = GetComponent<PlayerMove>(); // 추가
     }
 
     public void Death()
@@ -38,6 +42,14 @@ namespace Player
         GameManager.Scene.Load("Test", new TransitionOption(Transitions.FADEOUT, 2),
           new TransitionOption(Transitions.FADEIN, 2), smoothPause: true);
       }
+    }
+
+    public void SwitchToNight(bool type) // 추가
+    {
+      if (!playerMove.isDashing) return;
+
+      nightLight.SetActive(type);
+      dayLight.SetActive(!type);
     }
   }
 }
