@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Managers;
 using UnityEngine;
 
@@ -9,37 +10,39 @@ namespace Interact
     [Header("Interact Setting")]
     public InteractType type;
 
+    public InteractCaster detectCaster;
+
     public InteractCondition condition;
 
-    protected abstract void OnInteract();
+    private List<GameObject> interacters = new();
 
-    private void OnTriggerStay2D(Collider2D collision)
+    protected abstract void OnInteract(GameObject caster);
+
+    public void Interact(InteractCondition condition, GameObject go)
     {
-      if (!collision.CompareTag("Player")) return;
-      CheckCondition(InteractType.Stay);
-      
+      if ((this.condition & condition) == 0) return;
+
+      if (!interacters.Contains(go))
+        interacters.Add(go);
+      else if (type == InteractType.First) return;
+
+      OnInteract(go);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-      if (!collision.CompareTag("Player")) return;
-      CheckCondition(InteractType.Enter);
+      Remove(other.gameObject);
     }
 
-    private void CheckCondition(InteractType eventType)
+    private void OnCollisionExit2D(Collision2D other)
     {
-      Debug.Log("Interact");
-      if ((condition & InteractCondition.Dash) != 0 && GameManager.Player.move.isDashing)
-        CheckType(eventType);
-      if ((condition & InteractCondition.Walk) != 0)
-        CheckType(eventType);
+      Remove(other.gameObject);
     }
 
-    private void CheckType(InteractType eventType)
+    public void Remove(GameObject go)
     {
-      if (type != eventType) return;
-      
-      OnInteract();
+      if (interacters.Contains(go))
+        interacters.Remove(go);
     }
   }
 }

@@ -1,4 +1,6 @@
 using System;
+using Interact;
+using Interact.Object;
 using Managers;
 using Player.UI;
 using Pool;
@@ -6,12 +8,20 @@ using UnityEngine;
 
 namespace Enemy
 {
-  public class EnemyController : UsePool
+  public class EnemyController : UsePool, IObstacleDestroyable
   {
     public int maxHp;
     public int curHp;
+    
+    [field: SerializeField]
+    [field: Min(0)]
+    public int destroyLevel { get; set; }
 
-    private EnemyMove enemyMove;
+    [NonSerialized]
+    public EnemyMove move;
+
+    [NonSerialized]
+    public Interacter interacter;
     
     public string map;
 
@@ -20,7 +30,8 @@ namespace Enemy
     protected override void Awake()
     {
       base.Awake();
-      enemyMove = GetComponent<EnemyMove>();
+      move = GetComponent<EnemyMove>();
+      interacter = GetComponent<Interacter>();
     }
     
     public void SetMap(string value)
@@ -36,13 +47,12 @@ namespace Enemy
 
     public void FindPlayer()
     {
-      enemyMove.StartAI();
+      move.StartAI();
     }
     
     protected override void OnKill()
     {
       GameManager.Map.Find(map).enemies.Remove(pool.index);
-      // GameManager.Map.OnKillEnemy();
     }
 
     public void Hit(int damage)

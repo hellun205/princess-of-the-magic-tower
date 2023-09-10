@@ -1,8 +1,8 @@
 using System;
+using Interact;
 using Managers;
 using Scene;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Util;
 
 namespace Player
@@ -11,12 +11,26 @@ namespace Player
   {
     public bool testMode;
 
+    [NonSerialized]
     public PlayerSkill skill;
+    
+    [NonSerialized]
     private PlayerMove playerMove;
+    
+    [NonSerialized]
     public new PlayerAnimation animation;
+    
+    [NonSerialized]
     private Coroutiner deathCrt;
+    
+    [NonSerialized]
     public PlayerMove move;
+    
+    [NonSerialized]
     public new PlayerLight light;
+    
+    [NonSerialized]
+    public Interacter interacter;
 
     private void Awake()
     {
@@ -25,6 +39,7 @@ namespace Player
       playerMove = GetComponent<PlayerMove>();
       move = GetComponent<PlayerMove>();
       light = GetComponent<PlayerLight>();
+      interacter = GetComponent<Interacter>();
 
       DontDestroyOnLoad(gameObject);
     }
