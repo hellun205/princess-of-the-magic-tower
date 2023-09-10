@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 01c07451ba284cbfa85282f6b322de7c
+=======
+<<<<<<< HEAD:Assets/Scripts/Map/Obstacle/Box.cs.meta
+guid: 5342250fcd1e73c4a8d370aa67d29f49
+=======
+guid: 01c07451ba284cbfa85282f6b322de7c
+>>>>>>> dev:Assets/Scripts/Managers/ManagerLoader.cs.meta
+>>>>>>> dev
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
