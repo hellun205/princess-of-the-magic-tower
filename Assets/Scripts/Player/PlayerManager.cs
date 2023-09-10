@@ -3,6 +3,7 @@ using Interact;
 using Managers;
 using Scene;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Util;
 
 namespace Player

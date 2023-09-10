@@ -1,4 +1,4 @@
-﻿using Managers;
+using Managers;
 using UnityEngine;
 
 namespace Interact.Object
