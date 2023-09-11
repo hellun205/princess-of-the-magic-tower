@@ -1,26 +1,27 @@
 ﻿using System;
 using Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Map
 {
-  [RequireComponent(typeof(CircleCollider2D))]
-  public class Link: MonoBehaviour
+  [RequireComponent(typeof(Collider2D))]
+  public class Link : MonoBehaviour
   {
-    [FormerlySerializedAs("collider")]
-    public CircleCollider2D col;
-    public string currentRoomName;
+    private Collider2D col;
     
+    [NonSerialized]
+    public string currentRoomName;
+
+#if UNITY_EDITOR
     private void Reset()
     {
-      col = GetComponent<CircleCollider2D>();
+      col = GetComponent<Collider2D>();
       col.isTrigger = true;
     }
-
-    private void OnTriggerEnter2D(Collider2D col)
+#endif
+    private void OnTriggerEnter2D(Collider2D other)
     {
-      if (!col.CompareTag("Player")) return;
+      if (!other.CompareTag("Player")) return;
 
       GameManager.Map.MoveTo(name, currentRoomName);
     }

@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 24696925}
-  currentRoomName: 
+  currentRoomName: room2
 --- !u!58 &24696925
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -402,7 +402,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46168b0e600c48b7a34ff7f4bf6530d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 694451206}
   col: {fileID: 694451205}
 --- !u!1 &201055090
 GameObject:
@@ -728,7 +727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 320802782}
-  currentRoomName: 
+  currentRoomName: room2
 --- !u!58 &320802782
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -970,7 +969,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46168b0e600c48b7a34ff7f4bf6530d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 2042948348}
   col: {fileID: 2042948347}
 --- !u!1 &393552585
 GameObject:
@@ -1017,7 +1015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46168b0e600c48b7a34ff7f4bf6530d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 1290080486}
   col: {fileID: 1290080485}
 --- !u!1 &449806814
 GameObject:
@@ -1408,14 +1405,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e0f27d1b0146aba7de93690ffdb050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {fileID: 0}
-  links: []
-  linkPositions: []
-  doors: []
-  summoners: []
-  doorEnable: 1
-  enemies: 
   isCleared: 0
+  backgrounds: []
+  bgColors: []
 --- !u!1 &650036673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,14 +1493,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e0f27d1b0146aba7de93690ffdb050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {fileID: 0}
-  links: []
-  linkPositions: []
-  doors: []
-  summoners: []
-  doorEnable: 1
-  enemies: 
   isCleared: 0
+  backgrounds: []
+  bgColors: []
 --- !u!1 &666290540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,7 +1740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46168b0e600c48b7a34ff7f4bf6530d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 484977519}
   col: {fileID: 484977518}
 --- !u!1 &689882731
 GameObject:
@@ -1962,7 +1948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 698010810}
-  currentRoomName: 
+  currentRoomName: room4
 --- !u!58 &698010810
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2173,14 +2159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e0f27d1b0146aba7de93690ffdb050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {fileID: 0}
-  links: []
-  linkPositions: []
-  doors: []
-  summoners: []
-  doorEnable: 1
-  enemies: 
   isCleared: 0
+  backgrounds: []
+  bgColors: []
 --- !u!1 &797814143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,14 +2495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e0f27d1b0146aba7de93690ffdb050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {fileID: 0}
-  links: []
-  linkPositions: []
-  doors: []
-  summoners: []
-  doorEnable: 1
-  enemies: 
   isCleared: 0
+  backgrounds: []
+  bgColors: []
 --- !u!1 &928970216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2646,7 +2622,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3330,7 +3306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 1252810311}
-  currentRoomName: 
+  currentRoomName: room3
 --- !u!58 &1252810311
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3625,7 +3601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46168b0e600c48b7a34ff7f4bf6530d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 1198966274}
   col: {fileID: 1198966273}
 --- !u!1 &1355650573
 GameObject:
@@ -4933,7 +4908,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46168b0e600c48b7a34ff7f4bf6530d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 2067093917}
   col: {fileID: 2067093916}
 --- !u!1 &1838676498
 GameObject:
@@ -5131,7 +5105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 2019774776}
-  currentRoomName: 
+  currentRoomName: room1
 --- !u!58 &2019774776
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5511,7 +5485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 2073423216}
-  currentRoomName: 
+  currentRoomName: room3
 --- !u!58 &2073423216
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5769,7 +5743,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5957,7 +5931,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6263,7 +6237,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

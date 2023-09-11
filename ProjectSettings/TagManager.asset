@@ -16,7 +16,7 @@ TagManager:
   - Player
   - Obstacle
   - Collider
-  - 
+  - Wall
   - 
   - 
   - 
@@ -42,6 +42,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Room
+    uniqueID: 1129351277
+    locked: 0
+  - name: Object
+    uniqueID: 3120402297
+    locked: 0
+  - name: Character
+    uniqueID: 1918533851
     locked: 0
   - name: UIPoolObject
     uniqueID: 444042313
