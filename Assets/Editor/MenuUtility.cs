@@ -1,5 +1,4 @@
 ﻿using UnityEditor;
-using UnityEngine;
 
 namespace Editor
 {
@@ -7,9 +6,7 @@ namespace Editor
   {
     [MenuItem("GameObject/Stage/Room")]
     public static void CreateRoom(MenuCommand menuCommand)
-    {
-      CreateUtility.CreateObject("test",menuCommand, typeof(CircleCollider2D));
-    }
+      => CreateUtility.CreatePrefab("Custom/Room/room",menuCommand);
     
     [MenuItem("GameObject/Stage/Door/Left")]
     public static void CreateDoorLeft(MenuCommand menuCommand) 

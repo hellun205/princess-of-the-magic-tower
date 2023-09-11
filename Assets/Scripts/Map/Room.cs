@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Pool;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Map
 {
@@ -26,6 +27,12 @@ namespace Map
     public List<PoolSummoner> summoners;
 
     [NonSerialized]
+    public List<Collider2D> walls;
+
+    [NonSerialized]
+    public List<GameObject> objects;
+
+    [NonSerialized]
     public List<int> enemies = new List<int>();
 
     public bool isCleared = false;
@@ -36,24 +43,20 @@ namespace Map
 
     [SerializeField]
     private Color[] bgColors;
-    
-    private void OnValidate()
+
+    [ContextMenu("Apply Background layers")]
+    private void ApplyBackgroundLayers()
     {
-      UnityEditor.EditorApplication.delayCall += DelayCall;
-    }
-    
-    private void DelayCall()
-    {
-      UnityEditor.EditorApplication.delayCall -= DelayCall;
-      
       var bg = transform.Find("@backgrounds");
-      
-      foreach(var obj in bg.GetComponentsInChildren<SpriteRenderer>())
+
+      foreach (var obj in bg.GetComponentsInChildren<SpriteRenderer>())
         DestroyImmediate(obj.gameObject);
-      
+
       for (var i = 0; i < backgrounds.Length; i++)
       {
         var newGo = new GameObject($"layer{i}", typeof(SpriteRenderer));
+        newGo.transform.localScale = Vector3.one;
+        newGo.transform.localPosition = Vector3.one;
         var sr = newGo.GetComponent<SpriteRenderer>();
         sr.sprite = backgrounds[i];
         sr.sortingLayerName = "Room";
@@ -72,6 +75,8 @@ namespace Map
       linkPositions = transform.Find("@link-position").GetComponentsInChildren<Transform>().ToList();
       doors = transform.Find("@door").GetComponentsInChildren<Door.Door>().ToList();
       summoners = transform.Find("@summon").GetComponentsInChildren<PoolSummoner>().ToList();
+      walls = transform.Find("@walls").GetComponents<Collider2D>().ToList();
+      objects = transform.Find("@objects").GetComponentsInChildren<Transform>().Select(x => x.gameObject).ToList();
 
       links.ForEach(link => link.currentRoomName = name);
       summoners.ForEach(summoner => summoner.room = name);
