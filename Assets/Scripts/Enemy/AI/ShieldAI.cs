@@ -3,6 +3,7 @@ using System.Collections;
 using Managers;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Util;
 
 namespace Enemy.AI
 {
@@ -174,13 +175,13 @@ namespace Enemy.AI
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-      if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+      if (other.gameObject.layer.CheckLayer("Obstacle", "Wall"))
         ResetCooltime();
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
-      if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+      if (other.gameObject.layer.CheckLayer("Obstacle", "Wall"))
         isAttacking = false;
     }
 

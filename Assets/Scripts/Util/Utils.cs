@@ -164,5 +164,8 @@ namespace Util
 
       Time.timeScale = value;
     }
+
+    public static bool CheckLayer(this int layer, params string[] checks)
+      => checks.Any(check => layer == LayerMask.NameToLayer(check));
   }
 }

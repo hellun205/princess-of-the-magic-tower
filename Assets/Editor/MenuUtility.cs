@@ -5,26 +5,38 @@ namespace Editor
 {
   public static class MenuUtility
   {
-    [MenuItem("GameObject/Custom/Room")]
+    [MenuItem("GameObject/Stage/Room")]
     public static void CreateRoom(MenuCommand menuCommand)
     {
       CreateUtility.CreateObject("test",menuCommand, typeof(CircleCollider2D));
     }
     
-    [MenuItem("GameObject/Custom/Door/Left")]
+    [MenuItem("GameObject/Stage/Door/Left")]
     public static void CreateDoorLeft(MenuCommand menuCommand) 
       => CreateUtility.CreatePrefab("Custom/Room/Door/left",menuCommand);
     
-    [MenuItem("GameObject/Custom/Door/Right")]
+    [MenuItem("GameObject/Stage/Door/Right")]
     public static void CreateDoorRight(MenuCommand menuCommand) 
       => CreateUtility.CreatePrefab("Custom/Room/Door/right",menuCommand);
     
-    [MenuItem("GameObject/Custom/Door/Top")]
+    [MenuItem("GameObject/Stage/Door/Top")]
     public static void CreateDoorTop(MenuCommand menuCommand) 
       => CreateUtility.CreatePrefab("Custom/Room/Door/top",menuCommand);
     
-    [MenuItem("GameObject/Custom/Door/Bottom")]
+    [MenuItem("GameObject/Stage/Door/Bottom")]
     public static void CreateDoorBottom(MenuCommand menuCommand) 
       => CreateUtility.CreatePrefab("Custom/Room/Door/bottom",menuCommand);
+    
+    [MenuItem("GameObject/Stage/Link/Position")]
+    public static void CreateLinkPosition(MenuCommand menuCommand) 
+      => CreateUtility.CreatePrefab("Custom/Room/linkposition",menuCommand);
+    
+    [MenuItem("GameObject/Stage/Link/To")]
+    public static void CreateLinkTo(MenuCommand menuCommand) 
+      => CreateUtility.CreatePrefab("Custom/Room/linkto",menuCommand);    
+    
+    [MenuItem("GameObject/Stage/Summoner")]
+    public static void CreateSummoner(MenuCommand menuCommand) 
+      => CreateUtility.CreatePrefab("Custom/Room/summoner",menuCommand);
   }
 }

@@ -1,19 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Managers;
-using Scene;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Map
 {
   public class StageController : MonoBehaviour
   {
-    public int stageIndex;
+    public string startRoom;
 
-    public string mainRoom;
-
+    [NonSerialized]
     public List<Room> rooms;
 
     private void Awake()

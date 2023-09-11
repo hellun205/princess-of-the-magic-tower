@@ -22,7 +22,7 @@ namespace Map
     public void OnSceneChanged()
     {
       controller = FindObjectOfType<StageController>();
-      MoveTo(controller.mainRoom);
+      MoveTo(controller.startRoom);
     }
 
     public Room Find(string name) => controller.rooms.Find(x => x.name == name);
