@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a6c4e76b9af8c0447bed02a1d3a32e08
+guid: 3b09273a2c9ef37438e39801aa26efa6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 160
+  spritePixelsToUnits: 600
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: room_door_close_left
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 747
+        width: 454
+        height: 1077
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5870e49a9d5247c4a9747025daa5ac7f
+      internalID: -1477104105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_door_close_top
+      rect:
+        serializedVersion: 2
+        x: 2062
+        y: 1820
+        width: 876
+        height: 671
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e5a65da90a3f30448b8d457ffa5a12c
+      internalID: -21691319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_door_close_right
+      rect:
+        serializedVersion: 2
+        x: 4186
+        y: 753
+        width: 454
+        height: 1077
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e62b4096ff36564e8b11722f458153e
+      internalID: -2022894555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_door_close_bottom
+      rect:
+        serializedVersion: 2
+        x: 2081
+        y: 55
+        width: 840
+        height: 293
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56cbb64e9142c7f498a2a81cc24a7436
+      internalID: -1573478607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +203,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      room_door_close_bottom: -1573478607
+      room_door_close_left: -1477104105
+      room_door_close_right: -2022894555
+      room_door_close_top: -21691319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

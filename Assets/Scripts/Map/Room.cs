@@ -3,23 +3,67 @@ using System.Collections.Generic;
 using System.Linq;
 using Pool;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Map
 {
+  [ExecuteInEditMode]
   public class Room : MonoBehaviour
   {
+    [NonSerialized]
     public Transform startPosition;
 
+    [NonSerialized]
     public List<Link> links;
+
+    [NonSerialized]
     public List<Transform> linkPositions;
+
+    [NonSerialized]
     public List<Door.Door> doors;
+
+    [NonSerialized]
     public List<PoolSummoner> summoners;
 
-    public bool doorEnable = true;
-
+    [NonSerialized]
     public List<int> enemies = new List<int>();
 
     public bool isCleared = false;
+
+#if UNITY_EDITOR
+    [SerializeField]
+    private Sprite[] backgrounds;
+
+    [SerializeField]
+    private Color[] bgColors;
+    
+    private void OnValidate()
+    {
+      UnityEditor.EditorApplication.delayCall += DelayCall;
+    }
+    
+    private void DelayCall()
+    {
+      UnityEditor.EditorApplication.delayCall -= DelayCall;
+      
+      var bg = transform.Find("@backgrounds");
+      
+      foreach(var obj in bg.GetComponentsInChildren<SpriteRenderer>())
+        DestroyImmediate(obj.gameObject);
+      
+      for (var i = 0; i < backgrounds.Length; i++)
+      {
+        var newGo = new GameObject($"layer{i}", typeof(SpriteRenderer));
+        var sr = newGo.GetComponent<SpriteRenderer>();
+        sr.sprite = backgrounds[i];
+        sr.sortingLayerName = "Room";
+        sr.sortingOrder = i;
+        if (bgColors.Length >= i + 1)
+          sr.color = bgColors[i];
+        newGo.transform.SetParent(bg.transform);
+      }
+    }
+#endif
 
     private void Awake()
     {
@@ -37,27 +81,14 @@ namespace Map
     public void AddEnemy(int index)
     {
       enemies.Add(index);
-      // SetDoorState(true);
     }
 
     public void OnEntered()
     {
       if (isCleared) return;
-      
+
       summoners.ForEach(summoner => summoner.Summon());
       doors.ForEach(door => door.OnEntered());
     }
-
-    // public void SetDoorState(bool state)
-    // {
-    //   if (doorEnable == state) return;
-    //   
-    //   doorEnable = state;
-    //   foreach (var door in doors)
-    //     if (state)
-    //       door.Close();
-    //     else
-    //       door.Open();
-    // }
   }
 }

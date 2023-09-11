@@ -8,10 +8,9 @@ namespace Map.Door
   public abstract class Door : MonoBehaviour
   {
     [SerializeField]
-    protected SpriteRenderer sr;
-    
-    [SerializeField]
-    protected BoxCollider2D col;
+    protected Collider2D col;
+
+    private Animator anim;
 
     [NonSerialized]
     public Room room;
@@ -20,17 +19,19 @@ namespace Map.Door
     
     public virtual void Close()
     {
-      SetCollider(true);
-      sr.DOFade(1f, 1f);
+      anim.SetBool("state", false);
     }
 
     public virtual void Open()
     {
-      sr.DOFade(0f, 1f).OnComplete(() => SetCollider(false));
+      anim.SetBool("state", true);
     }
 
     protected void SetCollider(bool enable)
       => col.enabled = enable;
+
+    protected void DisableCollider() => SetCollider(false);
+    protected void EnableCollider() => SetCollider(true);
 
     public virtual void OnEntered()
     {
@@ -44,7 +45,7 @@ namespace Map.Door
 
     private void Awake()
     {
-      Open();
+      anim = GetComponent<Animator>();
     }
   }
 }
