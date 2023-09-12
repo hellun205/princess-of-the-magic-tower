@@ -35,5 +35,9 @@ namespace Editor
     [MenuItem("GameObject/Stage/Summoner")]
     public static void CreateSummoner(MenuCommand menuCommand) 
       => CreateUtility.CreatePrefab("Custom/Room/summoner",menuCommand);
+    
+    [MenuItem("GameObject/Trap/Thorn")]
+    public static void CreateTrapThorn(MenuCommand menuCommand) 
+      => CreateUtility.CreatePrefab("Custom/Trap/thorn",menuCommand);
   }
 }
