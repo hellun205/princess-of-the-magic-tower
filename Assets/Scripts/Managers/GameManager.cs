@@ -51,7 +51,7 @@ namespace Managers
     {
       ManagedObject.Get("menu_panel").SetActive(false);
       ManagedObject.Get<Button>("menu_button").onClick.AddListener(OnMenuButtonClick);
-      ManagedObject.Get<Touch>("menu_panel").onTouch.AddListener(e => CloseMenu());
+      ManagedObject.Get<Touch>("menu_panel").onTouch += e => CloseMenu();
       ManagedObject.Get<Button>("menu_btn_setting").onClick.AddListener(OpenSetting);
       ManagedObject.Get<Button>("menu_btn_continue").onClick.AddListener(CloseMenu);
       ManagedObject.Get<Button>("menu_btn_title").onClick.AddListener(GoToTitle);
