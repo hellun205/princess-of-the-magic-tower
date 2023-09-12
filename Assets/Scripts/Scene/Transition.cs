@@ -27,9 +27,34 @@ namespace Scene
 
   public static class Transitions
   {
+    public enum Direction
+    {
+      Left,
+      Right,
+      Bottom,
+      Top
+    }
+
+    public static Direction ToReverse(this Direction dir)
+      => dir switch
+      {
+        Direction.Left => Direction.Right,
+        Direction.Right => Direction.Left,
+        Direction.Bottom => Direction.Top,
+        Direction.Top => Direction.Bottom,
+        _ => throw new NotImplementedException()
+      };
+
+    public static char GetInitial(this Direction dir) => dir.ToString()[0];
+
     public const string FADEIN = "FadeIn";
     public const string IN = "In";
     public const string FADEOUT = "FadeOut";
     public const string OUT = "Out";
+    public static string PUSHIN(Direction start) 
+      => $"Push{start.GetInitial()}2{start.ToReverse().GetInitial()}In";
+    
+    public static string PUSHOUT(Direction start) 
+      => $"Push{start.GetInitial()}2{start.ToReverse().GetInitial()}Out";
   }
 }

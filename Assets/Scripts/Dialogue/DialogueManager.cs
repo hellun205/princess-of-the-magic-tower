@@ -27,7 +27,7 @@ namespace Dialogue
     {
       panel = GameManager.ManagedObject.Get("dialogue_panel");
       binder = new Binder(panel).Bind('*');
-      panel.GetComponent<Touch>().onTouch.AddListener(_ => OnClick());
+      panel.GetComponent<Touch>().onTouch += _ => OnClick();
       panel.SetActive(false);
     }
 

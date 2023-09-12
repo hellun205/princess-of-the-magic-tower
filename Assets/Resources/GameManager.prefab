@@ -558,7 +558,6 @@ GameObject:
   - component: {fileID: 2775126203365103475}
   - component: {fileID: 8593434217527519561}
   - component: {fileID: 3423551873025520582}
-  - component: {fileID: 5367518596054129118}
   m_Layer: 0
   m_Name: '@transition'
   m_TagString: Untagged
@@ -656,19 +655,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5367518596054129118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2596509839392758456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a97aeca3e1f22f540a23bb94a5dddac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetImg: {fileID: 0}
 --- !u!1 &3374963877879506103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,9 +1521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad2b1d0625c40669be6c3d899bc5b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5620063178592858623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,9 +1610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad2b1d0625c40669be6c3d899bc5b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5650405064326672369
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,9 +2147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: ui/dashitem
-  maxCount: 0
-  currentCount: 0
-  additionalCount: 0
 --- !u!1 &7338594219737408818
 GameObject:
   m_ObjectHideFlags: 0
