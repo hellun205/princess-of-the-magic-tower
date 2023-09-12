@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Util;
 using static Util.Utils;
 
 namespace Scene
@@ -106,7 +105,6 @@ namespace Scene
     public SceneLoader Load()
     {
       if (isLoading) return this;
-        // throw new Exception($"already loading scene: {sceneName}");
       coroutine = GameManager.Manager.StartCoroutine(LoadRoutine());
       return this;
     }

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Util;
 
 namespace Enemy.AI
@@ -28,7 +27,6 @@ namespace Enemy.AI
 
     [Header("Dash")]
     public bool canDash;
-    // private bool isDashing = false;
 
     [NonSerialized]
     private bool touchingObstacle = false;

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interact
@@ -36,7 +35,7 @@ namespace Interact
     private void Interact(GameObject go)
     {
       if (!Check(go, out var io)) return;
-      io.Interact(currentCondition, gameObject);
+      io.Interact(this);
     }
 
     private void Add(GameObject go)

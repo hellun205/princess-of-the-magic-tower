@@ -1,20 +1,14 @@
-using Managers;
 using System;
 using UnityEngine;
 
 namespace Scene
 {
-  public class Transition : MonoBehaviour
+  public class Transition
   {
-    public Animator targetImg;
+    public Animator targetImg = GameObject.Find("@transition").GetComponent<Animator>();
 
     private Action callback;
 
-    private void Awake()
-    {
-      targetImg = GameObject.Find("@transition").GetComponent<Animator>();
-    }
-    
     /// <summary>
     /// 전환 애니메이션을 실행합니다.
     /// </summary>

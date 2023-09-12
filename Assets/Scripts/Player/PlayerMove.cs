@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Enemy;
@@ -153,9 +152,6 @@ namespace Player
 
         dummy.GetComponent<SpriteRenderer>().color = color;
         count++;
-
-        // if (count == 9)
-        //   count = 8;
       }
     }
 
@@ -175,9 +171,6 @@ namespace Player
 
     private void OnTriggerStay2D(Collider2D other)
     {
-      // if (!isDashing && other.CompareTag("Enemy")) 
-      //   manager.Death();
-      
       if (!isDashing || !other.CompareTag("Enemy")) return;
       var enemy = other.GetComponent<EnemyController>();
 

@@ -8,9 +8,9 @@ namespace Pool
 {
   public sealed class PoolManager
   {
-    public PoolObjectCollection objects;
+    public PoolObjectCollection objects = Object.FindObjectOfType<PoolObjectCollection>();
 
-    public Dictionary<string, IObjectPool<PoolObject>> pools;
+    public Dictionary<string, IObjectPool<PoolObject>> pools = new();
 
     public int index;
 
@@ -21,12 +21,6 @@ namespace Pool
     public Transform uiParent = GameObject.Find("@summoned_objects_ui").transform;
 
     private Action<PoolObject> setter;
-
-    public PoolManager()
-    {
-      pools = new Dictionary<string, IObjectPool<PoolObject>>();
-      objects = Object.FindObjectOfType<PoolObjectCollection>();
-    }
 
     public PoolObject Summon(string name, Vector2 pos, Action<PoolObject> setter = null)
     {
@@ -93,21 +87,10 @@ namespace Pool
 
     public void ClearPools()
     {
-      // foreach (var (name, obj) in pools)
-      // {
-      //   obj.Clear();
-      // }
-
       foreach (var p in parent.GetComponentsInChildren<PoolObject>())
-      {
-        // p.Release();
         Object.Destroy(p.gameObject);
-      }
       foreach (var p in uiParent.GetComponentsInChildren<PoolObject>())
-      {
-        // p.Release();
         Object.Destroy(p.gameObject);
-      }
 
       pools.Clear();
       index = 0;

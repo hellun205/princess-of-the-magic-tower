@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Managers;
 using UnityEngine;
@@ -13,7 +12,6 @@ namespace Enemy.AI
     [Header("Value")]
     public bool awake;
     public bool canAttack;
-    // public bool isAttacking;
     
     public float moveSpeed;
     public float findRad;
@@ -127,16 +125,6 @@ namespace Enemy.AI
       {
         EnemyController.AttackPlayer();
       }
-      // else if(other.transform.CompareTag("Obstacle"))
-      // {
-      //   var obstacle = other.GetComponent<Obstacle>();
-      //
-      //   if(obstacle.destroyLevel <= destroyLevel)
-      //   {
-      //     obstacle.DecreaseHP();
-      //     Debug.Log($"{gameObject.name} hitted {obstacle.gameObject.name}");
-      //   }
-      // }
     }
   }
 }

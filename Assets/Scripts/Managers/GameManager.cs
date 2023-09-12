@@ -1,4 +1,3 @@
-using System;
 using Dialogue;
 using Map;
 using Player;
@@ -16,26 +15,25 @@ namespace Managers
     public static GameManager Manager { get; private set; }
     public static MapManager Map { get; private set; }
     public static PlayerManager Player { get; private set; }
-    // public static SceneLoader Scene { get; private set; }
     public static Transition Transition { get; private set; }
 
     public static PoolManager Pool { get; private set; }
-
-    // public static ManagedObjectManager ManagedObject { get; private set; }
     public static Binder ManagedObject { get; private set; }
     public static ObjectCollection Prefabs { get; private set; }
     public static DialogueManager Dialogue { get; private set; }
     public static AvatarCollection Avatars { get; private set; }
+
+    public delegate void GameManagerEventListener();
+
+    public static event GameManagerEventListener OnLoaded;
 
     private void Init()
     {
       Manager = this;
       Map = FindObjectOfType<MapManager>();
       Player = FindObjectOfType<PlayerManager>();
-      // Scene = new SceneLoader();
-      Transition = FindObjectOfType<Transition>();
+      Transition = new Transition();
       Pool = new PoolManager();
-      // ManagedObject = FindObjectOfType<ManagedObjectManager>();
       ManagedObject = new Binder().Bind('$');
       Prefabs = GameObject.Find("@prefab_objects").GetComponent<ObjectCollection>();
       Dialogue = FindObjectOfType<DialogueManager>();
@@ -46,13 +44,14 @@ namespace Managers
     {
       DontDestroyOnLoad(gameObject);
       Init();
+      OnLoaded?.Invoke();
     }
 
     private void Start()
     {
       ManagedObject.Get("menu_panel").SetActive(false);
       ManagedObject.Get<Button>("menu_button").onClick.AddListener(OnMenuButtonClick);
-      ManagedObject.Get<Touch>("menu_panel").onClick.AddListener(e => CloseMenu());
+      ManagedObject.Get<Touch>("menu_panel").onTouch.AddListener(e => CloseMenu());
       ManagedObject.Get<Button>("menu_btn_setting").onClick.AddListener(OpenSetting);
       ManagedObject.Get<Button>("menu_btn_continue").onClick.AddListener(CloseMenu);
       ManagedObject.Get<Button>("menu_btn_title").onClick.AddListener(GoToTitle);
@@ -77,7 +76,6 @@ namespace Managers
     private void GoToTitle()
     {
       CloseMenu();
-      // Scene.Load("TitleScene", Transitions.FADEOUT, Transitions.IN);
       new SceneLoader("TitleScene")
        .Out(Transitions.FADEOUT)
        .In(Transitions.FADEIN)

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using Managers;
 using TMPro;
 using UnityEngine;
@@ -28,7 +27,7 @@ namespace Dialogue
     {
       panel = GameManager.ManagedObject.Get("dialogue_panel");
       binder = new Binder(panel).Bind('*');
-      panel.GetComponent<Touch>().onClick.AddListener(_ => OnClick());
+      panel.GetComponent<Touch>().onTouch.AddListener(_ => OnClick());
       panel.SetActive(false);
     }
 

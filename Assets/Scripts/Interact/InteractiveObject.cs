@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System;
-using Managers;
 using UnityEngine;
 
 namespace Interact
@@ -18,15 +16,16 @@ namespace Interact
 
     protected abstract void OnInteract(GameObject caster);
 
-    public void Interact(InteractCondition condition, GameObject go)
+    public void Interact(Interacter interacter)
     {
-      if ((this.condition & condition) == 0) return;
+      if ((condition & interacter.currentCondition) == 0) return;
+      if ((detectCaster & interacter.caster) == 0) return;
 
-      if (!interacters.Contains(go))
-        interacters.Add(go);
+      if (!interacters.Contains(interacter.gameObject))
+        interacters.Add(interacter.gameObject);
       else if (type == InteractType.First) return;
 
-      OnInteract(go);
+      OnInteract(interacter.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D other)

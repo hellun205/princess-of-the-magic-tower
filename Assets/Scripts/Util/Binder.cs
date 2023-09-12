@@ -14,13 +14,13 @@ namespace Util
     public Dictionary<string, GameObject> objects = new();
 
     private Transform tr;
-    
+
     /// <param name="mb">MonoBehaviour</param>
     public Binder(MonoBehaviour mb)
     {
-      tr  = mb.transform;
+      tr = mb.transform;
     }
-    
+
     /// <param name="go">GameObject</param>
     public Binder(GameObject go)
     {
@@ -29,10 +29,9 @@ namespace Util
 
     public Binder()
     {
-      
     }
 
-    private Transform[] GetList() 
+    private Transform[] GetList()
       => tr != null ? tr.GetComponentsInChildren<Transform>() : Object.FindObjectsOfType<Transform>();
 
     /// <summary>

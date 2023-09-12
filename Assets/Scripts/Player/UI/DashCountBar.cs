@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Managers;
 using UnityEngine;
@@ -15,12 +14,6 @@ namespace Player.UI
     private List<Image> activedItems = new();
 
     public string itemPrefab;
-
-    public int maxCount;
-
-    public int currentCount;
-
-    public int additionalCount;
 
     private DashType tmpType;
 
