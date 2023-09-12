@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Managers;
+using Scene;
 using Random = UnityEngine.Random;
 
 namespace Util
@@ -95,7 +96,14 @@ namespace Util
     public static IEnumerator Routine(CustomYieldInstruction yieldInstruction, Action fn)
     {
       yield return yieldInstruction;
-      fn.Invoke();
+      try
+      {
+        fn.Invoke();
+      }
+      catch (Exception e)
+      {
+        Debug.Log($"Pass Error: {e.Message}");
+      }
     }
 
     public static Vector3 WorldToScreenSpace(this RectTransform canvas, Vector3 worldPos)
@@ -103,7 +111,8 @@ namespace Util
       var screenPoint = UnityEngine.Camera.main.WorldToScreenPoint(worldPos);
       screenPoint.z = 0;
 
-      if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas, screenPoint, UnityEngine.Camera.main, out var screenPos))
+      if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas, screenPoint, UnityEngine.Camera.main,
+            out var screenPos))
         return screenPos;
 
       return screenPoint;
