@@ -102,7 +102,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b4396ceb45833e848992088e06945d5b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4770e6084e6e92441bee5db3e9ce33b9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -128,7 +128,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 855527baeb3c26d499c16764e57ac993, type: 2}
+  m_Motion: {fileID: 7400000, guid: 02fc5d4a5fd98d74a9e854d57f29fcd6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -140,7 +140,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: right
+  m_Name: door
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: state
@@ -148,13 +148,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: force
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -216,7 +216,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 96d93ee80a21e1b4d9fe4a59a5dea28f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9f5f51edb046dc447949620cdc9fc30d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -242,7 +242,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 74f5e2c4019fe10479f66073b729e595, type: 2}
+  m_Motion: {fileID: 7400000, guid: d32ca0560404ffc439dbcd5f5f4fd0f4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

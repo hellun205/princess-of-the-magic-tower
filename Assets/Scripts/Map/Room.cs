@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AYellowpaper.SerializedCollections;
 using Managers;
 using Pool;
 using UnityEngine;
+using Util;
 
 namespace Map
 {
@@ -42,7 +44,9 @@ namespace Map
 
     [Header("Camera")]
     public float zoom = 10f;
-    
+
+    [Header("Resource")]
+    public SerializedDictionary<Direction, Sprite[]> doorSprites;
 #if UNITY_EDITOR
     [SerializeField]
     private Sprite[] backgrounds;
@@ -72,6 +76,12 @@ namespace Map
         newGo.transform.SetParent(bg.transform);
       }
     }
+
+    [ContextMenu("Apply Door Sprites")]
+    public void ApplyDoorSprites()
+    {
+      doors.ForEach(door => door.SetSprite(0));
+    }
 #endif
 
     private void Awake()
@@ -84,7 +94,7 @@ namespace Map
       walls = transform.Find("@walls").GetComponents<Collider2D>().ToList();
       objects = transform.Find("@objects").GetComponentsInChildren<Transform>().Select(x => x.gameObject).ToList();
       confinerBound = transform.Find("@confiner-bounding").GetComponent<Collider2D>();
-        
+
       links.ForEach(link => link.currentRoomName = name);
       summoners.ForEach(summoner => summoner.room = name);
       doors.ForEach(door => door.room = this);
@@ -99,7 +109,7 @@ namespace Map
     {
       GameManager.Camera.confiner2D.m_BoundingShape2D = confinerBound;
       GameManager.Camera.SetZoom(zoom);
-      
+
       if (isCleared) return;
 
       summoners.ForEach(summoner => summoner.Summon());
