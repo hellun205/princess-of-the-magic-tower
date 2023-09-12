@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Managers;
 using Pool;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 namespace Map
@@ -35,8 +34,15 @@ namespace Map
     [NonSerialized]
     public List<int> enemies = new List<int>();
 
+    [NonSerialized]
+    public Collider2D confinerBound;
+
+    [Header("Room")]
     public bool isCleared = false;
 
+    [Header("Camera")]
+    public float zoom = 10f;
+    
 #if UNITY_EDITOR
     [SerializeField]
     private Sprite[] backgrounds;
@@ -77,7 +83,8 @@ namespace Map
       summoners = transform.Find("@summon").GetComponentsInChildren<PoolSummoner>().ToList();
       walls = transform.Find("@walls").GetComponents<Collider2D>().ToList();
       objects = transform.Find("@objects").GetComponentsInChildren<Transform>().Select(x => x.gameObject).ToList();
-
+      confinerBound = transform.Find("@confiner-bounding").GetComponent<Collider2D>();
+        
       links.ForEach(link => link.currentRoomName = name);
       summoners.ForEach(summoner => summoner.room = name);
       doors.ForEach(door => door.room = this);
@@ -90,6 +97,9 @@ namespace Map
 
     public void OnEntered()
     {
+      GameManager.Camera.confiner2D.m_BoundingShape2D = confinerBound;
+      GameManager.Camera.SetZoom(zoom);
+      
       if (isCleared) return;
 
       summoners.ForEach(summoner => summoner.Summon());

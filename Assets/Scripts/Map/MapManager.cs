@@ -1,11 +1,8 @@
 using System;
-using System.Collections;
-using System.Linq;
 using Managers;
 using Scene;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Util;
 
 namespace Map
 {
@@ -27,7 +24,7 @@ namespace Map
 
     public Room Find(string name) => controller.rooms.Find(x => x.name == name);
 
-    public void MoveTo(string roomName, string link = "")
+    public void MoveTo(string roomName, string beforeRoom = "", Link link = null)
     {
       var room = controller.rooms.Find(r => r.name == roomName);
 
@@ -35,11 +32,28 @@ namespace Map
       {
         currentRoom = room;
 
-        GameManager.Player.transform.position = string.IsNullOrEmpty(link) switch
+        var pos = string.IsNullOrEmpty(beforeRoom) switch
         {
-          true => room.startPosition.position,
-          false => room.linkPositions.Find(t => t.name == link).position
+          true  => room.startPosition.position,
+          false => room.linkPositions.Find(t => t.name == beforeRoom).position
         };
+
+        var playerPos = GameManager.Player.transform.position;
+        Vector2 targetPos;
+
+        if (!string.IsNullOrEmpty(beforeRoom) && link is not null)
+        {
+          var targetLinkPos = room.linkPositions.Find(t => t.name == beforeRoom);
+          targetPos = new Vector2
+          (
+            link.ignoreX ? playerPos.x : targetLinkPos.position.x,
+            link.ignoreY ? playerPos.y : targetLinkPos.position.y
+          );
+        }
+        else
+          targetPos = room.startPosition.position;
+
+        GameManager.Player.transform.position = targetPos;
 
         room.OnEntered();
       }
@@ -59,12 +73,12 @@ namespace Map
     public void LoadStageFromSceneName(string sceneName, TransitionOption outT, TransitionOption inT)
     {
       new SceneLoader(sceneName)
-        .Out(outT)
-        .In(inT)
-        .PauseOnTransitioning()
-        .OnEndOut(() => GameManager.Pool.ClearPools())
-        .OnStartIn(OnSceneChanged)
-        .Load();
+       .Out(outT)
+       .In(inT)
+       .PauseOnTransitioning()
+       .OnEndOut(() => GameManager.Pool.ClearPools())
+       .OnStartIn(OnSceneChanged)
+       .Load();
     }
   }
 }

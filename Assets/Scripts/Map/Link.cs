@@ -8,6 +8,10 @@ namespace Map
   public class Link : MonoBehaviour
   {
     private Collider2D col;
+
+    public bool ignoreX;
+    
+    public bool ignoreY;
     
     [NonSerialized]
     public string currentRoomName;
@@ -23,7 +27,7 @@ namespace Map
     {
       if (!other.CompareTag("Player")) return;
 
-      GameManager.Map.MoveTo(name, currentRoomName);
+      GameManager.Map.MoveTo(name, currentRoomName, this);
     }
   }
 }
