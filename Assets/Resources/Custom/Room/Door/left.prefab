@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46168b0e600c48b7a34ff7f4bf6530d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  col: {fileID: 3354735569374818494}
+  direction: 0
 --- !u!212 &5655392167482768570
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ Animator:
   m_GameObject: {fileID: 476777935128377272}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f9bf9745b2fa5bf46845a863048337a3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2b11e2de1da478b4a8ba345134472dd2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

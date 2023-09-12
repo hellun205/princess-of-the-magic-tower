@@ -6,16 +6,20 @@ namespace Map.Door
 {
   public abstract class Door : MonoBehaviour
   {
-    [SerializeField]
+    public Direction direction;
+
     protected Collider2D col;
 
     private Animator anim;
 
     [NonSerialized]
     public Room room;
-    
+
+    [NonSerialized]
+    public SpriteRenderer spriteRenderer;
+
     public abstract bool CheckClear { get; }
-    
+
     [ContextMenu("Close")]
     public virtual void Close()
     {
@@ -48,6 +52,7 @@ namespace Map.Door
       => col.enabled = enable;
 
     protected void DisableCollider() => SetCollider(false);
+
     protected void EnableCollider() => SetCollider(true);
 
     public virtual void OnEntered()
@@ -57,7 +62,7 @@ namespace Map.Door
         ForceOpen();
         return;
       }
-      
+
       Close();
       Utils.WaitUntil(() => CheckClear, () => Utils.Wait(1f, () =>
       {
@@ -69,6 +74,11 @@ namespace Map.Door
     private void Awake()
     {
       anim = GetComponent<Animator>();
+      col = GetComponent<Collider2D>();
+      spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
+    public void SetSprite(int index)
+      => spriteRenderer.sprite = room.doorSprites[direction][index];
   }
 }
