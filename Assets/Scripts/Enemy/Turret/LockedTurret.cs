@@ -3,69 +3,78 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Direction
+
+namespace Enemy.Turret
 {
-  Down, Up, Left, Right
-}
-
-public class LockedTurret : MonoBehaviour
-{
-  [Header("Value")] 
-  public bool awake;
-  public bool debugMode;
-  
-  public float fireCooltime;
-
-  public float destroyTime;
-  
-  public Direction direction;
-  public Vector2 dirVec;
-  
-  public Transform firePos;
-  
-  [Header("prefab")]
-  public GameObject bullet_obj;
-
-  private Animator animator;
-
-  private void Awake()
+  public enum Direction
   {
-    animator = GetComponent<Animator>();
+    Down, Up, Left,
+    Right
   }
 
-  private void Start()
+  public class LockedTurret : MonoBehaviour
   {
-    switch (direction)
+    [Header("Value")]
+    public bool awake;
+
+    public bool debugMode;
+
+    public float fireCooltime;
+
+    public float destroyTime;
+
+    public Direction direction;
+    public Vector2 dirVec;
+
+    public Transform firePos;
+
+    [Header("prefab")]
+    public GameObject bullet_obj;
+
+    private Animator animator;
+
+    private void Awake()
     {
-      case Direction.Left:
-        dirVec = Vector2.left;
-        break;
-      case Direction.Right:
-        dirVec = Vector2.right;
-        break;
-      case Direction.Up:
-        dirVec = Vector2.up;
-        break;
-      case Direction.Down:
-        dirVec = Vector2.down;
-        break;
+      animator = GetComponent<Animator>();
     }
 
-    StartCoroutine(WaitTillAwake());
-  }
+    private void Start()
+    {
+      switch (direction)
+      {
+        case Direction.Left:
+          dirVec = Vector2.left;
+          break;
 
-  IEnumerator WaitTillAwake()
-  {
-    yield return new WaitUntil(() => awake);
+        case Direction.Right:
+          dirVec = Vector2.right;
+          break;
 
-    InvokeRepeating("Fire", 0f, fireCooltime);
-  }
-  
-  private void Fire()
-  {
-    Bullet bullet = Instantiate(bullet_obj, firePos.position, Quaternion.identity).GetComponent<Bullet>();
-    bullet.SetBulletAwake(dirVec, destroyTime);
-    
-    animator.SetTrigger("isFire");
+        case Direction.Up:
+          dirVec = Vector2.up;
+          break;
+
+        case Direction.Down:
+          dirVec = Vector2.down;
+          break;
+      }
+
+      StartCoroutine(WaitTillAwake());
+    }
+
+    IEnumerator WaitTillAwake()
+    {
+      yield return new WaitUntil(() => awake);
+
+      InvokeRepeating("Fire", 0f, fireCooltime);
+    }
+
+    private void Fire()
+    {
+      Bullet bullet = Instantiate(bullet_obj, firePos.position, Quaternion.identity).GetComponent<Bullet>();
+      bullet.SetBulletAwake(dirVec, destroyTime);
+
+      animator.SetTrigger("isFire");
+    }
   }
 }
