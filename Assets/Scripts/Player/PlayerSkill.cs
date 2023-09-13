@@ -1,13 +1,16 @@
 using System;
 using Managers;
 using Player.UI;
+using UI;
 using UnityEngine;
+using Util;
 
 namespace Player
 {
   public class PlayerSkill : MonoBehaviour
   {
     private DashCountBar dashBar;
+    private CooledTouch dashBtn;
     private PlayerMove thePlayerMove;
 
     [NonSerialized]
@@ -18,40 +21,29 @@ namespace Player
 
     public int maxDashCount = 3;
 
-    private float currentDashCooltime;
-    public float maxDashCooltime;
+    public float cooldownTime;
+    private Timer cooldownTimer;
 
     private void Awake()
     {
       thePlayerMove = GetComponent<PlayerMove>();
+      cooldownTimer = new Timer(cooldownTime);
+      cooldownTimer.onBeforeStart += t => t.time = cooldownTime;
+      cooldownTimer.onEnd += t =>
+      {
+        ReloadDash();
+        Utils.WaitUntil(() => dashCount < maxDashCount, () => t.Start());
+      };
     }
 
     private void Start()
     {
       dashBar = GameManager.ManagedObject.Get<DashCountBar>("dashbar");
-      currentDashCooltime = maxDashCooltime;
-      ReloadDash(maxDashCount);
-    }
+      dashBtn = GameManager.ManagedObject.Get<CooledTouch>("button_dash");
+      dashBtn.onTouch += _ => Dash();
 
-    private void Update()
-    {
-      if (Input.GetKeyDown(KeyCode.Space))
-      {
-        Dash();
-      }
-
-      if (dashCount >= maxDashCount)
-      {
-        currentDashCooltime = maxDashCooltime;
-        return;
-      }
-
-      currentDashCooltime -= Time.deltaTime;
-
-      if (currentDashCooltime > 0) return;
-
-      currentDashCooltime = maxDashCooltime;
-      ReloadDash();
+      cooldownTimer.Start();
+      ResetDashCount();
     }
 
     public void Dash()
@@ -66,6 +58,8 @@ namespace Player
     {
       dashCount = Math.Min(maxDashCount, dashCount + amount);
       dashBar.AddCount(amount);
+      if (dashCount > 0)
+        Utils.WaitUntil(() => !dashBtn.isCooldown, () => dashBtn.isEnabled = true);
     }
 
     public void AddAdditionalDash(int amount = 1)
@@ -82,6 +76,17 @@ namespace Player
         dashCount = Math.Max(0, dashCount - amount);
       
       dashBar.SubCount(amount);
+
+      if (dashCount == 0)
+        dashBtn.isEnabled = false;
+    }
+
+    public void ResetDashCount()
+    {
+      dashBar.ClearCount();
+      dashCount = 0;
+      additionalDashCount = 0;
+      ReloadDash(maxDashCount);
     }
   }
 }

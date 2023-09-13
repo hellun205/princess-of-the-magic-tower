@@ -16,6 +16,21 @@ namespace Util
     /// Call when timer starts
     /// </summary>
     public event TimerEventListener onStart;
+
+    /// <summary>
+    /// Call when before timer starts
+    /// </summary>
+    public event TimerEventListener onBeforeStart;
+    
+    /// <summary>
+    /// Call when before timer ends
+    /// </summary>
+    public event TimerEventListener onBeforeEnd;
+
+    /// <summary>
+    /// Call when timer activating
+    /// </summary>
+    public event TimerEventListener onTick;
     
     /// <summary>
     /// Current time of timer
@@ -31,6 +46,8 @@ namespace Util
     /// Is working with unscaled delta time
     /// </summary>
     public bool isUnscaled;
+
+    public float normalized => currentTime / time;
 
     private Coroutiner coroutiner;
 
@@ -51,7 +68,7 @@ namespace Util
       while (true)
       {
         currentTime += isUnscaled ? Time.unscaledDeltaTime : Time.deltaTime;
-
+        onTick?.Invoke(this);
         if (currentTime >= time)
         {
           Stop();
@@ -68,6 +85,7 @@ namespace Util
     public void Start(float startValue = 0f)
     {
       currentTime = startValue;
+      onBeforeStart?.Invoke(this);
       coroutiner.Start();
     }
 
@@ -76,6 +94,7 @@ namespace Util
     /// </summary>
     public void Stop()
     {
+      onBeforeEnd?.Invoke(this);
       coroutiner.Stop();
     }
   }
