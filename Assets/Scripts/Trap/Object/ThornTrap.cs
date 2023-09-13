@@ -1,8 +1,7 @@
-﻿using System;
-using Managers;
+﻿using Managers;
 using UnityEngine;
 
-namespace Trap
+namespace Trap.Object
 {
   [RequireComponent(typeof(Collider2D))]
   public class ThornTrap : Trap

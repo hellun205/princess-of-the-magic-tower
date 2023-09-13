@@ -27,6 +27,8 @@ namespace Util
     /// </summary>
     public event TimerEventListener onBeforeEnd;
 
+    public event TimerEventListener onForceStop;
+
     /// <summary>
     /// Call when timer activating
     /// </summary>
@@ -71,6 +73,7 @@ namespace Util
         onTick?.Invoke(this);
         if (currentTime >= time)
         {
+          onBeforeEnd?.Invoke(this);
           Stop();
           onEnd?.Invoke(this);
         }
@@ -85,6 +88,11 @@ namespace Util
     public void Start(float startValue = 0f)
     {
       currentTime = startValue;
+      Resume();
+    }
+    
+    public void Resume()
+    {
       onBeforeStart?.Invoke(this);
       coroutiner.Start();
     }
@@ -94,8 +102,8 @@ namespace Util
     /// </summary>
     public void Stop()
     {
-      onBeforeEnd?.Invoke(this);
       coroutiner.Stop();
+      onForceStop?.Invoke(this);
     }
   }
 }
