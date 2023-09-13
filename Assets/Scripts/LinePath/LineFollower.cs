@@ -28,7 +28,7 @@ namespace LinePath
       {
         Utils.WaitUntil(() => isEnabled, () =>
         {
-          timer.Start();
+          timer.Start(); 
           Utils.WaitUntil(() => !isEnabled, () =>
           {
             timer.Stop(); 
