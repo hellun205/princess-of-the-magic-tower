@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enemy;
 using Enemy.AI;
 using Managers;
 using UnityEngine;
@@ -18,7 +19,8 @@ public class FollowAI : EnemyAI
   
   public override void StartAI()
   {
-    base.Awake();
+    awake = true;
+    player = GameManager.Player.gameObject;
   }
 
   private void Start()
@@ -37,5 +39,10 @@ public class FollowAI : EnemyAI
   {
     transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 
       moveSpeed * Time.deltaTime);
+  }
+  
+  private void OnTriggerStay2D(Collider2D other)
+  {
+
   }
 }

@@ -273,6 +273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c92a3ca9c131ea4c8d69d9d21589388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  detectCaster: 4
+  condition: 4
   testMode: 0
 --- !u!114 &1030783981240733118
 MonoBehaviour:

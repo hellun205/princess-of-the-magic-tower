@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1918533851
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 721857ff902f41b5ac9442de9bf3cbbc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,6 +99,8 @@ GameObject:
   - component: {fileID: 8470655606883920294}
   - component: {fileID: 3222795483394138520}
   - component: {fileID: 6369514200811650136}
+  - component: {fileID: 4530101268357220274}
+  - component: {fileID: 8761933548584973561}
   m_Layer: 0
   m_Name: frog
   m_TagString: Enemy
@@ -258,6 +260,33 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00000023841858, y: 0.00000023469329}
   m_Size: {x: 1.47, y: 2.21}
   m_Direction: 0
+--- !u!114 &4530101268357220274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666136032277087458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f135d7c55f280994b9612655656df1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8761933548584973561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666136032277087458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784cc336f3ad4bdb82401c95b311aa92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caster: 4
+  currentCondition: 4
+  ignoreOpponentAttack: 0
 --- !u!1 &4768223130346087504
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,11 +357,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1174564999
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
+  m_Color: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

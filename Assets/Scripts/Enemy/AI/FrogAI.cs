@@ -52,6 +52,7 @@ namespace Enemy.AI
     public override void StartAI()
     {
       awake = true;
+      player = GameManager.Player.gameObject;
     }
 
     private void DecreaseCoolTime()
@@ -152,5 +153,15 @@ namespace Enemy.AI
       
       Gizmos.DrawWireSphere(transform.position, jumpRad);
     }
+    
+    // private void OnTriggerStay2D(Collider2D other)
+    // {
+    //   // if (!isAttacking) return;
+    //
+    //   if (other.transform.CompareTag("Player"))
+    //   {
+    //     EnemyController.AttackPlayer();
+    //   }
+    // }
   }
 }

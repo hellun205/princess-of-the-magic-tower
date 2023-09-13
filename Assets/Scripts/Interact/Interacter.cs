@@ -11,6 +11,8 @@ namespace Interact
 
     private List<InteractiveObject> detects = new();
 
+    public bool ignoreOpponentAttack;
+
     private void OnTriggerEnter2D(Collider2D other)
       => Add(other.gameObject);
 
@@ -26,15 +28,19 @@ namespace Interact
     private void OnTriggerStay2D(Collider2D other)
       => Interact(other.gameObject);
 
-    private void OnCollisionStay2D(Collision2D other) 
+    private void OnCollisionStay2D(Collision2D other)
       => Interact(other.gameObject);
 
-    private bool Check(GameObject go, out InteractiveObject obj) 
+    private bool Check(GameObject go, out InteractiveObject obj)
       => go.TryGetComponent<InteractiveObject>(out obj);
 
     private void Interact(GameObject go)
     {
       if (!Check(go, out var io)) return;
+      if (!ignoreOpponentAttack && go.TryGetComponent<Interacter>(out var oit) &&
+          (oit.currentCondition & InteractCondition.Attack) != 0)
+        return;
+
       io.Interact(this);
     }
 
@@ -51,6 +57,6 @@ namespace Interact
     }
 
     public void RemoveDetection()
-    => detects.ForEach(io => io.Remove(gameObject));
+      => detects.ForEach(io => io.Remove(gameObject));
   }
 }

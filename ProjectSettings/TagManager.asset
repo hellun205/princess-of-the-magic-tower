@@ -18,7 +18,7 @@ TagManager:
   - Collider
   - Wall
   - IgnorePhysics
-  - 
+  - Enemy
   - 
   - 
   - 

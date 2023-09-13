@@ -32,7 +32,6 @@ namespace Enemy.AI
 
     public GameObject axe_Object;
     
-    
     private void Start()
     {
       targetObj = GameManager.Player.gameObject;
@@ -117,14 +116,14 @@ namespace Enemy.AI
     }
 
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-      if (!isAttacking) return;
-
-      if (other.transform.CompareTag("Player"))
-      {
-        EnemyController.AttackPlayer();
-      }
-    }
+    // private void OnTriggerStay2D(Collider2D other)
+    // {
+    //   if (!isAttacking) return;
+    //
+    //   if (other.transform.CompareTag("Player"))
+    //   {
+    //     EnemyController.AttackPlayer();
+    //   }
+    // }
   }
 }
