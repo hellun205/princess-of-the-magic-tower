@@ -51,24 +51,29 @@ namespace Trap
 
       if ((activeOn & TrapCondition.Repeat) != 0)
       {
-        timer = new Timer(repeatDelay, t =>
-        {
-          if (!currentState) Activate();
-          Utils.Wait(deactivateDelay, () =>
-          {
-            if (!isDetect && currentState) Deactivate();
-            if (isDetect)
-              Utils.WaitUntil(() => !isDetect, () =>
-              {
-                Deactivate();
-                t.Start();
-              });
-            else
-              t.Start();
-          });
-        });
+        timer = new Timer(repeatDelay, OnTimerEnd);
         timer.Start();
       }
+    }
+
+    private void OnTimerEnd(Timer sender)
+    {
+      if (!currentState) Activate();
+      Utils.Wait(deactivateDelay, () =>
+      {
+        if (isDetect)
+          Utils.WaitUntil(() => !isDetect, () =>
+          {
+            Deactivate();
+            sender.Start();
+          });
+        else
+        {
+          if (currentState)
+            Deactivate();
+          sender.Start();
+        }
+      });
     }
 
     protected virtual void Activate()

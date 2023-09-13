@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Managers;
 using Scene;
 using Random = UnityEngine.Random;
@@ -174,5 +175,21 @@ namespace Util
 
     public static bool CheckLayer(this int layer, params string[] checks)
       => checks.Any(check => layer == LayerMask.NameToLayer(check));
+
+    public static string ToString<T>(IEnumerable<T> enumerable)
+    {
+      var sb = new StringBuilder("[");
+      foreach (var x in enumerable)
+      {
+        sb.Append(x)
+         .Append(", ");
+      }
+
+      sb.Append("]");
+      return sb.ToString();
+    }
+    
+    public static float GetMagnitude(this Vector2 l1, Vector2 l2)
+      => (l2 - l1).magnitude;
   }
 }

@@ -23,13 +23,8 @@ namespace Enemy.AI
 
     private Vector2 destination;
 
-    public GameObject targetObj;
-
     [Header("Dash")]
     public bool canDash;
-
-    [NonSerialized]
-    private bool touchingObstacle = false;
 
     [Range(0, 10)]
     public float dashSpeed;
@@ -39,12 +34,8 @@ namespace Enemy.AI
     public float maxCoolTime;
     private float currentCoolTime;
 
-    public float dashReadyTime;
-
     [Header("Mask")]
     public LayerMask targetMask;
-
-    public LayerMask stopMask;
 
     private CapsuleCollider2D capsule2D;
     private EnemyController enemyController;
@@ -64,8 +55,6 @@ namespace Enemy.AI
     private void Start()
     {
       currentCoolTime = maxCoolTime;
-
-      targetObj = GameManager.Player.gameObject;
     }
 
     private void Update()
