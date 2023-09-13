@@ -2,7 +2,10 @@
 {
   public enum MoveState
   {
-    idle = 0, walk = 1, dash = 2,
-    run = 3
+    Idle,
+    WalkFront,
+    WalkLeft,
+    WalkBack,
+    Dash,
   }
 }
