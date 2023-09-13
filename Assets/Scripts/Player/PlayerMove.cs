@@ -161,6 +161,8 @@ namespace Player
         manager.animation.SetState(MoveState.Idle);
       // else if (inputVec.y > 0)
       //   manager.animation.SetState(MoveState.WalkBack);
+      else if (inputVec.y < 0)
+        manager.animation.SetState(MoveState.WalkFront);
       else
         manager.animation.SetState(MoveState.WalkLeft);
     }
