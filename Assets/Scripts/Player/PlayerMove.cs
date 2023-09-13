@@ -6,6 +6,7 @@ using Interact.Object;
 using Managers;
 using UI;
 using UnityEngine;
+using Util;
 
 namespace Player
 {
@@ -15,8 +16,11 @@ namespace Player
     private float moveSpeed;
 
     [SerializeField]
+    private float baseMoveSpeed;
+
+    [SerializeField]
     private float dashSpeed;
-    
+
     [field: SerializeField]
     [field: Min(0)]
     public int destroyLevel { get; set; }
@@ -32,7 +36,7 @@ namespace Player
     public GameObject dashDummy;
 
     private PlayerManager manager;
-    
+
     private Rigidbody2D rigid;
     private SpriteRenderer spriteRenderer;
 
@@ -59,7 +63,6 @@ namespace Player
       inputVec = value;
     }
 
-    // Update is called once per frame
     private void Update()
     {
       var h = Input.GetAxisRaw("Horizontal");
@@ -87,14 +90,9 @@ namespace Player
 
     private void Flip()
     {
-      if (inputVec.x > 0)
-      {
-        spriteRenderer.flipX = true;
-      }
-      else if (inputVec.x < 0)
-      {
-        spriteRenderer.flipX = false;
-      }
+      var scale = transform.localScale;
+      if (inputVec.x != 0)
+        transform.localScale = scale.Setter(x: Mathf.Abs(scale.x) * (inputVec.x > 0 ? -1 : 1));
     }
 
     public void Dash()
@@ -104,12 +102,12 @@ namespace Player
 
     private IEnumerator DashCoroutine()
     {
-      StartCoroutine(SpawnDashSprite());
+      // StartCoroutine(SpawnDashSprite());
 
       attackedList.Clear();
       isDashing = true;
       manager.interacter.currentCondition = InteractCondition.Attack;
-      manager.animation.SetState(MoveState.dash);
+      // manager.animation.SetState(MoveState.dash);
       //spriteRenderer.color = Color.cyan;
 
       rigid.AddForce(inputVec * dashSpeed, ForceMode2D.Impulse);
@@ -120,8 +118,8 @@ namespace Player
       yield return new WaitForSeconds(0.1f);
       //spriteRenderer.color = Color.white;
 
-      manager.animation.SetState(MoveState.idle);
-      
+      manager.animation.SetState(MoveState.Idle);
+
       isDashing = false;
       manager.interacter.currentCondition = InteractCondition.Reach;
       manager.interacter.RemoveDetection();
@@ -160,13 +158,11 @@ namespace Player
       if (isDashing) return;
 
       if (inputVec.Equals(Vector2.zero))
-      {
-        manager.animation.SetState(MoveState.idle);
-      }
+        manager.animation.SetState(MoveState.Idle);
+      // else if (inputVec.y > 0)
+      //   manager.animation.SetState(MoveState.WalkBack);
       else
-      {
-        manager.animation.SetState(MoveState.walk);
-      }
+        manager.animation.SetState(MoveState.WalkLeft);
     }
 
     private void OnTriggerStay2D(Collider2D other)

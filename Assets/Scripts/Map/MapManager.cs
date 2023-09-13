@@ -32,12 +32,6 @@ namespace Map
       {
         currentRoom = room;
 
-        var pos = string.IsNullOrEmpty(beforeRoom) switch
-        {
-          true  => room.startPosition.position,
-          false => room.linkPositions.Find(t => t.name == beforeRoom).position
-        };
-
         var playerPos = GameManager.Player.transform.position;
         Vector2 targetPos;
 
