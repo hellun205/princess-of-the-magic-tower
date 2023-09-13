@@ -226,8 +226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e808288ccc42449872489521bfa863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
-  awake: 1
+  debugMode: 0
+  awake: 0
   targetFind: 0
   rotateSpeed: 2
   lookDistance: 11
