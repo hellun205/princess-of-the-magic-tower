@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Managers;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -61,12 +62,10 @@ namespace Enemy.AI
 
       if (currentCoolTime <= 0)
       {
-        int dir = DiscriminatePlayerDir();
-        
         ResetCooltime();
         
         animator.SetTrigger("isJump");
-        StartCoroutine(Jump(dir));
+        StartCoroutine(Jump(DiscriminatePlayerDir()));
         canJump = false;
       }
     }
@@ -76,50 +75,71 @@ namespace Enemy.AI
       currentCoolTime = maxCoolTime;
     }
 
-    private int DiscriminatePlayerDir()
+    private Vector2 DiscriminatePlayerDir()
     {
-      Vector3 dir = (transform.position - player.transform.position).normalized;
-
-      Vector3 cross = Vector3.Cross(transform.position.normalized, player.transform.position.normalized);
+      Vector2 dir;
       
-      if (cross.y < 0f) 
+      if (transform.position.x <= player.transform.position.x) 
       {
-        Debug.Log("L");
-        return 0;
+        dir.x = 0; //왼쪽
       }
       else
       {
-        Debug.Log("R");
-        return 1;
+        dir.x = 1;
       }
+      
+      if (transform.position.y <= player.transform.position.y) 
+      {
+        dir.y = 0; // 아래
+      }
+      else
+      {
+        dir.y = 1;
+      }
+
+      return dir;
     }
     
-    private IEnumerator Jump(int dir)
+    private IEnumerator Jump(Vector2 dir)
     {
       Vector3 randomPosition = Random.insideUnitCircle * jumpRad;
       
-      while (Mathf.Abs(transform.position.x - randomPosition.x) <= 1f && Mathf.Abs(transform.position.y - randomPosition.y) <= 1f)
+      while (Mathf.Abs((transform.position - randomPosition).magnitude) <= 4f)
       {
         randomPosition = Random.insideUnitCircle * jumpRad;
       }
+
+      Debug.Log(randomPosition);
       
-      switch (dir)
+      randomPosition.x = transform.position.x;
+      
+      switch (dir.x)
       {
         case 0:
-          randomPosition.x = Mathf.Abs(randomPosition.x);
+          randomPosition.x += 5f;
           break;
         case 1:
-          randomPosition.x =Mathf.Abs(randomPosition.x) * -1;
+          randomPosition.x -= 5f; 
+          break;
+      }
+
+      switch (dir.y)
+      {
+        case 0:
+          randomPosition.y += 5f;
+          break;
+        case 1:
+          randomPosition.y -= 5f; 
           break;
       }
       
       for (int i = 0; i < 60; i++)
       {
-        transform.position = Vector2.Lerp(transform.position, randomPosition, jumpPower);
+        transform.position = Vector2.Lerp(transform.position, randomPosition, jumpPower * Time.deltaTime);
         
         yield return new WaitForSeconds(0.01f);
 
-        if ((transform.position - randomPosition).magnitude <= 1f)
+        if ((transform.position - randomPosition).magnitude <= 0.2f)
           break;
       }
 
