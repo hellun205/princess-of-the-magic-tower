@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Util;
 
 namespace LinePath
@@ -28,7 +27,7 @@ namespace LinePath
       {
         Utils.WaitUntil(() => isEnabled, () =>
         {
-          timer.Start(); 
+          timer.Resume(); 
           Utils.WaitUntil(() => !isEnabled, () =>
           {
             timer.Stop(); 
