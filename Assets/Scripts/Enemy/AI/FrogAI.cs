@@ -53,6 +53,7 @@ namespace Enemy.AI
       player = GameManager.Player.gameObject;
       
       animator.SetTrigger("isIdle");
+      canJump = true;
     }
 
     private void DecreaseCoolTime()

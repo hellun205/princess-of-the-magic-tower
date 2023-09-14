@@ -12055,7 +12055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaddf1a35d1b4441998dfd5c45fa3154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRoom: room1
+  startRoom: room8
 --- !u!4 &1034850926
 Transform:
   m_ObjectHideFlags: 0

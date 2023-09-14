@@ -31,7 +31,7 @@ namespace Player
       cooldownTimer.onBeforeStart += t => t.time = cooldownTime;
       cooldownTimer.onEnd += t =>
       {
-        ReloadDash();
+          ReloadDash();
         Utils.WaitUntil(() => dashCount < maxDashCount, () => t.Start());
       };
     }
@@ -56,7 +56,8 @@ namespace Player
 
     public void ReloadDash(int amount = 1)
     {
-      dashCount = Math.Min(maxDashCount, dashCount + amount);
+      if (dashCount >= maxDashCount) return;
+      dashCount +=  amount;
       dashBar.AddCount(amount);
       if (dashCount > 0)
         Utils.WaitUntil(() => !dashBtn.isCooldown, () => dashBtn.isEnabled = true);
