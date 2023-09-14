@@ -16,6 +16,9 @@ namespace LinePath
 
     private float maxMgntd;
 
+    [SerializeField]
+    private bool drawIcon;
+    
     private void Awake()
     {
       allMgntd = GetAllMagnitudeArray(true);
@@ -82,6 +85,13 @@ namespace LinePath
       for (var i = 1; i < lines.Count; i++)
       {
         Gizmos.DrawLine(GetLinePosition(i - 1), GetLinePosition(i));
+      }
+
+      if (drawIcon)
+      {
+        var tex = Resources.Load("circle") as Texture;
+        for (var i = 0; i<lines.Count; i ++)
+          Gizmos.DrawIcon(GetLinePosition(i), "knob", false, Color.green);
       }
     }
 #endif

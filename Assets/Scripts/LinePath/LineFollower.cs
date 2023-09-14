@@ -3,6 +3,7 @@ using Util;
 
 namespace LinePath
 {
+  [ExecuteInEditMode]
   public class LineFollower : MonoBehaviour
   {
     public LinePathCreator path;
@@ -13,8 +14,13 @@ namespace LinePath
 
     private Timer timer;
 
+    [SerializeField]
+    [HideInInspector]
+    private bool awake;
+    
     private void Awake()
     {
+      awake = true;
       timer = new Timer(time);
       timer.onBeforeStart += t => t.time = time;
       timer.onTick += t => transform.position = path.GetPosition(t.normalized);
