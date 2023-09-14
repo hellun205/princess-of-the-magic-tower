@@ -21902,6 +21902,10 @@ PrefabInstance:
       value: thorn_block
       objectReference: {fileID: 0}
     - target: {fileID: 2560521383355691064, guid: 3a99f778da0941d439198ca752e3df1c, type: 3}
+      propertyPath: drawIcon
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560521383355691064, guid: 3a99f778da0941d439198ca752e3df1c, type: 3}
       propertyPath: lines.Array.size
       value: 22
       objectReference: {fileID: 0}
