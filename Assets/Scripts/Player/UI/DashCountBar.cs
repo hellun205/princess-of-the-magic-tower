@@ -83,6 +83,7 @@ namespace Player.UI
 
     public void ClearCount()
     {
+      Debug.Log(activedItems.Count);
       activedItems.ForEach(obj => pool.Release(obj));
     }
 

@@ -14,22 +14,22 @@ namespace Player
 
     [NonSerialized]
     public PlayerSkill skill;
-    
+
     [NonSerialized]
     private PlayerMove playerMove;
-    
+
     [NonSerialized]
     public new PlayerAnimation animation;
-    
+
     [NonSerialized]
     private Coroutiner deathCrt;
-    
+
     [NonSerialized]
     public PlayerMove move;
-    
+
     [NonSerialized]
     public new PlayerLight light;
-    
+
     [NonSerialized]
     public Interacter interacter;
 
@@ -57,6 +57,7 @@ namespace Player
     public void Death()
     {
       GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
+      GameManager.Player.light.SetDefault();
     }
 
     protected override void OnInteract(GameObject caster)
