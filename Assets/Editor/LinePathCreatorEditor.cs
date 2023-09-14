@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using LinePath;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Util;
 
 namespace Editor
@@ -21,11 +18,6 @@ namespace Editor
     private int curIndex;
     private List<SerializedProperty> sp_lineList = new();
     private bool shift;
-
-    public override VisualElement CreateInspectorGUI()
-    {
-      return base.CreateInspectorGUI();
-    }
 
     private void OnEnable()
     {
@@ -51,6 +43,21 @@ namespace Editor
 
       sp_drawIcon.boolValue = isEditing;
 
+      if (isEditing)
+      {
+        var style = new GUIStyle()
+        {
+          fontStyle = FontStyle.Italic,
+          normal = new()
+          {
+            textColor = Color.gray
+          },
+          wordWrap = true
+        };
+        EditorGUILayout.LabelField("Left Click: Create or Move path (press shift to fixed axis)", style);  
+        EditorGUILayout.LabelField("Right Click: Remove path", style);  
+      }
+      
       EditorGUILayout.PropertyField(serializedObject.FindProperty("lines"));
       EditorUtility.SetDirty(_this);
       serializedObject.ApplyModifiedProperties();
