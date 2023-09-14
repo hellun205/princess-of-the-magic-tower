@@ -1,11 +1,7 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Managers;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.UIElements;
+using Util;
 using Random = UnityEngine.Random;
 
 namespace Enemy.AI
@@ -51,8 +47,12 @@ namespace Enemy.AI
 
     public override void StartAI()
     {
+      Debug.Log($"Start{gameObject.name}");
+      
       awake = true;
       player = GameManager.Player.gameObject;
+      
+      animator.SetTrigger("isIdle");
     }
 
     private void DecreaseCoolTime()
@@ -79,24 +79,13 @@ namespace Enemy.AI
     private Vector2 DiscriminatePlayerDir()
     {
       Vector2 dir;
+
+      int percentX = 0.35f.ApplyPercentage() ? 0 : 1; 
+      int percentY = 0.35f.ApplyPercentage() ? 1 : 0; 
       
-      if (transform.position.x <= player.transform.position.x) 
-      {
-        dir.x = 0; //왼쪽
-      }
-      else
-      {
-        dir.x = 1;
-      }
+      dir.x = transform.position.x <= player.transform.position.x ? percentX : percentY;
+      dir.y = transform.position.y <= player.transform.position.y ? percentX : percentY;
       
-      if (transform.position.y <= player.transform.position.y) 
-      {
-        dir.y = 0; // 아래
-      }
-      else
-      {
-        dir.y = 1;
-      }
 
       return dir;
     }
@@ -110,29 +99,24 @@ namespace Enemy.AI
         randomPosition = Random.insideUnitCircle * jumpRad;
       }
 
-      Debug.Log(randomPosition);
+      randomPosition = transform.position;
       
-      randomPosition.x = transform.position.x;
-      
-      switch (dir.x)
-      {
-        case 0:
-          randomPosition.x += 5f;
-          break;
-        case 1:
-          randomPosition.x -= 5f; 
-          break;
-      }
+      int randomX = Random.Range(2, 5);
+      int randomY = Random.Range(2, 5);
 
-      switch (dir.y)
+
+      randomPosition.x = dir.x switch
       {
-        case 0:
-          randomPosition.y += 5f;
-          break;
-        case 1:
-          randomPosition.y -= 5f; 
-          break;
-      }
+        0 => randomPosition.x + randomX,
+        1 => randomPosition.x - randomX
+      };
+      
+      randomPosition.y = dir.y switch
+      {
+        0 => randomPosition.y + randomY,
+        1 => randomPosition.y - randomY
+      };
+      
       
       for (int i = 0; i < 60; i++)
       {

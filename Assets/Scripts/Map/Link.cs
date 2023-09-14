@@ -5,16 +5,15 @@ using UnityEngine;
 namespace Map
 {
   [RequireComponent(typeof(Collider2D))]
-  public class Link : MonoBehaviour
+  public class Link : MonoBehaviour, IRequireRoom
   {
     private Collider2D col;
 
     public bool ignoreX;
     
     public bool ignoreY;
-    
-    [NonSerialized]
-    public string currentRoomName;
+
+    public Room room { protected  get; set; }
 
 #if UNITY_EDITOR
     private void Reset()
@@ -23,11 +22,12 @@ namespace Map
       col.isTrigger = true;
     }
 #endif
+
     private void OnTriggerEnter2D(Collider2D other)
     {
       if (!other.CompareTag("Player")) return;
 
-      GameManager.Map.MoveTo(name, currentRoomName, this);
+      GameManager.Map.MoveTo(name, room.name, this);
     }
   }
 }

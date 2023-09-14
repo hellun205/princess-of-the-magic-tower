@@ -39,6 +39,8 @@ namespace Map
     [NonSerialized]
     public Collider2D confinerBound;
 
+    private IRoomEnteredEventHandler[] loadEventHandlers;
+
     [Header("Room")]
     public bool isCleared = false;
 
@@ -66,7 +68,7 @@ namespace Map
       {
         var newGo = new GameObject($"layer{i}", typeof(SpriteRenderer));
         newGo.transform.localScale = Vector3.one;
-        newGo.transform.localPosition = Vector3.one;
+        newGo.transform.position = transform.position;
         var sr = newGo.GetComponent<SpriteRenderer>();
         sr.sprite = backgrounds[i];
         sr.sortingLayerName = "Room";
@@ -80,7 +82,8 @@ namespace Map
     [ContextMenu("Apply Door Sprites")]
     public void ApplyDoorSprites()
     {
-      doors.ForEach(door => door.SetSprite(0));
+      transform.Find("@door").GetComponentsInChildren<Door.Door>().ToList()
+        .ForEach(door => door.GetComponent<SpriteRenderer>().sprite = doorSprites[door.direction][0]);
     }
 #endif
 
@@ -94,10 +97,12 @@ namespace Map
       walls = transform.Find("@walls").GetComponents<Collider2D>().ToList();
       objects = transform.Find("@objects").GetComponentsInChildren<Transform>().Select(x => x.gameObject).ToList();
       confinerBound = transform.Find("@confiner-bounding").GetComponent<Collider2D>();
+      loadEventHandlers =
+        transform.GetComponentsInChildren(typeof(IRoomEnteredEventHandler)).Cast<IRoomEnteredEventHandler>().ToArray();
 
-      links.ForEach(link => link.currentRoomName = name);
-      summoners.ForEach(summoner => summoner.room = name);
-      doors.ForEach(door => door.room = this);
+      var requireRooms = transform.GetComponentsInChildren(typeof(IRequireRoom)).Cast<IRequireRoom>();
+      foreach (var require in requireRooms)
+        require.room = this;
     }
 
     public void AddEnemy(int index)
@@ -110,10 +115,11 @@ namespace Map
       GameManager.Camera.confiner2D.m_BoundingShape2D = confinerBound;
       GameManager.Camera.SetZoom(zoom);
 
-      if (isCleared) return;
+      foreach (var roomLoadEventHandler in loadEventHandlers)
+        roomLoadEventHandler.OnRoomEntered();
 
-      summoners.ForEach(summoner => summoner.Summon());
-      doors.ForEach(door => door.OnEntered());
+      // summoners.ForEach(summoner => summoner.Summon());
+      // doors.ForEach(door => door.OnEntered());
     }
   }
 }

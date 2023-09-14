@@ -74,7 +74,7 @@ namespace LinePath
 
 
 #if UNITY_EDITOR
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
       if (lines.Count == 0) return;
       Gizmos.color = Color.magenta;

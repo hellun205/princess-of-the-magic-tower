@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   caster: 4
   currentCondition: 0
+  ignoreOpponentAttack: 1
 --- !u!60 &3043504592520270694
 PolygonCollider2D:
   m_ObjectHideFlags: 0

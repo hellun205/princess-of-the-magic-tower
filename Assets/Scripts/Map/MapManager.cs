@@ -1,5 +1,6 @@
 using System;
 using Managers;
+using Player;
 using Scene;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,18 +27,32 @@ namespace Map
 
     public void MoveTo(string roomName, string beforeRoom = "", Link link = null)
     {
+      var specific = string.Empty;
+      if (roomName.Contains('.'))
+      {
+        var split = roomName.Split('.');
+        specific = split[1];
+        roomName = split[0];
+      }
+
+      if (FindObjectOfType<PlayerLocation>() == null)
+        GameManager.PlayerLocation =
+          new GameObject("@player_location", typeof(PlayerLocation)).GetComponent<PlayerLocation>();
+
       var room = controller.rooms.Find(r => r.name == roomName);
 
       if (room is not null)
       {
         currentRoom = room;
+        GameManager.PlayerLocation.SetRoom(currentRoom);
 
         var playerPos = GameManager.Player.transform.position;
         Vector2 targetPos;
 
         if (!string.IsNullOrEmpty(beforeRoom) && link is not null)
         {
-          var targetLinkPos = room.linkPositions.Find(t => t.name == beforeRoom);
+          var targetLinkPos = room.linkPositions.Find(t =>
+            t.name == (string.IsNullOrEmpty(specific) ? beforeRoom : $"{beforeRoom}.{specific}"));
           targetPos = new Vector2
           (
             link.ignoreX ? playerPos.x : targetLinkPos.position.x,
@@ -67,12 +82,12 @@ namespace Map
     public void LoadStageFromSceneName(string sceneName, TransitionOption outT, TransitionOption inT)
     {
       new SceneLoader(sceneName)
-       .Out(outT)
-       .In(inT)
-       .PauseOnTransitioning()
-       .OnEndOut(() => GameManager.Pool.ClearPools())
-       .OnStartIn(OnSceneChanged)
-       .Load();
+        .Out(outT)
+        .In(inT)
+        .PauseOnTransitioning()
+        .OnEndOut(() => GameManager.Pool.ClearPools())
+        .OnStartIn(OnSceneChanged)
+        .Load();
     }
   }
 }
