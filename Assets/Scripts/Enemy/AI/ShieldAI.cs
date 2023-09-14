@@ -172,14 +172,14 @@ namespace Enemy.AI
         isAttacking = false;
     }
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-      if (!isAttacking) return;
-
-      if (other.CompareTag("Player"))
-      {
-        EnemyController.AttackPlayer();
-      }
-    }
+    // private void OnTriggerStay2D(Collider2D other)
+    // {
+    //   if (!isAttacking) return;
+    //
+    //   if (other.CompareTag("Player"))
+    //   {
+    //     EnemyController.AttackPlayer();
+    //   }
+    // }
   }
 }

@@ -8,7 +8,7 @@ using Util;
 
 namespace Player
 {
-  public class PlayerManager : MonoBehaviour
+  public class PlayerManager : InteractiveObject
   {
     public bool testMode;
 
@@ -57,6 +57,11 @@ namespace Player
     public void Death()
     {
       GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
+    }
+
+    protected override void OnInteract(GameObject caster)
+    {
+      Death();
     }
   }
 }

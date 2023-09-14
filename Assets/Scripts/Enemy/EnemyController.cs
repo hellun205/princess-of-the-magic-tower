@@ -22,6 +22,7 @@ namespace Enemy
 
     [NonSerialized]
     public Interacter interacter;
+
     
     public string map;
 
@@ -43,6 +44,7 @@ namespace Enemy
     protected override void OnSummon()
     {
       curHp = maxHp;
+      move.StartAI();
     }
 
     public void FindPlayer()

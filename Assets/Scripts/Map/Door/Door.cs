@@ -4,16 +4,15 @@ using Util;
 
 namespace Map.Door
 {
-  public abstract class Door : MonoBehaviour
+  public abstract class Door : MonoBehaviour, IRequireRoom, IRoomEnteredEventHandler
   {
     public Direction direction;
 
     protected Collider2D col;
 
     private Animator anim;
-
-    [NonSerialized]
-    public Room room;
+    
+    public Room room { protected get; set; }
 
     [NonSerialized]
     public SpriteRenderer spriteRenderer;
@@ -55,6 +54,7 @@ namespace Map.Door
 
     protected void EnableCollider() => SetCollider(true);
 
+
     public virtual void OnEntered()
     {
       if (CheckClear)
@@ -80,5 +80,7 @@ namespace Map.Door
 
     public void SetSprite(int index)
       => spriteRenderer.sprite = room.doorSprites[direction][index];
+
+    public void OnRoomEntered() => OnEntered();
   }
 }

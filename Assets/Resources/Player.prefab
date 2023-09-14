@@ -273,6 +273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c92a3ca9c131ea4c8d69d9d21589388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  detectCaster: 4
+  condition: 4
   testMode: 0
 --- !u!114 &1030783981240733118
 MonoBehaviour:
@@ -400,6 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   caster: 2
   currentCondition: 2
+  ignoreOpponentAttack: 0
 --- !u!58 &837477288783822503
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -484,7 +488,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.362
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.9
+  m_Intensity: 0.72
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 000000006d885043798ffdb9db805a72498c771a

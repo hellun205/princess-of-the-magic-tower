@@ -23,6 +23,7 @@ namespace Managers
     public static DialogueManager Dialogue { get; private set; }
     public static AvatarCollection Avatars { get; private set; }
     public static CameraController Camera { get; private set; }
+    public static PlayerLocation PlayerLocation { get; set; }
 
     public delegate void GameManagerEventListener();
 

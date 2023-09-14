@@ -1,10 +1,11 @@
 ﻿using System;
+using Map;
 using UnityEngine;
 using Util;
 
 namespace Trap
 {
-  public abstract class Trap : MonoBehaviour
+  public abstract class Trap : MonoBehaviour, IRoomEnteredEventHandler
   {
     [Header("Trap")]
     public TrapCondition activeOn;
@@ -24,6 +25,9 @@ namespace Trap
     [Header("Active On Repeat")]
     [SerializeField]
     private float repeatDelay;
+
+    [SerializeField]
+    private float startDelay;
 
     [SerializeField]
     private float deactivateDelay;
@@ -51,8 +55,9 @@ namespace Trap
 
       if ((activeOn & TrapCondition.Repeat) != 0)
       {
-        timer = new Timer(repeatDelay, OnTimerEnd);
-        timer.Start();
+        timer = new Timer(repeatDelay);
+        timer.onEnd += OnTimerEnd;
+        timer.onBeforeStart += t => t.time = repeatDelay;
       }
     }
 
@@ -86,12 +91,15 @@ namespace Trap
       currentState = false;
     }
 
-    protected virtual void Start()
+    public void OnRoomEntered()
     {
       if (startState)
         Activate();
       else
         Deactivate();
+
+      if ((activeOn & TrapCondition.Repeat) != 0)
+        Utils.Wait(startDelay, () => timer.Start());
     }
   }
 }

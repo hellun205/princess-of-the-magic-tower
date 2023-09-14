@@ -1,6 +1,5 @@
 ﻿using Camera;
 using Player;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Managers
@@ -13,7 +12,7 @@ namespace Managers
     private void Awake()
     {
       if (loadPlayer && FindObjectOfType<PlayerManager>() == null)
-        Instantiate(Resources.Load("Player")).GetComponent<PlayerManager>();
+        Instantiate(Resources.Load("Player"));
       
       if (loadCamera && FindObjectOfType<CameraController>() == null)
         Instantiate(Resources.Load("Camera"));

@@ -2139,6 +2139,10 @@ MonoBehaviour:
     _serializedList:
     - Key: enemy/blade
       Value: {fileID: 2970411750724855675, guid: 8739e386840d7c34ba825cf9e1c80498, type: 3}
+    - Key: enemy/follow
+      Value: {fileID: 8111098268684236687, guid: 983f169b233ab5445854e9ac30c30e14, type: 3}
+    - Key: enemy/frog
+      Value: {fileID: 5185056600626788425, guid: 4cc0d747fafa3fe4690764ef947637c6, type: 3}
     - Key: enemy/shield
       Value: {fileID: 8979910272338090114, guid: bb201ec19ad9a86438ade146b08dabce, type: 3}
     - Key: enemy/test1
