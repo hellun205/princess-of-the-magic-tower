@@ -113,7 +113,7 @@ namespace Util
 
     private Coroutiner coroutiner;
 
-    public Timer(float duration, TimerType type = TimerType.Normal)
+    public Timer(float duration = 1, TimerType type = TimerType.Normal)
     {
       coroutiner = new Coroutiner(Routine);
       this.type = type;

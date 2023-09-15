@@ -92,14 +92,14 @@ namespace Util
     public static IEnumerator Routine(CustomYieldInstruction yieldInstruction, Action fn)
     {
       yield return yieldInstruction;
-      try
-      {
+      // try
+      // {
         fn.Invoke();
-      }
-      catch (Exception e)
-      {
-        Debug.Log($"Pass Error: {e.Message}");
-      }
+      // }
+      // catch (Exception e)
+      // {
+      //   Debug.Log($"Pass Error: {e.Message}");
+      // }
     }
 
     public static Vector3 WorldToScreenSpace(this RectTransform canvas, Vector3 worldPos)

@@ -1,7 +1,5 @@
-﻿using System;
-using Map;
+﻿using Map;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Util;
 
 namespace Trap
@@ -25,16 +23,13 @@ namespace Trap
 
     [Header("Active On Repeat")]
     [SerializeField]
-    private float repeatDelay;
-
-    [SerializeField]
     private float startDelay;
 
     [SerializeField]
     private float deactivateDelay;
 
     [SerializeField]
-    private Timer repeatTimer;
+    private Timer repeatTimer = new Timer();
 
     private bool isRoomEntered;
 
@@ -59,15 +54,18 @@ namespace Trap
 
       if ((activeOn & TrapCondition.Repeat) != 0)
       {
-        repeatTimer = new Timer(repeatDelay);
+        repeatTimer.onStart += OnTimerStart;
         repeatTimer.onEnd += OnTimerEnd;
-        repeatTimer.onBeforeStart += t => t.duration = repeatDelay;
       }
+    }
+
+    private void OnTimerStart(Timer sender)
+    {
+      if (!currentState) Activate();
     }
 
     private void OnTimerEnd(Timer sender)
     {
-      if (!currentState) Activate();
       Utils.WaitUntil(() => isRoomEntered, () =>
       {
         Utils.Wait(deactivateDelay, () =>
@@ -115,7 +113,6 @@ namespace Trap
       isRoomEntered = false;
       if (repeatTimer.isPlaying) repeatTimer.Stop();
       Deactivate();
-      
     }
   }
 }
