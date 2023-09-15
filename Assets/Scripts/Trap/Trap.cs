@@ -57,7 +57,7 @@ namespace Trap
       {
         timer = new Timer(repeatDelay);
         timer.onEnd += OnTimerEnd;
-        timer.onBeforeStart += t => t.time = repeatDelay;
+        timer.onBeforeStart += t => t.duration = repeatDelay;
       }
     }
 

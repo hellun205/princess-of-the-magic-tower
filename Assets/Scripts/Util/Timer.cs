@@ -11,7 +11,7 @@ namespace Util
     /// Call when timer ends
     /// </summary>
     public event TimerEventListener onEnd;
-    
+
     /// <summary>
     /// Call when timer starts
     /// </summary>
@@ -21,7 +21,7 @@ namespace Util
     /// Call when before timer starts
     /// </summary>
     public event TimerEventListener onBeforeStart;
-    
+
     /// <summary>
     /// Call when before timer ends
     /// </summary>
@@ -33,50 +33,67 @@ namespace Util
     /// Call when timer activating
     /// </summary>
     public event TimerEventListener onTick;
-    
+
     /// <summary>
     /// Current time of timer
     /// </summary>
-    public float currentTime { get; private set; }
+    public float elapsedTime { get; private set; }
 
     /// <summary>
     /// End value of timer
     /// </summary>
-    public float time { get; set; }
+    public float duration { get; set; }
+
+    public float easePower { get; set; } = 2f;
 
     /// <summary>
     /// Is working with unscaled delta time
     /// </summary>
-    public bool isUnscaled;
+    public bool isUnscaled { get; set; }
 
-    public float normalized => currentTime / time;
+    public float value { get; private set; }
+
+    public TimerType type { get; set; }
 
     private Coroutiner coroutiner;
 
-    public Timer(float time)
+    public Timer(float duration, TimerType type = TimerType.Normal)
     {
       coroutiner = new Coroutiner(Routine);
-      this.time = time;
+      this.type = type;
+      this.duration = duration;
     }
 
-    public Timer(float time, TimerEventListener onEndCallback) : this(time)
+    public Timer(float duration, TimerEventListener onEndCallback) : this(duration)
     {
       onEnd += onEndCallback;
     }
-    
+
     private IEnumerator Routine()
     {
       onStart?.Invoke(this);
       while (true)
       {
-        currentTime += isUnscaled ? Time.unscaledDeltaTime : Time.deltaTime;
+        elapsedTime += isUnscaled ? Time.unscaledDeltaTime : Time.deltaTime;
+
+        var t = elapsedTime / duration;
+
+        value = type switch
+        {
+          TimerType.EaseIn => t.EaseIn(easePower),
+          TimerType.EaseOut => t.EaseOut(easePower),
+          TimerType.EaseInOut => t.EaseInOut(easePower),
+          _ => t,
+        };
+
         onTick?.Invoke(this);
-        if (currentTime >= time)
+        if (elapsedTime >= duration)
         {
           onBeforeEnd?.Invoke(this);
-          Stop();
           onEnd?.Invoke(this);
+          yield break;
         }
+
         yield return new WaitForEndOfFrame();
       }
     }
@@ -87,10 +104,13 @@ namespace Util
     /// <param name="startValue">starting value</param>
     public void Start(float startValue = 0f)
     {
-      currentTime = startValue;
+      elapsedTime = startValue;
       Resume();
     }
-    
+
+    /// <summary>
+    /// Resume this timer
+    /// </summary>
     public void Resume()
     {
       onBeforeStart?.Invoke(this);

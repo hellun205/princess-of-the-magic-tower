@@ -15,15 +15,22 @@ namespace LinePath
     private Timer timer;
 
     [SerializeField]
+    private TimerType type;
+
+    [SerializeField]
     [HideInInspector]
     private bool awake;
     
     private void Awake()
     {
       awake = true;
-      timer = new Timer(time);
-      timer.onBeforeStart += t => t.time = time;
-      timer.onTick += t => transform.position = path.GetPosition(t.normalized);
+      timer = new Timer(time, type);
+      timer.onBeforeStart += t =>
+      {
+        t.duration = time;
+        t.type = type;
+      };
+      timer.onTick += t => transform.position = path.GetPosition(t.value);
       timer.onEnd += t => t.Start();
     }
 

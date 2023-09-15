@@ -28,7 +28,7 @@ namespace Player
     {
       thePlayerMove = GetComponent<PlayerMove>();
       cooldownTimer = new Timer(cooldownTime);
-      cooldownTimer.onBeforeStart += t => t.time = cooldownTime;
+      cooldownTimer.onBeforeStart += t => t.duration = cooldownTime;
       cooldownTimer.onEnd += t =>
       {
           ReloadDash();

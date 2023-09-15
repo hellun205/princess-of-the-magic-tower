@@ -34,7 +34,7 @@ namespace UI
 
     private void OnTimerBeforeStart(Timer sender)
     {
-      sender.time = cooldown;
+      sender.duration = cooldown;
     }
 
     private void OnTouch(PointerEventData eventData)
@@ -51,7 +51,7 @@ namespace UI
 
     private void OnTimerTick(Timer sender)
     {
-      targetImage.fillAmount = 1 - sender.normalized;
+      targetImage.fillAmount = 1 - sender.value;
     }
 
     private void OnTimerEnd(Timer sender)

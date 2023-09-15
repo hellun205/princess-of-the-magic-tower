@@ -14,11 +14,6 @@ namespace Util
   {
     private static Coroutiner<float, float> smoothTsCrt = new(SetTimeScaleSmooth);
 
-    public static bool Approximately(this float a, float b, float tolerance = 0.1f)
-    {
-      return Mathf.Abs(a - b) < tolerance;
-    }
-
     public static float GetAngleOfLookAtObject(this Transform sender, Transform target)
     {
       var offset = target.transform.position - sender.position;
@@ -182,22 +177,24 @@ namespace Util
       foreach (var x in enumerable)
       {
         sb.Append(x)
-         .Append(", ");
+          .Append(", ");
       }
 
       sb.Append("]");
       return sb.ToString();
     }
-    
+
     public static float GetMagnitude(this Vector2 l1, Vector2 l2)
       => (l2 - l1).magnitude;
-    
+
     public static bool ApplyPercentage(this float percentage, params float[] additive)
     {
       var random = Random.Range(0f, 1f);
       foreach (var add in additive)
         percentage += add;
-      return Mathf.Min(1f, Mathf.Max(0,percentage)) > random;
+      return Mathf.Min(1f, Mathf.Max(0, percentage)) > random;
     }
+
+
   }
 }
