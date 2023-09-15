@@ -12,10 +12,7 @@ namespace Map
   {
     [NonSerialized]
     public Transform startPosition;
-
-    [NonSerialized]
-    public List<Link> links;
-
+    
     [NonSerialized]
     public List<Transform> linkPositions;
 
@@ -78,7 +75,6 @@ namespace Map
     private void Awake()
     {
       startPosition = transform.Find("@start-pos");
-      links = transform.Find("@link-to").GetComponentsInChildren<Link>().ToList();
       linkPositions = transform.Find("@link-position").GetComponentsInChildren<Transform>().ToList();
       doors = transform.Find("@door").GetComponentsInChildren<Door.Door>().ToList();
       summoners = transform.Find("@summon").GetComponentsInChildren<PoolSummoner>().ToList();
