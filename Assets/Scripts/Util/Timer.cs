@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Util
 {
+  [Serializable]
   public class Timer
   {
     public delegate void TimerEventListener(Timer sender);
@@ -34,26 +37,73 @@ namespace Util
     /// </summary>
     public event TimerEventListener onTick;
 
+    [SerializeField]
+    private bool m_isUnscaled;
+
+    [SerializeField]
+    private float m_elapsedTime;
+
+    [SerializeField]
+    [Min(0.1f)]
+    private float m_duration;
+
+    [SerializeField]
+    private float m_easePower = 2f;
+
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float m_value;
+
+    [SerializeField]
+    private TimerType m_type;
+
+    [SerializeField]
+    private bool m_isPlaying;
+
     /// <summary>
     /// Current time of timer
     /// </summary>
-    public float elapsedTime { get; private set; }
+    public float elapsedTime
+    {
+      get => m_elapsedTime;
+      private set => m_elapsedTime = value;
+    }
 
     /// <summary>
     /// End value of timer
     /// </summary>
-    public float duration { get; set; }
+    public float duration
+    {
+      get => m_duration;
+      set => m_duration = value;
+    }
 
-    public float easePower { get; set; } = 2f;
+    public float easePower
+    {
+      get => m_easePower;
+      set => m_easePower = value;
+    }
 
     /// <summary>
     /// Is working with unscaled delta time
     /// </summary>
-    public bool isUnscaled { get; set; }
+    public bool isUnscaled
+    {
+      get => m_isUnscaled;
+      set => m_isUnscaled = value;
+    }
 
-    public float value { get; private set; }
+    public float value
+    {
+      get => m_value;
+      private set => m_value = value;
+    }
 
-    public TimerType type { get; set; }
+    public TimerType type
+    {
+      get => m_type;
+      set => m_type = value;
+    }
 
     private Coroutiner coroutiner;
 
@@ -74,6 +124,7 @@ namespace Util
       onStart?.Invoke(this);
       while (true)
       {
+        m_isPlaying = true;
         elapsedTime += isUnscaled ? Time.unscaledDeltaTime : Time.deltaTime;
 
         var t = elapsedTime / duration;
@@ -91,6 +142,7 @@ namespace Util
         {
           onBeforeEnd?.Invoke(this);
           onEnd?.Invoke(this);
+          m_isPlaying = false;
           yield break;
         }
 
@@ -123,6 +175,7 @@ namespace Util
     public void Stop()
     {
       coroutiner.Stop();
+      m_isPlaying = false;
       onForceStop?.Invoke(this);
     }
   }

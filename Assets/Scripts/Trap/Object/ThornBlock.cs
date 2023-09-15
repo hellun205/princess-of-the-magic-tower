@@ -21,8 +21,8 @@ namespace Trap.Object
     protected override void Activate()
     {
       base.Activate();
-      lineFollower.duration = duration;
-      lineFollower.type = timerType;
+      lineFollower.timer.duration = duration;
+      lineFollower.timer.type = timerType;
       lineFollower.isEnabled = true;
       interacter.currentCondition = InteractCondition.Attack;
     }

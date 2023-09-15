@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using Util;
 
 namespace LinePath
@@ -8,13 +7,9 @@ namespace LinePath
   {
     public LinePathCreator path;
 
-    public float duration;
-
     public bool isEnabled;
 
-    private Timer timer;
-
-    public TimerType type;
+    public Timer timer;
 
     [SerializeField]
     [HideInInspector]
@@ -23,12 +18,8 @@ namespace LinePath
     private void Awake()
     {
       awake = true;
-      timer = new Timer(duration, type);
-      timer.onBeforeStart += t =>
-      {
-        t.duration = duration;
-        t.type = type;
-      };
+      timer = new Timer(1f);
+
       timer.onTick += t => transform.position = path.GetPosition(t.value);
       timer.onEnd += t => t.Start();
     }
