@@ -20,6 +20,7 @@ namespace Interact
     {
       if ((condition & interacter.currentCondition) == 0) return;
       if ((detectCaster & interacter.caster) == 0) return;
+      if (!AdditionalCondition()) return;
 
       if (!interacters.Contains(interacter.gameObject))
         interacters.Add(interacter.gameObject);
@@ -43,5 +44,7 @@ namespace Interact
       if (interacters.Contains(go))
         interacters.Remove(go);
     }
+
+    public virtual bool AdditionalCondition() => true;
   }
 }

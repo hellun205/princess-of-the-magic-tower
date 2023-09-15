@@ -172,8 +172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca00ceeb2be4957b6744d6732113259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 2
   type: 1
+  detectCaster: 0
+  condition: 0
+  direction: 2
+  doorType: 1
   state: 0
   clearCount: 0
   ignoreX: 0

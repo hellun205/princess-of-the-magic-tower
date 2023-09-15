@@ -1,11 +1,12 @@
 ﻿using System;
 using Map;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Util;
 
 namespace Trap
 {
-  public abstract class Trap : MonoBehaviour, IRoomEnterEventHandler
+  public abstract class Trap : MonoBehaviour, IRoomEnterEventHandler, IRoomExitEventHandler
   {
     [Header("Trap")]
     public TrapCondition activeOn;
@@ -32,7 +33,10 @@ namespace Trap
     [SerializeField]
     private float deactivateDelay;
 
-    private Timer timer;
+    [SerializeField]
+    private Timer repeatTimer;
+
+    private bool isRoomEntered;
 
     protected virtual void Awake()
     {
@@ -55,29 +59,32 @@ namespace Trap
 
       if ((activeOn & TrapCondition.Repeat) != 0)
       {
-        timer = new Timer(repeatDelay);
-        timer.onEnd += OnTimerEnd;
-        timer.onBeforeStart += t => t.duration = repeatDelay;
+        repeatTimer = new Timer(repeatDelay);
+        repeatTimer.onEnd += OnTimerEnd;
+        repeatTimer.onBeforeStart += t => t.duration = repeatDelay;
       }
     }
 
     private void OnTimerEnd(Timer sender)
     {
       if (!currentState) Activate();
-      Utils.Wait(deactivateDelay, () =>
+      Utils.WaitUntil(() => isRoomEntered, () =>
       {
-        if (isDetect)
-          Utils.WaitUntil(() => !isDetect, () =>
-          {
-            Deactivate();
-            sender.Start();
-          });
-        else
+        Utils.Wait(deactivateDelay, () =>
         {
-          if (currentState)
-            Deactivate();
-          sender.Start();
-        }
+          if (isDetect)
+            Utils.WaitUntil(() => !isDetect, () =>
+            {
+              Deactivate();
+              sender.Start();
+            });
+          else
+          {
+            if (currentState)
+              Deactivate();
+            sender.Start();
+          }
+        });
       });
     }
 
@@ -93,13 +100,22 @@ namespace Trap
 
     public void OnRoomEntered()
     {
+      isRoomEntered = true;
       if (startState)
         Activate();
       else
         Deactivate();
 
       if ((activeOn & TrapCondition.Repeat) != 0)
-        Utils.Wait(startDelay, () => timer.Start());
+        Utils.Wait(startDelay, () => repeatTimer.Start());
+    }
+
+    public void OnRoomExited()
+    {
+      isRoomEntered = false;
+      if (repeatTimer.isPlaying) repeatTimer.Stop();
+      Deactivate();
+      
     }
   }
 }

@@ -4,7 +4,7 @@
   {
     public static bool GetCondition(this Door door)
     {
-      return door.type switch
+      return door.doorType switch
       {
         DoorType.Fixed => door.state,
         DoorType.EnemyCleared => door.room.enemies.Count == door.clearCount,

@@ -15,7 +15,7 @@ namespace Editor
     private void OnEnable()
     {
       _target = target as Door;
-      sp_type = serializedObject.FindProperty("type");
+      sp_type = serializedObject.FindProperty("doorType");
       sp_direction = serializedObject.FindProperty("direction");
       sp_state = serializedObject.FindProperty("state");
       sp_clear = serializedObject.FindProperty("clearCount");

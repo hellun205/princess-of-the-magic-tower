@@ -1,4 +1,5 @@
 using System;
+using Interact;
 using Managers;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -6,7 +7,7 @@ using Util;
 
 namespace Map.Door
 {
-  public class Door : MonoBehaviour, IRequireRoom, IRoomEnterEventHandler
+  public class Door : InteractiveObject, IRequireRoom, IRoomEnterEventHandler
   {
     [Header("Door option")]
     public Direction direction;
@@ -17,7 +18,8 @@ namespace Map.Door
     
     public Room room { get; set; }
 
-    public DoorType type;
+    [FormerlySerializedAs("type")]
+    public DoorType doorType;
 
     public bool state;
 
@@ -90,12 +92,15 @@ namespace Map.Door
       anim = GetComponent<Animator>();
       col = GetComponent<Collider2D>();
       spriteRenderer = GetComponent<SpriteRenderer>();
+
+      type = InteractType.First;
+      condition = InteractCondition.Reach | InteractCondition.Attack;
+      detectCaster = InteractCaster.Player;
     }
 
     public void SetSprite(int index)
       => spriteRenderer.sprite = room.resourceData.doorSprites[direction][index];
-
-
+    
     public void OnRoomEntered() => OnEntered();
 
 #if UNITY_EDITOR
@@ -105,12 +110,12 @@ namespace Map.Door
       col.isTrigger = true;
     }
 #endif
-
-    private void OnTriggerEnter2D(Collider2D other)
+    
+    protected override void OnInteract(GameObject caster)
     {
-      if (!other.CompareTag("Player")) return;
-
-      GameManager.Map.MoveTo(name, room.name, this);
+      GameManager.Map.MoveTo(name, this);
     }
+
+    public override bool AdditionalCondition() => col.isTrigger;
   }
 }

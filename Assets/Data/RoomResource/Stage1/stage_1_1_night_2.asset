@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: stage_1_1_night_2
   m_EditorClassIdentifier: 
   changeZoom: 1
-  zoom: 10
+  zoom: 13
   doorSprites:
     _serializedList:
     - Key: 3

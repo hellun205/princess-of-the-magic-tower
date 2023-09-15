@@ -56,6 +56,7 @@ namespace Player
 
     public void Death()
     {
+      GameManager.Map.currentRoom.OnExited();
       GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
       GameManager.Player.light.SetDefault();
     }

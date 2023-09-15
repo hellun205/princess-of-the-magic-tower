@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d4e4eef1454d2faa9a41491910ccb9, type: 3}
   m_Name: stage_1_1_normal_3
   m_EditorClassIdentifier: 
-  changeZoom: 1
+  changeZoom: 0
   zoom: 10
   doorSprites:
     _serializedList:
