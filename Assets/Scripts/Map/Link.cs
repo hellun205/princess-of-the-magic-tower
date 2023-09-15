@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Map
 {
   [RequireComponent(typeof(Collider2D))]
+  [Obsolete]
   public class Link : MonoBehaviour, IRequireRoom
   {
     private Collider2D col;
@@ -27,7 +28,7 @@ namespace Map
     {
       if (!other.CompareTag("Player")) return;
 
-      GameManager.Map.MoveTo(name, room.name, this);
+      // GameManager.Map.MoveTo(name, room.name, this);
     }
   }
 }

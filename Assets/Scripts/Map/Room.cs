@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using AYellowpaper.SerializedCollections;
 using Managers;
 using Pool;
 using UnityEngine;
-using Util;
 
 namespace Map
 {
@@ -39,51 +37,41 @@ namespace Map
     [NonSerialized]
     public Collider2D confinerBound;
 
-    private IRoomEnteredEventHandler[] loadEventHandlers;
+    private IRoomEnterEventHandler[] enterEventHandlers;
+    private IRoomExitEventHandler[] exitEventHandlers;
 
     [Header("Room")]
     public bool isCleared = false;
 
-    [Header("Camera")]
-    public float zoom = 10f;
+    public RoomResource resourceData;
 
-    [Header("Resource")]
-    public SerializedDictionary<Direction, Sprite[]> doorSprites;
 #if UNITY_EDITOR
-    [SerializeField]
-    private Sprite[] backgrounds;
-
-    [SerializeField]
-    private Color[] bgColors;
-
-    [ContextMenu("Apply Background layers")]
-    private void ApplyBackgroundLayers()
+    public void ApplyBackgroundLayers()
     {
       var bg = transform.Find("@backgrounds");
 
       foreach (var obj in bg.GetComponentsInChildren<SpriteRenderer>())
         DestroyImmediate(obj.gameObject);
 
-      for (var i = 0; i < backgrounds.Length; i++)
+      for (var i = 0; i < resourceData.backgrounds.Length; i++)
       {
         var newGo = new GameObject($"layer{i}", typeof(SpriteRenderer));
         newGo.transform.localScale = Vector3.one;
         newGo.transform.position = transform.position;
         var sr = newGo.GetComponent<SpriteRenderer>();
-        sr.sprite = backgrounds[i];
+        sr.sprite = resourceData.backgrounds[i];
         sr.sortingLayerName = "Room";
         sr.sortingOrder = i;
-        if (bgColors.Length >= i + 1)
-          sr.color = bgColors[i];
+        if (resourceData.bgColors.Length >= i + 1)
+          sr.color = resourceData.bgColors[i];
         newGo.transform.SetParent(bg.transform);
       }
     }
 
-    [ContextMenu("Apply Door Sprites")]
     public void ApplyDoorSprites()
     {
       transform.Find("@door").GetComponentsInChildren<Door.Door>().ToList()
-        .ForEach(door => door.GetComponent<SpriteRenderer>().sprite = doorSprites[door.direction][0]);
+       .ForEach(door => door.GetComponent<SpriteRenderer>().sprite = resourceData.doorSprites[door.direction][0]);
     }
 #endif
 
@@ -97,8 +85,10 @@ namespace Map
       walls = transform.Find("@walls").GetComponents<Collider2D>().ToList();
       objects = transform.Find("@objects").GetComponentsInChildren<Transform>().Select(x => x.gameObject).ToList();
       confinerBound = transform.Find("@confiner-bounding").GetComponent<Collider2D>();
-      loadEventHandlers =
-        transform.GetComponentsInChildren(typeof(IRoomEnteredEventHandler)).Cast<IRoomEnteredEventHandler>().ToArray();
+      enterEventHandlers =
+        transform.GetComponentsInChildren(typeof(IRoomEnterEventHandler)).Cast<IRoomEnterEventHandler>().ToArray();
+      exitEventHandlers =
+        transform.GetComponentsInChildren(typeof(IRoomExitEventHandler)).Cast<IRoomExitEventHandler>().ToArray();
 
       var requireRooms = transform.GetComponentsInChildren(typeof(IRequireRoom)).Cast<IRequireRoom>();
       foreach (var require in requireRooms)
@@ -113,13 +103,17 @@ namespace Map
     public void OnEntered()
     {
       GameManager.Camera.confiner2D.m_BoundingShape2D = confinerBound;
-      GameManager.Camera.SetZoom(zoom);
+      if (resourceData.changeZoom) 
+        GameManager.Camera.SetZoom(resourceData.zoom);
 
-      foreach (var roomLoadEventHandler in loadEventHandlers)
-        roomLoadEventHandler.OnRoomEntered();
+      foreach (var handler in enterEventHandlers)
+        handler.OnRoomEntered();
+    }
 
-      // summoners.ForEach(summoner => summoner.Summon());
-      // doors.ForEach(door => door.OnEntered());
+    public void OnExited()
+    {
+      foreach (var handler in exitEventHandlers)
+        handler.OnRoomExited();
     }
   }
 }

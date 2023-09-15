@@ -5,7 +5,7 @@ using Util;
 
 namespace Trap
 {
-  public abstract class Trap : MonoBehaviour, IRoomEnteredEventHandler
+  public abstract class Trap : MonoBehaviour, IRoomEnterEventHandler
   {
     [Header("Trap")]
     public TrapCondition activeOn;

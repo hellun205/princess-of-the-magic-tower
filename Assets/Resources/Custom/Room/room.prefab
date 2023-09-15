@@ -31,37 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 26219244505716981}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2352397028722156783
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4807760767666901419}
-  m_Layer: 0
-  m_Name: '@link-to'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4807760767666901419
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2352397028722156783}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 26219244505716981}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2434987663460366206
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +65,6 @@ Transform:
   - {fileID: 3167221971137356877}
   - {fileID: 1564612934374639579}
   - {fileID: 3721192497924543228}
-  - {fileID: 4807760767666901419}
   - {fileID: 1633682275670056744}
   - {fileID: 1107618464851022076}
   - {fileID: 8282354306632645899}
@@ -116,29 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCleared: 0
-  zoom: 10
-  doorSprites:
-    _serializedList:
-    - Key: 0
-      Value:
-      - {fileID: -1477104105, guid: 3b09273a2c9ef37438e39801aa26efa6, type: 3}
-      - {fileID: 528249024, guid: f68785ec79ec9a34ba20a3c0b8b11bc1, type: 3}
-    - Key: 1
-      Value:
-      - {fileID: -2022894555, guid: 3b09273a2c9ef37438e39801aa26efa6, type: 3}
-      - {fileID: 1218190663, guid: f68785ec79ec9a34ba20a3c0b8b11bc1, type: 3}
-    - Key: 2
-      Value:
-      - {fileID: -1573478607, guid: 3b09273a2c9ef37438e39801aa26efa6, type: 3}
-      - {fileID: 1502800023, guid: f68785ec79ec9a34ba20a3c0b8b11bc1, type: 3}
-    - Key: 3
-      Value:
-      - {fileID: -21691319, guid: 3b09273a2c9ef37438e39801aa26efa6, type: 3}
-      - {fileID: -1924287813, guid: f68785ec79ec9a34ba20a3c0b8b11bc1, type: 3}
-  backgrounds:
-  - {fileID: 21300000, guid: 69b879a7471cfbd47b7845126411cb6e, type: 3}
-  - {fileID: 21300000, guid: 9b3e896f674cb2e43aa445ca91af4c16, type: 3}
-  bgColors: []
+  resourceData: {fileID: 0}
 --- !u!1 &2758834914157461438
 GameObject:
   m_ObjectHideFlags: 0

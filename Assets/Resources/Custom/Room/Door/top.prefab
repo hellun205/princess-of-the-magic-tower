@@ -9,14 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3046363048411033044}
-  - component: {fileID: 7680051406226603030}
   - component: {fileID: 2909913821984906017}
   - component: {fileID: 7246287927749803121}
   - component: {fileID: 7591128080480498972}
+  - component: {fileID: 219695550911144551}
   m_Layer: 0
   m_Name: top
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: e2f118e8810d39049870fe68b97fcb6e, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -35,19 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7680051406226603030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7370739206723554520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46168b0e600c48b7a34ff7f4bf6530d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: 3
 --- !u!212 &2909913821984906017
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -150,7 +137,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -175,3 +162,21 @@ PolygonCollider2D:
       - {x: 2.1812813, y: -0.6996451}
       - {x: 2.1771169, y: 0.11253554}
   m_UseDelaunayMesh: 0
+--- !u!114 &219695550911144551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7370739206723554520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca00ceeb2be4957b6744d6732113259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 3
+  type: 1
+  state: 0
+  clearCount: 0
+  ignoreX: 0
+  ignoreY: 0

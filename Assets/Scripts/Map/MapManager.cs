@@ -25,7 +25,7 @@ namespace Map
 
     public Room Find(string name) => controller.rooms.Find(x => x.name == name);
 
-    public void MoveTo(string roomName, string beforeRoom = "", Link link = null)
+    public void MoveTo(string roomName, string beforeRoom = "", Door.Door door = null)
     {
       var specific = string.Empty;
       if (roomName.Contains('.'))
@@ -49,14 +49,14 @@ namespace Map
         var playerPos = GameManager.Player.transform.position;
         Vector2 targetPos;
 
-        if (!string.IsNullOrEmpty(beforeRoom) && link is not null)
+        if (!string.IsNullOrEmpty(beforeRoom) && door is not null)
         {
           var targetLinkPos = room.linkPositions.Find(t =>
             t.name == (string.IsNullOrEmpty(specific) ? beforeRoom : $"{beforeRoom}.{specific}"));
           targetPos = new Vector2
           (
-            link.ignoreX ? playerPos.x : targetLinkPos.position.x,
-            link.ignoreY ? playerPos.y : targetLinkPos.position.y
+            door.ignoreX ? playerPos.x : targetLinkPos.position.x,
+            door.ignoreY ? playerPos.y : targetLinkPos.position.y
           );
         }
         else

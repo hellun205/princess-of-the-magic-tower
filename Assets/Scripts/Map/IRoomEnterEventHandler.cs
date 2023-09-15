@@ -1,6 +1,6 @@
 namespace Map
 {
-  public interface IRoomEnteredEventHandler
+  public interface IRoomEnterEventHandler
   {
     public void OnRoomEntered();
   }
