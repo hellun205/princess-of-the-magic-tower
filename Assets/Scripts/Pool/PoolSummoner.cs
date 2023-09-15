@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Pool
 {
-  public class PoolSummoner : MonoBehaviour, IRequireRoom, IRoomEnteredEventHandler
+  public class PoolSummoner : MonoBehaviour, IRequireRoom, IRoomEnterEventHandler
   {
     public string target;
 

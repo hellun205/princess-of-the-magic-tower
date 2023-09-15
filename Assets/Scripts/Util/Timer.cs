@@ -105,6 +105,12 @@ namespace Util
       set => m_type = value;
     }
 
+    public bool isPlaying
+    {
+      get => m_isPlaying;
+      private set => m_isPlaying = value;
+    }
+
     private Coroutiner coroutiner;
 
     public Timer(float duration, TimerType type = TimerType.Normal)
@@ -124,7 +130,7 @@ namespace Util
       onStart?.Invoke(this);
       while (true)
       {
-        m_isPlaying = true;
+        isPlaying = true;
         elapsedTime += isUnscaled ? Time.unscaledDeltaTime : Time.deltaTime;
 
         var t = elapsedTime / duration;
@@ -142,7 +148,7 @@ namespace Util
         {
           onBeforeEnd?.Invoke(this);
           onEnd?.Invoke(this);
-          m_isPlaying = false;
+          isPlaying = false;
           yield break;
         }
 

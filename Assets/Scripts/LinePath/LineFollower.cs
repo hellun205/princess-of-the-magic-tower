@@ -10,14 +10,9 @@ namespace LinePath
     public bool isEnabled;
 
     public Timer timer;
-
-    [SerializeField]
-    [HideInInspector]
-    private bool awake;
     
     private void Awake()
     {
-      awake = true;
       timer = new Timer(1f);
 
       timer.onTick += t => transform.position = path.GetPosition(t.value);

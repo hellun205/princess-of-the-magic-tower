@@ -1,23 +1,37 @@
 using System;
+using Managers;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Util;
 
 namespace Map.Door
 {
-  public abstract class Door : MonoBehaviour, IRequireRoom, IRoomEnteredEventHandler
+  public class Door : MonoBehaviour, IRequireRoom, IRoomEnterEventHandler
   {
+    [Header("Door option")]
     public Direction direction;
 
     protected Collider2D col;
 
     private Animator anim;
     
-    public Room room { protected get; set; }
+    public Room room { get; set; }
+
+    public DoorType type;
+
+    public bool state;
+
+    public int clearCount = 0;
+
+    [Header("Link option")]
+    public bool ignoreX;
+    
+    public bool ignoreY;
 
     [NonSerialized]
     public SpriteRenderer spriteRenderer;
 
-    public abstract bool CheckClear { get; }
+    public bool CheckClear => this.GetCondition();
 
     [ContextMenu("Close")]
     public virtual void Close()
@@ -48,12 +62,12 @@ namespace Map.Door
     }
 
     protected void SetCollider(bool enable)
-      => col.enabled = enable;
+      => col.isTrigger = !enable;
+
 
     protected void DisableCollider() => SetCollider(false);
 
     protected void EnableCollider() => SetCollider(true);
-
 
     public virtual void OnEntered()
     {
@@ -79,8 +93,24 @@ namespace Map.Door
     }
 
     public void SetSprite(int index)
-      => spriteRenderer.sprite = room.doorSprites[direction][index];
+      => spriteRenderer.sprite = room.resourceData.doorSprites[direction][index];
+
 
     public void OnRoomEntered() => OnEntered();
+
+#if UNITY_EDITOR
+    private void Reset()
+    {
+      col = GetComponent<Collider2D>();
+      col.isTrigger = true;
+    }
+#endif
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+      if (!other.CompareTag("Player")) return;
+
+      GameManager.Map.MoveTo(name, room.name, this);
+    }
   }
 }
