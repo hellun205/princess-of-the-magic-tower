@@ -52,6 +52,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   repeatDelay: 0
+  startDelay: 0
   deactivateDelay: 0
   lineFollower: {fileID: 8643188657519963730}
   interacter: {fileID: 5790002577141529842}
@@ -106,6 +107,7 @@ MonoBehaviour:
   - {x: 8.8, y: 2.38}
   - {x: -5.61, y: 2.38}
   - {x: -9.46, y: -5.59}
+  drawIcon: 0
 --- !u!1 &6886290888929497466
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +210,8 @@ MonoBehaviour:
   path: {fileID: 2560521383355691064}
   time: 0
   isEnabled: 0
+  type: 0
+  awake: 1
 --- !u!114 &5790002577141529842
 MonoBehaviour:
   m_ObjectHideFlags: 0
