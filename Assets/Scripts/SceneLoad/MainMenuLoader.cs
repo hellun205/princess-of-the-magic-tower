@@ -8,7 +8,7 @@ namespace SceneLoad
   {
     public void OnStartButtonClick()
     {
-      SceneManager.LoadScene("SampleScene 1");
+      SceneManager.LoadScene("Scenes/Stage/test");
     }
 
     public void OnOutButtonClick()
