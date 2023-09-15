@@ -1,21 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using Util;
 
 namespace LinePath
 {
-  [ExecuteInEditMode]
   public class LineFollower : MonoBehaviour
   {
     public LinePathCreator path;
 
-    public float time;
+    public float duration;
 
     public bool isEnabled;
 
     private Timer timer;
 
-    [SerializeField]
-    private TimerType type;
+    public TimerType type;
 
     [SerializeField]
     [HideInInspector]
@@ -24,10 +23,10 @@ namespace LinePath
     private void Awake()
     {
       awake = true;
-      timer = new Timer(time, type);
+      timer = new Timer(duration, type);
       timer.onBeforeStart += t =>
       {
-        t.duration = time;
+        t.duration = duration;
         t.type = type;
       };
       timer.onTick += t => transform.position = path.GetPosition(t.value);

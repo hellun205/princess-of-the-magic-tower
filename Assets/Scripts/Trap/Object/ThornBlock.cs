@@ -1,7 +1,7 @@
-﻿using System;
-using Interact;
+﻿using Interact;
 using LinePath;
 using UnityEngine;
+using Util;
 
 namespace Trap.Object
 {
@@ -14,12 +14,15 @@ namespace Trap.Object
     [SerializeField]
     private Interacter interacter;
 
-    public float time;
+    public float duration;
+
+    public TimerType timerType = TimerType.Normal;
 
     protected override void Activate()
     {
       base.Activate();
-      lineFollower.time = time;
+      lineFollower.duration = duration;
+      lineFollower.type = timerType;
       lineFollower.isEnabled = true;
       interacter.currentCondition = InteractCondition.Attack;
     }
