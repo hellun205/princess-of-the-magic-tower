@@ -33,6 +33,8 @@ namespace Player
     [NonSerialized]
     public Interacter interacter;
 
+    private GameObject testModeText;
+
     private void Awake()
     {
       animation = GetComponent<PlayerAnimation>();
@@ -41,7 +43,12 @@ namespace Player
       move = GetComponent<PlayerMove>();
       light = GetComponent<PlayerLight>();
       interacter = GetComponent<Interacter>();
-
+      GameManager.OnLoaded += () =>
+      {
+        testModeText = GameManager.ManagedObject.Get("testmode");
+        testModeText.SetActive(testMode);
+      };
+      
       DontDestroyOnLoad(gameObject);
     }
 
@@ -50,7 +57,7 @@ namespace Player
       if (Input.GetKeyDown(KeyCode.T))
       {
         testMode = !testMode;
-        Debug.Log($"테스트 모드 {testMode}.");
+        testModeText.SetActive(testMode);
       }
     }
 

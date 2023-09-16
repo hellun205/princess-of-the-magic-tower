@@ -1577,6 +1577,14 @@ PrefabInstance:
       propertyPath: repeatTimer.m_duration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8482121097687704372, guid: 0db7d024c8687e84ba119c210c22f23a, type: 3}
+      propertyPath: caster
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482121097687704372, guid: 0db7d024c8687e84ba119c210c22f23a, type: 3}
+      propertyPath: ignoreOpponentAttack
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3086,6 +3094,18 @@ PrefabInstance:
       propertyPath: repeatTimer.m_duration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8482121097687704372, guid: 0db7d024c8687e84ba119c210c22f23a, type: 3}
+      propertyPath: caster
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482121097687704372, guid: 0db7d024c8687e84ba119c210c22f23a, type: 3}
+      propertyPath: currentCondition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482121097687704372, guid: 0db7d024c8687e84ba119c210c22f23a, type: 3}
+      propertyPath: ignoreOpponentAttack
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4416,6 +4436,14 @@ PrefabInstance:
     - target: {fileID: 3952960129680813462, guid: 0db7d024c8687e84ba119c210c22f23a, type: 3}
       propertyPath: repeatTimer.m_duration
       value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482121097687704372, guid: 0db7d024c8687e84ba119c210c22f23a, type: 3}
+      propertyPath: caster
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482121097687704372, guid: 0db7d024c8687e84ba119c210c22f23a, type: 3}
+      propertyPath: ignoreOpponentAttack
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11383,7 +11411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaddf1a35d1b4441998dfd5c45fa3154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRoom: room1
+  startRoom: room8_night
 --- !u!4 &1034850926
 Transform:
   m_ObjectHideFlags: 0
@@ -19945,6 +19973,14 @@ PrefabInstance:
     - target: {fileID: 3952960129680813462, guid: 0db7d024c8687e84ba119c210c22f23a, type: 3}
       propertyPath: repeatTimer.m_duration
       value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482121097687704372, guid: 0db7d024c8687e84ba119c210c22f23a, type: 3}
+      propertyPath: caster
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482121097687704372, guid: 0db7d024c8687e84ba119c210c22f23a, type: 3}
+      propertyPath: ignoreOpponentAttack
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

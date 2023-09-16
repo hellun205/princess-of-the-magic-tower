@@ -1,25 +1,27 @@
-﻿using Managers;
+﻿using Interact;
 using UnityEngine;
 
 namespace Trap.Object
 {
-  [RequireComponent(typeof(Collider2D))]
+  [RequireComponent(typeof(Collider2D), typeof(Interacter))]
   public class ThornTrap : Trap
   {
     private Animator anim;
-    
-    // [Header("Thorn Trap")]
-    private Collider2D col;
+    private Interacter interacter;
 
 #if UNITY_EDITOR
     private void Reset()
     {
       var c = GetComponent<Collider2D>();
+      var i = GetComponent<Interacter>();
       var layer = LayerMask.GetMask("Player");
       
       c.isTrigger = true;
       c.includeLayers = layer;
       c.excludeLayers = ~ layer;
+      i.caster = InteractCaster.Others;
+      i.currentCondition = InteractCondition.Reach;
+      i.ignoreOpponentAttack = true;
     }
 #endif
     
@@ -27,26 +29,21 @@ namespace Trap.Object
     {
       base.Awake();
       anim = GetComponent<Animator>();
-      col = GetComponent<Collider2D>();
+      interacter = GetComponent<Interacter>();
     }
 
     protected override void Activate()
     {
       base.Activate();
-      col.enabled = true;
+      interacter.currentCondition = InteractCondition.Attack;
       anim.SetBool("activate" , true);
     }
 
     protected override void Deactivate()
     {
       base.Deactivate();
-      col.enabled = false;
+      interacter.currentCondition = InteractCondition.None;
       anim.SetBool("activate" , false);
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-      GameManager.Player.Death();
     }
   }
 }

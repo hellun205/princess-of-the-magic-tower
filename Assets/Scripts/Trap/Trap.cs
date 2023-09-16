@@ -54,18 +54,13 @@ namespace Trap
 
       if ((activeOn & TrapCondition.Repeat) != 0)
       {
-        repeatTimer.onStart += OnTimerStart;
         repeatTimer.onEnd += OnTimerEnd;
       }
     }
 
-    private void OnTimerStart(Timer sender)
-    {
-      if (!currentState) Activate();
-    }
-
     private void OnTimerEnd(Timer sender)
     {
+      if (!currentState) Activate();
       Utils.WaitUntil(() => isRoomEntered, () =>
       {
         Utils.Wait(deactivateDelay, () =>
