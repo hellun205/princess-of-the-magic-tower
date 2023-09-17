@@ -4,7 +4,6 @@
   {
     Idle,
     WalkFront,
-    WalkLeft,
     WalkBack,
     Dash,
   }
