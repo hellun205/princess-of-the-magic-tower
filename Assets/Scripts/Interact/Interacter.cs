@@ -5,6 +5,7 @@ namespace Interact
 {
   public class Interacter : MonoBehaviour
   {
+    [Header("Interacter")]
     public InteractCaster caster;
 
     public InteractCondition currentCondition;
@@ -40,8 +41,12 @@ namespace Interact
       if (!ignoreOpponentAttack && go.TryGetComponent<Interacter>(out var oit) &&
           (oit.currentCondition & InteractCondition.Attack) != 0)
         return;
+      OnInteract(io);
+    }
 
-      io.Interact(this);
+    protected virtual void OnInteract(InteractiveObject target)
+    {
+      target.Interact(this);
     }
 
     private void Add(GameObject go)

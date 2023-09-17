@@ -275,14 +275,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 44152755223683982}
-  - component: {fileID: 8111098268684236687}
-  - component: {fileID: 4983960963638720303}
-  - component: {fileID: 8015838970304438453}
   - component: {fileID: 8120281205192436109}
   - component: {fileID: 2820153920773984341}
   - component: {fileID: 7756507303481499763}
+  - component: {fileID: 8111098268684236687}
+  - component: {fileID: 4983960963638720303}
+  - component: {fileID: 8015838970304438453}
   - component: {fileID: 7419355873002386043}
   - component: {fileID: 4460870737042703838}
+  - component: {fileID: 243741343869863689}
   m_Layer: 0
   m_Name: follow
   m_TagString: Enemy
@@ -309,53 +310,6 @@ Transform:
   - {fileID: 4001723032782929412}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8111098268684236687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7687110530125285340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 920341fdb6494a32bcabad686b76ee3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 0
-  type: 
---- !u!114 &4983960963638720303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7687110530125285340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fc7b58bf99ebcc498de73c954705d14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  awake: 0
-  debugMode: 0
-  moveSpeed: 2
-  player: {fileID: 0}
---- !u!114 &8015838970304438453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7687110530125285340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1edacced74ee42e0844c408bfbf06209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 1
-  curHp: 1
-  <destroyLevel>k__BackingField: 0
-  map: 
-  killToAdd: 2
 --- !u!95 &8120281205192436109
 Animator:
   serializedVersion: 5
@@ -439,6 +393,51 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00000023841858, y: 0.00000023469329}
   m_Size: {x: 1.47, y: 2.21}
   m_Direction: 0
+--- !u!114 &8111098268684236687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7687110530125285340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 920341fdb6494a32bcabad686b76ee3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  type: 
+--- !u!114 &4983960963638720303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7687110530125285340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc7b58bf99ebcc498de73c954705d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  awake: 0
+  debugMode: 0
+  moveSpeed: 2
+  player: {fileID: 0}
+--- !u!114 &8015838970304438453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7687110530125285340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1edacced74ee42e0844c408bfbf06209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <destroyLevel>k__BackingField: 0
+  map: 
+  killToAdd: 2
 --- !u!114 &7419355873002386043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,3 +465,19 @@ MonoBehaviour:
   caster: 4
   currentCondition: 4
   ignoreOpponentAttack: 0
+--- !u!114 &243741343869863689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7687110530125285340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3194fb1aa8b4a2780f6e6670892733e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  detectCaster: 2
+  condition: 4
+  maxHp: 1

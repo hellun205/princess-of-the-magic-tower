@@ -49,8 +49,6 @@ namespace Enemy.AI
 
     public override void StartAI()
     {
-      Debug.Log($"Start{gameObject.name}");
-
       awake = true;
       player = GameManager.Player.gameObject;
 

@@ -10,9 +10,6 @@ namespace Enemy
 {
   public class EnemyController : UsePool, IObstacleDestroyable
   {
-    public int maxHp;
-    public int curHp;
-    
     [field: SerializeField]
     [field: Min(0)]
     public int destroyLevel { get; set; }
@@ -22,7 +19,6 @@ namespace Enemy
 
     [NonSerialized]
     public Interacter interacter;
-
     
     public string map;
 
@@ -33,6 +29,8 @@ namespace Enemy
       base.Awake();
       move = GetComponent<EnemyMove>();
       interacter = GetComponent<Interacter>();
+      if (TryGetComponent<TargetableObject>(out var to))
+        to.onDead += Dead;
     }
     
     public void SetMap(string value)
@@ -43,25 +41,15 @@ namespace Enemy
 
     protected override void OnSummon()
     {
-      curHp = maxHp;
-      move.StartAI();
-    }
+      if (TryGetComponent<TargetableObject>(out var to))
+        to.curHp = to.maxHp;
 
-    public void FindPlayer()
-    {
       move.StartAI();
     }
     
     protected override void OnKill()
     {
       GameManager.Map.Find(map).enemies.Remove(pool.index);
-    }
-
-    public void Hit(int damage)
-    {
-      curHp = Math.Max(0, curHp - damage);
-
-      if (curHp == 0) Dead();
     }
 
     private void Dead()
@@ -72,13 +60,6 @@ namespace Enemy
         GameManager.Player.skill.AddAdditionalDash();
       
       pool.Release();
-    }
-
-    public static void AttackPlayer()
-    {
-      if (GameManager.Player.testMode) return;
-
-      GameManager.Player.Death();
     }
   }
 }

@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8254818193036505499}
   - component: {fileID: 6239458653550108887}
   - component: {fileID: 5843885083983926932}
+  - component: {fileID: 1101487142194145105}
   m_Layer: 0
   m_Name: test_additionaldash
   m_TagString: Enemy
@@ -146,8 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edacced74ee42e0844c408bfbf06209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 3
-  curHp: 3
+  <destroyLevel>k__BackingField: 0
   map: 
   killToAdd: 6
 --- !u!50 &6239458653550108887
@@ -212,3 +212,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00000023841858, y: 0.00000023469329}
   m_Size: {x: 1.47, y: 2.21}
   m_Direction: 0
+--- !u!114 &1101487142194145105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718549059019967151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3194fb1aa8b4a2780f6e6670892733e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  detectCaster: 2
+  condition: 4
+  maxHp: 1

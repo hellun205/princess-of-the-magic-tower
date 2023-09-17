@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 6369514200811650136}
   - component: {fileID: 4530101268357220274}
   - component: {fileID: 8761933548584973561}
+  - component: {fileID: 2258335000847102775}
   m_Layer: 0
   m_Name: frog
   m_TagString: Enemy
@@ -240,8 +241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edacced74ee42e0844c408bfbf06209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 1
-  curHp: 1
   <destroyLevel>k__BackingField: 0
   map: 
   killToAdd: 2
@@ -325,8 +324,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000023841858, y: 0.00000023469329}
-  m_Size: {x: 1.47, y: 2.21}
+  m_Offset: {x: 0.008543968, y: -0.3101939}
+  m_Size: {x: 1.1567311, y: 1.3503883}
   m_Direction: 0
 --- !u!114 &4530101268357220274
 MonoBehaviour:
@@ -355,6 +354,22 @@ MonoBehaviour:
   caster: 4
   currentCondition: 4
   ignoreOpponentAttack: 0
+--- !u!114 &2258335000847102775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666136032277087458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3194fb1aa8b4a2780f6e6670892733e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  detectCaster: 2
+  condition: 4
+  maxHp: 1
 --- !u!1 &4768223130346087504
 GameObject:
   m_ObjectHideFlags: 0
