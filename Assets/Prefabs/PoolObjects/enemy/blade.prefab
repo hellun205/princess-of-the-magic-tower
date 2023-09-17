@@ -361,13 +361,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6253957790320652491}
   - component: {fileID: 5131874266720681200}
+  - component: {fileID: 7403636329409959977}
+  - component: {fileID: 6166919980677760657}
   - component: {fileID: 2970411750724855675}
   - component: {fileID: 5874332633894672788}
   - component: {fileID: 5670934828934537660}
   - component: {fileID: 2909659229393672518}
   - component: {fileID: 7584365899823540122}
-  - component: {fileID: 7403636329409959977}
-  - component: {fileID: 6166919980677760657}
+  - component: {fileID: 3822177011583642274}
   m_Layer: 0
   m_Name: blade
   m_TagString: Enemy
@@ -449,92 +450,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2970411750724855675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5878394693610948301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 920341fdb6494a32bcabad686b76ee3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 0
-  type: 
---- !u!114 &5874332633894672788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5878394693610948301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1edacced74ee42e0844c408bfbf06209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 3
-  curHp: 3
-  <destroyLevel>k__BackingField: 1
-  map: 
-  killToAdd: 6
---- !u!114 &5670934828934537660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5878394693610948301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 741e6c6a1f1f62b44b7f5b73a37a8aa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugMode: 0
-  awake: 0
-  canAttack: 1
-  moveSpeed: 3.2
-  findRad: 2.8
-  attackCooltime: 2
-  targetObj: {fileID: 0}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  attackArea: {fileID: 5254657198224070745}
-  readyTime: 4
-  attackDuration: 2.5
-  rotateSpeed: 30
-  warningArea: {fileID: 2382180641620847909}
-  axe_Object: {fileID: 3642997569488541865}
---- !u!114 &2909659229393672518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5878394693610948301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f135d7c55f280994b9612655656df1ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7584365899823540122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5878394693610948301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 784cc336f3ad4bdb82401c95b311aa92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  caster: 4
-  currentCondition: 2
-  ignoreOpponentAttack: 1
 --- !u!50 &7403636329409959977
 Rigidbody2D:
   serializedVersion: 4
@@ -597,6 +512,107 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00000023841858, y: 0.00000023469329}
   m_Size: {x: 1.17, y: 1.58}
   m_Direction: 0
+--- !u!114 &2970411750724855675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878394693610948301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 920341fdb6494a32bcabad686b76ee3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  type: 
+--- !u!114 &5874332633894672788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878394693610948301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1edacced74ee42e0844c408bfbf06209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <destroyLevel>k__BackingField: 1
+  map: 
+  killToAdd: 6
+--- !u!114 &5670934828934537660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878394693610948301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741e6c6a1f1f62b44b7f5b73a37a8aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugMode: 0
+  awake: 0
+  canAttack: 1
+  moveSpeed: 3.2
+  findRad: 2.8
+  attackCooltime: 2
+  targetObj: {fileID: 0}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  attackArea: {fileID: 5254657198224070745}
+  readyTime: 4
+  attackDuration: 2.5
+  rotateSpeed: 30
+  warningArea: {fileID: 2382180641620847909}
+  axe_Object: {fileID: 3642997569488541865}
+--- !u!114 &2909659229393672518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878394693610948301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f135d7c55f280994b9612655656df1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7584365899823540122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878394693610948301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784cc336f3ad4bdb82401c95b311aa92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caster: 4
+  currentCondition: 2
+  ignoreOpponentAttack: 1
+--- !u!114 &3822177011583642274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878394693610948301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3194fb1aa8b4a2780f6e6670892733e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  detectCaster: 2
+  condition: 4
+  maxHp: 3
+  curHp: 0
 --- !u!1 &6908873503895555442
 GameObject:
   m_ObjectHideFlags: 0

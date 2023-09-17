@@ -43,6 +43,7 @@ namespace Player
     private List<int> attackedList = new();
 
     private JoyStick moveJoyStick;
+    private Vector2 lastMovePos;
 
     private void Awake()
     {
@@ -61,6 +62,8 @@ namespace Player
     private void MoveJoyStick_OnValueChange(Vector2 value)
     {
       inputVec = value;
+      if (value != Vector2.zero)
+        lastMovePos = inputVec;
     }
 
     private void Update()
@@ -118,7 +121,7 @@ namespace Player
       yield return new WaitForSeconds(0.1f);
       //spriteRenderer.color = Color.white;
 
-      manager.animation.SetState(MoveState.Idle);
+      manager.animation.SetState(MoveState.IdleFront);
 
       isDashing = false;
       manager.interacter.currentCondition = InteractCondition.Reach;
@@ -158,24 +161,22 @@ namespace Player
       if (isDashing) return;
 
       if (inputVec.Equals(Vector2.zero))
-        manager.animation.SetState(MoveState.Idle);
-      // else if (inputVec.y > 0)
-      //   manager.animation.SetState(MoveState.WalkBack);
-      else if (inputVec.y < 0)
+        manager.animation.SetState(lastMovePos.y > 0 ? MoveState.IdleBack : MoveState.IdleFront);
+      else if (inputVec.y <= 0)
         manager.animation.SetState(MoveState.WalkFront);
-      else
-        manager.animation.SetState(MoveState.WalkLeft);
+      else if (inputVec.y > 0)
+        manager.animation.SetState(MoveState.WalkBack);
     }
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-      if (!isDashing || !other.CompareTag("Enemy")) return;
-      var enemy = other.GetComponent<EnemyController>();
-
-      if (attackedList.Contains(enemy.pool.index)) return;
-      attackedList.Add(enemy.pool.index);
-
-      enemy.Hit(1);
-    }
+    // private void OnTriggerStay2D(Collider2D other)
+    // {
+    //   if (!isDashing || !other.CompareTag("Enemy")) return;
+    //   var enemy = other.GetComponent<EnemyController>();
+    //
+    //   if (attackedList.Contains(enemy.pool.index)) return;
+    //   attackedList.Add(enemy.pool.index);
+    //
+    //   enemy.Hit(1);
+    // }
   }
 }

@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 3082210156497119634}
   - component: {fileID: 2116443438635523198}
   - component: {fileID: 3951081655077399950}
+  - component: {fileID: 6446281087972199206}
   m_Layer: 0
   m_Name: shield
   m_TagString: Enemy
@@ -268,8 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edacced74ee42e0844c408bfbf06209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 3
-  curHp: 3
   <destroyLevel>k__BackingField: 3
   map: 
   killToAdd: 6
@@ -318,18 +317,29 @@ MonoBehaviour:
   rotateSpeed: 2
   lookDistance: 11
   stopDistance: 1
-  targetObj: {fileID: 0}
   canDash: 1
   dashSpeed: 5
   dashPosition: {fileID: 3537554627523817398}
   maxCoolTime: 0.7
-  dashReadyTime: 10
   targetMask:
     serializedVersion: 2
     m_Bits: 64
-  stopMask:
-    serializedVersion: 2
-    m_Bits: 192
+--- !u!114 &6446281087972199206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430632833266649051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3194fb1aa8b4a2780f6e6670892733e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  detectCaster: 2
+  condition: 4
+  maxHp: 1
 --- !u!1 &1650358302348051745
 GameObject:
   m_ObjectHideFlags: 0

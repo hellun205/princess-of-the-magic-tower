@@ -1,4 +1,5 @@
-﻿using Managers;
+﻿using System;
+using Managers;
 using Pool;
 using Pool.Extension;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine;
 namespace Enemy
 {
   [RequireComponent(typeof(EnemyController))]
+  [Obsolete]
   public class HpBar : UsePool
   {
     public Transform pos;
@@ -36,9 +38,9 @@ namespace Enemy
     {
       if (!isEnabled) return;
 
-      progressBar.progressBar.isText = isText;
-      progressBar.progressBar.maxValue = enemyController.maxHp;
-      progressBar.progressBar.value = enemyController.curHp;
+      // progressBar.progressBar.isText = isText;
+      // progressBar.progressBar.maxValue = enemyController.maxHp;
+      // progressBar.progressBar.value = enemyController.curHp;
     }
   }
 }
