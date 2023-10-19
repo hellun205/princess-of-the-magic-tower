@@ -7,7 +7,6 @@ using UnityEngine;
 namespace Enemy
 {
   [RequireComponent(typeof(EnemyController))]
-  [Obsolete]
   public class HpBar : UsePool
   {
     public Transform pos;
