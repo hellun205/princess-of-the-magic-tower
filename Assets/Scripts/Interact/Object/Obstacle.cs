@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Managers;
 using UnityEngine;
 
 namespace Interact.Object
@@ -27,6 +28,7 @@ namespace Interact.Object
     protected override void OnInteract(GameObject caster)
     {
       if (!caster.TryGetComponent(typeof(IObstacleDestroyable), out var component)) return;
+      GameManager.Pool.Summon("effect/hit", transform.position);
       if (destoryLevel > (component as IObstacleDestroyable).destroyLevel) return;
       if (--hp <= 0) OnBreak();
     }
