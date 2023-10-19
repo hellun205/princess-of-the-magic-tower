@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Obstacle
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -54,4 +55,7 @@ TagManager:
     locked: 0
   - name: UIPoolObject
     uniqueID: 444042313
+    locked: 0
+  - name: Effect
+    uniqueID: 3736102815
     locked: 0
