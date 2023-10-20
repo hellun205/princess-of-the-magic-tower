@@ -18,7 +18,6 @@ namespace Pool.Extension
 
     protected override void OnSummon()
     {
-      base.OnSummon();
       Utils.Wait(duration + 1f, () => pool.Release());
     }
   }

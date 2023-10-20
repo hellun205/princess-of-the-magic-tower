@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 2909659229393672518}
   - component: {fileID: 7584365899823540122}
   - component: {fileID: 3822177011583642274}
+  - component: {fileID: 8974847207495288322}
   m_Layer: 0
   m_Name: blade
   m_TagString: Enemy
@@ -612,7 +613,19 @@ MonoBehaviour:
   detectCaster: 2
   condition: 4
   maxHp: 3
-  curHp: 0
+--- !u!114 &8974847207495288322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878394693610948301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a43e71e3ec4cd6b09c08357d8f6f22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: {fileID: 2410147735854002217}
 --- !u!1 &6908873503895555442
 GameObject:
   m_ObjectHideFlags: 0

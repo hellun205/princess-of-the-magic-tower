@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 4530101268357220274}
   - component: {fileID: 8761933548584973561}
   - component: {fileID: 2258335000847102775}
+  - component: {fileID: 8827623009860488989}
   m_Layer: 0
   m_Name: frog
   m_TagString: Enemy
@@ -370,6 +371,19 @@ MonoBehaviour:
   detectCaster: 2
   condition: 4
   maxHp: 1
+--- !u!114 &8827623009860488989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666136032277087458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a43e71e3ec4cd6b09c08357d8f6f22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: {fileID: 5842129297041724308}
 --- !u!1 &4768223130346087504
 GameObject:
   m_ObjectHideFlags: 0

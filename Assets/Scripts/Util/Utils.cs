@@ -104,10 +104,11 @@ namespace Util
 
     public static Vector3 WorldToScreenSpace(this RectTransform canvas, Vector3 worldPos)
     {
-      var screenPoint = UnityEngine.Camera.main.WorldToScreenPoint(worldPos);
+      var camera = GameManager.Camera.mainCamera;
+      var screenPoint = camera.WorldToScreenPoint(worldPos);
       screenPoint.z = 0;
 
-      if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas, screenPoint, UnityEngine.Camera.main,
+      if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas, screenPoint, camera,
             out var screenPos))
         return screenPos;
 
@@ -195,6 +196,13 @@ namespace Util
       return Mathf.Min(1f, Mathf.Max(0, percentage)) > random;
     }
 
+    public static T[] GetChilds<T>(this Transform transform) where T : Component
+    {
+      var res = new List<T>();
 
+      for (var i = 0; i < transform.childCount; i++)
+        res.Add(transform.GetChild(i).GetComponent<T>());
+      return res.ToArray();
+    }
   }
 }

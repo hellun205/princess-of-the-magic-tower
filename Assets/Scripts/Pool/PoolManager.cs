@@ -67,7 +67,7 @@ namespace Pool
 
     private void ActionOnGet(PoolObject obj)
     {
-      obj.transform.position = tmpPos;
+      obj.position = tmpPos;
       obj.index = index++;
       obj.name = $"{obj.type} ({obj.index})";
       obj.OnGet();

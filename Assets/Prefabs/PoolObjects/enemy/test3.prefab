@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 6239458653550108887}
   - component: {fileID: 5843885083983926932}
   - component: {fileID: 1817735237359808990}
+  - component: {fileID: 7937198475739459651}
   m_Layer: 0
   m_Name: test3
   m_TagString: Enemy
@@ -228,3 +229,16 @@ MonoBehaviour:
   detectCaster: 2
   condition: 4
   maxHp: 1
+--- !u!114 &7937198475739459651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718549059019967151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a43e71e3ec4cd6b09c08357d8f6f22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: {fileID: 5638863657698474704}

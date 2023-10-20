@@ -7,14 +7,13 @@ namespace Map
 {
   public class CameraController : MonoBehaviour
   {
-    [NonSerialized]
-    public CinemachineVirtualCamera virtualCamera;
+    public Camera mainCamera => FindObjectOfType<Camera>();
+    
+    public CinemachineVirtualCamera virtualCamera{ get; private set; }
 
-    [NonSerialized]
-    public CinemachineConfiner2D confiner2D;
+    public CinemachineConfiner2D confiner2D{ get; private set; }
 
-    [NonSerialized]
-    public CinemachineFollowZoom followZoom;
+    public CinemachineFollowZoom followZoom{ get; private set; }
     
     private void Awake()
     {
