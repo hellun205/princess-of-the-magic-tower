@@ -2282,6 +2282,8 @@ MonoBehaviour:
     _serializedList:
     - Key: bullet/turret_bullet
       Value: {fileID: 4675276757617484785, guid: 82a73b139af435c469781da0967423e8, type: 3}
+    - Key: effect/fade
+      Value: {fileID: 7801207913604360651, guid: 13cc3b0bd0bacf84b8e3f87cc035dc9e, type: 3}
     - Key: effect/hit
       Value: {fileID: 3988323679811953261, guid: 86bd6291c9381d048a352bffc0c3c533, type: 3}
     - Key: enemy/blade
