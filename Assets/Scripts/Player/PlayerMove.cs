@@ -4,6 +4,7 @@ using Enemy;
 using Interact;
 using Interact.Object;
 using Managers;
+using Pool.Extension;
 using UI;
 using UnityEngine;
 using Util;
@@ -45,12 +46,15 @@ namespace Player
     private JoyStick moveJoyStick;
     private Vector2 lastMovePos;
 
+    private SpriteFader spriteFader;
+
     private void Awake()
     {
       manager = GetComponent<PlayerManager>();
 
       rigid = GetComponent<Rigidbody2D>();
       spriteRenderer = GetComponent<SpriteRenderer>();
+      spriteFader = GetComponent<SpriteFader>();
     }
 
     private void Start()
@@ -101,6 +105,8 @@ namespace Player
     public void Dash()
     {
       StartCoroutine(DashCoroutine());
+      spriteFader.flip = lastMovePos.x > 0;
+      spriteFader.Play();
     }
 
     private IEnumerator DashCoroutine()
