@@ -14,7 +14,9 @@ namespace Pool
 
     public void Summon()
     {
-      GameManager.Pool.Summon<EnemyController>(target, transform.position, obj => obj.SetMap(room.name));
+      var e = GameManager.Pool.Summon<EnemyController>(target, transform.position);
+      e.SetMap(room.name);
+
     }
 
     public void OnRoomEntered()

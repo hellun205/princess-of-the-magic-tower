@@ -818,7 +818,7 @@ Animator:
   m_GameObject: {fileID: 2596509839392758456}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eda69535515365d4f94d034faa314e0d, type: 2}
+  m_Controller: {fileID: 9100000, guid: b191f5f7d03c5f64a82edfe1ab8f3024, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -2302,6 +2302,8 @@ MonoBehaviour:
       Value: {fileID: 3636860031907059190, guid: f5373f99555ee98419a6eb8972448508, type: 3}
     - Key: ui/followingtext
       Value: {fileID: 4624327071012014745, guid: da3a0c20f72fd13409cf2bc9ee1982af, type: 3}
+    - Key: ui/hpbar
+      Value: {fileID: 8175013304907360135, guid: 3ebd1343348f8a44daff2d2774913af6, type: 3}
     - Key: ui/progressbar
       Value: {fileID: 3153201024311850046, guid: ef94364f9c7917340bedb5308e7e72b8, type: 3}
     - Key: ui/text

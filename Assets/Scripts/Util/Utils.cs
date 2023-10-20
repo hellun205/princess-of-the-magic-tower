@@ -104,10 +104,11 @@ namespace Util
 
     public static Vector3 WorldToScreenSpace(this RectTransform canvas, Vector3 worldPos)
     {
-      var screenPoint = UnityEngine.Camera.main.WorldToScreenPoint(worldPos);
+      var camera = GameManager.Camera.mainCamera;
+      var screenPoint = camera.WorldToScreenPoint(worldPos);
       screenPoint.z = 0;
 
-      if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas, screenPoint, UnityEngine.Camera.main,
+      if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas, screenPoint, camera,
             out var screenPos))
         return screenPos;
 

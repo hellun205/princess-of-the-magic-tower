@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Util;
@@ -35,10 +35,7 @@ namespace Pool.Extension
 
     private void SetBlockCount(int count, int enabledCount = int.MaxValue)
     {
-      var childs = transform.GetChilds<Image>();
-
-      foreach (var child in childs)
-        Destroy(child);
+      Clear();
 
       for (var i = 0; i < count; i++)
       {
@@ -50,25 +47,42 @@ namespace Pool.Extension
     private void SetBlockEnabled(int index)
     {
       var childs = transform.GetChilds<Image>();
-
+      
       for (var i = 0; i < childs.Length; i++)
       {
+        Debug.Log(childs[i]);
         childs[i].color = i < index ? enabledColor : disabledColor;
       }
     }
 
     private Image CreateBlock()
     {
-      var go = new GameObject("block", typeof(RectTransform), typeof(Image), typeof(Outline), typeof(CanvasRenderer));
+      var go = new GameObject("block", typeof(RectTransform), typeof(Image), typeof(Outline));
 
       var img = go.GetComponent<Image>();
       var outline = go.GetComponent<Outline>();
 
+      outline.effectColor = Color.black;
       outline.effectDistance = new Vector2(0.5f, 0.5f);
       go.transform.SetParent(transform);
+      go.transform.localScale = Vector3.one;
+      go.transform.position = go.transform.position.Setter(z: transform.position.z);
       this.RebuildLayout();
 
       return img;
+    }
+
+    protected override void OnKill()
+    {
+      
+    }
+
+    private void Clear()
+    {
+      var childs = transform.GetChilds<Image>();
+
+      foreach (var child in childs)
+        Destroy(child.gameObject);
     }
   }
 }

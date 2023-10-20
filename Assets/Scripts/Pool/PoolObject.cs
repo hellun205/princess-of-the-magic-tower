@@ -7,6 +7,7 @@ namespace Pool
   {
     [Header("Pool Object")]
     public int index;
+
     public string type;
 
     public virtual Vector2 position
@@ -16,17 +17,18 @@ namespace Pool
     }
 
     public delegate void PoolObjectEventListener();
+
     public event PoolObjectEventListener onGet;
     public event PoolObjectEventListener onReleased;
 
     public void OnGet()
     {
-      onGet?.Invoke();
+        onGet?.Invoke();
     }
 
     public void OnReleased()
     {
-      onReleased?.Invoke();
+        onReleased?.Invoke();
     }
 
     public void Release() => GameManager.Pool.pools[type].Release(this);
