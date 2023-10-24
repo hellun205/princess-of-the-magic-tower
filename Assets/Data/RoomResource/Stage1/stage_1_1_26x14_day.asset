@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6d4e4eef1454d2faa9a41491910ccb9, type: 3}
-  m_Name: stage_1_1_normal_3
+  m_Name: stage_1_1_26x14_day
   m_EditorClassIdentifier: 
-  changeZoom: 0
-  zoom: 10
+  changeZoom: 1
+  zoom: 13
   doorSprites:
     _serializedList:
     - Key: 3
@@ -33,6 +33,6 @@ MonoBehaviour:
       - {fileID: -1477104105, guid: 3b09273a2c9ef37438e39801aa26efa6, type: 3}
       - {fileID: 528249024, guid: f68785ec79ec9a34ba20a3c0b8b11bc1, type: 3}
   backgrounds:
-  - {fileID: 21300000, guid: 69b879a7471cfbd47b7845126411cb6e, type: 3}
-  - {fileID: 21300000, guid: 9b3e896f674cb2e43aa445ca91af4c16, type: 3}
+  - {fileID: 21300000, guid: 53a6510ae9972f64f9dfcaf7bf0c08ec, type: 3}
+  - {fileID: 21300000, guid: cb9d6b8123fcf85488ed3b1b3d108330, type: 3}
   bgColors: []
