@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6d4e4eef1454d2faa9a41491910ccb9, type: 3}
-  m_Name: stage_1_1_night_4
+  m_Name: stage_1_1_13x3_night
   m_EditorClassIdentifier: 
   changeZoom: 0
   zoom: 10

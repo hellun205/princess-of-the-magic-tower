@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6d4e4eef1454d2faa9a41491910ccb9, type: 3}
-  m_Name: stage_1_1_normal_4
+  m_Name: stage_1_1_13x3_day
   m_EditorClassIdentifier: 
   changeZoom: 0
   zoom: 10
   doorResource: {fileID: 11400000, guid: 9d7e2625f6fa75948b11de441dcdba43, type: 2}
   backgrounds:
-  - {fileID: 21300000, guid: 69b879a7471cfbd47b7845126411cb6e, type: 3}
-  - {fileID: 21300000, guid: 9b3e896f674cb2e43aa445ca91af4c16, type: 3}
+  - {fileID: 21300000, guid: 3350cdbc0675cd4449a014663fa5e76b, type: 3}
+  - {fileID: 21300000, guid: 383a4b29dee64e44cbc2557f5c96afcd, type: 3}
   bgColors: []

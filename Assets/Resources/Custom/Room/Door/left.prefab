@@ -75,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1129351277
   m_SortingLayer: 1
-  m_SortingOrder: -1
-  m_Sprite: {fileID: -1477104105, guid: 3b09273a2c9ef37438e39801aa26efa6, type: 3}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: -535515291, guid: 69184820e71fe124eb9e8cf5ff39f93a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,14 +137,14 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.27, y: 5.38539}
+    oldSize: {x: 1.6923077, y: 2.6153846}
     newSize: {x: 0.75666666, y: 1.7951299}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -152,13 +152,29 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.70188135, y: -2.6028109}
-      - {x: -1.0496154, y: -1.5363276}
-      - {x: -1.1049693, y: 0.6278898}
-      - {x: -0.54103327, y: 2.149512}
-      - {x: 0.067279816, y: 2.7129786}
-      - {x: 0.76928216, y: 2.4853911}
-      - {x: 1.1259346, y: 1.4914982}
+    - - {x: 0.13846155, y: 1.0923077}
+      - {x: 0.092307694, y: 1.1076924}
+      - {x: 0.0076923077, y: 1.1461538}
+      - {x: -0.16153847, y: 1.1461538}
+      - {x: -0.26923078, y: 1.1230769}
+      - {x: -0.35384616, y: 1.0615385}
+      - {x: -0.4923077, y: 0.9230769}
+      - {x: -0.6076923, y: 0.77692306}
+      - {x: -0.7076923, y: 0.6}
+      - {x: -0.7692308, y: 0.35384616}
+      - {x: -0.7692308, y: -0.053846154}
+      - {x: -0.76153845, y: -0.22307692}
+      - {x: -0.7076923, y: -0.4076923}
+      - {x: -0.65384614, y: -0.5692308}
+      - {x: -0.56153846, y: -0.72307694}
+      - {x: -0.4846154, y: -0.8153846}
+      - {x: -0.33846155, y: -0.95384616}
+      - {x: -0.3, y: -0.97692305}
+      - {x: -0.24615385, y: -1.0076923}
+      - {x: -0.03846154, y: -1.0076923}
+      - {x: 0.115384616, y: -0.9692308}
+      - {x: 0.16153847, y: -0.93846154}
+      - {x: 0.16153847, y: 1.0692308}
   m_UseDelaunayMesh: 0
 --- !u!114 &5675534647388301646
 MonoBehaviour:
@@ -172,8 +188,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca00ceeb2be4957b6744d6732113259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
   type: 1
+  detectCaster: 0
+  condition: 0
+  direction: 0
+  doorType: 1
   state: 0
   clearCount: 0
   ignoreX: 0

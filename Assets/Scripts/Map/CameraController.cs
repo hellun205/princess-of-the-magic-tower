@@ -30,6 +30,7 @@ namespace Map
     public void SetTarget(Transform target)
     {
       virtualCamera.m_Follow = target;
+      virtualCamera.m_LookAt = target;
     }
 
     public void SetZoom(float value)
