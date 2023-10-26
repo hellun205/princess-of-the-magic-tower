@@ -35,7 +35,6 @@ namespace Enemy
     
     public void SetMap(string value)
     {
-      Debug.Log(value);
       map = value;
       GameManager.Map.Find(map).AddEnemy(pool.index);
     }
