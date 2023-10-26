@@ -14,24 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeZoom: 0
   zoom: 10
-  doorSprites:
-    _serializedList:
-    - Key: 3
-      Value:
-      - {fileID: -21691319, guid: 3b09273a2c9ef37438e39801aa26efa6, type: 3}
-      - {fileID: -1924287813, guid: f68785ec79ec9a34ba20a3c0b8b11bc1, type: 3}
-    - Key: 1
-      Value:
-      - {fileID: -2022894555, guid: 3b09273a2c9ef37438e39801aa26efa6, type: 3}
-      - {fileID: 1218190663, guid: f68785ec79ec9a34ba20a3c0b8b11bc1, type: 3}
-    - Key: 2
-      Value:
-      - {fileID: -1573478607, guid: 3b09273a2c9ef37438e39801aa26efa6, type: 3}
-      - {fileID: 1502800023, guid: f68785ec79ec9a34ba20a3c0b8b11bc1, type: 3}
-    - Key: 0
-      Value:
-      - {fileID: -1477104105, guid: 3b09273a2c9ef37438e39801aa26efa6, type: 3}
-      - {fileID: 528249024, guid: f68785ec79ec9a34ba20a3c0b8b11bc1, type: 3}
+  doorResource: {fileID: 11400000, guid: 38c3af4dbac74344fa917bbd9e350e33, type: 2}
   backgrounds:
   - {fileID: 21300000, guid: 777f1b12ba4ab944ca370581e11623f6, type: 3}
   - {fileID: 21300000, guid: 91ed65298d130e7419e4d4dd3f47be2b, type: 3}
