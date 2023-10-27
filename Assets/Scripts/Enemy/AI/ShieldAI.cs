@@ -91,7 +91,7 @@ namespace Enemy.AI
     {
       currentCoolTime = maxCoolTime;
     }
-
+    
     private void FollowPlayer()
     {
       if (GameManager.Player is null)
