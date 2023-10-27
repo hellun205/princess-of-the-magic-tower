@@ -818,7 +818,7 @@ Animator:
   m_GameObject: {fileID: 2596509839392758456}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b191f5f7d03c5f64a82edfe1ab8f3024, type: 2}
+  m_Controller: {fileID: 9100000, guid: eda69535515365d4f94d034faa314e0d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -2292,8 +2292,12 @@ MonoBehaviour:
       Value: {fileID: 8111098268684236687, guid: 983f169b233ab5445854e9ac30c30e14, type: 3}
     - Key: enemy/frog
       Value: {fileID: 5185056600626788425, guid: 4cc0d747fafa3fe4690764ef947637c6, type: 3}
+    - Key: enemy/gobline
+      Value: {fileID: 7214792684281539140, guid: 05586122aa2dbae469f893c378ff8ada, type: 3}
     - Key: enemy/shield
       Value: {fileID: 8979910272338090114, guid: bb201ec19ad9a86438ade146b08dabce, type: 3}
+    - Key: enemy/slime
+      Value: {fileID: 4919108508583300584, guid: 8a0d27f7b4bcbcc4f8c2958759b1ecb7, type: 3}
     - Key: enemy/test1
       Value: {fileID: 3636860031907059190, guid: 38c1c2f360aa27041a738803cfe608e7, type: 3}
     - Key: enemy/test2

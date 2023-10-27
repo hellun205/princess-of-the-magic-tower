@@ -19,6 +19,8 @@ namespace Enemy.AI
     public bool targetFind;
     private Vector3 destPos;
 
+    protected override bool forceAttack => true;
+
     [Range(0, 10)]
 
     public float moveSpeed;
@@ -182,8 +184,8 @@ namespace Enemy.AI
 
     private void OnCollisionStay2D(Collision2D other)
     {
-      if (other.gameObject.layer.CheckLayer("Obstacle", "Wall"))
-        isAttacking = false;
+      // if (other.gameObject.layer.CheckLayer("Obstacle", "Wall"))
+      //   isAttacking = false;
     }
 
     // private void OnTriggerStay2D(Collider2D other)

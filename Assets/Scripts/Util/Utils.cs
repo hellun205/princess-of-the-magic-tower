@@ -84,17 +84,17 @@ namespace Util
     /// <param name="second">초</param>
     /// <param name="fn">함수</param>
     public static Coroutine Wait(float second, Action fn)
-      => GameManager.Manager.StartCoroutine(Routine(new WaitForSecondsRealtime(second), fn));
+      => GameManager.CoroutineObject.StartCoroutine(Routine(new WaitForSecondsRealtime(second), fn));
 
     public static Coroutine WaitUntil(Func<bool> predicate, Action fn)
-      => GameManager.Manager.StartCoroutine(Routine(new WaitUntil(predicate), fn));
+      => GameManager.CoroutineObject.StartCoroutine(Routine(new WaitUntil(predicate), fn));
 
     public static IEnumerator Routine(CustomYieldInstruction yieldInstruction, Action fn)
     {
       yield return yieldInstruction;
       // try
       // {
-        fn.Invoke();
+      fn.Invoke();
       // }
       // catch (Exception e)
       // {
@@ -134,23 +134,14 @@ namespace Util
 #endif
     }
 
-    public static void Pause(bool smooth = false, float time = 1f)
+    public static void Pause()
     {
-      smoothTsCrt.Stop();
-
-      if (smooth)
-        smoothTsCrt.Start(0f, time);
-      else
-        Time.timeScale = 0f;
+      Time.timeScale = 0f;
     }
 
-    public static void UnPause(bool smooth = false, float time = 1f)
+    public static void UnPause()
     {
-      smoothTsCrt.Stop();
-      if (smooth)
-        smoothTsCrt.Start(1f, time);
-      else
-        Time.timeScale = 1f;
+      Time.timeScale = 1f;
     }
 
     private static IEnumerator SetTimeScaleSmooth(float value, float time)
@@ -178,7 +169,7 @@ namespace Util
       foreach (var x in enumerable)
       {
         sb.Append(x)
-          .Append(", ");
+         .Append(", ");
       }
 
       sb.Append("]");
@@ -201,7 +192,11 @@ namespace Util
       var res = new List<T>();
 
       for (var i = 0; i < transform.childCount; i++)
-        res.Add(transform.GetChild(i).GetComponent<T>());
+      {
+        if (transform.GetChild(i).TryGetComponent<T>(out var component))
+          res.Add(component);
+      }
+
       return res.ToArray();
     }
   }

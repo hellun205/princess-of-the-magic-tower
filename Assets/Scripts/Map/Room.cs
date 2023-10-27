@@ -12,7 +12,7 @@ namespace Map
   {
     [NonSerialized]
     public Transform startPosition;
-    
+
     [NonSerialized]
     public List<Transform> linkPositions;
 
@@ -68,7 +68,9 @@ namespace Map
     public void ApplyDoorSprites()
     {
       transform.Find("@door").GetComponentsInChildren<Door.Door>().ToList()
-       .ForEach(door => door.GetComponent<SpriteRenderer>().sprite = resourceData.doorSprites[door.direction][0]);
+        .ForEach(door =>
+          door.GetComponent<SpriteRenderer>().sprite = resourceData.doorResource.animateSprite[door.direction][0]
+        );
     }
 #endif
 
@@ -99,7 +101,7 @@ namespace Map
     public void OnEntered()
     {
       GameManager.Camera.confiner2D.m_BoundingShape2D = confinerBound;
-      if (resourceData.changeZoom) 
+      if (resourceData.changeZoom)
         GameManager.Camera.SetZoom(resourceData.zoom);
 
       foreach (var handler in enterEventHandlers)

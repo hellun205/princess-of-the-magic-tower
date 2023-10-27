@@ -117,7 +117,7 @@ namespace Scene
 
       yield return new WaitForSecondsRealtime(outTransition.delay);
       callbackOnStartOut?.Invoke();
-      if (isPause) Pause(isSmooth, outTransition.speed * 0.9f);
+      if (isPause) Pause();
       GameManager.Transition.Play(outTransition.type, outTransition.speed);
 
       yield return new WaitForSecondsRealtime(outTransition.speed);
@@ -128,7 +128,7 @@ namespace Scene
 
       yield return new WaitForSecondsRealtime(inTransition.delay);
       callbackOnStartIn?.Invoke();
-      if (isPause) UnPause(isSmooth, inTransition.speed * 0.9f);
+      if (isPause) UnPause();
       GameManager.Transition.Play(inTransition.type, inTransition.speed);
 
       yield return new WaitForSecondsRealtime(inTransition.speed);

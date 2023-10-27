@@ -1,5 +1,6 @@
 ﻿using System;
 using AYellowpaper.SerializedCollections;
+using Map.Door;
 using UnityEngine;
 using Util;
 
@@ -12,25 +13,13 @@ namespace Map
     public bool changeZoom = true;
     public float zoom = 10f;
 
-    [Header("Door setting"), SerializedDictionary("Direction", "Sprites")]
-    public SerializedDictionary<Direction, Sprite[]> doorSprites;
+    [Header("Door setting")]
+    public DoorResource doorResource;
 
     [Header("Background layer setting")]
     public Sprite[] backgrounds;
 
     public Color[] bgColors;
-
-#if UNITY_EDITOR
-    private void Reset()
-    {
-      doorSprites = new()
-      {
-        { Direction.Top, Array.Empty<Sprite>() },
-        { Direction.Right, Array.Empty<Sprite>() },
-        { Direction.Bottom, Array.Empty<Sprite>() },
-        { Direction.Left, Array.Empty<Sprite>() },
-      };
-    }
-#endif
+    
   }
 }

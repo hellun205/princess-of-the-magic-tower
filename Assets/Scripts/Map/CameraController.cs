@@ -30,11 +30,13 @@ namespace Map
     public void SetTarget(Transform target)
     {
       virtualCamera.m_Follow = target;
+      virtualCamera.m_LookAt = target;
     }
 
     public void SetZoom(float value)
     {
-      followZoom.m_Width = value;
+      // followZoom.m_Width = value;
+      virtualCamera.m_Lens.OrthographicSize = value;
     }
   }
 }

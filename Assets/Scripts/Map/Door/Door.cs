@@ -99,7 +99,7 @@ namespace Map.Door
     }
 
     public void SetSprite(int index)
-      => spriteRenderer.sprite = room.resourceData.doorSprites[direction][index];
+      => spriteRenderer.sprite = room.resourceData.doorResource.animateSprite[direction][index];
     
     public void OnRoomEntered() => OnEntered();
 
