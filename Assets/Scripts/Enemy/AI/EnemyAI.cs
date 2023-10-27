@@ -7,6 +7,8 @@ namespace Enemy.AI
   {
     protected EnemyController controller;
 
+    protected virtual bool forceAttack => false;
+
     private bool _isAttacking;
 
     public bool isAttacking
@@ -15,6 +17,11 @@ namespace Enemy.AI
       set
       {
         _isAttacking = value;
+        if (forceAttack)
+        {
+          controller.interacter.currentCondition = InteractCondition.Attack;
+          return;
+        }
         controller.interacter.currentCondition = value ? InteractCondition.Attack : InteractCondition.Reach;
         if (!value)
           controller.interacter.RemoveDetection();

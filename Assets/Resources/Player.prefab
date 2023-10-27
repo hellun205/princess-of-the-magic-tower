@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0818e5e6983ed4458dd149b216790e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDashCount: 5
+  maxDashCount: 1
   cooldownTime: 1
 --- !u!114 &3018973341800256907
 MonoBehaviour:

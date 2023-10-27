@@ -134,23 +134,14 @@ namespace Util
 #endif
     }
 
-    public static void Pause(bool smooth = false, float time = 1f)
+    public static void Pause()
     {
-      smoothTsCrt.Stop();
-
-      if (smooth)
-        smoothTsCrt.Start(0f, time);
-      else
-        Time.timeScale = 0f;
+      Time.timeScale = 0f;
     }
 
-    public static void UnPause(bool smooth = false, float time = 1f)
+    public static void UnPause()
     {
-      smoothTsCrt.Stop();
-      if (smooth)
-        smoothTsCrt.Start(1f, time);
-      else
-        Time.timeScale = 1f;
+      Time.timeScale = 1f;
     }
 
     private static IEnumerator SetTimeScaleSmooth(float value, float time)

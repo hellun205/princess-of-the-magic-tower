@@ -65,6 +65,7 @@ namespace Player
 
     public void AddAdditionalDash(int amount = 1)
     {
+      if (additionalDashCount >= 1) return;
       additionalDashCount += amount;
       dashBar.AddCount(amount, DashType.Additional);
     }

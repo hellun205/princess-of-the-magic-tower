@@ -75,13 +75,13 @@ namespace Managers
 
     private void OnMenuButtonClick()
     {
-      Utils.Pause(true);
+      Utils.Pause();
       ManagedObject.Get("menu_panel").SetActive(true);
     }
 
     private void CloseMenu()
     {
-      Utils.UnPause(true);
+      Utils.UnPause();
       ManagedObject.Get("menu_panel").SetActive(false);
     }
 
