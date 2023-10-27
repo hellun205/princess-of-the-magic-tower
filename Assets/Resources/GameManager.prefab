@@ -2294,6 +2294,8 @@ MonoBehaviour:
       Value: {fileID: 5185056600626788425, guid: 4cc0d747fafa3fe4690764ef947637c6, type: 3}
     - Key: enemy/gobline
       Value: {fileID: 7214792684281539140, guid: 05586122aa2dbae469f893c378ff8ada, type: 3}
+    - Key: enemy/gobline_noai
+      Value: {fileID: 7214792684281539140, guid: f2b43f6470295b345a7316f86605fb20, type: 3}
     - Key: enemy/shield
       Value: {fileID: 8979910272338090114, guid: bb201ec19ad9a86438ade146b08dabce, type: 3}
     - Key: enemy/slime
