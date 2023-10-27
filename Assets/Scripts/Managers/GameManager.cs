@@ -24,6 +24,20 @@ namespace Managers
     public static CameraController Camera { get; private set; }
     public static PlayerLocation PlayerLocation { get; set; }
 
+    private static CoroutineObject _coroutineObject;
+
+    public static CoroutineObject CoroutineObject
+    {
+      get
+      {
+        if (_coroutineObject != null) return _coroutineObject;
+
+        _coroutineObject = new GameObject("Coroutiner", typeof(CoroutineObject)).GetComponent<CoroutineObject>();
+        DontDestroyOnLoad(_coroutineObject.gameObject);
+        return _coroutineObject;
+      }
+    }
+
     public delegate void GameManagerEventListener();
 
     public static event GameManagerEventListener OnLoaded;

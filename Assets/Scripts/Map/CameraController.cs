@@ -35,7 +35,8 @@ namespace Map
 
     public void SetZoom(float value)
     {
-      followZoom.m_Width = value;
+      // followZoom.m_Width = value;
+      virtualCamera.m_Lens.OrthographicSize = value;
     }
   }
 }

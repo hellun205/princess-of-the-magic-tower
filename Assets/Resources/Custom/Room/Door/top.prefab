@@ -193,5 +193,5 @@ MonoBehaviour:
   doorType: 1
   state: 0
   clearCount: 0
-  ignoreX: 0
+  ignoreX: 1
   ignoreY: 0

@@ -196,4 +196,4 @@ MonoBehaviour:
   state: 0
   clearCount: 0
   ignoreX: 0
-  ignoreY: 0
+  ignoreY: 1

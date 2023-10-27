@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: stage_1_1_13x14_day
   m_EditorClassIdentifier: 
   changeZoom: 0
-  zoom: 10
+  zoom: 4.21
   doorResource: {fileID: 11400000, guid: 38c3af4dbac74344fa917bbd9e350e33, type: 2}
   backgrounds:
   - {fileID: 21300000, guid: 777f1b12ba4ab944ca370581e11623f6, type: 3}

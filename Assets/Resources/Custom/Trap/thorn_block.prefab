@@ -51,12 +51,20 @@ MonoBehaviour:
   detectTarget:
     serializedVersion: 2
     m_Bits: 0
-  repeatDelay: 0
   startDelay: 0
   deactivateDelay: 0
+  repeatTimer:
+    m_isUnscaled: 0
+    m_elapsedTime: 0
+    m_duration: 1
+    m_easePower: 2
+    m_value: 0
+    m_type: 0
+    m_isPlaying: 0
   lineFollower: {fileID: 8643188657519963730}
   interacter: {fileID: 5790002577141529842}
-  time: 5
+  duration: 0
+  timerType: 0
 --- !u!1 &2936577548317519960
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +192,7 @@ SpriteRenderer:
   m_SortingLayerID: 1918533851
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0df5ad52f779d084e82f1841179d16d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -208,10 +216,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 2560521383355691064}
-  time: 0
   isEnabled: 0
-  type: 0
-  awake: 1
+  timer:
+    m_isUnscaled: 0
+    m_elapsedTime: 0
+    m_duration: 0
+    m_easePower: 0
+    m_value: 0
+    m_type: 0
+    m_isPlaying: 0
 --- !u!114 &5790002577141529842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +276,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.8828125}
+    oldSize: {x: 10, y: 10}
     newSize: {x: 1, y: 0.8828125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
