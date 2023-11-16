@@ -105,7 +105,7 @@ namespace Scene
     public SceneLoader Load()
     {
       if (isLoading) return this;
-      coroutine = GameManager.Manager.StartCoroutine(LoadRoutine());
+      coroutine = GameManager.CoroutineObject.StartCoroutine(LoadRoutine());
       return this;
     }
 
