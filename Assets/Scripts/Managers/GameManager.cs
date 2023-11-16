@@ -94,7 +94,14 @@ namespace Managers
       CloseMenu();
       new SceneLoader("TitleScene")
        .Out(Transitions.FADEOUT)
-       .In(Transitions.FADEIN)
+       .In(Transitions.IN)
+       .OnStartIn(() =>
+        {
+          Object.Destroy(FindObjectOfType<GameManager>().gameObject); 
+          // Object.Destroy(FindObjectOfType<PlayerLocation>().gameObject); 
+          Object.Destroy(FindObjectOfType<PlayerManager>().gameObject); 
+          Object.Destroy(FindObjectOfType<CameraController>().gameObject); 
+        })
        .Load();
     }
   }
