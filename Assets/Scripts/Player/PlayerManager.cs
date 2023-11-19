@@ -1,8 +1,12 @@
 using System;
+using System.Linq;
 using Interact;
 using Managers;
+using Map;
+using Map.Door;
 using Scene;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Util;
 
@@ -48,7 +52,7 @@ namespace Player
         testModeText = GameManager.ManagedObject.Get("testmode");
         testModeText.SetActive(testMode);
       };
-      
+
       DontDestroyOnLoad(gameObject);
     }
 
@@ -64,9 +68,31 @@ namespace Player
     public void Death()
     {
       if (testMode) return;
-      
+
       GameManager.Map.currentRoom.OnExited();
-      GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
+      if (GameManager.Manager.HasSave())
+      {
+        var data = GameManager.Manager.Load();
+
+        void onLoaded(UnityEngine.SceneManagement.Scene a, LoadSceneMode b)
+        {
+          SceneManager.sceneLoaded -= onLoaded;
+          GameManager.Map.ReloadStage();
+          foreach (var room in FindObjectsOfType<Room>().Where(x => data.cleared.Contains(x.name)))
+            room.isCleared = true;
+
+          GameManager.Map.MoveTo(data.room);
+          GameManager.PlayerLocation.SetPositionInRoom(data.position);
+          Debug.Log(data.room);
+        }
+
+        SceneManager.sceneLoaded += onLoaded;
+        GameManager.Map.moveOnStart = false;
+        GameManager.Map.LoadStageFromSceneName(data.stage, Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
+      }
+      else
+        GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
+
       GameManager.Player.light.SetDefault();
     }
 

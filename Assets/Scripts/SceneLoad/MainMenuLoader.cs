@@ -27,6 +27,11 @@ namespace SceneLoad
       SceneManager.LoadScene("Scenes/Stage/test");
     }
 
+    public void OnLoadButtonClick()
+    {
+      
+    }
+
     public void OnOutButtonClick()
     {
       Utils.ExitGame();

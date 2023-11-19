@@ -1,9 +1,11 @@
+using System.Linq;
 using Dialogue;
 using Map;
 using Player;
 using Pool;
 using Scene;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Util;
 using Touch = UI.Touch;
@@ -97,12 +99,32 @@ namespace Managers
        .In(Transitions.IN)
        .OnStartIn(() =>
         {
-          Object.Destroy(FindObjectOfType<GameManager>().gameObject); 
+          Object.Destroy(FindObjectOfType<GameManager>().gameObject);
           // Object.Destroy(FindObjectOfType<PlayerLocation>().gameObject); 
-          Object.Destroy(FindObjectOfType<PlayerManager>().gameObject); 
-          Object.Destroy(FindObjectOfType<CameraController>().gameObject); 
+          Object.Destroy(FindObjectOfType<PlayerManager>().gameObject);
+          Object.Destroy(FindObjectOfType<CameraController>().gameObject);
         })
        .Load();
     }
+
+    public void Save(string room)
+    {
+      var data = new SaveData()
+      {
+        stage = SceneManager.GetActiveScene().name,
+        room = room,
+        position = GameManager.PlayerLocation.GetPositionInRoom(),
+        cleared = FindObjectsOfType<Room>().Where(x => x.isCleared).Select(x => x.name).ToArray()
+      };
+
+      PlayerPrefs.SetString("save", JsonUtility.ToJson(data));
+    }
+
+    public SaveData Load()
+    {
+      return JsonUtility.FromJson<SaveData>(PlayerPrefs.GetString("save"));
+    }
+
+    public bool HasSave() => PlayerPrefs.HasKey("save");
   }
 }
