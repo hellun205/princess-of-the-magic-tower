@@ -72,22 +72,9 @@ namespace Player
       GameManager.Map.currentRoom.OnExited();
       if (GameManager.Manager.HasSave())
       {
-        var data = GameManager.Manager.Load();
+        var data = GameManager.LoadData();
 
-        void onLoaded(UnityEngine.SceneManagement.Scene a, LoadSceneMode b)
-        {
-          SceneManager.sceneLoaded -= onLoaded;
-          GameManager.Map.ReloadStage();
-          foreach (var room in FindObjectsOfType<Room>().Where(x => data.cleared.Contains(x.name)))
-            room.isCleared = true;
-
-          GameManager.Map.MoveTo(data.room);
-          GameManager.PlayerLocation.SetPositionInRoom(data.position);
-          Debug.Log(data.room);
-        }
-
-        SceneManager.sceneLoaded += onLoaded;
-        GameManager.Map.moveOnStart = false;
+        GameManager.InitLoad();
         GameManager.Map.LoadStageFromSceneName(data.stage, Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
       }
       else

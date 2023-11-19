@@ -120,9 +120,28 @@ namespace Managers
       PlayerPrefs.SetString("save", JsonUtility.ToJson(data));
     }
 
-    public SaveData Load()
+    public static SaveData LoadData()
     {
       return JsonUtility.FromJson<SaveData>(PlayerPrefs.GetString("save"));
+    }
+
+    public static void Loaded(UnityEngine.SceneManagement.Scene a, LoadSceneMode b)
+    {
+      var data = LoadData();
+      GameManager.Map.moveOnStart = false;
+      SceneManager.sceneLoaded -= Loaded;
+      GameManager.Map.ReloadStage();
+      foreach (var room in FindObjectsOfType<Room>().Where(x => data.cleared.Contains(x.name)))
+        room.isCleared = true;
+
+      GameManager.Map.MoveTo(data.room);
+      GameManager.PlayerLocation.SetPositionInRoom(data.position);
+      Debug.Log(data.room);
+    }
+
+    public static void InitLoad()
+    {
+      SceneManager.sceneLoaded += GameManager.Loaded;
     }
 
     public bool HasSave() => PlayerPrefs.HasKey("save");
