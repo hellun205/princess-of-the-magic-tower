@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using Managers;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +27,13 @@ namespace SceneLoad
     public void OnStartButtonClick()
     {
       SceneManager.LoadScene("Scenes/Stage/test");
+    }
+
+    public void OnLoadButtonClick()
+    {
+      var data = GameManager.LoadData();
+      GameManager.InitLoad();
+      SceneManager.LoadScene(data.stage);
     }
 
     public void OnOutButtonClick()

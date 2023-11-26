@@ -1,8 +1,12 @@
 using System;
+using System.Linq;
 using Interact;
 using Managers;
+using Map;
+using Map.Door;
 using Scene;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Util;
 
@@ -48,7 +52,7 @@ namespace Player
         testModeText = GameManager.ManagedObject.Get("testmode");
         testModeText.SetActive(testMode);
       };
-      
+
       DontDestroyOnLoad(gameObject);
     }
 
@@ -64,9 +68,18 @@ namespace Player
     public void Death()
     {
       if (testMode) return;
-      
+
       GameManager.Map.currentRoom.OnExited();
-      GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
+      if (GameManager.HasSave())
+      {
+        var data = GameManager.LoadData();
+
+        GameManager.InitLoad();
+        GameManager.Map.LoadStageFromSceneName(data.stage, Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
+      }
+      else
+        GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
+
       GameManager.Player.light.SetDefault();
     }
 

@@ -1,9 +1,11 @@
+using System.Linq;
 using Dialogue;
 using Map;
 using Player;
 using Pool;
 using Scene;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Util;
 using Touch = UI.Touch;
@@ -97,12 +99,52 @@ namespace Managers
        .In(Transitions.IN)
        .OnStartIn(() =>
         {
-          Object.Destroy(FindObjectOfType<GameManager>().gameObject); 
+          Object.Destroy(FindObjectOfType<GameManager>().gameObject);
           // Object.Destroy(FindObjectOfType<PlayerLocation>().gameObject); 
-          Object.Destroy(FindObjectOfType<PlayerManager>().gameObject); 
-          Object.Destroy(FindObjectOfType<CameraController>().gameObject); 
+          Object.Destroy(FindObjectOfType<PlayerManager>().gameObject);
+          Object.Destroy(FindObjectOfType<CameraController>().gameObject);
         })
        .Load();
     }
+
+    public void Save(string room, string objectName)
+    {
+      var data = new SaveData()
+      {
+        stage = SceneManager.GetActiveScene().name,
+        room = room,
+        position = GameManager.PlayerLocation.GetPositionInRoom(),
+        cleared = FindObjectsOfType<Room>().Where(x => x.isCleared).Select(x => x.name).ToArray(),
+        objectName = objectName
+      };
+
+      PlayerPrefs.SetString("save", JsonUtility.ToJson(data));
+    }
+
+    public static SaveData LoadData()
+    {
+      return JsonUtility.FromJson<SaveData>(PlayerPrefs.GetString("save"));
+    }
+
+    public static void Loaded(UnityEngine.SceneManagement.Scene a, LoadSceneMode b)
+    {
+      var data = LoadData();
+      GameManager.Map.moveOnStart = false;
+      SceneManager.sceneLoaded -= Loaded;
+      GameManager.Map.ReloadStage();
+      foreach (var room in FindObjectsOfType<Room>().Where(x => data.cleared.Contains(x.name)))
+        room.isCleared = true;
+
+      GameManager.Map.MoveTo(data.room);
+      GameManager.PlayerLocation.SetPositionInRoom(data.position);
+      Debug.Log(data.room);
+    }
+
+    public static void InitLoad()
+    {
+      SceneManager.sceneLoaded += GameManager.Loaded;
+    }
+
+    public static bool HasSave() => PlayerPrefs.HasKey("save");
   }
 }
