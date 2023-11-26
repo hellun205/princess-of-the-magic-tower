@@ -44,6 +44,8 @@ namespace Managers
 
     public static event GameManagerEventListener OnLoaded;
 
+    public static string nickname;
+
     private void Init()
     {
       Manager = this;

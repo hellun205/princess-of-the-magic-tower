@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections;
 using Managers;
+using TMPro;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 using UnityEngine.Video;
 using Util;
 
@@ -24,9 +27,24 @@ namespace SceneLoad
 
     public MainMenuPage[] pageData;
 
+    public Animator nicknamePanelAnimator;
+
+    public Animator transitionPanelAnimator;
+
+    public TMP_InputField nicknameInputField;
+
+    public Button button;
+
     public void OnStartButtonClick()
     {
-      SceneManager.LoadScene("Scenes/Stage/test");
+      nicknamePanelAnimator.Play("open");
+    }
+
+    public void RealStartButtonClick()
+    {
+      transitionPanelAnimator.Play("Out");
+      GameManager.nickname = nicknameInputField.text;
+      Utils.Wait(1, () => SceneManager.LoadScene("Scenes/Stage/test"));
     }
 
     public void OnLoadButtonClick()
@@ -45,6 +63,16 @@ namespace SceneLoad
     {
       foreach (var mainMenuPage in pageData)
         mainMenuPage.ui.SetVisible(false);
+
+      button.SetVisible(false);
+      nicknameInputField.onValueChanged.AddListener(value =>
+      {
+        if (string.IsNullOrEmpty(value.Trim()))
+          button.SetVisible(false);
+        else if (!button.IsVisible())
+          button.SetVisible(true, 0.2f);
+          
+      });
     }
 
     private void Start()
