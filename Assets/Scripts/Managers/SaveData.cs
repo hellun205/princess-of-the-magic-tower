@@ -16,5 +16,7 @@ namespace Managers
     public Vector2 position;
 
     public string objectName;
+
+    public string nickname;
   }
 }

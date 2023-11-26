@@ -117,7 +117,8 @@ namespace Managers
         room = room,
         position = GameManager.PlayerLocation.GetPositionInRoom(),
         cleared = FindObjectsOfType<Room>().Where(x => x.isCleared).Select(x => x.name).ToArray(),
-        objectName = objectName
+        objectName = objectName,
+        nickname = nickname
       };
 
       PlayerPrefs.SetString("save", JsonUtility.ToJson(data));
