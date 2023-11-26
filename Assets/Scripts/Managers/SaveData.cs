@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Managers
 {
@@ -13,5 +14,7 @@ namespace Managers
     public string[] cleared;
 
     public Vector2 position;
+
+    public string objectName;
   }
 }

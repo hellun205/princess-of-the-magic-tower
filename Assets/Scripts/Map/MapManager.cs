@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using Interact.Object;
 using Managers;
 using Player;
 using Scene;
@@ -22,9 +24,22 @@ namespace Map
     public void OnSceneChanged()
     {
       ReloadStage();
+
+      if (GameManager.HasSave())
+      {
+        var data = GameManager.LoadData();
+
+        if (data.stage == SceneManager.GetActiveScene().name)
+        {
+          FindObjectsOfType<SavePoint>()
+           .SingleOrDefault(x => x.gameObject.name == data.objectName)
+           ?.anim.Play("ForceOpen");
+        }
+      }
+
       if (moveOnStart)
         MoveTo(controller.startRoom);
-      
+
       moveOnStart = true;
     }
 

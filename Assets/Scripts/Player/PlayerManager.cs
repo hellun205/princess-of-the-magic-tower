@@ -70,7 +70,7 @@ namespace Player
       if (testMode) return;
 
       GameManager.Map.currentRoom.OnExited();
-      if (GameManager.Manager.HasSave())
+      if (GameManager.HasSave())
       {
         var data = GameManager.LoadData();
 

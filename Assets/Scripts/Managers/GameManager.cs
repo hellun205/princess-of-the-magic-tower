@@ -107,14 +107,15 @@ namespace Managers
        .Load();
     }
 
-    public void Save(string room)
+    public void Save(string room, string objectName)
     {
       var data = new SaveData()
       {
         stage = SceneManager.GetActiveScene().name,
         room = room,
         position = GameManager.PlayerLocation.GetPositionInRoom(),
-        cleared = FindObjectsOfType<Room>().Where(x => x.isCleared).Select(x => x.name).ToArray()
+        cleared = FindObjectsOfType<Room>().Where(x => x.isCleared).Select(x => x.name).ToArray(),
+        objectName = objectName
       };
 
       PlayerPrefs.SetString("save", JsonUtility.ToJson(data));
@@ -144,6 +145,6 @@ namespace Managers
       SceneManager.sceneLoaded += GameManager.Loaded;
     }
 
-    public bool HasSave() => PlayerPrefs.HasKey("save");
+    public static bool HasSave() => PlayerPrefs.HasKey("save");
   }
 }
