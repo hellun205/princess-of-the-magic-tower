@@ -2808,7 +2808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FloorText: {fileID: 2073353462}
   currentFloor: 0
-  maxFloor: 14
+  maxFloor: 0
   transitionAnimator: {fileID: 372295841}
 --- !u!4 &1943062669
 Transform:

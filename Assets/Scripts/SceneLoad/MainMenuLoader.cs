@@ -58,6 +58,7 @@ namespace SceneLoad
       transitionPanelAnimator.Play("Out");
       GameManager.nickname = nicknameInputField.text;
       Utils.Wait(1, () => SceneManager.LoadScene("Scenes/Stage/test"));
+      PlayerPrefs.DeleteKey("save");
     }
 
     public void OnLoadButtonClick()
