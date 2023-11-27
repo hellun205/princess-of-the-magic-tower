@@ -3443,6 +3443,8 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: d0b4910ac6cb24cd38ce21afea692268, type: 3}
   - name: dash_hit4
     _clip: {fileID: 8300000, guid: 7213773193a7f4dd5afbc04b5eea618e, type: 3}
+  - name: spotlightOn
+    _clip: {fileID: 8300000, guid: 89939ac5e91103449a72c0e299ef1fdb, type: 3}
   sfxSource: {fileID: 6435823717886850418}
 --- !u!82 &6435823717886850418
 AudioSource:

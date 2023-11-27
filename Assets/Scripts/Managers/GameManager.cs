@@ -75,6 +75,8 @@ namespace Managers
 
     private void Awake()
     {
+      Application.targetFrameRate = 60;
+      
       DontDestroyOnLoad(gameObject);
       Init();
       OnLoaded?.Invoke();
