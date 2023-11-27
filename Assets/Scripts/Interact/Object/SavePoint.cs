@@ -18,7 +18,7 @@ namespace Interact.Object
     
     protected override void OnInteract(GameObject caster)
     {
-      if (!room.isCleared) return;
+      // if (!room.isCleared) return;
       
       GameManager.Manager.Save(room.name, name);
       anim.Play("Open");

@@ -18,7 +18,7 @@ namespace Ranking
     public void Set(int deathCount, ProfileImage profile, string nickname)
     {
       m_deathCountText.text = $"{deathCount}";
-      m_profileImage.sprite = null; // todo
+      m_profileImage.sprite = Resources.Load<Sprite>($"pi{(int)profile}");
       m_nicknameText.text = nickname;
     }
   }

@@ -155,7 +155,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.tuffu.princess_of_the_magic_tower
-    Standalone: com.DefaultCompany.2DProject
+    Standalone: com.tuffu.princess-of-the-magic-tower
   buildNumber:
     Standalone: 0
     VisionOS: 0

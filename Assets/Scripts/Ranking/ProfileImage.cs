@@ -2,6 +2,8 @@
 {
   public enum ProfileImage
   {
-    N
+    Chicken,
+    Babel,
+    Slime
   }
 }

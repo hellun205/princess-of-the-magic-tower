@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Managers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Util;
@@ -19,14 +20,14 @@ namespace Ranking
     [SerializeField]
     private TextMeshProUGUI m_recordText;
 
-    public void Set(int tier, ProfileImage? profile, string nickname, float record, int deathCount)
+    public void Set(int tier, ProfileImage profile, string nickname, float record, int deathCount)
     {
       m_tierText.text = tier switch
       {
         0 or 1 or 2 => $"<sprite={tier}>",
         _           => $"{tier + 1}"
       };
-      m_profileImg.sprite = null; // Todo
+      m_profileImg.sprite = Resources.Load<Sprite>($"pi{(int)profile}");
       m_nicknameText.text = nickname;
       
       m_recordText.text = $"기록 : {record.RecordToString()}\n죽은 횟수 : {deathCount:d2}";

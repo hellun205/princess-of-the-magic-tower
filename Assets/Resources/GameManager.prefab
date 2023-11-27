@@ -1321,6 +1321,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725d59b4b10a46148ef5ba28ebbe8377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  profiles:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 21300000, guid: ec5fb690c2dcbb943bd646a432600149, type: 3}
+    - Key: 1
+      Value: {fileID: 21300000, guid: 2d7399661e4cfba4580f2d590291da60, type: 3}
+    - Key: 2
+      Value: {fileID: 21300000, guid: 1d5d70488a2c6a348b700abe71d7d740, type: 3}
   stopwatchObject: {fileID: 7659334708070493073}
 --- !u!1 &3932200241329737699
 GameObject:
@@ -2437,6 +2445,8 @@ MonoBehaviour:
       Value: {fileID: 7801207913604360651, guid: 13cc3b0bd0bacf84b8e3f87cc035dc9e, type: 3}
     - Key: effect/hit
       Value: {fileID: 3988323679811953261, guid: 86bd6291c9381d048a352bffc0c3c533, type: 3}
+    - Key: effect/hit2
+      Value: {fileID: 3582552366281368797, guid: 6f82f058f1d84b149af226b23ace3aec, type: 3}
     - Key: enemy/blade
       Value: {fileID: 2970411750724855675, guid: 8739e386840d7c34ba825cf9e1c80498, type: 3}
     - Key: enemy/follow
@@ -2447,6 +2457,8 @@ MonoBehaviour:
       Value: {fileID: 7214792684281539140, guid: 05586122aa2dbae469f893c378ff8ada, type: 3}
     - Key: enemy/gobline_noai
       Value: {fileID: 7214792684281539140, guid: f2b43f6470295b345a7316f86605fb20, type: 3}
+    - Key: enemy/orcmonster
+      Value: {fileID: 1805704269475391538, guid: b1b82de5a0740c9468f2cee834c72750, type: 3}
     - Key: enemy/shield
       Value: {fileID: 8979910272338090114, guid: bb201ec19ad9a86438ade146b08dabce, type: 3}
     - Key: enemy/slime

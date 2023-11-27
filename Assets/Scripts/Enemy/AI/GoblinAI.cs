@@ -122,10 +122,12 @@ namespace Enemy.AI
 
     private void FlipSprite(bool type)
     {
-      float scale = type ? -0.8f : 0.8f;
+      // float scale = type ? -0.8f : 0.8f;
 
-      bodySprite.transform.localScale =
-        new Vector3(scale, bodySprite.transform.localScale.y, bodySprite.transform.localScale.z);
+      // bodySprite.transform.localScale =
+      //   new Vector3(scale, bodySprite.transform.localScale.y, bodySprite.transform.localScale.z);
+
+      bodySprite.GetComponent<SpriteRenderer>().flipX = type;
     }
 
     private void OnDrawGizmos()

@@ -1,4 +1,5 @@
 using System.Linq;
+using AYellowpaper.SerializedCollections;
 using Dialogue;
 using Map;
 using Player;
@@ -31,6 +32,8 @@ namespace Managers
 
     public static AudioManager audioManager { get; private set; }
 
+    public SerializedDictionary<ProfileImage, Sprite> profiles;
+
     public static CoroutineObject CoroutineObject
     {
       get
@@ -53,6 +56,7 @@ namespace Managers
 
     public static int death;
     public static float record;
+    public static ProfileImage profile;
 
     private void Init()
     {
@@ -184,7 +188,7 @@ namespace Managers
           nickname = nickname,
           death = death,
           record = record,
-          profile = ProfileImage.N
+          profile = profile
         });
         data.ranking = list.ToArray();
       }
@@ -199,7 +203,7 @@ namespace Managers
               nickname = nickname,
               death = death,
               record = record,
-              profile = ProfileImage.N,
+              profile = profile
             }
           }
         };

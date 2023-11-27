@@ -35,7 +35,7 @@ namespace Ranking
       }
     }
 
-    private void CreateItem(int tier, ProfileImage? profile, string nickname, float record, int deathCount)
+    private void CreateItem(int tier, ProfileImage profile, string nickname, float record, int deathCount)
     {
       var obj = CreateObject();
 

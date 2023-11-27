@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Managers;
+using Ranking;
 using TMPro;
 using UI;
 using UnityEngine;
@@ -34,6 +35,8 @@ namespace SceneLoad
     public TMP_InputField nicknameInputField;
 
     public Button button;
+    
+    public GameObject profileImagePanel;
 
     public void OnStartButtonClick()
     {
@@ -42,6 +45,16 @@ namespace SceneLoad
 
     public void RealStartButtonClick()
     {
+      profileImagePanel.SetActive(true);
+    }
+
+    public void SelectProfile(int index)
+    {
+      GameManager.profile = (ProfileImage) index;
+      RealStart();
+    }
+    
+    public void RealStart() {
       transitionPanelAnimator.Play("Out");
       GameManager.nickname = nicknameInputField.text;
       Utils.Wait(1, () => SceneManager.LoadScene("Scenes/Stage/test"));
@@ -87,6 +100,8 @@ namespace SceneLoad
         mainMenuPage.player.targetTexture.Release();
 
       SetSlideIndex(0);
+      
+      profileImagePanel.SetActive(false);
     }
 
     public void SetSlideIndex(int index)
