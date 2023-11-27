@@ -50,8 +50,14 @@ namespace SceneLoad
     public void OnLoadButtonClick()
     {
       var data = GameManager.LoadData();
-      GameManager.InitLoad();
+      GameManager.InitLoad(true);
       SceneManager.LoadScene(data.stage);
+    }
+
+    public void OnRankingButtonClick()
+    {
+      transitionPanelAnimator.Play("Out");
+      Utils.Wait(1f, () => SceneManager.LoadScene("Ranking"));
     }
 
     public void OnOutButtonClick()

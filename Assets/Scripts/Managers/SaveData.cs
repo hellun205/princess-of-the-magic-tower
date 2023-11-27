@@ -18,5 +18,9 @@ namespace Managers
     public string objectName;
 
     public string nickname;
+
+    public float record;
+
+    public int death;
   }
 }

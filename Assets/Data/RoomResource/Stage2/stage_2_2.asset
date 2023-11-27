@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d4e4eef1454d2faa9a41491910ccb9, type: 3}
+  m_Name: stage_2_2
+  m_EditorClassIdentifier: 
+  changeZoom: 0
+  zoom: 4.21
+  doorResource: {fileID: 11400000, guid: 71433c26cd7b1964dbdbb27f4e7ede2c, type: 2}
+  backgrounds:
+  - {fileID: 21300000, guid: 723c1032cc5641547a5ea3eeff2bf25b, type: 3}
+  - {fileID: 21300000, guid: ff9c429d7180fbd48b4608d182648c2a, type: 3}
+  bgColors: []

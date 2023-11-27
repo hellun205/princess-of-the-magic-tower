@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Managers;
 using Scene;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace Util
@@ -187,7 +188,7 @@ namespace Util
       return Mathf.Min(1f, Mathf.Max(0, percentage)) > random;
     }
 
-    public static T[] GetChilds<T>(this Transform transform) where T : Component
+    public static T[] GetChilds<T>(this Transform transform) where T : Object
     {
       var res = new List<T>();
 
@@ -198,6 +199,26 @@ namespace Util
       }
 
       return res.ToArray();
+    }
+
+    public static GameObject[] GetChilds(this Transform transform)
+    {
+      var res = new List<GameObject>();
+
+      for (var i = 0; i < transform.childCount; i++)
+      {
+        res.Add(transform.GetChild(i).gameObject);
+      }
+
+      return res.ToArray();
+    }
+
+    public static string RecordToString(this float record)
+    {
+      var m = Mathf.FloorToInt(record) / 60;
+      var s = Mathf.FloorToInt(record) % 60;
+      var p = Mathf.FloorToInt((record - Mathf.FloorToInt(record)) * 100);
+      return $"{m:d2}:{s:d2}.{p:d2}";
     }
   }
 }

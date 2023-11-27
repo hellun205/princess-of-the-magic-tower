@@ -39,6 +39,8 @@ namespace Player
 
     private GameObject testModeText;
 
+    private bool isDeath;
+
     private void Awake()
     {
       animation = GetComponent<PlayerAnimation>();
@@ -54,6 +56,11 @@ namespace Player
       };
 
       DontDestroyOnLoad(gameObject);
+      SceneManager.sceneLoaded += ((arg0, mode) =>
+      {
+        if (isDeath)
+          isDeath = false;
+      });
     }
 
     private void Update()
@@ -67,7 +74,8 @@ namespace Player
 
     public void Death()
     {
-      if (testMode) return;
+      if (testMode || isDeath) return;
+      isDeath = true;
 
       GameManager.Map.currentRoom.OnExited();
       if (GameManager.HasSave())
@@ -80,7 +88,9 @@ namespace Player
       else
         GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
 
-      GameManager.Player.light.SetDefault();
+      light.SetDefault();
+      GameManager.death++;
+      GameManager.Manager.stopwatchObject.isRunning = false;
     }
 
     protected override void OnInteract(GameObject caster)

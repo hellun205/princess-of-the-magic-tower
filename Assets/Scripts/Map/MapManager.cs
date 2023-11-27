@@ -41,6 +41,8 @@ namespace Map
         MoveTo(controller.startRoom);
 
       moveOnStart = true;
+      
+      GameManager.Manager.stopwatchObject.isRunning = true;
     }
 
     public void ReloadStage()

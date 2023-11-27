@@ -3,6 +3,7 @@ using Dialogue;
 using Map;
 using Player;
 using Pool;
+using Ranking;
 using Scene;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -45,6 +46,11 @@ namespace Managers
     public static event GameManagerEventListener OnLoaded;
 
     public static string nickname;
+
+    public StopwatchObject stopwatchObject;
+
+    public static int death;
+    public static float record;
 
     private void Init()
     {
@@ -118,7 +124,9 @@ namespace Managers
         position = GameManager.PlayerLocation.GetPositionInRoom(),
         cleared = FindObjectsOfType<Room>().Where(x => x.isCleared).Select(x => x.name).ToArray(),
         objectName = objectName,
-        nickname = nickname
+        nickname = nickname,
+        death = death,
+        record = stopwatchObject.elapsed
       };
 
       PlayerPrefs.SetString("save", JsonUtility.ToJson(data));
@@ -129,25 +137,74 @@ namespace Managers
       return JsonUtility.FromJson<SaveData>(PlayerPrefs.GetString("save"));
     }
 
+    private static bool isMainMenu;
+    
     public static void Loaded(UnityEngine.SceneManagement.Scene a, LoadSceneMode b)
     {
       var data = LoadData();
-      GameManager.Map.moveOnStart = false;
+      Map.moveOnStart = false;
       SceneManager.sceneLoaded -= Loaded;
-      GameManager.Map.ReloadStage();
+      Map.ReloadStage();
       foreach (var room in FindObjectsOfType<Room>().Where(x => data.cleared.Contains(x.name)))
         room.isCleared = true;
 
-      GameManager.Map.MoveTo(data.room);
-      GameManager.PlayerLocation.SetPositionInRoom(data.position);
+      Map.MoveTo(data.room);
+      PlayerLocation.SetPositionInRoom(data.position);
       Debug.Log(data.room);
+      if (isMainMenu)
+      {
+        Manager.stopwatchObject.elapsed = data.record;
+        death = data.death;
+      }
     }
 
-    public static void InitLoad()
+    public static void InitLoad(bool isMainmenu = false)
     {
-      SceneManager.sceneLoaded += GameManager.Loaded;
+      SceneManager.sceneLoaded += Loaded;
+      isMainMenu = isMainmenu;
     }
 
     public static bool HasSave() => PlayerPrefs.HasKey("save");
+
+    public void Clear()
+    {
+      GameManager.Manager.stopwatchObject.isRunning = false;
+
+      RankingData data;
+      
+      if (PlayerPrefs.HasKey("ranking"))
+      {
+        data = JsonUtility.FromJson<RankingData>(PlayerPrefs.GetString("ranking"));
+        var list = data.ranking.ToList();
+        list.Add(new RankingData.Item
+        {
+          nickname = nickname,
+          death = death,
+          record = record,
+          profile = ProfileImage.N
+        });
+        data.ranking = list.ToArray();
+      }
+      else
+      {
+        data = new RankingData
+        {
+          ranking = new []
+          {
+            new RankingData.Item
+            {
+              nickname = nickname,
+              death = death,
+              record = record,
+              profile = ProfileImage.N,
+            }
+          }
+        };
+      }
+
+      data.ranking = data.ranking.OrderBy(x => x.record).ThenBy(x => x.death).ToArray();
+      
+      PlayerPrefs.SetString("ranking", JsonUtility.ToJson(data));
+    }
   }
 }
