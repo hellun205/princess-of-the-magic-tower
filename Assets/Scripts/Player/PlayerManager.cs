@@ -1,8 +1,12 @@
 using System;
+using System.Linq;
 using Interact;
 using Managers;
+using Map;
+using Map.Door;
 using Scene;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Util;
 
@@ -35,6 +39,8 @@ namespace Player
 
     private GameObject testModeText;
 
+    private bool isDeath;
+
     private void Awake()
     {
       animation = GetComponent<PlayerAnimation>();
@@ -48,8 +54,13 @@ namespace Player
         testModeText = GameManager.ManagedObject.Get("testmode");
         testModeText.SetActive(testMode);
       };
-      
+
       DontDestroyOnLoad(gameObject);
+      SceneManager.sceneLoaded += ((arg0, mode) =>
+      {
+        if (isDeath)
+          isDeath = false;
+      });
     }
 
     private void Update()
@@ -63,11 +74,23 @@ namespace Player
 
     public void Death()
     {
-      if (testMode) return;
-      
+      if (testMode || isDeath) return;
+      isDeath = true;
+
       GameManager.Map.currentRoom.OnExited();
-      GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
-      GameManager.Player.light.SetDefault();
+      if (GameManager.HasSave())
+      {
+        var data = GameManager.LoadData();
+
+        GameManager.InitLoad();
+        GameManager.Map.LoadStageFromSceneName(data.stage, Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
+      }
+      else
+        GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
+
+      light.SetDefault();
+      GameManager.death++;
+      GameManager.Manager.stopwatchObject.isRunning = false;
     }
 
     protected override void OnInteract(GameObject caster)

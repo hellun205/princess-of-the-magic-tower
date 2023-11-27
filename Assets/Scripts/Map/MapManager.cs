@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using Interact.Object;
 using Managers;
 using Player;
 using Scene;
@@ -12,6 +14,8 @@ namespace Map
     public StageController controller { get; private set; }
     public Room currentRoom { get; private set; }
 
+    public bool moveOnStart { get; set; } = true;
+
     private void Start()
     {
       OnSceneChanged();
@@ -19,8 +23,31 @@ namespace Map
 
     public void OnSceneChanged()
     {
+      ReloadStage();
+
+      if (GameManager.HasSave())
+      {
+        var data = GameManager.LoadData();
+
+        if (data.stage == SceneManager.GetActiveScene().name)
+        {
+          FindObjectsOfType<SavePoint>()
+           .SingleOrDefault(x => x.gameObject.name == data.objectName)
+           ?.anim.Play("ForceOpen");
+        }
+      }
+
+      if (moveOnStart)
+        MoveTo(controller.startRoom);
+
+      moveOnStart = true;
+      
+      GameManager.Manager.stopwatchObject.isRunning = true;
+    }
+
+    public void ReloadStage()
+    {
       controller = FindObjectOfType<StageController>();
-      MoveTo(controller.startRoom);
     }
 
     public Room Find(string name) => controller.rooms.Find(x => x.name == name);
@@ -83,12 +110,12 @@ namespace Map
     public void LoadStageFromSceneName(string sceneName, TransitionOption outT, TransitionOption inT)
     {
       new SceneLoader(sceneName)
-        .Out(outT)
-        .In(inT)
-        .PauseOnTransitioning()
-        .OnEndOut(() => GameManager.Pool.ClearPools())
-        .OnStartIn(OnSceneChanged)
-        .Load();
+       .Out(outT)
+       .In(inT)
+       .PauseOnTransitioning()
+       .OnEndOut(() => GameManager.Pool.ClearPools())
+       .OnStartIn(OnSceneChanged)
+       .Load();
     }
   }
 }
