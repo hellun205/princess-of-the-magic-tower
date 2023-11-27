@@ -43,7 +43,8 @@ public class OrcAI : EnemyAI
     private EnemyController enemyController;
     private Rigidbody2D rigid2D;
     private Animator animator;
-
+    private CapsuleCollider2D collider;
+    
     public override void StartAI()
     {
       awake = true;
@@ -53,6 +54,7 @@ public class OrcAI : EnemyAI
     {
       base.Awake();
       animator = GetComponentInChildren<Animator>();
+      collider = GetComponentInChildren<CapsuleCollider2D>();
     }
 
     private void Start()
@@ -161,12 +163,32 @@ public class OrcAI : EnemyAI
       yield return new WaitForSeconds(0.45f);
       isAttacking = true;
 
+      RaycastHit2D hit;
+      
       while (isAttacking)
       {
         if ((transform.position - destPos).magnitude <= 1f) break;
 
-        transform.DOMove(destPos, dashSpeed, false);
-        yield return new WaitForEndOfFrame();
+        hit = Physics2D.BoxCast(transform.position, collider.bounds.size, 0f,destPos, 1.3f);
+
+        Debug.DrawRay(transform.position, destPos);
+        
+        if (hit)
+        {
+          ResetCooltime();
+          isAttacking = false;
+
+          yield return new WaitForSeconds(0.5f);
+
+          canMove = true;
+          Debug.Log("Hit");
+          yield return false;
+        }
+        else
+        {
+          transform.DOMove(destPos, dashSpeed, false);
+          yield return new WaitForEndOfFrame();
+        }
       }
 
       ResetCooltime();

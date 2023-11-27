@@ -12,6 +12,11 @@ namespace Interact.Object
 
     public string moveTo;
 
+    public GameObject lightSwitchSprite;
+    public GameObject nightSwitchSprite;
+
+    public MoonMove moonMove;
+    
     protected override void OnInteract(GameObject caster)
     {
       Utils.Wait(0.5f, () =>
@@ -27,6 +32,19 @@ namespace Interact.Object
         {
           GameManager.Player.light.SetLight(turnToNight ? "night" : "default");
           GameManager.Transition.Play(Transitions.IN);
+
+          if (turnToNight)
+          {
+            lightSwitchSprite.SetActive(false);
+            nightSwitchSprite.SetActive(true);
+
+            moonMove.canMove = true;
+          }
+          else
+          {
+            lightSwitchSprite.SetActive(true);
+            nightSwitchSprite.SetActive(false);
+          }
         });
       });
 

@@ -141,7 +141,6 @@ namespace Enemy.AI
         _ => 0,
       };
 
-
       animator.SetInteger("animState", 1);
 
       for (int i = 0; i < 60; i++)
