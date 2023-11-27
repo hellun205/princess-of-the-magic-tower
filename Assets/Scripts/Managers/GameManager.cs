@@ -26,6 +26,8 @@ namespace Managers
 
     private static CoroutineObject _coroutineObject;
 
+    public static AudioManager audioManager { get; private set; }
+
     public static CoroutineObject CoroutineObject
     {
       get
@@ -54,6 +56,7 @@ namespace Managers
       Dialogue = FindObjectOfType<DialogueManager>();
       Avatars = FindObjectOfType<AvatarCollection>();
       Camera = FindObjectOfType<CameraController>();
+      audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Awake()

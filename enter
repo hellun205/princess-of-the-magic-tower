@@ -1,0 +1,1503 @@
+mooncomplete1
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Mon Nov 27 20:23:11 2023 +0900
+#
+# On branch hitcollider
+# Changes to be committed:
+#	new file:   Assets/Animation/Moon/MoonAttack.anim
+#	new file:   Assets/Animation/Moon/MoonAttack.anim.meta
+#	new file:   Assets/Animation/Moon/attackWarning.controller
+#	new file:   Assets/Animation/Moon/attackWarning.controller.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile).meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ElectricGround.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ElectricGround.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ElectricMesh.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ElectricMesh.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ElectricityBall.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ElectricityBall.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ElectricityBall_Alt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ElectricityBall_Alt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ElectricityBolt+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ElectricityBolt+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ElectricityBolt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ElectricityBolt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_Thunderbolt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_Thunderbolt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ThunderboltExplosion.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Electric/CFXM_ThunderboltExplosion.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Enemy_Explosion (Colored).prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Enemy_Explosion (Colored).prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Enemy_Explosion.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Enemy_Explosion.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Enemy_Explosion_Big (Colored).prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Enemy_Explosion_Big (Colored).prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Enemy_Explosion_Big.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Enemy_Explosion_Big.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion+Text NoSmoke.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion+Text NoSmoke.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion_B+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion_B+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion_B.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion_B.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion_B_Smoke+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion_B_Smoke+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion_B_Smoke.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Explosion_B_Smoke.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Firework.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_Firework.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_GroundExplosion+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_GroundExplosion+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_GroundExplosion.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_GroundExplosion.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_GroundSmokeExplosionAlt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_GroundSmokeExplosionAlt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_SmallExplosion.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_SmallExplosion.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_SmallExplosionAlt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_SmallExplosionAlt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_SmokeExplosion.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_SmokeExplosion.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_SmokeExplosionAlt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/CFXM_SmokeExplosionAlt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/Firework Variants.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/Firework Variants/CFXM_Firework_Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/Firework Variants/CFXM_Firework_Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/Firework Variants/CFXM_Firework_Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/Firework Variants/CFXM_Firework_Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/Firework Variants/CFXM_Firework_Orange.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/Firework Variants/CFXM_Firework_Orange.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/Firework Variants/CFXM_Firework_Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Explosions/Firework Variants/CFXM_Firework_Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_DoubleFlameA.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_DoubleFlameA.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_DoubleFlameB.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_DoubleFlameB.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_DoubleFlameC.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_DoubleFlameC.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_Fire_Breath.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_Fire_Breath.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_Fire_Breath_NoSmoke.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_Fire_Breath_NoSmoke.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_FlameA.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_FlameA.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_FlameB.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_FlameB.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_FlameC.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_FlameC.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_Flamethrower.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/CFXM_Flamethrower.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_DoubleFlameA Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_DoubleFlameA Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_DoubleFlameA Purple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_DoubleFlameA Purple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_DoubleFlameB Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_DoubleFlameB Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_DoubleFlameB Yellow.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_DoubleFlameB Yellow.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_DoubleFlameC Black.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_DoubleFlameC Black.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_DoubleFlameC White.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_DoubleFlameC White.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameA Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameA Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameA Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameA Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameA Yellow.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameA Yellow.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameB_Gaz.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameB_Gaz.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameB_Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameB_Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameB_Purple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameB_Purple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameC_Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameC_Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameC_Orange.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameC_Orange.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameC_Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Color Variants/CFXM_FlameC_Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/CFXM_DoubleFlameA Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/CFXM_DoubleFlameA Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/CFXM_DoubleFlameB Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/CFXM_DoubleFlameB Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/CFXM_DoubleFlameC Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/CFXM_DoubleFlameC Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/CFXM_FlameA Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/CFXM_FlameA Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/CFXM_FlameB Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/CFXM_FlameB Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/CFXM_FlameC Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/CFXM_FlameC Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_DoubleFlameA Blue Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_DoubleFlameA Blue Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_DoubleFlameA Purple Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_DoubleFlameA Purple Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_DoubleFlameB Green Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_DoubleFlameB Green Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_DoubleFlameB Yellow Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_DoubleFlameB Yellow Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_DoubleFlameC Black Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_DoubleFlameC Black Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_DoubleFlameC White Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_DoubleFlameC White Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameA Blue Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameA Blue Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameA Green Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameA Green Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameA Yellow Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameA Yellow Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameB_Gaz Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameB_Gaz Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameB_Green Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameB_Green Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameB_Purple Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameB_Purple Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameC_Blue Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameC_Blue Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameC_Orange Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameC_Orange Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameC_Red Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Fire/Flames Looped/Color Variants/CFXM_FlameC_Red Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_GroundHit+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_GroundHit+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_GroundHit.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_GroundHit.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_A Directional Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_A Directional Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_A Red+RandomText.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_A Red+RandomText.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_A Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_A Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_B Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_B Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_B Directional Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_B Directional Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_C Directional White.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_C Directional White.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_C White+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_C White+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_C White.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_C White.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_D Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_D Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_D_Long Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/CFXM_Hit_D_Long Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_GroundHit Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_GroundHit Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_GroundHit Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_GroundHit Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_GroundHit Purple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_GroundHit Purple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_A Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_A Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_A Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_A Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_A White.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_A White.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_A Yellow.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_A Yellow.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_B Purple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_B Purple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_B Rainbow.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_B Rainbow.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_B Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_B Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_B White.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_B White.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_B Yellow.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_B Yellow.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_C Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_C Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_C Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_C Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_C Yellow.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_C Yellow.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_D Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_D Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_D Orange.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Hits/Color Variants/CFXM_Hit_D Orange.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_CircularLightWall+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_CircularLightWall+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_CircularLightWall.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_CircularLightWall.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Flash.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Flash.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_GroundAura.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_GroundAura.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_LightWall+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_LightWall+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_LightWall.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_LightWall.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_MagicPoof+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_MagicPoof+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_MagicPoof.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_MagicPoof.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Magical_Source.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Magical_Source.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Poof+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Poof+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Poof.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Poof.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Slash+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Slash+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Slash.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Slash.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Slash_B Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Slash_B Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Slash_B Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Slash_B Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Slash_B Orange.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Slash_B Orange.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_SoftStar.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_SoftStar.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_SpikyAura_Character.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_SpikyAura_Character.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_SpikyAura_Sphere.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_SpikyAura_Sphere.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Tornado.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Tornado.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Tornado_Straight.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Tornado_Straight.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Virus.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/CFXM_Virus.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants/CFXM_Tornado_Big.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants/CFXM_Tornado_Big.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants/CFXM_Tornado_Big_Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants/CFXM_Tornado_Big_Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants/CFXM_Tornado_Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants/CFXM_Tornado_Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants/CFXM_Tornado_Straight_Big.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants/CFXM_Tornado_Straight_Big.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants/CFXM_Tornado_Straight_Big_Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants/CFXM_Tornado_Straight_Big_Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants/CFXM_Tornado_Straight_Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Misc/Tornado Variants/CFXM_Tornado_Straight_Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_GasLeak.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_GasLeak.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_SmokePuffs+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_SmokePuffs+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_SmokePuffs.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_SmokePuffs.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_SmokePuffsAlt+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_SmokePuffsAlt+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_SmokePuffsAlt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_SmokePuffsAlt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_SmokePuffs_Big.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_SmokePuffs_Big.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_SmokeTrail.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_SmokeTrail.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_Sole_Smoke.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/CFXM_Sole_Smoke.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/Color Variants.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/Color Variants/CFXM_GasLeak Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/Color Variants/CFXM_GasLeak Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/Color Variants/CFXM_GasLeak Purple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Smoke/Color Variants/CFXM_GasLeak Purple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs).meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Boom.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Boom.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Hit Random.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Hit Random.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Poof.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Poof.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Slash.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Slash.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Splash.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Splash.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Wham Ground.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Wham Ground.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Wham.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Wham.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Wooosh Ground.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Wooosh Ground.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Zap.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Texts (drag-drop to prefabs)/CFXM_Text Zap.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water/CFXM_Fountain.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water/CFXM_Fountain.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water/CFXM_Fountain_Loop.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water/CFXM_Fountain_Loop.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water/CFXM_Ripple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water/CFXM_Ripple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water/CFXM_Splash+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water/CFXM_Splash+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water/CFXM_Splash.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water/CFXM_Splash.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water/CFXM_Water_Sprinkler.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs (Mobile)/Water/CFXM_Water_Sprinkler.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricGround.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricGround.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricGround_Alt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricGround_Alt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricMesh.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricMesh.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricityBall.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricityBall.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricityBall_Alt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricityBall_Alt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricityBolt+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricityBolt+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricityBolt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ElectricityBolt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_Thunderbolt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_Thunderbolt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ThunderboltExplosion.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Electric/CFX_ThunderboltExplosion.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Enemy_Explosion (Colored).prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Enemy_Explosion (Colored).prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Enemy_Explosion.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Enemy_Explosion.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Enemy_Explosion_Big (Colored).prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Enemy_Explosion_Big (Colored).prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Enemy_Explosion_Big.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Enemy_Explosion_Big.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion NoSmoke.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion NoSmoke.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion+Text NoSmoke.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion+Text NoSmoke.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion_B+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion_B+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion_B.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion_B.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion_B_Smoke+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion_B_Smoke+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion_B_Smoke.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Explosion_B_Smoke.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Firework.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Firework.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Firework_Trails.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Firework_Trails.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Firework_Trails_Gravity.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_Firework_Trails_Gravity.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_GroundExplosion+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_GroundExplosion+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_GroundExplosion.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_GroundExplosion.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_GroundSmokeExplosionAlt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_GroundSmokeExplosionAlt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_SmallExplosion.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_SmallExplosion.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_SmallExplosionAlt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_SmallExplosionAlt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_SmokeExplosion.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_SmokeExplosion.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_SmokeExplosionAlt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/CFX_SmokeExplosionAlt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Orange.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Orange.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Gravity_Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Gravity_Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Gravity_Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Gravity_Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Gravity_Orange.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Gravity_Orange.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Gravity_Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Gravity_Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Orange.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Orange.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Explosions/Firework Variants/CFX_Firework_Trails_Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_DoubleFlameA.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_DoubleFlameA.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_DoubleFlameB.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_DoubleFlameB.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_DoubleFlameC.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_DoubleFlameC.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_Fire_Breath.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_Fire_Breath.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_Fire_Breath_NoSmoke.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_Fire_Breath_NoSmoke.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_FlameA.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_FlameA.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_FlameB.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_FlameB.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_FlameC.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_FlameC.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_Flamethrower.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/CFX_Flamethrower.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_DoubleFlameA Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_DoubleFlameA Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_DoubleFlameA Purple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_DoubleFlameA Purple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_DoubleFlameB Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_DoubleFlameB Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_DoubleFlameB Yellow.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_DoubleFlameB Yellow.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_DoubleFlameC Black.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_DoubleFlameC Black.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_DoubleFlameC White.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_DoubleFlameC White.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameA Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameA Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameA Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameA Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameA Yellow.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameA Yellow.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameB_Gaz.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameB_Gaz.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameB_Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameB_Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameB_Purple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameB_Purple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameC_Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameC_Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameC_Orange.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameC_Orange.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameC_Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Color Variants/CFX_FlameC_Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/CFX_DoubleFlameA Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/CFX_DoubleFlameA Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/CFX_DoubleFlameB Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/CFX_DoubleFlameB Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/CFX_DoubleFlameC Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/CFX_DoubleFlameC Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/CFX_FlameA Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/CFX_FlameA Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/CFX_FlameB Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/CFX_FlameB Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/CFX_FlameC Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/CFX_FlameC Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_DoubleFlameA Blue Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_DoubleFlameA Blue Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_DoubleFlameA Purple Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_DoubleFlameA Purple Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_DoubleFlameB Green Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_DoubleFlameB Green Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_DoubleFlameB Yellow Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_DoubleFlameB Yellow Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_DoubleFlameC Black Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_DoubleFlameC Black Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_DoubleFlameC White Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_DoubleFlameC White Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameA Blue Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameA Blue Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameA Green Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameA Green Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameA Yellow Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameA Yellow Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameB_Gaz Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameB_Gaz Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameB_Green Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameB_Green Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameB_Purple Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameB_Purple Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameC_Blue Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameC_Blue Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameC_Orange Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameC_Orange Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameC_Red Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Fire/Flames Looped/Color Variants/CFX_FlameC_Red Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_GroundHit+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_GroundHit+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_GroundHit.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_GroundHit.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_A Directional Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_A Directional Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_A Red+RandomText.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_A Red+RandomText.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_A Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_A Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_B Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_B Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_B Directional Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_B Directional Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_C Directional White.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_C Directional White.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_C White+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_C White+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_C White.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_C White.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_D Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_D Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_D_Long Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_D_Long Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_GroundHit Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_GroundHit Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_GroundHit Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_GroundHit Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_GroundHit Purple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_GroundHit Purple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_A Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_A Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_A Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_A Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_A White.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_A White.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_A Yellow.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_A Yellow.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_B Purple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_B Purple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_B Rainbow.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_B Rainbow.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_B Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_B Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_B White.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_B White.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_B Yellow.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_B Yellow.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_C Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_C Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_C Red.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_C Red.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_C Yellow.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_C Yellow.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_D Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_D Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_D Orange.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/Color Variants/CFX_Hit_D Orange.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_CircularLightWall+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_CircularLightWall+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_CircularLightWall.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_CircularLightWall.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Flash.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Flash.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_GroundAura.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_GroundAura.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_LightWall+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_LightWall+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_LightWall.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_LightWall.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_MagicPoof+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_MagicPoof+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_MagicPoof.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_MagicPoof.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Magical_Source.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Magical_Source.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Poof+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Poof+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Poof.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Poof.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Slash+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Slash+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Slash.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Slash.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Slash_B Blue.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Slash_B Blue.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Slash_B Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Slash_B Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Slash_B Orange.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Slash_B Orange.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_SoftStar.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_SoftStar.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_SpikyAura_Character Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_SpikyAura_Character Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_SpikyAura_Character.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_SpikyAura_Character.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_SpikyAura_Sphere Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_SpikyAura_Sphere Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_SpikyAura_Sphere.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_SpikyAura_Sphere.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Tornado.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Tornado.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Tornado_Straight.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Tornado_Straight.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Virus.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/CFX_Virus.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants/CFX_Tornado_Big.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants/CFX_Tornado_Big.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants/CFX_Tornado_Big_Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants/CFX_Tornado_Big_Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants/CFX_Tornado_Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants/CFX_Tornado_Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants/CFX_Tornado_Straight_Big.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants/CFX_Tornado_Straight_Big.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants/CFX_Tornado_Straight_Big_Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants/CFX_Tornado_Straight_Big_Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants/CFX_Tornado_Straight_Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Misc/Tornado Variants/CFX_Tornado_Straight_Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_GasLeak Looped.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_GasLeak Looped.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_GasLeak.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_GasLeak.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokePuffs+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokePuffs+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokePuffs.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokePuffs.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokePuffsAlt+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokePuffsAlt+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokePuffsAlt.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokePuffsAlt.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokePuffs_Big+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokePuffs_Big+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokePuffs_Big.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokePuffs_Big.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokeTrail.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_SmokeTrail.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_Sole_Smoke.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/CFX_Sole_Smoke.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/Color Variants.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/Color Variants/CFX_GasLeak Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/Color Variants/CFX_GasLeak Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/Color Variants/CFX_GasLeak Looped Green.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/Color Variants/CFX_GasLeak Looped Green.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/Color Variants/CFX_GasLeak Looped Purple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/Color Variants/CFX_GasLeak Looped Purple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/Color Variants/CFX_GasLeak Purple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Smoke/Color Variants/CFX_GasLeak Purple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs).meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Boom.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Boom.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Hit Random.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Hit Random.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Poof.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Poof.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Slash.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Slash.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Splash.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Splash.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Wham Ground.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Wham Ground.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Wham.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Wham.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Wooosh Ground.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Wooosh Ground.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Zap.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Texts (drag-drop to prefabs)/CFX_Text Zap.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water/CFX_Fountain.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water/CFX_Fountain.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water/CFX_Fountain_Loop.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water/CFX_Fountain_Loop.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water/CFX_Ripple.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water/CFX_Ripple.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water/CFX_Splash+Text.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water/CFX_Splash+Text.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water/CFX_Splash.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water/CFX_Splash.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water/CFX_Water_Sprinkler.prefab
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Water/CFX_Water_Sprinkler.prefab.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CartoonFX Readme.txt
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/CartoonFX Readme.txt.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_Ground.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_Ground.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_T_Ground.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_T_Ground.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_T_Water.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_T_Water.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_Water.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_Water.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_WaterWiggle.shader
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_WaterWiggle.shader.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_Wiggle.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/Assets/CFX_Demo_Wiggle.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/CFX1 Demo.unity
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/CFX1 Demo.unity.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/UI Canvas/CFX1 Demo Logo.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Demo/UI Canvas/CFX1 Demo Logo.png.meta
+#	modified:   Assets/JMO Assets/Cartoon FX (legacy)/Editor/CFX_InspectorHelpEditor.cs
+#	modified:   Assets/JMO Assets/Cartoon FX (legacy)/Editor/CFX_SpawnSystemEditor.cs
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Bubble_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Bubble_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Electricity_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Electricity_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Poof_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Poof_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Slash_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Slash_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_SmokePuff_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_SmokePuff_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_SoleSmoke_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_SoleSmoke_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Triangle2_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Triangle2_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Triangle2_AlphaBlended.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Triangle2_AlphaBlended.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Triangle2_AlphaBlendedPremult.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Triangle2_AlphaBlendedPremult.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Triangle3_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Triangle3_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Triangle3_Mult.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Triangle3_Mult.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Triangle_AddSoft.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Animated/CFXM_Anim_Triangle_AddSoft.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Decals.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Decals/CFXM_BurntGround.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Decals/CFXM_BurntGround.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Electric.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Electric/CFXM_ElectricBolt_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Electric/CFXM_ElectricBolt_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Electric/CFXM_Sparkles_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Electric/CFXM_Sparkles_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Electric/CFXM_Thunderbolt.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Electric/CFXM_Thunderbolt.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Electric/CFXM_YellowStar.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Electric/CFXM_YellowStar.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame1BW_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame1BW_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame1BW_AlphaBlended.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame1BW_AlphaBlended.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame1_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame1_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame1_AlphaBlendPremult.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame1_AlphaBlendPremult.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame2BW_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame2BW_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame2BW_AlphaBlended.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame2BW_AlphaBlended.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame2BW_AlphaBlendedPremult.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame2BW_AlphaBlendedPremult.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame2_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame2_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame3BW_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame3BW_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame3BW_AlphaBlended.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame3BW_AlphaBlended.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame3_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Fire/CFXM_Flame3_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_Bubble_ABP.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_Bubble_ABP.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_GasLeak.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_GasLeak.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_Skull.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_Skull.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_Smoke_4frms.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_Smoke_4frms.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_Smoke_4frms_AB.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_Smoke_4frms_AB.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_Star Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_Star Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_Tornado.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_Tornado.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_WhiteCircle.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Misc/CFXM_WhiteCircle.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Stretched/CFXM_Ray.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Stretched/CFXM_Ray.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Stretched/CFXM_SmallSpike_AddSoft.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Stretched/CFXM_SmallSpike_AddSoft.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Stretched/CFXM_SpacedLine.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Stretched/CFXM_SpacedLine.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Boom.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Boom.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Hit_Random.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Hit_Random.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Poof.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Poof.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Slash.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Slash.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Splash.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Splash.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Wooosh.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Wooosh.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Zap.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Texts/CFXM_Text_Zap.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Water/CFXM_Anim_Splash_4frms.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Water/CFXM_Anim_Splash_4frms.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Water/CFXM_Foam_AddSoft.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Water/CFXM_Foam_AddSoft.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Water/CFXM_Fountain.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Water/CFXM_Fountain.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Water/CFXM_Ripple_AddSoft.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials (Mobile)/Water/CFXM_Ripple_AddSoft.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Bubble_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Bubble_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Electricity_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Electricity_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Poof_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Poof_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Poof_AddSoft.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Poof_AddSoft.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Slash_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Slash_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_SmokePuff_AddSoft.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_SmokePuff_AddSoft.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_SoleSmoke_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_SoleSmoke_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle2_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle2_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle2_AddSoft.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle2_AddSoft.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle2_AlphaBlended.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle2_AlphaBlended.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle2_AlphaBlendedPremult.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle2_AlphaBlendedPremult.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle3_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle3_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle3_Mult.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle3_Mult.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle_AddSoft.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Animated/CFX_Anim_Triangle_AddSoft.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Decals.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Decals/CFX_BurntGround.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Decals/CFX_BurntGround.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Electric.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Electric/CFX_ElectricBolt_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Electric/CFX_ElectricBolt_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Electric/CFX_Sparkles_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Electric/CFX_Sparkles_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Electric/CFX_Thunderbolt.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Electric/CFX_Thunderbolt.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Electric/CFX_YellowStar.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Electric/CFX_YellowStar.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame1BW_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame1BW_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame1BW_AlphaBlended.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame1BW_AlphaBlended.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame1_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame1_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame1_AlphaBlendPremult.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame1_AlphaBlendPremult.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame2BW_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame2BW_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame2BW_AlphaBlended.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame2BW_AlphaBlended.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame2BW_AlphaBlendedPremult.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame2BW_AlphaBlendedPremult.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame2_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame2_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame3BW_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame3BW_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame3BW_AlphaBlended.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame3BW_AlphaBlended.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame3_Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Fire/CFX_Flame3_Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_Bubble_ABP.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_Bubble_ABP.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_GasLeak.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_GasLeak.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_Skull.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_Skull.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_Smoke_4frms.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_Smoke_4frms.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_Star Add.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_Star Add.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_Tornado.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_Tornado.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_WhiteCircle.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Misc/CFX_WhiteCircle.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Stretched/CFX_Ray.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Stretched/CFX_Ray.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Stretched/CFX_SmallSpike_AddSoft.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Stretched/CFX_SmallSpike_AddSoft.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Stretched/CFX_SpacedLine.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Stretched/CFX_SpacedLine.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Boom.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Boom.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Hit_Random.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Hit_Random.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Poof AB.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Poof AB.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Poof.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Poof.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Slash.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Slash.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Splash.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Splash.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Wooosh.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Wooosh.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Zap.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Texts/CFX_Text_Zap.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Water/CFX_Anim_Splash_4frms.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Water/CFX_Anim_Splash_4frms.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Water/CFX_Foam_AddSoft.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Water/CFX_Foam_AddSoft.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Water/CFX_Fountain.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Water/CFX_Fountain.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Water/CFX_Ripple_AddSoft.mat
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Materials/Water/CFX_Ripple_AddSoft.mat.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Mesh/CFX_Mesh_CharacterAura.fbx
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Mesh/CFX_Mesh_CharacterAura.fbx.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Mesh/CFX_Mesh_Circular.FBX
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Mesh/CFX_Mesh_Circular.FBX.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Mesh/CFX_Mesh_Circular1.5.asset
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Mesh/CFX_Mesh_Circular1.5.asset.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Mesh/CFX_Mesh_CircularBig.FBX
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Mesh/CFX_Mesh_CircularBig.FBX.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Scripts/CFX_AutoRotate.cs
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Scripts/CFX_AutoRotate.cs.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Scripts/CFX_AutodestructWhenNoChildren.cs
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Scripts/CFX_AutodestructWhenNoChildren.cs.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Shaders/CFXM_MobileParticleAB_Alpha8.shader
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Shaders/CFXM_MobileParticleAB_Alpha8.shader.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_ElectricSparkle.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_ElectricSparkle.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_Fountain.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_Fountain.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim4_Bubble.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim4_Bubble.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim4_RoundedLines.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim4_RoundedLines.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim4_SmokePuff.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim4_SmokePuff.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim4_Triangle1.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim4_Triangle1.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim4_Triangle3.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim4_Triangle3.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim7_Electricity.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim7_Electricity.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim8_SoleSmoke.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim8_SoleSmoke.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim8_Triangle2.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim8_Triangle2.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim8_Triangle2_ABP.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim8_Triangle2_ABP.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim8_TripleSlash.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Anim8_TripleSlash.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Bolt.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Bolt.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Bubble_ABP.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Bubble_ABP.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Decal_BurntGround.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Decal_BurntGround.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame1.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame1.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame1_ABP.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame1_ABP.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame1_BW.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame1_BW.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame1_BW_AB.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame1_BW_AB.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame2.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame2.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame2_BW.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame2_BW.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame2_BW_AB.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame2_BW_AB.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame3.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame3.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame3_BW.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame3_BW.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame3_BW_AB.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Flame3_BW_AB.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Foam.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Foam.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_GasLeak.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_GasLeak.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Ray.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Ray.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Ripple.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Ripple.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Skull.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Skull.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Smoke_4Frames.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Smoke_4Frames.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Smoke_4Frames_AB.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Smoke_4Frames_AB.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_SpacedLine.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_SpacedLine.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_SpacedSpike.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_SpacedSpike.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Splash_4Frames.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Splash_4Frames.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Star.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Star.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_Boom.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_Boom.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_HitRandom.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_HitRandom.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_Poof.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_Poof.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_Slash.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_Slash.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_Splash.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_Splash.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_Woooshh.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_Woooshh.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_Zap.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Text_Zap.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Thunderbolt.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Thunderbolt.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Tornado.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures (Mobile)/CFXM_T_Tornado.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_ElectricSparkle.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_ElectricSparkle.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_Fountain.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_Fountain.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim4_Bubble.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim4_Bubble.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim4_RoundedLines.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim4_RoundedLines.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim4_SmokePuff.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim4_SmokePuff.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim4_Triangle1.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim4_Triangle1.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim4_Triangle3.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim4_Triangle3.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim7_Electricity.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim7_Electricity.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim8_SoleSmoke.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim8_SoleSmoke.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim8_Triangle2.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim8_Triangle2.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim8_TripleSlash.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Anim8_TripleSlash.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Bolt.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Bolt.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Bubble_ABP.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Bubble_ABP.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Decal_BurntGround.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Decal_BurntGround.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame1.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame1.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame1_ABP.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame1_ABP.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame1_BW.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame1_BW.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame1_BW_AB.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame1_BW_AB.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame2.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame2.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame2_BW.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame2_BW.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame2_BW_AB.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame2_BW_AB.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame3.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame3.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame3_BW.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame3_BW.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame3_BW_AB.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Flame3_BW_AB.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Foam.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Foam.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_GasLeak.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_GasLeak.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Ray.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Ray.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Ripple.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Ripple.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Skull.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Skull.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Smoke_4Frames.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Smoke_4Frames.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_SpacedLine.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_SpacedLine.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_SpacedSpike.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_SpacedSpike.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Splash_4Frames.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Splash_4Frames.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Star Add.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Star Add.png.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Star.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Star.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_Boom.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_Boom.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_HitRandom.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_HitRandom.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_Poof.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_Poof.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_Slash.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_Slash.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_Splash.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_Splash.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_Woooshh.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_Woooshh.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_Zap.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Text_Zap.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Thunderbolt.tga
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Thunderbolt.tga.meta
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Tornado.png
+#	new file:   Assets/JMO Assets/Cartoon FX (legacy)/Textures/CFX_T_Tornado.png.meta
+#	deleted:    Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Editor/CFXR_BuildShaderPreprocessor.cs
+#	deleted:    Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Editor/CFXR_UpgradeCheck.cs
+#	modified:   Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr stretch triangle smooth add.mat
+#	deleted:    Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle Distortion.shader
+#	deleted:    Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle Distortion.shader.meta
+#	deleted:    Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle Glow.shader
+#	deleted:    Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle Glow.shader.meta
+#	deleted:    Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle Procedural Ring.shader
+#	deleted:    Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle Procedural Ring.shader.meta
+#	deleted:    Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle Ubershader.shader
+#	deleted:    Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle Ubershader.shader.meta
+#	new file:   Assets/Prefabs/Stage/Stage1/CFXR4 Sword Trail ICE (360 Edge).prefab
+#	new file:   Assets/Prefabs/Stage/Stage1/CFXR4 Sword Trail ICE (360 Edge).prefab.meta
+#	new file:   Assets/Prefabs/Stage/Stage1/attackWarning.prefab
+#	new file:   Assets/Prefabs/Stage/Stage1/attackWarning.prefab.meta
+#	modified:   Assets/Resources/Player.prefab
+#	modified:   Assets/Scenes/Stage/test.unity
+#	modified:   Assets/Scripts/Enemy/EnemyController.cs
+#	modified:   Assets/Scripts/Managers/AudioManager.cs
+#	modified:   Assets/Scripts/Moon/MoonArea.cs
+#	new file:   Assets/Scripts/Moon/MoonAttack.cs
+#	renamed:    Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Editor/CFXR_BuildShaderPreprocessor.cs.meta -> Assets/Scripts/Moon/MoonAttack.cs.meta
+#	new file:   Assets/Scripts/Moon/MoonAttackArea.cs
+#	renamed:    Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Editor/CFXR_UpgradeCheck.cs.meta -> Assets/Scripts/Moon/MoonAttackArea.cs.meta
+#	modified:   Assets/Scripts/Player/PlayerLight.cs
+#
+# Changes not staged for commit:
+#	deleted:    1028Build (2).zip
+#	deleted:    1028Build (3).zip
+#	deleted:    1028Build (4).zip
+#	deleted:    1028Build (5).zip
+#	deleted:    1028Build.zip
+#	deleted:    1028Build/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll
+#	deleted:    1028Build/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/2.0/machine.config
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/2.0/settings.map
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/2.0/web.config
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/4.0/machine.config
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/4.0/settings.map
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/4.0/web.config
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/4.5/machine.config
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/4.5/settings.map
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/4.5/web.config
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/browscap.ini
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/config
+#	deleted:    1028Build/MonoBleedingEdge/etc/mono/mconfig/config.xml
+#	deleted:    1028Build/UnityCrashHandler64.exe
+#	deleted:    1028Build/UnityPlayer.dll
+#	deleted:    1028Build/princess of the magic tower.exe
+#	deleted:    1028Build/princess of the magic tower_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/AYellowpaper.SerializedCollections.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Assembly-CSharp-firstpass.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Assembly-CSharp.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/CFXRDemo.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/CFXRRuntime.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Cinemachine.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/DOTween.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/KinoBloom.Runtime.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Mono.Security.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.ComponentModel.Composition.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Configuration.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Core.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Data.DataSetExtensions.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Data.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Drawing.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.EnterpriseServices.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.IO.Compression.FileSystem.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.IO.Compression.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Net.Http.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Numerics.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Runtime.Serialization.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Runtime.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Security.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.ServiceModel.Internals.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Transactions.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Xml.Linq.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.Xml.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/System.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.2D.Animation.Runtime.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.2D.Common.Runtime.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.2D.IK.Runtime.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.2D.PixelPerfect.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.2D.SpriteShape.Runtime.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.2D.Tilemap.Extras.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.AI.Navigation.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.Burst.Unsafe.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.Burst.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.Collections.LowLevel.ILSupport.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.Collections.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.InternalAPIEngineBridge.001.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.Mathematics.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.RenderPipelines.Core.Runtime.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.TextMeshPro.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.Timeline.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.VisualScripting.Core.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.VisualScripting.Flow.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/Unity.VisualScripting.State.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.AIModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.ARModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.AccessibilityModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.AndroidJNIModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.AnimationModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.AssetBundleModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.AudioModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.ClothModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.ClusterInputModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.ClusterRendererModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.ContentLoadModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.CoreModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.CrashReportingModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.DSPGraphModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.DirectorModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.GIModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.GameCenterModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.GridModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.HotReloadModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.IMGUIModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.ImageConversionModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.InputLegacyModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.InputModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.JSONSerializeModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.LocalizationModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.NVIDIAModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.ParticleSystemModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.PerformanceReportingModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.Physics2DModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.PhysicsModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.ProfilerModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.PropertiesModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.ScreenCaptureModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.SharedInternalsModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.SpriteMaskModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.SpriteShapeModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.StreamingModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.SubstanceModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.SubsystemsModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.TLSModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.TerrainModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.TerrainPhysicsModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.TextRenderingModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.TilemapModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UI.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UIElementsModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UIModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UmbraModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UnityAnalyticsModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UnityConnectModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UnityCurlModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UnityTestProtocolModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UnityWebRequestModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.VFXModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.VRModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.VehiclesModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.VideoModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.VirtualTexturingModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.WindModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.XRModule.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/UnityEngine.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/mscorlib.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Managed/netstandard.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Plugins/x86_64/lib_burst_generated.dll
+#	deleted:    1028Build/princess of the magic tower_Data/Resources/unity default resources
+#	deleted:    1028Build/princess of the magic tower_Data/Resources/unity_builtin_extra
+#	deleted:    1028Build/princess of the magic tower_Data/RuntimeInitializeOnLoads.json
+#	deleted:    1028Build/princess of the magic tower_Data/ScriptingAssemblies.json
+#	deleted:    1028Build/princess of the magic tower_Data/app.info
+#	deleted:    1028Build/princess of the magic tower_Data/boot.config
+#	deleted:    1028Build/princess of the magic tower_Data/globalgamemanagers
+#	deleted:    1028Build/princess of the magic tower_Data/globalgamemanagers.assets
+#	deleted:    1028Build/princess of the magic tower_Data/globalgamemanagers.assets.resS
+#	deleted:    1028Build/princess of the magic tower_Data/level0
+#	deleted:    1028Build/princess of the magic tower_Data/level1
+#	deleted:    1028Build/princess of the magic tower_Data/resources.assets
+#	deleted:    1028Build/princess of the magic tower_Data/resources.assets.resS
+#	deleted:    1028Build/princess of the magic tower_Data/sharedassets0.assets
+#	deleted:    1028Build/princess of the magic tower_Data/sharedassets0.resource
+#	deleted:    1028Build/princess of the magic tower_Data/sharedassets1.assets
+#	deleted:    1028Build/princess of the magic tower_Data/sharedassets1.assets.resS
+#	deleted:    lastBuild.zip
+#	deleted:    lastBuild/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll
+#	deleted:    lastBuild/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/2.0/machine.config
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/2.0/settings.map
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/2.0/web.config
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/4.0/machine.config
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/4.0/settings.map
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/4.0/web.config
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/4.5/machine.config
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/4.5/settings.map
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/4.5/web.config
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/browscap.ini
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/config
+#	deleted:    lastBuild/MonoBleedingEdge/etc/mono/mconfig/config.xml
+#	deleted:    lastBuild/UnityCrashHandler64.exe
+#	deleted:    lastBuild/UnityPlayer.dll
+#	deleted:    lastBuild/princess of the magic tower.exe
+#	deleted:    lastBuild/princess of the magic tower_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/AYellowpaper.SerializedCollections.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Assembly-CSharp-firstpass.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Assembly-CSharp.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/CFXRDemo.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/CFXRRuntime.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Cinemachine.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/DOTween.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/KinoBloom.Runtime.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Mono.Security.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.ComponentModel.Composition.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Configuration.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Core.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Data.DataSetExtensions.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Data.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Drawing.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.EnterpriseServices.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.IO.Compression.FileSystem.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.IO.Compression.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Net.Http.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Numerics.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Runtime.Serialization.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Runtime.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Security.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.ServiceModel.Internals.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Transactions.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Xml.Linq.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.Xml.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/System.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.2D.Animation.Runtime.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.2D.Common.Runtime.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.2D.IK.Runtime.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.2D.PixelPerfect.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.2D.SpriteShape.Runtime.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.2D.Tilemap.Extras.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.AI.Navigation.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.Burst.Unsafe.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.Burst.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.Collections.LowLevel.ILSupport.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.Collections.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.InternalAPIEngineBridge.001.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.Mathematics.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.RenderPipelines.Core.Runtime.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.TextMeshPro.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.Timeline.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.VisualScripting.Core.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.VisualScripting.Flow.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/Unity.VisualScripting.State.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.AIModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.ARModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.AccessibilityModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.AndroidJNIModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.AnimationModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.AssetBundleModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.AudioModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.ClothModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.ClusterInputModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.ClusterRendererModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.ContentLoadModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.CoreModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.CrashReportingModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.DSPGraphModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.DirectorModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.GIModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.GameCenterModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.GridModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.HotReloadModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.IMGUIModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.ImageConversionModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.InputLegacyModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.InputModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.JSONSerializeModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.LocalizationModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.NVIDIAModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.ParticleSystemModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.PerformanceReportingModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.Physics2DModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.PhysicsModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.ProfilerModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.PropertiesModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.ScreenCaptureModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.SharedInternalsModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.SpriteMaskModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.SpriteShapeModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.StreamingModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.SubstanceModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.SubsystemsModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.TLSModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.TerrainModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.TerrainPhysicsModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.TextRenderingModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.TilemapModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UI.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UIElementsModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UIModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UmbraModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UnityAnalyticsModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UnityConnectModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UnityCurlModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UnityTestProtocolModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UnityWebRequestModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.VFXModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.VRModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.VehiclesModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.VideoModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.VirtualTexturingModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.WindModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.XRModule.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/UnityEngine.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/mscorlib.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Managed/netstandard.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Plugins/x86_64/lib_burst_generated.dll
+#	deleted:    lastBuild/princess of the magic tower_Data/Resources/unity default resources
+#	deleted:    lastBuild/princess of the magic tower_Data/Resources/unity_builtin_extra
+#	deleted:    lastBuild/princess of the magic tower_Data/RuntimeInitializeOnLoads.json
+#	deleted:    lastBuild/princess of the magic tower_Data/ScriptingAssemblies.json
+#	deleted:    lastBuild/princess of the magic tower_Data/app.info
+#	deleted:    lastBuild/princess of the magic tower_Data/boot.config
+#	deleted:    lastBuild/princess of the magic tower_Data/globalgamemanagers
+#	deleted:    lastBuild/princess of the magic tower_Data/globalgamemanagers.assets
+#	deleted:    lastBuild/princess of the magic tower_Data/globalgamemanagers.assets.resS
+#	deleted:    lastBuild/princess of the magic tower_Data/level0
+#	deleted:    lastBuild/princess of the magic tower_Data/level1
+#	deleted:    lastBuild/princess of the magic tower_Data/resources.assets
+#	deleted:    lastBuild/princess of the magic tower_Data/resources.assets.resS
+#	deleted:    lastBuild/princess of the magic tower_Data/sharedassets0.assets
+#	deleted:    lastBuild/princess of the magic tower_Data/sharedassets0.resource
+#	deleted:    lastBuild/princess of the magic tower_Data/sharedassets1.assets
+#	deleted:    lastBuild/princess of the magic tower_Data/sharedassets1.assets.resS
+#

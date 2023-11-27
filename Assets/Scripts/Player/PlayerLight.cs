@@ -8,17 +8,14 @@ namespace Player
   public class PlayerLight : MonoBehaviour
   {
     [SerializedDictionary("Key", "Light Object")]
-    public SerializedDictionary<string, Light2D> lights;
 
-    public string current => lights.Values.Single(lightObj => lightObj.gameObject.activeSelf).name;
-
+    public GameObject dayLight;
+    public GameObject nightLight;
+    
     public void SetLight(string key)
     {
-      if (!lights.ContainsKey(key))
-        Debug.LogError($"doesn't exist light key: ${key}");
-      
-      foreach (var (lightKey, lightObj) in lights)
-        lightObj.gameObject.SetActive(lightKey == key);
+        dayLight.SetActive(key == "default");
+        nightLight.SetActive(key == "night");
     }
 
     public void SetDefault()

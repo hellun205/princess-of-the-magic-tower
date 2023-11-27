@@ -13,35 +13,30 @@ namespace Enemy.AI
 
     public Transform target;
 
-    [Header("Value")] 
-    public bool awake;
+    [Header("Value")] public bool awake;
 
     public bool targetFind;
     private bool canMove = true;
-    
+
     private Vector3 destPos;
 
     protected override bool forceAttack => true;
 
     public LayerMask obstacleMask;
-    
-    [Range(0, 10)]
 
-    public float moveSpeed;
+    [Range(0, 10)] public float moveSpeed;
     public float lookDistance;
 
     public GameObject bodySprite;
 
-    [Header("Dash")] 
-    public bool canDash;
+    [Header("Dash")] public bool canDash;
     [Range(0, 1)] public float dashSpeed;
 
     public float maxCoolTime;
     private float currentCoolTime;
 
-    [Header("Mask")] 
-    public LayerMask targetMask;
-    
+    [Header("Mask")] public LayerMask targetMask;
+
     private EnemyController enemyController;
     private Rigidbody2D rigid2D;
     private Animator animator;
@@ -50,6 +45,8 @@ namespace Enemy.AI
     public override void StartAI()
     {
       awake = true;
+      canMove = true;
+      currentCoolTime = maxCoolTime;
     }
 
     protected override void Awake()
@@ -63,6 +60,8 @@ namespace Enemy.AI
     {
       currentCoolTime = maxCoolTime;
       target = GameManager.Player.transform;
+
+      canMove = true;
     }
 
     private void Update()
@@ -125,7 +124,8 @@ namespace Enemy.AI
     {
       float scale = type ? -0.8f : 0.8f;
 
-      bodySprite.transform.localScale = new Vector3(scale, bodySprite.transform.localScale.y, bodySprite.transform.localScale.z);
+      bodySprite.transform.localScale =
+        new Vector3(scale, bodySprite.transform.localScale.y, bodySprite.transform.localScale.z);
     }
 
     private void OnDrawGizmos()
@@ -166,31 +166,14 @@ namespace Enemy.AI
       isAttacking = true;
 
       RaycastHit2D hit;
-      
+
       while (isAttacking)
       {
         if ((transform.position - destPos).magnitude <= 1f) break;
 
-        hit = Physics2D.BoxCast(transform.position, collider.bounds.size, 0f,destPos, 1.3f);
 
-        Debug.DrawRay(transform.position, destPos);
-        
-        if (hit)
-        {
-          ResetCooltime();
-          isAttacking = false;
-
-          yield return new WaitForSeconds(0.5f);
-
-          canMove = true;
-          Debug.Log("Hit");
-          yield return false;
-        }
-        else
-        {
-          transform.DOMove(destPos, dashSpeed, false);
-          yield return new WaitForEndOfFrame();
-        }
+        transform.DOMove(destPos, dashSpeed, false);
+        yield return new WaitForEndOfFrame();
       }
 
       ResetCooltime();
@@ -205,7 +188,7 @@ namespace Enemy.AI
     {
       animator.SetTrigger("die");
     }
-    
+
     private void OnCollisionEnter2D(Collision2D other)
     {
       if (other.gameObject.layer.CheckLayer("Obstacle", "Wall"))

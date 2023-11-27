@@ -54,6 +54,8 @@ namespace Enemy
 
     private void Dead()
     {
+      GameManager.audioManager.PlayKillSfx();
+      
       if ((killToAdd & DashType.Normal) != 0)
         GameManager.Player.skill.ReloadDash();
       if ((killToAdd & DashType.Additional) != 0)

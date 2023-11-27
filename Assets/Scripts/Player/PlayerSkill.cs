@@ -52,6 +52,7 @@ namespace Player
 
       UseDash();
       thePlayerMove.Dash();
+      GameManager.audioManager.PlaySfx("dash");
     }
 
     public void ReloadDash(int amount = 1)
