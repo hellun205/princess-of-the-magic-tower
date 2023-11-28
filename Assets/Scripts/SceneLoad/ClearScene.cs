@@ -3,6 +3,7 @@ using Managers;
 using Ranking;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Util;
 
 namespace SceneLoad
@@ -50,6 +51,11 @@ namespace SceneLoad
         var item = data.ranking[2];
         rank3.Set(item.profile, item.nickname, item.record);
       }
+    }
+
+    public void GotoMain()
+    {
+      SceneManager.LoadScene("TitleScene");
     }
   }
 }
