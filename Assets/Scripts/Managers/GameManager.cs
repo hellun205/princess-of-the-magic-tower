@@ -130,12 +130,13 @@ namespace Managers
       {
         stage = SceneManager.GetActiveScene().name,
         room = room,
-        position = GameManager.PlayerLocation.GetPositionInRoom(),
+        position = PlayerLocation.GetPositionInRoom(),
         cleared = FindObjectsOfType<Room>().Where(x => x.isCleared).Select(x => x.name).ToArray(),
         objectName = objectName,
         nickname = nickname,
         death = death,
-        record = stopwatchObject.elapsed
+        record = stopwatchObject.elapsed,
+        profile = profile
       };
 
       PlayerPrefs.SetString("save", JsonUtility.ToJson(data));
@@ -163,6 +164,8 @@ namespace Managers
       if (isMainMenu)
       {
         Manager.stopwatchObject.elapsed = data.record;
+        nickname = data.nickname;
+        profile = data.profile;
         death = data.death;
       }
     }

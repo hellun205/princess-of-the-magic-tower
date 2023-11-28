@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using Managers;
 using Ranking;
 using TMPro;
@@ -57,6 +58,8 @@ namespace SceneLoad
     public void RealStart() {
       transitionPanelAnimator.Play("Out");
       GameManager.nickname = nicknameInputField.text;
+      GameManager.record = 0f;
+      GameManager.death = 0;
       Utils.Wait(1, () => SceneManager.LoadScene("Scenes/Stage/test"));
       PlayerPrefs.DeleteKey("save");
     }
@@ -65,7 +68,14 @@ namespace SceneLoad
     {
       var data = GameManager.LoadData();
       GameManager.InitLoad(true);
-      SceneManager.LoadScene(data.stage);
+      try
+      {
+        SceneManager.LoadScene(data.stage);
+      }
+      catch (Exception e)
+      {
+        SceneManager.sceneLoaded -= GameManager.Loaded;
+      }
     }
 
     public void OnRankingButtonClick()

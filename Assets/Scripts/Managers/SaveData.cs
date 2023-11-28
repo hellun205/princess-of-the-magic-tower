@@ -1,4 +1,5 @@
 ﻿using System;
+using Ranking;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -22,5 +23,7 @@ namespace Managers
     public float record;
 
     public int death;
+
+    public ProfileImage profile;
   }
 }

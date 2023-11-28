@@ -5542,8 +5542,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0031499863, y: -0.40365, z: 0}
-    m_Extent: {x: 5.47335, y: 2.10175, z: 0}
+    m_Center: {x: -0.001349926, y: -0.41174996, z: 0}
+    m_Extent: {x: 5.48415, y: 2.10085, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -5666,7 +5666,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC1A1\uBA85\uACE4"
+  m_text: "\uC190\uC601\uACE4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6cb66bde2e4f00242888c392c800f516, type: 2}
   m_sharedMaterial: {fileID: -7504596522874618973, guid: 6cb66bde2e4f00242888c392c800f516, type: 2}

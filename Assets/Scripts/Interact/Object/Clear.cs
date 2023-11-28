@@ -8,7 +8,10 @@ namespace Interact.Object
   {
     protected override void OnInteract(GameObject caster)
     {
-      GameManager.Map.LoadStageFromSceneName("2", Transitions.FADEOUT, Transitions.FADEIN);
+      GameManager.Map.LoadStageFromSceneName("2", Transitions.FADEOUT, Transitions.FADEIN, () =>
+      {
+        GameManager.Player.light.SetDefault();
+      });
     }
   }
 }

@@ -32,8 +32,8 @@ namespace Map
         if (data.stage == SceneManager.GetActiveScene().name)
         {
           FindObjectsOfType<SavePoint>()
-           .SingleOrDefault(x => x.gameObject.name == data.objectName)
-           ?.anim.Play("ForceOpen");
+            .SingleOrDefault(x => x.gameObject.name == data.objectName)
+            ?.anim.Play("ForceOpen");
         }
       }
 
@@ -41,7 +41,7 @@ namespace Map
         MoveTo(controller.startRoom);
 
       moveOnStart = true;
-      
+
       GameManager.Manager.stopwatchObject.isRunning = true;
     }
 
@@ -107,15 +107,25 @@ namespace Map
     public void LoadStageFromSceneName(string sceneName)
       => LoadStageFromSceneName(sceneName, new(Transitions.FADEOUT, 2f), new(Transitions.FADEIN, 2f));
 
-    public void LoadStageFromSceneName(string sceneName, TransitionOption outT, TransitionOption inT)
+    public void LoadStageFromSceneName
+    (
+      string sceneName,
+      TransitionOption outT,
+      TransitionOption inT,
+      Action onEndOut = null
+    )
     {
       new SceneLoader(sceneName)
-       .Out(outT)
-       .In(inT)
-       .PauseOnTransitioning()
-       .OnEndOut(() => GameManager.Pool.ClearPools())
-       .OnStartIn(OnSceneChanged)
-       .Load();
+        .Out(outT)
+        .In(inT)
+        .PauseOnTransitioning()
+        .OnEndOut(() =>
+        {
+          GameManager.Pool.ClearPools();
+          onEndOut?.Invoke();
+        })
+        .OnStartIn(OnSceneChanged)
+        .Load();
     }
   }
 }
