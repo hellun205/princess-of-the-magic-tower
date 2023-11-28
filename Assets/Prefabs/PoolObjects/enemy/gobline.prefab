@@ -89,7 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <destroyLevel>k__BackingField: 3
   map: 
-  killToAdd: 6
+  killToAdd: 4
 --- !u!114 &7214792684281539140
 MonoBehaviour:
   m_ObjectHideFlags: 0
