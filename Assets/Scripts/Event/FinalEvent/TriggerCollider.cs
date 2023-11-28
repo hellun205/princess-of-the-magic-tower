@@ -19,6 +19,7 @@ public class TriggerCollider : MonoBehaviour
     if (other.transform.CompareTag("Player"))
     {
       GameManager.Player.light.SetLight("all");
+      GameManager.Player.move.canMove = false;
       lightEvent.StartEvent();
     }
   }

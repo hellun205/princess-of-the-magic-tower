@@ -30,9 +30,8 @@ namespace Player
     private Vector2 inputVec;
 
     public bool isDashing;
-
-    [SerializeField]
-    private bool canMove = true;
+    
+    public bool canMove = true;
 
     public GameObject dashDummy;
 

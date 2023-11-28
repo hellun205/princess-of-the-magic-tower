@@ -8,6 +8,8 @@ public class LightEvent : MonoBehaviour
 {
   public Animator animator;
 
+  public GameObject creditObj;
+  
   private void Awake()
   {
     animator = GetComponent<Animator>();
@@ -21,5 +23,10 @@ public class LightEvent : MonoBehaviour
   public void PlaySFX(string name)
   {
     GameManager.audioManager.PlaySfx(name);
+  }
+
+  public void CreditStart()
+  {
+    creditObj.SetActive(true);
   }
 }
