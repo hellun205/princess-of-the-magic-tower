@@ -864,8 +864,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 552.1357, y: -253.32}
-  m_SizeDelta: {x: 815.7284, y: 573.34}
+  m_AnchoredPosition: {x: 710.6094, y: -314.38}
+  m_SizeDelta: {x: 498.7808, y: 451.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5380529206872557057
 MonoBehaviour:
@@ -2711,8 +2711,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 95.5096}
+  m_AnchoredPosition: {x: 469.60596, y: 967.98}
+  m_SizeDelta: {x: -1195.0963, y: 95.5096}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &4606862656417792302
 CanvasRenderer:
@@ -2769,7 +2769,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 3
+  m_ChildAlignment: 5
   m_Spacing: -16
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
@@ -3732,11 +3732,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4678271768366859069, guid: c9b68274cedf7fa44b5a8f06670505a0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 801.9594
+      value: 528.6284
       objectReference: {fileID: 0}
     - target: {fileID: 4678271768366859069, guid: c9b68274cedf7fa44b5a8f06670505a0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 573.3488
+      value: 451.2222
       objectReference: {fileID: 0}
     - target: {fileID: 4678271768366859069, guid: c9b68274cedf7fa44b5a8f06670505a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3772,7 +3772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4678271768366859069, guid: c9b68274cedf7fa44b5a8f06670505a0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: 0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 4678271768366859069, guid: c9b68274cedf7fa44b5a8f06670505a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

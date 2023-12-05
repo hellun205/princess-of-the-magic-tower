@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
 using System.Linq;
 using Interact;
 using Managers;
 using Map;
 using Map.Door;
 using Scene;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -75,24 +77,30 @@ namespace Player
     public void Death()
     {
       if (testMode || isDeath) return;
-      isDeath = true;
-
-      GameManager.Map.currentRoom.OnExited();
-      if (GameManager.HasSave())
-      {
-        var data = GameManager.LoadData();
-
-        GameManager.InitLoad();
-        GameManager.Map.LoadStageFromSceneName(data.stage, Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
-      }
-      else
-        GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
-
-      light.SetDefault();
-      GameManager.death++;
-      GameManager.Manager.stopwatchObject.isRunning = false;
+      StartCoroutine(DeathCoroutine());
     }
 
+    IEnumerator DeathCoroutine()
+    {
+        yield return new WaitForSeconds(0.22f);
+        isDeath = true;
+
+        GameManager.Map.currentRoom.OnExited();
+        if (GameManager.HasSave())
+        {
+            var data = GameManager.LoadData();
+
+            GameManager.InitLoad();
+            GameManager.Map.LoadStageFromSceneName(data.stage, Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
+        }
+        else
+            GameManager.Map.LoadCurrentStage(Transitions.OUT, new(Transitions.FADEIN, delay: 1.5f));
+
+        light.SetDefault();
+        GameManager.death++;
+        GameManager.Manager.stopwatchObject.isRunning = false;
+    }
+    
     protected override void OnInteract(GameObject caster)
     {
       Death();
